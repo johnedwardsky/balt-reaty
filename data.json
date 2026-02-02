@@ -1,43 +1,331 @@
 [
     {
-        "detailsLink": {
-            "de": "object-4-de.html",
-            "en": "object-4-en.html",
-            "ru": "object-4.html",
-            "zh": "object-4-zh.html"
-        },
-        "fallbackImages": [
-            "https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=800&q=80"
-        ],
         "id": 4,
-        "images": [
-            "images/object-4/photo_1.jpg",
-            "images/object-4/photo_2.jpg",
-            "images/object-4/photo_3.jpg"
-        ],
-        "location": {
-            "de": "Malinovka Viertel",
-            "en": "Malinovka district",
-            "ru": "Район Малиновка",
-            "zh": "马林诺夫卡区"
+        "title": {
+            "ru": "Дом в Зеленоградске (Малиновка)",
+            "en": "House in Zelenogradsk (Malinovka)",
+            "de": "Haus in Zelenogradsk (Malinovka)",
+            "zh": "泽列诺格勒茨克的房子"
         },
         "price": {
-            "de": "€ 275.000*",
-            "en": "€ 275,000*",
             "ru": "27 500 000 ₽",
+            "en": "€ 275,000*",
+            "de": "€ 275.000*",
             "zh": "¥ 2,100,000*"
         },
-        "stats": {
-            "de": "300 m² | Garten 850m²",
-            "en": "300 m² | Plot 850m²",
-            "ru": "300 м² | Участок 8.5 сот.",
-            "zh": "300 平方米 | 占地 850平"
+        "location": {
+            "ru": "Зеленоградск, Район Малиновка",
+            "en": "Zelenogradsk, Malinovka",
+            "de": "Zelenogradsk, Malinovka",
+            "zh": "马林诺夫卡"
         },
+        "stats": {
+            "ru": "300 м² | Участок 8.5 сот.",
+            "en": "300 m² | Plot 8.5",
+            "de": "300 m² | 8.5 Ar",
+            "zh": "300平 | 8.5亩"
+        },
+        "images": [
+            "images/object-4/photo_1.jpg"
+        ],
+        "description": {
+            "ru": "Роскошный дом у моря в элитном районе Малиновка.",
+            "en": "Luxury house near the sea.",
+            "de": "Luxushaus am Meer.",
+            "zh": "靠近大海的豪华房子"
+        },
+        "features": [
+            "У моря",
+            "Газ",
+            "Автономное отопление"
+        ],
+        "detailsLink": {
+            "ru": "object-4.html",
+            "en": "object-4-en.html",
+            "de": "object-4-de.html",
+            "zh": "object-4-zh.html"
+        }
+    },
+    {
+        "id": 10,
         "title": {
-            "de": "Haus 300 m², Zelenogradsk",
-            "en": "House 300 m², Zelenogradsk",
-            "ru": "Дом 300 м², Зеленоградск",
-            "zh": "私人住宅 300 平米 - 泽列诺格勒茨克"
+            "ru": "2-к квартира, ул. Аксакова, 133",
+            "en": "2-room Apt, Aksakova str.",
+            "de": "2-Zi Wohnung, Aksakova str.",
+            "zh": "两室公寓，阿克萨科娃街"
+        },
+        "price": {
+            "ru": "8 650 000 ₽",
+            "en": "€ 86,500*",
+            "de": "€ 86.500*",
+            "zh": "¥ 665,000*"
+        },
+        "location": {
+            "ru": "Калининград, ул. Аксакова, 133",
+            "en": "Kaliningrad, Aksakova str.",
+            "de": "Kaliningrad, Aksakova str.",
+            "zh": "加里宁格勒"
+        },
+        "stats": {
+            "ru": "64 м² | 5/9 этаж",
+            "en": "64 m² | 5/9 floor",
+            "de": "64 m² | 5. Stock",
+            "zh": "64平 | 5/9层"
+        },
+        "images": [
+            "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
+        ],
+        "description": {
+            "ru": "Просторная двухкомнатная квартира в развитом районе.",
+            "en": "Spacious 2-room apartment.",
+            "de": "Geräumige 2-Zimmer-Wohnung.",
+            "zh": "宽敞的一室公寓"
+        },
+        "features": [
+            "Развитая инфраструктура",
+            "Лифт",
+            "Новый дом"
+        ],
+        "detailsLink": {
+            "ru": "object-10.html",
+            "en": "object-10-en.html",
+            "de": "object-10-de.html",
+            "zh": "object-10-zh.html"
+        }
+    },
+    {
+        "id": 11,
+        "title": {
+            "ru": "2-к квартира, ул. Гайдара, 114",
+            "en": "2-room Apt, Gaydara str.",
+            "de": "2-Zi Wohnung, Gaydara str.",
+            "zh": "两室公寓，盖达尔街"
+        },
+        "price": {
+            "ru": "6 200 000 ₽",
+            "en": "€ 62,000*",
+            "de": "€ 62.000*",
+            "zh": "¥ 476,000*"
+        },
+        "location": {
+            "ru": "Калининград, ул. Гайдара, 114",
+            "en": "Kaliningrad, Gaydara str.",
+            "de": "Kaliningrad, Gaydara str.",
+            "zh": "加里宁格勒"
+        },
+        "stats": {
+            "ru": "65 м² | 5/5 этаж",
+            "en": "65 m² | 5/5 floor",
+            "de": "65 m² | 5. Stock",
+            "zh": "65平 | 5/5层"
+        },
+        "images": [
+            "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80"
+        ],
+        "description": {
+            "ru": "Уютная квартира в зеленом районе города.",
+            "en": "Cozy apartment in a green area.",
+            "de": "Gemütliche Wohnung in grüner Lage.",
+            "zh": "绿色区域的温馨公寓"
+        },
+        "features": [
+            "Зеленый район",
+            "Рядом парк",
+            "Тихое место"
+        ],
+        "detailsLink": {
+            "ru": "object-11.html",
+            "en": "object-11-en.html",
+            "de": "object-11-de.html",
+            "zh": "object-11-zh.html"
+        }
+    },
+    {
+        "id": 12,
+        "title": {
+            "ru": "2-к квартира, ул. Гагарина, 2ак2",
+            "en": "2-room Apt, Gagarina str.",
+            "de": "2-Zi Wohnung, Gagarina str.",
+            "zh": "两室公寓，加加林街"
+        },
+        "price": {
+            "ru": "8 650 000 ₽",
+            "en": "€ 86,500*",
+            "de": "€ 86.500*",
+            "zh": "¥ 665,000*"
+        },
+        "location": {
+            "ru": "Калининград, ул. Гагарина, 2ак2",
+            "en": "Kaliningrad, Gagarina str.",
+            "de": "Kaliningrad, Gagarina str.",
+            "zh": "加里宁格勒"
+        },
+        "stats": {
+            "ru": "65 м² | 8/10 этаж",
+            "en": "65 m² | 8/10 floor",
+            "de": "65 m² | 8. Stock",
+            "zh": "65平 | 8/10层"
+        },
+        "images": [
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80"
+        ],
+        "description": {
+            "ru": "Современная квартира в новом жилом комплексе.",
+            "en": "Modern apartment in a new complex.",
+            "de": "Moderne Wohnung in neuer Anlage.",
+            "zh": "新建筑中的现代公寓"
+        },
+        "features": [
+            "Новостройка",
+            "Вид на город",
+            "Панорамные окна"
+        ],
+        "detailsLink": {
+            "ru": "object-12.html",
+            "en": "object-12-en.html",
+            "de": "object-12-de.html",
+            "zh": "object-12-zh.html"
+        }
+    },
+    {
+        "id": 13,
+        "title": {
+            "ru": "1-к квартира, ул. Молодежная (Светлогорск)",
+            "en": "1-room Apt, Molodezhnaya str.",
+            "de": "1-Zi Wohnung, Molodezhnaya str.",
+            "zh": "一室公寓，青年街"
+        },
+        "price": {
+            "ru": "8 650 000 ₽",
+            "en": "€ 86,500*",
+            "de": "€ 86.500*",
+            "zh": "¥ 665,000*"
+        },
+        "location": {
+            "ru": "Светлогорск, ул. Молодежная, 6к2",
+            "en": "Svetlogorsk, Molodezhnaya str.",
+            "de": "Svetlogorsk, Molodezhnaya str.",
+            "zh": "斯韦特洛戈尔斯克"
+        },
+        "stats": {
+            "ru": "48.7 м² | 6/6 этаж",
+            "en": "48.7 m² | 6/6 floor",
+            "de": "48.7 m² | 6. Stock",
+            "zh": "48.7平 | 6/6层"
+        },
+        "images": [
+            "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=800&q=80"
+        ],
+        "description": {
+            "ru": "Квартира в самом сердце курортного Светлогорска.",
+            "en": "Apartment in resort Svetlogorsk.",
+            "de": "Wohnung im Kurort Svetlogorsk.",
+            "zh": "疗养地的公寓"
+        },
+        "features": [
+            "Курортная зона",
+            "Рядом море",
+            "Тихий район"
+        ],
+        "detailsLink": {
+            "ru": "object-13.html",
+            "en": "object-13-en.html",
+            "de": "object-13-de.html",
+            "zh": "object-13-zh.html"
+        }
+    },
+    {
+        "id": 14,
+        "title": {
+            "ru": "1-к квартира, Майский проезд (Светлогорск)",
+            "en": "1-room Apt, Mayskiy ave.",
+            "de": "1-Zi Wohnung, Mayskiy ave.",
+            "zh": "一室公寓，五月街"
+        },
+        "price": {
+            "ru": "14 900 000 ₽",
+            "en": "€ 149,000*",
+            "de": "€ 149.000*",
+            "zh": "¥ 1,146,000*"
+        },
+        "location": {
+            "ru": "Светлогорск, ул. Майский проезд, 9",
+            "en": "Svetlogorsk, Mayskiy ave.",
+            "de": "Svetlogorsk, Mayskiy ave.",
+            "zh": "斯韦特洛戈尔斯克"
+        },
+        "stats": {
+            "ru": "35 м² | 3/7 этаж",
+            "en": "35 m² | 3/7 floor",
+            "de": "35 m² | 3. Stock",
+            "zh": "35平 | 3/7层"
+        },
+        "images": [
+            "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80"
+        ],
+        "description": {
+            "ru": "Элитная квартира в престижном районе у озера.",
+            "en": "Elite apartment near the lake.",
+            "de": "Elite-Wohnung am See.",
+            "zh": "湖边的豪华公寓"
+        },
+        "features": [
+            "Элитное жилье",
+            "Вид на озеро",
+            "Дизайнерский ремонт"
+        ],
+        "detailsLink": {
+            "ru": "object-14.html",
+            "en": "object-14-en.html",
+            "de": "object-14-de.html",
+            "zh": "object-14-zh.html"
+        }
+    },
+    {
+        "id": 15,
+        "title": {
+            "ru": "2-к квартира, Спортивный переулок",
+            "en": "2-room Apt, Sportivny lane",
+            "de": "2-Zi Wohnung, Sportivny lane.",
+            "zh": "两室公寓，体育巷"
+        },
+        "price": {
+            "ru": "11 900 000 ₽",
+            "en": "€ 119,000*",
+            "de": "€ 119.000*",
+            "zh": "¥ 915,000*"
+        },
+        "location": {
+            "ru": "Светлогорск, ул. Спортивный переулок, 3",
+            "en": "Svetlogorsk, Sportivny lane",
+            "de": "Svetlogorsk, Sportivny lane",
+            "zh": "斯韦特洛戈尔斯克"
+        },
+        "stats": {
+            "ru": "66 м² | 4/4 этаж",
+            "en": "66 m² | 4/4 floor",
+            "de": "66 m² | 4. Stock",
+            "zh": "66平 | 4/4层"
+        },
+        "images": [
+            "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80"
+        ],
+        "description": {
+            "ru": "Просторная мансардная квартира в тихом центре.",
+            "en": "Spacious attic apartment.",
+            "de": "Geräumige Dachgeschosswohnung.",
+            "zh": "宽敞的阁楼公寓"
+        },
+        "features": [
+            "Мансарда",
+            "Тихий центр",
+            "Кирпичный дом"
+        ],
+        "detailsLink": {
+            "ru": "object-15.html",
+            "en": "object-15-en.html",
+            "de": "object-15-de.html",
+            "zh": "object-15-zh.html"
         }
     }
 ]
