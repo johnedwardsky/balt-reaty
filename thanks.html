@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спасибо за заявку! | Balthomes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d2e61;
+            /* Глубокий синий */
+            --accent: #a8844a;
+            /* Золотой */
+            --text: #333;
+            --white: #ffffff;
+            --bg-gradient: linear-gradient(135deg, #fdfbf7 0%, #edf1f5 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-gradient);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text);
+            overflow: hidden;
+        }
+
+        .thanks-card {
+            background: var(--white);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(13, 46, 97, 0.1);
+            max-width: 550px;
+            width: 90%;
+            animation: fadeInScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 5px solid var(--accent);
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .icon-check {
+            font-size: 70px;
+            color: var(--accent);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 17px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .promo-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .btn-tg {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(168, 132, 74, 0.3);
+            font-size: 15px;
+        }
+
+        .btn-tg:hover {
+            background-color: #8f6f3a;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(168, 132, 74, 0.4);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #999;
+            font-size: 13px;
+            text-decoration: none;
+            transition: 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+            border-bottom: 1px solid var(--primary);
+        }
+
+        /* Декоративный логотип сверху */
+        .header-logo {
+            position: absolute;
+            top: 40px;
+            font-weight: 800;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+
+        .header-logo span {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header-logo">Balt<span>homes</span></div>
+
+    <div class="thanks-card">
+        <div class="icon-check">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Заявка принята!</h1>
+        <p>Светлана уже получила ваше сообщение.<br>Я свяжусь с вами в течение 15 минут в рабочее время.</p>
+
+        <span class="promo-text">Пока ждете, посмотрите новые обзоры районов в моем Telegram:</span>
+
+        <a href="https://t.me/ваш_канал" target="_blank" class="btn-tg">
+            <i class="fab fa-telegram-plane"></i> Перейти в канал
+        </a>
+
+        <br>
+        <a href="index.html" class="back-link">Вернуться на главную</a>
+    </div>
+
+</body>
+
+</html>

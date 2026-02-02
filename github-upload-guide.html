@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как добавить папку images/ на GitHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .method {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+        }
+
+        .method.recommended {
+            border-left-color: #28a745;
+            background: #f1f9f4;
+        }
+
+        .method h2 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #28a745;
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .step {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+
+        .step h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        .code-block .command {
+            color: #9cdcfe;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            margin: 10px 5px;
+        }
+
+        .button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .file-list {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            margin: 15px 0;
+        }
+
+        .emoji {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .screenshot {
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            margin: 15px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            text-align: center;
+            font-style: italic;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📤 Как добавить папку images/ на GitHub</h1>
+
+        <!-- СПОСОБ 1 -->
+        <div class="method recommended">
+            <h2>
+                <span class="emoji">🌐</span>
+                Способ 1: Через веб-интерфейс GitHub
+                <span class="badge">РЕКОМЕНДУЕТСЯ</span>
+            </h2>
+            <p><strong>Самый простой способ! Не требует терминала.</strong></p>
+
+            <div class="step">
+                <h3>Шаг 1: Откройте ваш репозиторий</h3>
+                <p>Зайдите на GitHub и откройте ваш репозиторий:</p>
+                <div class="code-block">https://github.com/<span class="command">ваш-username</span>/<span
+                        class="command">название-репозитория</span></div>
+            </div>
+
+            <div class="step">
+                <h3>Шаг 2: Создайте папку images/</h3>
+                <ol>
+                    <li>Нажмите кнопку <strong>"Add file"</strong> → <strong>"Create new file"</strong></li>
+                    <li>В поле "Name your file" напишите: <code>images/.gitkeep</code></li>
+                    <li>Нажмите <strong>"Commit changes"</strong></li>
+                </ol>
+                <div class="info">
+                    <strong>💡 Совет:</strong> <code>.gitkeep</code> - это пустой файл, который позволяет сохранить
+                    пустую папку в Git
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>Шаг 3: Загрузите изображения</h3>
+                <ol>
+                    <li>Откройте папку <code>images/</code> в вашем репозитории</li>
+                    <li>Нажмите <strong>"Add file"</strong> → <strong>"Upload files"</strong></li>
+                    <li>Перетащите ваши фотографии (или нажмите "choose your files")</li>
+                    <li>Напишите комментарий: "Добавлены изображения для сайта"</li>
+                    <li>Нажмите <strong>"Commit changes"</strong></li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>Шаг 4: Проверьте результат</h3>
+                <p>Откройте прямую ссылку на изображение:</p>
+                <div class="code-block">https://<span class="command">username</span>.github.io/<span
+                        class="command">repo-name</span>/images/<span class="command">название-файла.jpg</span></div>
+                <div class="success">
+                    ✅ Если изображение открывается - всё работает!
+                </div>
+            </div>
+        </div>
+
+        <!-- СПОСОБ 2 -->
+        <div class="method">
+            <h2>
+                <span class="emoji">💻</span>
+                Способ 2: Через терминал (автоматический скрипт)
+            </h2>
+            <p><strong>Для тех, кто хочет загрузить всё одной командой.</strong></p>
+
+            <div class="step">
+                <h3>Шаг 1: Откройте терминал</h3>
+                <p>Перейдите в папку проекта:</p>
+                <div class="code-block"><span class="comment"># Перейти в папку проекта</span>
+                    cd /Users/johnsky/.gemini/antigravity/scratch/kaliningrad-real-estate</div>
+            </div>
+
+            <div class="step">
+                <h3>Шаг 2: Запустите скрипт</h3>
+                <div class="code-block"><span class="comment"># Запустить автоматический скрипт загрузки</span>
+                    ./upload-images.sh</div>
+                <p>Скрипт спросит у вас:</p>
+                <ul>
+                    <li>URL вашего GitHub репозитория</li>
+                    <li>Комментарий для коммита</li>
+                    <li>Подтверждение загрузки</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>Шаг 3: Следуйте инструкциям</h3>
+                <p>Скрипт автоматически:</p>
+                <ul>
+                    <li>✅ Проверит наличие файлов в папке images/</li>
+                    <li>✅ Инициализирует Git (если нужно)</li>
+                    <li>✅ Добавит файлы в коммит</li>
+                    <li>✅ Загрузит на GitHub</li>
+                    <li>✅ Покажет ссылки для проверки</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- СПОСОБ 3 -->
+        <div class="method">
+            <h2>
+                <span class="emoji">⚙️</span>
+                Способ 3: Вручную через Git команды
+            </h2>
+            <p><strong>Для опытных пользователей.</strong></p>
+
+            <div class="step">
+                <h3>Вариант A: Если Git уже инициализирован</h3>
+                <div class="code-block"><span class="comment"># Добавить папку images/</span>
+                    git add images/
+
+                    <span class="comment"># Создать коммит</span>
+                    git commit -m "Добавлены изображения для сайта"
+
+                    <span class="comment"># Загрузить на GitHub</span>
+                    git push origin main
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>Вариант B: Если Git не инициализирован</h3>
+                <div class="code-block"><span class="comment"># Инициализировать Git</span>
+                    git init
+
+                    <span class="comment"># Подключить к GitHub репозиторию</span>
+                    git remote add origin https://github.com/<span class="command">username/repo</span>.git
+                    git branch -M main
+
+                    <span class="comment"># Добавить файлы</span>
+                    git add images/
+                    git commit -m "Добавлены изображения"
+
+                    <span class="comment"># Загрузить (может потребоваться merge)</span>
+                    git pull origin main --allow-unrelated-histories
+                    git push origin main
+                </div>
+            </div>
+        </div>
+
+        <!-- ЧТО У ВАС ЕСТЬ -->
+        <div class="method" style="background: #e7f3ff; border-left-color: #0066cc;">
+            <h2>
+                <span class="emoji">📦</span>
+                Что у вас уже готово
+            </h2>
+
+            <div class="success">
+                <strong>✅ Папка images/ создана локально</strong><br>
+                Путь: <code>/Users/johnsky/.gemini/antigravity/scratch/kaliningrad-real-estate/images/</code>
+            </div>
+
+            <div class="success">
+                <strong>✅ Есть тестовое изображение</strong><br>
+                Файл: <code>apartment-1.png</code> (680 KB)
+            </div>
+
+            <div class="success">
+                <strong>✅ Скрипт автозагрузки готов</strong><br>
+                Файл: <code>upload-images.sh</code>
+            </div>
+
+            <div class="file-list">
+                <strong>Структура проекта:</strong><br>
+                kaliningrad-real-estate/<br>
+                ├── images/<br>
+                │ └── apartment-1.png<br>
+                ├── index.html<br>
+                ├── upload-images.sh<br>
+                └── ИНСТРУКЦИЯ_GITHUB.md
+            </div>
+        </div>
+
+        <!-- ПОСЛЕ ЗАГРУЗКИ -->
+        <div class="method" style="background: #fff9e6; border-left-color: #ff9800;">
+            <h2>
+                <span class="emoji">🔄</span>
+                После загрузки на GitHub
+            </h2>
+
+            <div class="step">
+                <h3>Обновите пути к изображениям в index.html</h3>
+                <p>Замените внешние URL на локальные пути:</p>
+
+                <div class="warning">
+                    <strong>Было (строка 256):</strong>
+                </div>
+                <div class="code-block">&lt;img src="https://i.ibb.co/3sxhd6S/realtor.jpg" alt="Светлана риелтор"&gt;
+                </div>
+
+                <div class="success">
+                    <strong>Стало:</strong>
+                </div>
+                <div class="code-block">&lt;img src="images/svetlana.jpg" alt="Светлана риелтор"&gt;</div>
+            </div>
+
+            <div class="step">
+                <h3>Обновите js/properties.js</h3>
+                <div class="code-block">const properties = [
+                    {
+                    id: 1,
+                    title: "2-комнатная у моря",
+                    price: "7 500 000 ₽",
+                    <span class="command">image: "images/apartment-1.png"</span>, <span class="comment">// ← Локальный
+                        путь</span>
+                    rooms: 2,
+                    area: 65
+                    }
+                    ];
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>Загрузите изменения на GitHub</h3>
+                <div class="code-block">git add index.html js/properties.js
+                    git commit -m "Обновлены пути к изображениям"
+                    git push origin main</div>
+            </div>
+        </div>
+
+        <!-- ПРОВЕРКА -->
+        <div class="method" style="background: #f0f8f0; border-left-color: #28a745;">
+            <h2>
+                <span class="emoji">✅</span>
+                Проверка работы
+            </h2>
+
+            <div class="step">
+                <h3>1. Проверьте прямую ссылку на изображение</h3>
+                <div class="code-block">https://<span class="command">username</span>.github.io/<span
+                        class="command">repo-name</span>/images/apartment-1.png</div>
+                <p>Должно открыться изображение квартиры</p>
+            </div>
+
+            <div class="step">
+                <h3>2. Проверьте сайт</h3>
+                <div class="code-block">https://<span class="command">username</span>.github.io/<span
+                        class="command">repo-name</span>/</div>
+                <p>Изображения должны отображаться на сайте</p>
+            </div>
+
+            <div class="step">
+                <h3>3. Откройте консоль браузера (F12)</h3>
+                <p>Убедитесь, что нет ошибок 404 (файл не найден)</p>
+            </div>
+        </div>
+
+        <!-- КНОПКИ ДЕЙСТВИЙ -->
+        <div
+            style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px;">
+            <h2 style="color: white; margin-bottom: 20px;">🚀 Готовы начать?</h2>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px;">Выберите удобный способ:</p>
+            <a href="https://github.com" target="_blank" class="button" style="background: white; color: #667eea;">
+                Открыть GitHub
+            </a>
+            <a href="ИНСТРУКЦИЯ_GITHUB.md" class="button" style="background: rgba(255,255,255,0.2); color: white;">
+                Подробная инструкция
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Купить недвижимость в Калининграде и на побережье | Квартиры, Дома, Немецкий фонд</title>
+    <meta name="description"
+        content="Продажа недвижимости в Калининграде и области. Купить квартиру в новостройке, немецком доме или частный дом на побережье (Зеленоградск, Светлогорск, Янтарный). Полная база объектов, цены, ипотека.">
+    <meta name="keywords"
+        content="купить квартиру калининград, купить дом в калининграде, недвижимость светлогорск, купить квартиру зеленоградск, немецкий дом калининград, риэлтор калининград, купить недвижимость у моря">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Купить недвижимость в Калининграде | Каталог квартир и домов">
+    <meta property="og:description"
+        content="Большой выбор жилья: от немецких домов до новостроек у моря. Безопасная покупка со Светланой Лакшинской.">
+    <meta property="og:image" content="https://balthomes.ru/images/apartment-view.jpg">
+    <meta property="og:url" content="https://balthomes.ru/">
+    <meta property="og:type" content="website">
+
+    <link rel="canonical" href="https://balthomes.ru/">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
+
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary: #0d2e61;
+            --accent: #a8844a;
+            --etagi-red: #e31e24;
+            --text: #333333;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+            padding-top: 80px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px rgba(168, 132, 74, 0.3);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            background-color: #8f6f3a;
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-wrapper {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-right: -2px;
+            /* Убираем лишний отступ после последней буквы */
+            margin-bottom: 2px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .logo-subtitle {
+            font-size: 8px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            opacity: 0.8;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: -2px;
+            padding: 0 1px;
+            /* Тонкая настройка краев */
+        }
+
+        .nav-desk {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-desk a {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        .nav-desk a:hover {
+            color: var(--accent);
+        }
+
+        .header-contacts {
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        .phone {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 18px;
+            display: block;
+        }
+
+        .sub-phone {
+            font-size: 11px;
+            color: #777;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #fdfbf7 0%, #edf1f5 100%);
+            padding: 60px 0;
+            overflow: hidden;
+        }
+
+        .hero-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+            max-width: 550px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .badge {
+            background: rgba(13, 46, 97, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 4px;
+        }
+
+        .hero-img {
+            position: relative;
+            width: 45%;
+            height: 400px;
+            /* Fixed height for consistency */
+        }
+
+        .hero-slider-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--white);
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
+        }
+
+        .hero-slider-img.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .hero-img .float-badge {
+            z-index: 10;
+        }
+
+        .float-badge {
+            position: absolute;
+            bottom: 30px;
+            left: -20px;
+            background: var(--white);
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent);
+            animation: badgeFloat 3s ease-in-out infinite;
+            font-size: 12px;
+            font-weight: 600;
+            max-width: 240px;
+        }
+
+        @keyframes badgeFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* CATEGORIES */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .cat-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .cat-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .cat-icon {
+            font-size: 24px;
+            color: var(--accent);
+            margin-bottom: 10px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cat-icon img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .cat-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 15px;
+        }
+
+        /* CATALOG */
+        .catalog-preview {
+            background: var(--white);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            overflow: hidden;
+            height: 220px;
+            background: #ddd;
+            position: relative;
+        }
+
+
+        .img-slider-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slider-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .slider-img.active {
+            opacity: 1;
+        }
+
+        .hover-zones {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            z-index: 2;
+        }
+
+        .hover-zone {
+            flex: 1;
+            height: 100%;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: #fff;
+            width: 12px;
+            border-radius: 10px;
+        }
+
+        .card-price {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: var(--primary);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 15px;
+            color: #777;
+            font-size: 13px;
+            margin: 10px 0;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+            color: var(--primary);
+        }
+
+        /* QUIZ */
+        .quiz-section {
+            background-image: linear-gradient(rgba(13, 46, 97, 0.85), rgba(13, 46, 97, 0.9)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .quiz-section h2 {
+            color: var(--white);
+        }
+
+        .quiz-section p {
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        .quiz-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 220px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .btn-quiz {
+            width: 100%;
+            font-size: 18px;
+        }
+
+        /* TRUST BLOCK */
+        .trust-block {
+            background: var(--white);
+            padding: 50px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .trust-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .trust-icon {
+            font-size: 32px;
+            color: var(--accent);
+            min-width: 40px;
+        }
+
+        .trust-content h4 {
+            margin-bottom: 5px;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .trust-content p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* ABOUT / SERVICES */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .service-card {
+            background: #fdfbf7;
+            padding: 25px;
+            border-radius: 15px;
+            display: flex;
+            gap: 20px;
+            transition: 0.4s;
+            border: 1px solid rgba(168, 132, 74, 0.1);
+        }
+
+        .service-card:hover {
+            background: var(--white);
+            box-shadow: 0 15px 40px rgba(13, 46, 97, 0.08);
+            transform: translateX(10px);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 24px;
+            color: var(--accent);
+            background: var(--white);
+            min-width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+        }
+
+        .service-content h4 {
+            margin-bottom: 8px;
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .service-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* ИЗМЕНЕННЫЙ СТИЛЬ ДЛЯ ФОТО РИЭЛТОРА */
+        .about-img-wrapper {
+            position: relative;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .about-img-wrapper img {
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            border: 8px solid var(--white);
+        }
+
+        .img-label {
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(13, 46, 97, 0.3);
+        }
+
+        /* REVIEWS */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: #ddd;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* SEO Text Block */
+        .seo-text {
+            background: #fafafa;
+            padding: 40px 0;
+            font-size: 13px;
+            color: #777;
+            border-top: 1px solid #eee;
+        }
+
+        .seo-text h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .seo-text p {
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: #bbb;
+            padding: 60px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .socials a {
+            color: #fff;
+            margin-right: 15px;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .socials a:hover {
+            color: var(--accent);
+        }
+
+        .legal-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        /* MOBILE ADAPTATION */
+        @media (max-width: 768px) {
+            .nav-desk {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-desk.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .header-contacts {
+                display: none;
+            }
+
+            .hero-wrapper {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-badges {
+                justify-content: center;
+            }
+
+            .hero-img {
+                width: 100%;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img-wrapper {
+                order: -1;
+            }
+
+            /* Trust block mobile */
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .trust-item {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .trust-icon {
+                margin-bottom: 15px;
+                font-size: 40px;
+            }
+
+            /* Hide desktop lang switcher on mobile */
+            .header-inner .lang-switcher {
+                display: none;
+            }
+
+            /* Show mobile lang switcher inside menu */
+            .nav-desk .mobile-lang-switcher {
+                display: flex;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        /* LANG SWITCHER */
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+
+        .mobile-lang-switcher {
+            display: none;
+            /* Hidden by default, shown in mobile media query */
+        }
+
+        .lang-switcher a {
+            color: var(--primary);
+            opacity: 0.5;
+            transition: 0.3s;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .lang-switcher a.active {
+            opacity: 1;
+            background: rgba(13, 46, 97, 0.1);
+        }
+
+        .lang-switcher a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. ШАПКА -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo-wrapper">
+                <div class="logo">Balt<span>homes</span></div>
+                <div class="logo-subtitle">
+                    <span>Б</span><span>а</span><span>л</span><span>т</span><span>и</span><span>й</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>д</span><span>о</span><span>м</span><span>а</span>
+                </div>
+            </a>
+
+            <nav class="nav-desk" id="navMenu">
+                <a href="#catalog">Каталог</a>
+                <a href="#categories">Побережье</a>
+                <a href="#quiz">Подбор</a>
+                <a href="#services">Услуги</a>
+                <a href="#reviews">Отзывы</a>
+                <!-- Mobile Language Switcher (visible only inside burger menu) -->
+                <div class="lang-switcher mobile-lang-switcher">
+                    <a href="index.html" class="active">RU</a>
+                    <a href="en.html">EN</a>
+                    <a href="de.html">DE</a>
+                    <a href="zh.html">ZH</a>
+                </div>
+            </nav>
+
+            <div style="display: flex; align-items: center;">
+                <div class="lang-switcher">
+                    <a href="index.html" class="active">RU</a>
+                    <a href="en.html">EN</a>
+                    <a href="de.html">DE</a>
+                    <a href="zh.html">ZH</a>
+                </div>
+
+                <div class="header-contacts">
+                    <a href="tel:+79052491755" class="phone">+7 905-249-17-55</a>
+                    <span class="sub-phone">Калининград и область</span>
+                </div>
+            </div>
+
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO -->
+    <section class="hero">
+        <div class="hero-watermark"
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; width: 85%; pointer-events: none; z-index: 0;">
+            <img src="images/logo.png" alt="" style="width: 100%; height: auto;">
+        </div>
+
+        <div class="container hero-wrapper" style="position: relative; z-index: 1;">
+            <div class="hero-text">
+                <div class="hero-badges">
+                    <span class="badge"><i class="fas fa-home"></i> База 5000+ объектов</span>
+                    <span class="badge" style="background: rgba(227,30,36,0.1); color: var(--etagi-red);"><i
+                            class="fas fa-shield-alt"></i> Гарантия чистоты</span>
+                </div>
+                <h1>Купить недвижимость<br>в Калининграде и у моря</h1>
+                <p>Квартиры в новостройках и вторичка, немецкие дома, коттеджи на побережье. Подбор вариантов под ваш
+                    бюджет в Калининградской области.</p>
+
+                <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; ">
+                    <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">Смотреть
+                        каталог</a>
+                    <a href="#quiz" class="btn btn-outline">Помочь с подборкой</a>
+                </div>
+            </div>
+
+            <div class="hero-img">
+                <img src="images/apartment-1.png" class="hero-slider-img active" alt="Купить квартиру у моря">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1000&q=80"
+                    class="hero-slider-img" alt="Недвижимость в Калининграде">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80"
+                    class="hero-slider-img" alt="Дома на побережье">
+
+                <div class="float-badge">
+                    <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 5px;"></i>
+                    Новые объекты побережья Балтики уже в базе
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. БЫСТРЫЕ КАТЕГОРИИ -->
+    <section id="categories" style="padding-bottom: 40px; background: var(--white);">
+        <div class="container">
+            <h2 style="font-size: 28px; margin-bottom: 30px;">Что вы ищете?</h2>
+            <div class="categories-grid">
+                <a href="javascript:void(0)" onclick="setFormValues('Апартаменты у моря', 'Зеленоградск / Светлогорск')"
+                    class="cat-item">
+                    <div class="cat-icon"><i class="fas fa-water"></i></div>
+                    <div class="cat-title">Квартиры в Зеленоградске</div>
+                </a>
+                <a href="javascript:void(0)"
+                    onclick="setFormValues('Частный дом / Коттедж', 'Зеленоградск / Светлогорск')" class="cat-item">
+                    <div class="cat-icon"><i class="fas fa-tree"></i></div>
+                    <div class="cat-title">Дома в Светлогорске</div>
+                </a>
+                <a href="javascript:void(0)" onclick="setFormValues('Дом в немецком стиле', 'Калининград (Город)')"
+                    class="cat-item">
+                    <div class="cat-icon"><i class="fas fa-house-chimney-window"></i></div>
+                    <div class="cat-title">Немецкие дома</div>
+                </a>
+                <a href="javascript:void(0)"
+                    onclick="setFormValues('Квартира (Вторичка/Новостройка)', 'Калининград (Город)')" class="cat-item">
+                    <div class="cat-icon"><i class="fas fa-building"></i></div>
+                    <div class="cat-title">Новостройки</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ПРЕВЬЮ КАТАЛОГА -->
+    <section id="catalog" class="catalog-preview" style="background: var(--bg-light); padding-top: 60px;">
+        <div class="container">
+            <h2>Свежие предложения на продажу</h2>
+
+            <div id="catalog-grid" class="catalog-grid" style="margin-bottom: 40px;">
+                <!-- Динамический контент из js/properties.js -->
+            </div>
+
+            <div style="text-align: center;">
+                <p style="margin-bottom: 15px; color: #666; font-size: 14px;">Более 300 вариантов квартир и домов в базе
+                </p>
+                <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">Перейти в полный
+                    каталог</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. КВИЗ -->
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <h2>Сложно выбрать из сотен объявлений?</h2>
+            <p style="margin-bottom: 30px;">Заполните форму, и я пришлю подборку ликвидных объектов (дом или квартира),
+                которых нет в открытой рекламе, прямо в мессенджер.</p>
+
+            <div class="quiz-box">
+                <form action="thanks.html" method="GET">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ваше имя:</label>
+                            <input type="text" name="name" placeholder="Как к вам обращаться?" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Что планируете купить?</label>
+                            <select name="type">
+                                <option>Квартира (Вторичка/Новостройка)</option>
+                                <option>Частный дом / Коттедж</option>
+                                <option>Апартаменты у моря</option>
+                                <option>Дом в немецком стиле</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Где рассматриваете?</label>
+                            <select name="location">
+                                <option>Калининград (Город)</option>
+                                <option>Зеленоградск / Светлогорск</option>
+                                <option>Побережье (Пионерский, Балтийск, Янтарный)</option>
+                                <option>Область (Гурьевск и др.)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Бюджет покупки?</label>
+                            <select name="budget">
+                                <option>до 5 млн ₽</option>
+                                <option>5 - 9 млн ₽</option>
+                                <option>от 9 млн ₽</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Ваш номер (Телеграм):</label>
+                            <input type="tel" name="phone" placeholder="+7 (999) 000-00-00" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-quiz">Получить цены и фото</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ПРЕИМУЩЕСТВА (TRUST BLOCK) -->
+    <div class="trust-block">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="trust-content">
+                        <h4>Забота о вас</h4>
+                        <p>Я не «колл-центр». Я лично веду вас от звонка до вручения ключей, встречаю в аэропорту и
+                            помогаю адаптироваться.</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-file-contract"></i></div>
+                    <div class="trust-content">
+                        <h4>Безопасность сделки</h4>
+                        <p>Юридическая проверка и проведение сделки проходит строго через отделы компании «Этажи».</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-percent"></i></div>
+                    <div class="trust-content">
+                        <h4>Ипотека “бесплатно”</h4>
+                        <p>Как партнер крупной сети, я могу одобрить ипотеку для вас без дополнительных сборов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. УСЛУГИ / КАК Я РАБОТАЮ -->
+    <section id="services">
+        <div class="container about-section">
+            <div class="about-content">
+                <h2>Как я работаю</h2>
+                <p>Моя задача — сделать ваш переезд или инвестицию комфортной. Вы не платите мне лишних комиссий, мои
+                    услуги включены в стандарты работы компании.</p>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-video"></i></div>
+                        <div class="service-content">
+                            <h4>Дистанционная покупка</h4>
+                            <p>Проведу видео-экскурсию в реальном времени, проверю документы и организую электронную
+                                подпись сделки.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-car-side"></i></div>
+                        <div class="service-content">
+                            <h4>Встреча и трансфер</h4>
+                            <p>Встречу в аэропорту Храброво на личном авто, помогу с комфортным заселением и познакомлю
+                                с городом.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="service-content">
+                            <h4>Аналитика рынка</h4>
+                            <p>Честный подбор: подсвечу риски долгостроев и укажу на действительно ликвидные локации для
+                                роста цены.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-img-wrapper">
+                <img src="images/realtor.jpg" alt="Светлана Лакшинская — эксперт по недвижимости в Калининграде">
+                <div class="img-label">С любовью к Балтике 🌊</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. ОТЗЫВЫ -->
+    <section id="reviews" style="background: var(--bg-light);">
+        <div class="container">
+            <h2>Отзывы клиентов</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p class="review-text">"Искали дом в Калининградской области, переезжали с севера. Светлана показала
+                        отличные варианты в Гурьевске, сделка прошла быстро."</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/men/44.jpg" class="author-avatar" alt="Клиент">
+                        <div class="author-info"><strong>Дмитрий К.</strong><span>Купил дом</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Мечтали купить квартиру в Зеленоградске с видом на море. Светлана нашла
+                        вариант в строящемся доме по хорошей цене."</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="author-avatar" alt="Клиент">
+                        <div class="author-info"><strong>Анна В.</strong><span>Купила квартиру</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Нужна была двушка на Сельме. Риэлтор помог с одобрением ипотеки и проверкой
+                        документов продавца."</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="author-avatar" alt="Клиент">
+                        <div class="author-info"><strong>Марина П.</strong><span>Вторичное жилье</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO TEXT BLOCK -->
+    <div class="seo-text">
+        <div class="container">
+            <h3>Покупка недвижимости в Калининграде и области</h3>
+            <p>Если вы планируете <strong>купить квартиру в Калининграде</strong> или приобрести <strong>частный дом на
+                    побережье</strong> (Зеленоградск, Светлогорск, Балтийск, Янтарный), важно выбрать надежного
+                партнера. Рынок недвижимости региона предлагает как квартиры в <strong>немецких домах</strong> с
+                историей, так и современные <strong>новостройки</strong>.</p>
+            <p>Цены на недвижимость зависят от района. Популярностью пользуются квартиры на Сельме, в Центральном районе
+                и у Верхнего озера. Для желающих жить у моря мы предлагаем подборку: <strong>купить дом в
+                    Светлогорске</strong> или апартаменты в Зеленоградске.</p>
+            <p>Мы работаем с объектами, которых нет на популярных досках объявлений, проверяем юридическую чистоту и
+                помогаем оформить сделку безопасно. В базе представлены: вторичка, строящиеся дома, земельные участки и
+                коммерческая недвижимость.</p>
+        </div>
+    </div>
+
+    <!-- 9. FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: #fff; margin-bottom: 15px;">Balt<span>homes</span></div>
+                    <p>Помогаем обрести дом у Балтийского моря.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p>📞 +7 905-249-17-55</p>
+                    <p>📍 г. Калининград</p>
+                    <p>✉️ svetlana@balthomes.ru</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Соцсети</h4>
+                    <div class="socials">
+                        <a href="https://t.me/laki_svetlana" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/79052491755" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legal-text">
+                <p>Сайт balthomes.ru носит информационный характер. <br>
+                    Светлана Лакшинская — независимый эксперт по недвижимости, действующий партнер федеральной сети
+                    «Этажи». <br>
+                    Юридическое сопровождение сделок осуществляется ООО "Этажи-Калининград".</p>
+                <p style="margin-top: 10px;">© 2026 Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+    </script>
+    <script src="js/telegram-sender.js?v=4"></script>
+    <script src="js/properties.js?v=4"></script>
+    <script src="js/hero-slider.js?v=4"></script>
+</body>
+
+</html>

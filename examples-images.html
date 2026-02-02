@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Примеры добавления изображений</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #0d2e61;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #a8844a;
+        }
+
+        h2 {
+            color: #0d2e61;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .example {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .example h3 {
+            color: #a8844a;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .preview {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .preview img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #0d2e61;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .badge.recommended {
+            background: #28a745;
+        }
+
+        .badge.external {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .note strong {
+            color: #856404;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📸 Примеры добавления изображений на сайт</h1>
+
+        <!-- СПОСОБ 1: Локальные изображения -->
+        <div class="section">
+            <span class="badge recommended">✅ РЕКОМЕНДУЕТСЯ</span>
+            <h2>1. Локальные изображения (из папки images/)</h2>
+
+            <div class="example">
+                <h3>Пример 1: Простое изображение</h3>
+                <div class="code">&lt;img src="images/apartment-1.png" alt="Квартира с видом на море"&gt;</div>
+                <div class="preview">
+                    <img src="images/apartment-1.png" alt="Квартира с видом на море" style="max-width: 600px;">
+                </div>
+                <div class="note">
+                    <strong>Примечание:</strong> Файл должен находиться в папке <code>images/apartment-1.png</code>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Пример 2: Изображение в карточке недвижимости</h3>
+                <div class="code">&lt;div class="card"&gt;
+                    &lt;div class="card-img"&gt;
+                    &lt;img src="images/apartment-1.png" alt="Квартира"&gt;
+                    &lt;div class="card-price"&gt;7 500 000 ₽&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card-body"&gt;
+                    &lt;h3&gt;2-комнатная у моря&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;</div>
+            </div>
+
+            <div class="example">
+                <h3>Пример 3: Фоновое изображение через CSS</h3>
+                <div class="code">.hero {
+                    background-image: url('images/kaliningrad-bg.jpg');
+                    background-size: cover;
+                    background-position: center;
+                    }</div>
+            </div>
+        </div>
+
+        <!-- СПОСОБ 2: Внешние URL -->
+        <div class="section">
+            <span class="badge external">⚠️ ВНЕШНИЙ ИСТОЧНИК</span>
+            <h2>2. Внешние URL (Unsplash, ImgBB и др.)</h2>
+
+            <div class="example">
+                <h3>Пример 1: Unsplash (бесплатные фото)</h3>
+                <div class="code">&lt;img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800"
+                    alt="Калининград"&gt;</div>
+                <div class="preview">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800" alt="Калининград"
+                        style="max-width: 600px;">
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Пример 2: ImgBB (загрузка своих фото)</h3>
+                <div class="code">&lt;img src="https://i.ibb.co/3sxhd6S/realtor.jpg" alt="Фото риелтора"&gt;</div>
+                <div class="preview">
+                    <img src="https://i.ibb.co/3sxhd6S/realtor.jpg" alt="Фото риелтора" style="max-width: 400px;">
+                </div>
+                <div class="note">
+                    <strong>Как загрузить на ImgBB:</strong><br>
+                    1. Зайдите на <a href="https://imgbb.com/" target="_blank">imgbb.com</a><br>
+                    2. Нажмите "Start uploading"<br>
+                    3. Выберите файл<br>
+                    4. Скопируйте "Direct link"
+                </div>
+            </div>
+        </div>
+
+        <!-- СПОСОБ 3: Динамическая загрузка через JavaScript -->
+        <div class="section">
+            <span class="badge">🔧 ДИНАМИЧЕСКИЙ</span>
+            <h2>3. Динамическая загрузка через JavaScript</h2>
+
+            <div class="example">
+                <h3>Пример: Массив объектов недвижимости</h3>
+                <div class="code">// В файле js/properties.js
+                    const properties = [
+                    {
+                    id: 1,
+                    title: "2-комнатная у моря",
+                    price: "7 500 000 ₽",
+                    image: "images/apartment-1.png", // Локальное фото
+                    rooms: 2,
+                    area: 65,
+                    floor: 5
+                    },
+                    {
+                    id: 2,
+                    title: "3-комнатная в центре",
+                    price: "9 200 000 ₽",
+                    image: "https://images.unsplash.com/photo-...", // Внешний URL
+                    rooms: 3,
+                    area: 85,
+                    floor: 7
+                    }
+                    ];
+
+                    // Создание карточек
+                    properties.forEach(prop => {
+                    const card = `
+                    &lt;div class="card"&gt;
+                    &lt;div class="card-img"&gt;
+                    &lt;img src="${prop.image}" alt="${prop.title}"&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    `;
+                    document.getElementById('container').innerHTML += card;
+                    });</div>
+            </div>
+        </div>
+
+        <!-- СПОСОБ 4: Адаптивные изображения -->
+        <div class="section">
+            <span class="badge">📱 АДАПТИВНЫЙ</span>
+            <h2>4. Адаптивные изображения (для разных экранов)</h2>
+
+            <div class="example">
+                <h3>Пример 1: srcset (разные размеры)</h3>
+                <div class="code">&lt;img
+                    src="images/apartment-small.jpg"
+                    srcset="images/apartment-small.jpg 400w,
+                    images/apartment-medium.jpg 800w,
+                    images/apartment-large.jpg 1200w"
+                    sizes="(max-width: 600px) 400px,
+                    (max-width: 1000px) 800px,
+                    1200px"
+                    alt="Квартира"&gt;</div>
+            </div>
+
+            <div class="example">
+                <h3>Пример 2: picture (разные форматы)</h3>
+                <div class="code">&lt;picture&gt;
+                    &lt;source srcset="images/apartment.webp" type="image/webp"&gt;
+                    &lt;source srcset="images/apartment.jpg" type="image/jpeg"&gt;
+                    &lt;img src="images/apartment.jpg" alt="Квартира"&gt;
+                    &lt;/picture&gt;</div>
+            </div>
+        </div>
+
+        <!-- СПОСОБ 5: Ленивая загрузка -->
+        <div class="section">
+            <span class="badge">⚡ ОПТИМИЗАЦИЯ</span>
+            <h2>5. Ленивая загрузка (lazy loading)</h2>
+
+            <div class="example">
+                <h3>Пример: Загрузка при прокрутке</h3>
+                <div class="code">&lt;img
+                    src="images/apartment-1.png"
+                    alt="Квартира"
+                    loading="lazy"&gt;</div>
+                <div class="note">
+                    <strong>Преимущество:</strong> Изображения загружаются только когда пользователь прокручивает до
+                    них. Ускоряет загрузку страницы!
+                </div>
+            </div>
+        </div>
+
+        <!-- ПОЛЕЗНЫЕ СОВЕТЫ -->
+        <div class="section">
+            <h2>💡 Полезные советы</h2>
+
+            <div class="example">
+                <h3>1. Всегда указывайте alt</h3>
+                <div class="code">✅ Правильно:
+                    &lt;img src="images/apartment.jpg" alt="2-комнатная квартира с видом на море"&gt;
+
+                    ❌ Неправильно:
+                    &lt;img src="images/apartment.jpg"&gt;</div>
+            </div>
+
+            <div class="example">
+                <h3>2. Оптимизируйте размер</h3>
+                <div class="note">
+                    <strong>Рекомендуемые размеры:</strong><br>
+                    • Карточка недвижимости: 600x400px, до 100KB<br>
+                    • Фото риелтора: 400x500px, до 80KB<br>
+                    • Фон секции: 1920x1080px, до 200KB<br>
+                    <br>
+                    <strong>Сервисы для сжатия:</strong><br>
+                    • <a href="https://tinypng.com/" target="_blank">TinyPNG</a><br>
+                    • <a href="https://squoosh.app/" target="_blank">Squoosh</a>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>3. Используйте правильные форматы</h3>
+                <div class="code">• JPG - для фотографий (квартиры, люди, пейзажи)
+                    • PNG - для графики с прозрачностью (логотипы, иконки)
+                    • WebP - современный формат (меньше размер, лучше качество)
+                    • SVG - для векторной графики (иконки, логотипы)</div>
+            </div>
+        </div>
+
+        <!-- БЫСТРЫЙ СТАРТ -->
+        <div class="section"
+            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+            <h2 style="color: white;">🚀 Быстрый старт для вашего сайта</h2>
+
+            <div class="example" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                <h3 style="color: white;">Шаг 1: Подготовьте изображения</h3>
+                <div style="color: rgba(255,255,255,0.9); padding: 10px;">
+                    1. Скачайте бесплатные фото с Unsplash<br>
+                    2. Сожмите их на TinyPNG<br>
+                    3. Переименуйте в понятные названия (apartment-1.jpg, realtor.jpg)
+                </div>
+            </div>
+
+            <div class="example" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                <h3 style="color: white;">Шаг 2: Поместите в папку images/</h3>
+                <div style="color: rgba(255,255,255,0.9); padding: 10px;">
+                    kaliningrad-real-estate/<br>
+                    └── images/<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;├── realtor.jpg<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;├── apartment-1.jpg<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;└── apartment-2.jpg
+                </div>
+            </div>
+
+            <div class="example" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                <h3 style="color: white;">Шаг 3: Обновите HTML</h3>
+                <div class="code">&lt;!-- Замените в index.html (строка 256) --&gt;
+                    &lt;img src="images/realtor.jpg" alt="Светлана риелтор"&gt;</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

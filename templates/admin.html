@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaltHomes Admin</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <style>
+        :root {
+            --primary: #0d2e61;
+            --accent: #a8844a;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-green {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* PROPERTY LIST */
+        .property-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .property-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .drag-handle {
+            color: #ccc;
+            cursor: grab;
+            padding: 0.5rem;
+        }
+
+        .card-img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            background: #eee;
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-price {
+            color: var(--accent);
+            font-size: 0.875rem;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        /* FORM TABS */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            gap: 2rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.75rem 0;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.625rem;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            font-family: inherit;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* PHOTOS SORTING */
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .photo-card {
+            position: relative;
+            background: #eee;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: grab;
+            border: 2px solid transparent;
+        }
+
+        .photo-card.selected {
+            border-color: var(--primary);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-delete {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .upload-area {
+            border: 2px dashed #cbd5e1;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            transition: 0.2s;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+            background: #f8fafc;
+        }
+
+        .feature-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        .ghost {
+            opacity: 0.4;
+            background: #c8ebfb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo">Admin Panel</div>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn btn-primary" onclick="publishPages()" id="pubBtn">
+                <i class="fas fa-file-code"></i> Создать страницы
+            </button>
+            <button class="btn" style="background: #24292e; color: white;" onclick="deployToGithub()" id="deployBtn">
+                <i class="fab fa-github"></i> Отправить на сайт
+            </button>
+            <button class="btn btn-green" onclick="saveOrder()" id="saveBtn">
+                <i class="fas fa-save"></i> Сохранить порядок
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 style="margin-bottom: 1.5rem;">Объекты недвижимости</h2>
+
+        <div id="property-list" class="property-list">
+            <!-- Items injected by JS -->
+        </div>
+    </div>
+
+    <!-- EDIT MODAL -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 id="modalTitle">Редактировать объект</h2>
+                <button class="btn btn-primary" onclick="saveCurrentObject()">Сохранить изменения</button>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('basic')">Основное</button>
+                <button class="tab-btn" onclick="switchTab('details')">Детали и Описание</button>
+                <button class="tab-btn" onclick="switchTab('photos')">Фотографии</button>
+                <button class="tab-btn" onclick="switchTab('map')">Карта</button>
+            </div>
+
+            <!-- TAB: BASIC -->
+            <div id="tab-basic" class="tab-content active">
+                <div class="form-group">
+                    <label class="form-label">Название (RU)</label>
+                    <input type="text" id="inpTitle" class="form-input">
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Цена (RU)</label>
+                        <input type="text" id="inpPrice" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Локация (RU)</label>
+                        <input type="text" id="inpLocation" class="form-input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">ID Объекта (не меняется)</label>
+                    <input type="text" id="inpId" class="form-input" disabled style="background: #eee;">
+                </div>
+            </div>
+
+            <!-- TAB: DETAILS -->
+            <div id="tab-details" class="tab-content">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Площадь (м²)</label>
+                        <input type="text" id="specArea" class="form-input" placeholder="300 м²">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Участок (сот.)</label>
+                        <input type="text" id="specPlot" class="form-input" placeholder="8.5 сот.">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Этажей</label>
+                        <input type="text" id="specFloors" class="form-input" placeholder="2">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Комнат</label>
+                        <input type="text" id="specRooms" class="form-input" placeholder="5+">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Описание (HTML поддерживается)</label>
+                    <textarea id="inpDesc" class="form-textarea" placeholder="Подробное описание объекта..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Преимущества (через запятую)</label>
+                    <textarea id="inpFeatures" class="form-textarea" placeholder="10 мин до моря, Газ, ..."></textarea>
+                    <div id="featuresPreview" style="margin-top: 10px;"></div>
+                </div>
+            </div>
+
+            <!-- TAB: PHOTOS -->
+            <div id="tab-photos" class="tab-content">
+                <div class="upload-area" onclick="document.getElementById('fileUpload').click()">
+                    <i class="fas fa-cloud-upload-alt"
+                        style="font-size: 24px; color: var(--primary); margin-bottom: 10px;"></i>
+                    <div>Перетащите фото сюда или нажмите для загрузки</div>
+                    <input type="file" id="fileUpload" multiple accept="image/*" style="display: none"
+                        onchange="handleUpload(this)">
+                </div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 10px;">Перетаскивайте фото чтобы менять порядок
+                </div>
+                <div id="photosGrid" class="photos-grid">
+                    <!-- Photos injected here -->
+                </div>
+            </div>
+
+            <!-- TAB: MAP -->
+            <div id="tab-map" class="tab-content">
+                <div class="form-group">
+                    <label class="form-label">Ссылка на карту (embed src) или полный код iframe</label>
+                    <textarea id="inpMap" class="form-textarea" placeholder='<iframe src="..."></iframe'></textarea>
+                </div>
+                <div style="background: #eee; height: 300px; border-radius: 8px; overflow: hidden;" id="mapPreview">
+                    <div style="display:flex; justify-content:center; align-items:center; height:100%; color: #999;">
+                        Превью карты</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let properties = [];
+        let currentObjId = null;
+        let pListSortable = null;
+        let photosSortable = null;
+
+        // --- INIT ---
+        async function loadData() {
+            const res = await fetch('/api/properties');
+            properties = await res.json();
+            renderList();
+        }
+
+        // --- RENDER LIST ---
+        function renderList() {
+            const list = document.getElementById('property-list');
+            list.innerHTML = '';
+
+            properties.forEach(p => {
+                const img = (p.images && p.images.length > 0) ? p.images[0] : 'images/placeholder.jpg';
+                const div = document.createElement('div');
+                div.className = 'property-card';
+                div.dataset.id = p.id;
+                div.innerHTML = `
+                    <div class="drag-handle"><i class="fas fa-grip-vertical"></i></div>
+                    <img src="${img}" class="card-img">
+                    <div class="card-info">
+                        <div class="card-title">${p.title?.ru || 'Без названия'}</div>
+                        <div class="card-price">${p.price?.ru || ''}</div>
+                    </div>
+                    <div style="display: flex; gap: 5px;">
+                        <button class="btn" style="border: 1px solid #ddd;" onclick="openEdit(${p.id})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn" style="border: 1px solid #fee2e2; color: #ef4444; background: #fef2f2;" onclick="deleteObject(${p.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                list.appendChild(div);
+            });
+
+            // Init sortable for list
+            if (pListSortable) pListSortable.destroy();
+            pListSortable = new Sortable(list, {
+                handle: '.drag-handle',
+                animation: 150,
+                ghostClass: 'ghost',
+                onEnd: function () {
+                    // Update properties array based on DOM order
+                    const newOrderIds = Array.from(list.children).map(el => parseInt(el.dataset.id));
+                    const newProps = [];
+                    newOrderIds.forEach(id => {
+                        newProps.push(properties.find(x => x.id === id));
+                    });
+                    properties = newProps;
+                }
+            });
+        }
+
+        async function deleteObject(id) {
+            if (!confirm('Вы уверены, что хотите удалить этот объект?')) return;
+
+            // Удаляем из массива
+            properties = properties.filter(p => p.id !== id);
+
+            // Сохраняем на сервер
+            renderList();
+            await saveOrder();
+        }
+
+        // --- EDIT MODAL ---
+        function openEdit(id) {
+            currentObjId = id;
+            const p = properties.find(x => x.id === id);
+
+            // Basic
+            document.getElementById('inpId').value = p.id;
+            document.getElementById('inpTitle').value = p.title?.ru || '';
+            document.getElementById('inpPrice').value = p.price?.ru || '';
+            document.getElementById('inpLocation').value = p.location?.ru || '';
+
+            // Details (Specs)
+            const specs = p.specs?.ru || {};
+            document.getElementById('specArea').value = specs.Area || '';
+            document.getElementById('specPlot').value = specs.Plot || '';
+            document.getElementById('specFloors').value = specs.Floors || '';
+            document.getElementById('specRooms').value = specs.Rooms || '';
+
+            // Description
+            document.getElementById('inpDesc').value = p.description?.ru || '';
+
+            // Features
+            const feats = p.features?.ru || [];
+            document.getElementById('inpFeatures').value = feats.join(', ');
+
+            // Map
+            document.getElementById('inpMap').value = p.mapUrl || '';
+            updateMapPreview(p.mapUrl);
+
+            // Photos
+            renderPhotos(p.images || []);
+
+            document.getElementById('editModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').classList.remove('active');
+            currentObjId = null;
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+            event.target.classList.add('active');
+            document.getElementById('tab-' + tabName).classList.add('active');
+        }
+
+        // --- PHOTOS ---
+        function renderPhotos(images) {
+            const grid = document.getElementById('photosGrid');
+            grid.innerHTML = '';
+
+            images.forEach((src, idx) => {
+                const div = document.createElement('div');
+                div.className = 'photo-card';
+                div.innerHTML = `
+                    <img src="${src}">
+                    <div class="photo-delete" onclick="removePhoto(${idx})"><i class="fas fa-times"></i></div>
+                `;
+                grid.appendChild(div);
+            });
+
+            if (photosSortable) photosSortable.destroy();
+            photosSortable = new Sortable(grid, {
+                animation: 150,
+                ghostClass: 'ghost'
+            });
+        }
+
+        function removePhoto(idx) {
+            const p = properties.find(x => x.id === currentObjId);
+            p.images.splice(idx, 1);
+            renderPhotos(p.images);
+        }
+
+        async function handleUpload(input) {
+            if (!input.files.length) return;
+            const formData = new FormData();
+            formData.append('id', currentObjId);
+            for (let i = 0; i < input.files.length; i++) {
+                formData.append('images', input.files[i]);
+            }
+
+            // Upload via API
+            try {
+                const res = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+
+                // Add new photos to current object list
+                const p = properties.find(x => x.id === currentObjId);
+                data.files.forEach(f => p.images.push(f));
+                renderPhotos(p.images);
+            } catch (e) {
+                alert('Ошибка загрузки: ' + e);
+            }
+        }
+
+        // --- MAP PREVIEW ---
+        document.getElementById('inpMap').addEventListener('input', (e) => updateMapPreview(e.target.value));
+
+        function updateMapPreview(val) {
+            const container = document.getElementById('mapPreview');
+            if (!val) {
+                container.innerHTML = '<div style="display:flex; justify-content:center; align-items:center; height:100%; color: #999;">Превью карты</div>';
+                return;
+            }
+
+            // Extract src if its iframe tag
+            let src = val;
+            if (val.includes('<iframe')) {
+                const match = val.match(/src="([^"]+)"/);
+                if (match) src = match[1];
+            }
+
+            container.innerHTML = `<iframe src="${src}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`;
+        }
+
+
+        // --- SAVE ---
+        async function saveCurrentObject() {
+            if (!currentObjId) return;
+            const p = properties.find(x => x.id === currentObjId);
+
+            // Update simple fields
+            if (!p.title) p.title = {}; p.title.ru = document.getElementById('inpTitle').value;
+            if (!p.price) p.price = {}; p.price.ru = document.getElementById('inpPrice').value;
+            if (!p.location) p.location = {}; p.location.ru = document.getElementById('inpLocation').value;
+            if (!p.description) p.description = {}; p.description.ru = document.getElementById('inpDesc').value;
+
+            // Updated Params
+            if (!p.specs) p.specs = {};
+            if (!p.specs.ru) p.specs.ru = {};
+            p.specs.ru.Area = document.getElementById('specArea').value;
+            p.specs.ru.Plot = document.getElementById('specPlot').value;
+            p.specs.ru.Floors = document.getElementById('specFloors').value;
+            p.specs.ru.Rooms = document.getElementById('specRooms').value;
+
+            // Features (split by comma)
+            const featStr = document.getElementById('inpFeatures').value;
+            if (!p.features) p.features = {};
+            p.features.ru = featStr.split(',').map(s => s.trim()).filter(s => s);
+
+            // Map
+            let mapVal = document.getElementById('inpMap').value;
+            if (mapVal.includes('<iframe')) {
+                const match = mapVal.match(/src="([^"]+)"/);
+                if (match) mapVal = match[1];
+            }
+            p.mapUrl = mapVal;
+
+            // Photos order (from DOM)
+            const photoGrid = document.getElementById('photosGrid');
+            const newImages = Array.from(photoGrid.children).map(el => el.querySelector('img').getAttribute('src'));
+            p.images = newImages;
+
+            closeModal();
+            renderList(); // Update main list view
+            await saveOrder(); // Save to server
+        }
+
+        async function saveOrder() {
+            const btn = document.getElementById('saveBtn');
+            const origText = btn.innerHTML;
+            btn.innerHTML = 'Сохранение...';
+
+            await fetch('/api/properties', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(properties)
+            });
+
+            btn.innerHTML = '<i class="fas fa-check"></i> Сохранено';
+            setTimeout(() => btn.innerHTML = origText, 2000);
+        }
+
+        async function publishPages() {
+            const btn = document.getElementById('pubBtn');
+            btn.innerHTML = 'Генерация...';
+            try {
+                const res = await fetch('/api/generate-pages', { method: 'POST' });
+                if (res.ok) alert('Страницы успешно созданы!');
+                else alert('Ошибка генерации');
+            } catch (e) {
+                alert('Ошибка: ' + e);
+            }
+            btn.innerHTML = '<i class="fas fa-globe"></i> Опубликовать страницы';
+        }
+
+        async function deployToGithub() {
+            const btn = document.getElementById('deployBtn');
+            const origText = btn.innerHTML;
+            btn.innerHTML = '🚀 Отправка...';
+            btn.disabled = true;
+
+            try {
+                // Сначала генерируем страницы
+                await fetch('/api/generate-pages', { method: 'POST' });
+
+                // Потом пушим
+                const res = await fetch('/api/deploy', { method: 'POST' });
+                const data = await res.json();
+
+                if (res.ok) alert('Успешно! Изменения появятся на сайте через пару минут.');
+                else alert('Ошибка отправки: ' + data.message);
+            } catch (e) {
+                alert('Ошибка сети: ' + e);
+            }
+
+            btn.innerHTML = origText;
+            btn.disabled = false;
+        }
+
+        loadData();
+    </script>
+</body>
+
+</html>

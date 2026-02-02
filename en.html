@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Real Estate in Kaliningrad & Baltic Coast | Apartments, Houses, Historic Buildings</title>
+    <meta name="description"
+        content="Real estate for sale in Kaliningrad and the region. Buy apartments in new developments, historic German houses, or private homes on the coast (Zelenogradsk, Svetlogorsk). Full database, prices, mortgages.">
+    <meta name="keywords"
+        content="buy apartment kaliningrad, buy house kaliningrad, real estate svetlogorsk, buy apartment zelenogradsk, german house kaliningrad, realtor kaliningrad, buy property by the sea">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Buy Property in Kaliningrad | Catalog of Apartments and Houses">
+    <meta property="og:description"
+        content="Large selection of housing: from German houses to new developments by the sea. Safe purchase with Svetlana Lakshinskaya.">
+    <meta property="og:image" content="https://balthomes.ru/images/apartment-view.jpg">
+    <meta property="og:url" content="https://balthomes.ru/en.html">
+    <meta property="og:type" content="website">
+
+    <link rel="canonical" href="https://balthomes.ru/en.html">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
+
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary: #0d2e61;
+            --accent: #a8844a;
+            --etagi-red: #e31e24;
+            --text: #333333;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+            padding-top: 80px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px rgba(168, 132, 74, 0.3);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            background-color: #8f6f3a;
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-wrapper {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-right: -2px;
+            margin-bottom: 2px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .logo-subtitle {
+            font-size: 8px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            opacity: 0.8;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: -2px;
+            padding: 0 1px;
+        }
+
+        .nav-desk {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-desk a {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        .nav-desk a:hover {
+            color: var(--accent);
+        }
+
+        .header-contacts {
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        .phone {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 18px;
+            display: block;
+        }
+
+        .sub-phone {
+            font-size: 11px;
+            color: #777;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #fdfbf7 0%, #edf1f5 100%);
+            padding: 60px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+            max-width: 550px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .badge {
+            background: rgba(13, 46, 97, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 4px;
+        }
+
+        .hero-img {
+            position: relative;
+            width: 45%;
+            height: 400px;
+            /* Fixed height for consistency */
+        }
+
+        .hero-slider-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--white);
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
+        }
+
+        .hero-slider-img.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .hero-img .float-badge {
+            z-index: 10;
+        }
+
+        .float-badge {
+            position: absolute;
+            bottom: 30px;
+            left: -20px;
+            background: var(--white);
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent);
+            animation: badgeFloat 3s ease-in-out infinite;
+            font-size: 12px;
+            font-weight: 600;
+            max-width: 240px;
+        }
+
+        @keyframes badgeFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* CATEGORIES */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .cat-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .cat-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .cat-icon {
+            font-size: 24px;
+            color: var(--accent);
+            margin-bottom: 10px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cat-icon img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .cat-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 15px;
+        }
+
+        /* CATALOG */
+        .catalog-preview {
+            background: var(--white);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            overflow: hidden;
+            height: 220px;
+            background: #ddd;
+            position: relative;
+        }
+
+
+        .img-slider-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slider-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .slider-img.active {
+            opacity: 1;
+        }
+
+        .hover-zones {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            z-index: 2;
+        }
+
+        .hover-zone {
+            flex: 1;
+            height: 100%;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: #fff;
+            width: 12px;
+            border-radius: 10px;
+        }
+
+        .card-price {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: var(--primary);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 15px;
+            color: #777;
+            font-size: 13px;
+            margin: 10px 0;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+            color: var(--primary);
+        }
+
+        /* QUIZ */
+        .quiz-section {
+            background-image: linear-gradient(rgba(13, 46, 97, 0.85), rgba(13, 46, 97, 0.9)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .quiz-section h2 {
+            color: var(--white);
+        }
+
+        .quiz-section p {
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        .quiz-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 220px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .btn-quiz {
+            width: 100%;
+            font-size: 18px;
+        }
+
+        /* TRUST BLOCK */
+        .trust-block {
+            background: var(--white);
+            padding: 50px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .trust-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .trust-icon {
+            font-size: 32px;
+            color: var(--accent);
+            min-width: 40px;
+        }
+
+        .trust-content h4 {
+            margin-bottom: 5px;
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .trust-content p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* ABOUT / SERVICES */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .service-card {
+            background: #fdfbf7;
+            padding: 25px;
+            border-radius: 15px;
+            display: flex;
+            gap: 20px;
+            transition: 0.4s;
+            border: 1px solid rgba(168, 132, 74, 0.1);
+        }
+
+        .service-card:hover {
+            background: var(--white);
+            box-shadow: 0 15px 40px rgba(13, 46, 97, 0.08);
+            transform: translateX(10px);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 24px;
+            color: var(--accent);
+            background: var(--white);
+            min-width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+        }
+
+        .service-content h4 {
+            margin-bottom: 8px;
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .service-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .about-img-wrapper {
+            position: relative;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .about-img-wrapper img {
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            border: 8px solid var(--white);
+        }
+
+        .img-label {
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(13, 46, 97, 0.3);
+        }
+
+        /* REVIEWS */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: #ddd;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: #bbb;
+            padding: 60px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .socials a {
+            color: #fff;
+            margin-right: 15px;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .socials a:hover {
+            color: var(--accent);
+        }
+
+        .legal-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        /* LANG SWITCHER */
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+
+        .mobile-lang-switcher {
+            display: none;
+            /* Hidden by default, shown in mobile media query */
+        }
+
+        .lang-switcher a {
+            color: var(--primary);
+            opacity: 0.5;
+            transition: 0.3s;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .lang-switcher a.active {
+            opacity: 1;
+            background: rgba(13, 46, 97, 0.1);
+        }
+
+        .lang-switcher a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .nav-desk {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-desk.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .header-contacts {
+                display: none;
+            }
+
+            .hero-wrapper {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-badges {
+                justify-content: center;
+            }
+
+            .hero-img {
+                width: 100%;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .lang-switcher {
+                margin: 10px 0;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="en.html" class="logo-wrapper">
+                <div class="logo">Balt<span>homes</span></div>
+                <div class="logo-subtitle">
+                    <span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>c</span><span>&nbsp;</span><span>H</span><span>o</span><span>m</span><span>e</span><span>s</span>
+                </div>
+            </a>
+
+            <nav class="nav-desk" id="navMenu">
+                <a href="#catalog">Catalog</a>
+                <a href="#categories">Coastline</a>
+                <a href="#quiz">Selection</a>
+                <a href="#services">Services</a>
+                <a href="#reviews">Reviews</a>
+                <!-- Mobile Language Switcher -->
+                <div class="lang-switcher mobile-lang-switcher">
+                    <a href="index.html">RU</a>
+                    <a href="en.html" class="active">EN</a>
+                    <a href="de.html">DE</a>
+                    <a href="zh.html">ZH</a>
+                </div>
+            </nav>
+
+            <div style="display: flex; align-items: center;">
+                <div class="lang-switcher">
+                    <a href="index.html">RU</a>
+                    <a href="en.html" class="active">EN</a>
+                    <a href="de.html">DE</a>
+                    <a href="zh.html">ZH</a>
+                </div>
+
+                <div class="header-contacts">
+                    <a href="tel:+79052491755" class="phone">+7 905-249-17-55</a>
+                    <span class="sub-phone">Kaliningrad & Region</span>
+                </div>
+            </div>
+
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-watermark"
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; width: 85%; pointer-events: none; z-index: 0;">
+            <img src="images/logo.png" alt="" style="width: 100%; height: auto;">
+        </div>
+
+        <div class="container hero-wrapper" style="position: relative; z-index: 1;">
+            <div class="hero-text">
+                <div class="hero-badges">
+                    <span class="badge"><i class="fas fa-home"></i> 5000+ Properties</span>
+                    <span class="badge" style="background: rgba(227,30,36,0.1); color: var(--etagi-red);"><i
+                            class="fas fa-shield-alt"></i> Guarantees</span>
+                </div>
+                <h1>Buy Real Estate in<br>Kaliningrad & the Sea</h1>
+                <p>Apartments in new developments, historic German houses, and cottages on the coast. Personal property
+                    selection in the Kaliningrad region.</p>
+
+                <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; ">
+                    <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">View
+                        Catalog</a>
+                    <a href="#quiz" class="btn btn-outline">Help me choose</a>
+                </div>
+            </div>
+
+            <div class="hero-img">
+                <img src="images/apartment-1.png" class="hero-slider-img active" alt="Buy apartment with sea view">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1000&q=80"
+                    class="hero-slider-img" alt="Real Estate in Kaliningrad">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80"
+                    class="hero-slider-img" alt="House by the sea">
+
+                <div class="float-badge">
+                    <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 5px;"></i>
+                    New Baltic coastline properties available
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="categories" style="padding-bottom: 40px; background: var(--white);">
+        <div class="container">
+            <h2 style="font-size: 28px; margin-bottom: 30px;">What are you looking for?</h2>
+            <div class="categories-grid">
+                <a href="javascript:void(0)" onclick="setFormValues('Sea-view Apartment', 'Zelenogradsk / Svetlogorsk')"
+                    class="cat-item">
+                    <div class="cat-icon"><i class="fas fa-water"></i></div>
+                    <div class="cat-title">Zelenogradsk Apartments</div>
+                </a>
+                <a href="javascript:void(0)"
+                    onclick="setFormValues('Private House / Villa', 'Zelenogradsk / Svetlogorsk')" class="cat-item">
+                    <div class="cat-icon"><i class="fas fa-tree"></i></div>
+                    <div class="cat-title">Svetlogorsk Houses</div>
+                </a>
+                <a href="javascript:void(0)" onclick="setFormValues('Historic House', 'Kaliningrad (City)')"
+                    class="cat-item">
+                    <div class="cat-icon"><i class="fas fa-house-chimney-window"></i></div>
+                    <div class="cat-title">Historic German Houses</div>
+                </a>
+                <a href="javascript:void(0)" onclick="setFormValues('Apartment (New/Resale)', 'Kaliningrad (City)')"
+                    class="cat-item">
+                    <div class="cat-icon"><i class="fas fa-building"></i></div>
+                    <div class="cat-title">New Developments</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalog" class="catalog-preview" style="background: var(--bg-light); padding-top: 60px;">
+        <div class="container">
+            <h2>Current Sales Offers</h2>
+
+            <div id="catalog-grid" class="catalog-grid" style="margin-bottom: 40px;">
+                <!-- Динамический контент из js/properties.js -->
+            </div>
+
+            <div style="text-align: center;">
+                <p style="margin-bottom: 15px; color: #666; font-size: 14px;">*Prices are calculated at the current RUB
+                    exchange rate</p>
+                <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">Open Full
+                    Catalog</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <h2>Struggling to find the right property?</h2>
+            <p style="margin-bottom: 30px;">Fill out the form and I'll send you a curated list of high-value properties
+                (houses or apartments) directly to your messenger.</p>
+
+            <div class="quiz-box">
+                <form action="thanks.html" method="GET">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your Name:</label>
+                            <input type="text" name="name" placeholder="How should I address you?" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Property Type?</label>
+                            <select name="type">
+                                <option>Apartment (New/Resale)</option>
+                                <option>Private House / Villa</option>
+                                <option>Sea-view Apartment</option>
+                                <option>Historic House</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Location?</label>
+                            <select name="location">
+                                <option>Kaliningrad (City)</option>
+                                <option>Zelenogradsk / Svetlogorsk</option>
+                                <option>Coastline (Baltiysk, Yantarnyy)</option>
+                                <option>Region (Guryevsk etc.)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Budget?</label>
+                            <select name="budget">
+                                <option>Up to € 50k</option>
+                                <option>€ 50k - € 100k</option>
+                                <option>Over € 100k</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Phone/Messengers:</label>
+                            <input type="tel" name="phone" placeholder="+0 (000) 000-00-00" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-quiz">Get Photos & Prices</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-block">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="trust-content">
+                        <h4>Personalized Care</h4>
+                        <p>I am your personal broker. I guide you from the first call to the keys handover, welcoming
+                            you at the airport.</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-file-contract"></i></div>
+                    <div class="trust-content">
+                        <h4>Safe Deals</h4>
+                        <p>Legal checks and transaction processing are managed strictly through "Etagi" corporate
+                            departments.</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-percent"></i></div>
+                    <div class="trust-content">
+                        <h4>Mortgage Support</h4>
+                        <p>As a partner of a major network, I can help approve your mortgage without additional service
+                            fees.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="services">
+        <div class="container about-section">
+            <div class="about-content">
+                <h2>How I Work</h2>
+                <p>My goal is to make your relocation or investment stress-free. All my services follow the high
+                    standards of the #1 Russian real estate network.</p>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-video"></i></div>
+                        <div class="service-content">
+                            <h4>Remote Purchase</h4>
+                            <p>I'll conduct real-time video tours, check documents, and organize a secure remote signing
+                                process.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-car-side"></i></div>
+                        <div class="service-content">
+                            <h4>Arrival & Transfer</h4>
+                            <p>I'll meet you at Khrabrovo Airport with my personal car and help you settle into the
+                                city.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="service-content">
+                            <h4>Market Analytics</h4>
+                            <p>Honest advice: I'll point out the real investment gems and warn you about potential
+                                risks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-img-wrapper">
+                <img src="images/realtor.jpg" alt="Svetlana Lakshinskaya — Real Estate Expert in Kaliningrad">
+                <div class="img-label">With love for the Baltic 🌊</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: #fff; margin-bottom: 15px;">Balt<span>homes</span></div>
+                    <p>Helping you find a home by the Baltic Sea.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacts</h4>
+                    <p>📞 +7 905-249-17-55</p>
+                    <p>📍 Kaliningrad, Russia</p>
+                    <p>✉️ svetlana@balthomes.ru</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Social Media</h4>
+                    <div class="socials">
+                        <a href="https://t.me/laki_svetlana" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/79052491755" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legal-text">
+                <p>Balthomes.ru is for informational purposes only. <br>
+                    Svetlana Lakshinskaya is an independent real estate expert and partner of "Etagi" federal network.
+                    <br>
+                    Legal support provided by "Etagi-Kaliningrad" LLC.
+                </p>
+                <p style="margin-top: 10px;">© 2026 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+    </script>
+    <script src="js/telegram-sender.js"></script>
+    <script src="js/properties.js"></script>
+    <script src="js/hero-slider.js"></script>
+</body>
+
+</html>

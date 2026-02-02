@@ -1,0 +1,43 @@
+[
+    {
+        "detailsLink": {
+            "de": "object-4-de.html",
+            "en": "object-4-en.html",
+            "ru": "object-4.html",
+            "zh": "object-4-zh.html"
+        },
+        "fallbackImages": [
+            "https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=800&q=80"
+        ],
+        "id": 4,
+        "images": [
+            "images/object-4/photo_1.jpg",
+            "images/object-4/photo_2.jpg",
+            "images/object-4/photo_3.jpg"
+        ],
+        "location": {
+            "de": "Malinovka Viertel",
+            "en": "Malinovka district",
+            "ru": "Район Малиновка",
+            "zh": "马林诺夫卡区"
+        },
+        "price": {
+            "de": "€ 275.000*",
+            "en": "€ 275,000*",
+            "ru": "27 500 000 ₽",
+            "zh": "¥ 2,100,000*"
+        },
+        "stats": {
+            "de": "300 m² | Garten 850m²",
+            "en": "300 m² | Plot 850m²",
+            "ru": "300 м² | Участок 8.5 сот.",
+            "zh": "300 平方米 | 占地 850平"
+        },
+        "title": {
+            "de": "Haus 300 m², Zelenogradsk",
+            "en": "House 300 m², Zelenogradsk",
+            "ru": "Дом 300 м², Зеленоградск",
+            "zh": "私人住宅 300 平米 - 泽列诺格勒茨克"
+        }
+    }
+]

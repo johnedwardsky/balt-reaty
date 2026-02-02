@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Фон круга для заметности (опционально) -->
+  <circle cx="32" cy="32" r="30" fill="white"/>
+  <!-- Крыша (Золотая) -->
+  <path d="M32 14L12 30H52L32 14Z" fill="#a8844a"/>
+  <!-- Дом (Глубокий синий) -->
+  <path d="M16 30V50H48V30H16Z" fill="#0d2e61"/>
+  <!-- Окно (Светлое) -->
+  <rect x="28" y="36" width="8" height="8" fill="white" opacity="0.8"/>
+</svg>

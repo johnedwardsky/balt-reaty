@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balthomes | Панель управления</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c5a059;
+            --dark: #121212;
+            --bg: #1a1a1a;
+            --card: #252525;
+            --text: #ffffff;
+            --gray: #888888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            padding: 40px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-success {
+            background: #2ecc71;
+            color: #fff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card-price {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .card-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: var(--bg);
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 900px;
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .tab {
+            color: var(--gray);
+            cursor: pointer;
+            font-weight: 700;
+            padding: 5px 10px;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        .tab.active {
+            color: var(--primary);
+            background: rgba(197, 160, 89, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            background: #222;
+            border: 1px solid #333;
+            padding: 12px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .image-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .preview-item {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .preview-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .remove-img {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255, 0, 0, 0.7);
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        .lang-section {
+            display: none;
+        }
+
+        .lang-section.active {
+            display: block;
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: none;
+            z-index: 2000;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">BALT<span>HOMES</span> <small
+                style="font-weight: 400; font-size: 12px; margin-left: 10px; opacity: 0.5;">Admin Panel</small></div>
+        <div style="display: flex; gap: 15px;">
+            <button class="btn btn-success" onclick="generatePages()"><i class="fas fa-magic"></i> Опубликовать
+                страницы</button>
+            <button class="btn" onclick="openModal('new')"><i class="fas fa-plus"></i> Новый объект</button>
+        </div>
+    </header>
+
+    <div class="grid" id="catalog-grid">
+        <!-- Properties load here -->
+    </div>
+
+    <!-- Modal -->
+    <div id="propModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Редактировать объект</h2>
+                <i class="fas fa-times" style="cursor: pointer;" onclick="closeModal()"></i>
+            </div>
+
+            <div class="form-group">
+                <label>Фотографии</label>
+                <div class="image-preview-grid" id="modalImgs"></div>
+                <input type="file" id="imgUpload" style="margin-top: 10px;" onchange="handleUpload(this)">
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('ru')">RU</div>
+                <div class="tab" onclick="switchTab('en')">EN</div>
+                <div class="tab" onclick="switchTab('de')">DE</div>
+                <div class="tab" onclick="switchTab('zh')">ZH</div>
+            </div>
+
+            <div id="lang-ru" class="lang-section active">
+                <div class="form-group"><label>Название</label><input type="text" id="title_ru"></div>
+                <div class="form-group"><label>Цена</label><input type="text" id="price_ru"></div>
+                <div class="form-group"><label>Расположение</label><input type="text" id="loc_ru"></div>
+                <div class="form-group"><label>Параметры</label><input type="text" id="stats_ru"></div>
+            </div>
+
+            <div id="lang-en" class="lang-section">
+                <div class="form-group"><label>Title</label><input type="text" id="title_en"></div>
+                <div class="form-group"><label>Price</label><input type="text" id="price_en"></div>
+                <div class="form-group"><label>Location</label><input type="text" id="loc_en"></div>
+                <div class="form-group"><label>Stats</label><input type="text" id="stats_en"></div>
+            </div>
+
+            <div id="lang-de" class="lang-section">
+                <div class="form-group"><label>Titel</label><input type="text" id="title_de"></div>
+                <div class="form-group"><label>Preis</label><input type="text" id="price_de"></div>
+                <div class="form-group"><label>Ort</label><input type="text" id="loc_de"></div>
+                <div class="form-group"><label>Stats</label><input type="text" id="stats_de"></div>
+            </div>
+
+            <div id="lang-zh" class="lang-section">
+                <div class="form-group"><label>标题</label><input type="text" id="title_zh"></div>
+                <div class="form-group"><label>价格</label><input type="text" id="price_zh"></div>
+                <div class="form-group"><label>地点</label><input type="text" id="loc_zh"></div>
+                <div class="form-group"><label>统计</label><input type="text" id="stats_zh"></div>
+            </div>
+
+            <div style="margin-top: 40px; display: flex; justify-content: flex-end; gap: 15px;">
+                <button class="btn btn-outline" onclick="closeModal()">Отмена</button>
+                <button class="btn" onclick="saveObject()"><i class="fas fa-save"></i> Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast">Готово!</div>
+
+    <script>
+        let allProperties = [];
+        let currentEditingId = null;
+        let currentObjectPhotos = [];
+
+        async function init() {
+            const res = await fetch('/api/properties');
+            allProperties = await res.json();
+            renderCatalog();
+        }
+
+        function renderCatalog() {
+            const grid = document.getElementById('catalog-grid');
+            grid.innerHTML = allProperties.map(p => `
+                <div class="card">
+                    <img src="${p.images[0] || ''}" class="card-img" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
+                    <div class="card-content">
+                        <div class="card-title">${p.title.ru || 'Без названия'}</div>
+                        <div class="card-price">${p.price.ru || 'Цена не указана'}</div>
+                        <div class="card-actions">
+                            <button class="btn btn-outline" style="padding: 8px 15px;" onclick="openModal('${p.id}')"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-outline" style="padding: 8px 15px; border-color: #ff4444; color: #ff4444;" onclick="deleteObject('${p.id}')"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openModal(id) {
+            currentEditingId = id;
+            document.getElementById('modalTitle').innerText = id === 'new' ? 'Новый объект' : 'Редактировать объект';
+
+            if (id !== 'new') {
+                const p = allProperties.find(x => x.id == id);
+                ['ru', 'en', 'de', 'zh'].forEach(l => {
+                    document.getElementById(`title_${l}`).value = p.title?.[l] || '';
+                    document.getElementById(`price_${l}`).value = p.price?.[l] || '';
+                    document.getElementById(`loc_${l}`).value = p.location?.[l] || '';
+                    document.getElementById(`stats_${l}`).value = p.stats?.[l] || '';
+                });
+                currentObjectPhotos = [...(p.images || [])];
+            } else {
+                currentObjectPhotos = [];
+                ['ru', 'en', 'de', 'zh'].forEach(l => {
+                    ['title', 'price', 'loc', 'stats'].forEach(f => document.getElementById(`${f}_${l}`).value = '');
+                });
+            }
+
+            renderPhotos();
+            document.getElementById('propModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('propModal').style.display = 'none';
+        }
+
+        function switchTab(lang) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(`lang-${lang}`).classList.add('active');
+        }
+
+        function renderPhotos() {
+            const container = document.getElementById('modalImgs');
+            container.innerHTML = currentObjectPhotos.map((src, i) => `
+                <div class="preview-item">
+                    <img src="/${src}">
+                    <div class="remove-img" onclick="removePhoto(${i})">&times;</div>
+                </div>
+            `).join('');
+        }
+
+        function removePhoto(i) {
+            currentObjectPhotos.splice(i, 1);
+            renderPhotos();
+        }
+
+        async function handleUpload(input) {
+            if (!input.files[0]) return;
+            const formData = new FormData();
+            formData.append('image', input.files[0]);
+            const res = await fetch('/api/upload', { method: 'POST', body: formData });
+            const data = await res.json();
+            currentObjectPhotos.push(data.path);
+            renderPhotos();
+            input.value = '';
+        }
+
+        async function saveObject() {
+            const pData = {
+                id: currentEditingId === 'new' ? Date.now() : parseInt(currentEditingId),
+                images: currentObjectPhotos,
+                fallbackImages: [currentObjectPhotos[0]],
+                title: {}, price: {}, location: {}, stats: {}
+            };
+
+            ['ru', 'en', 'de', 'zh'].forEach(l => {
+                pData.title[l] = document.getElementById(`title_${l}`).value;
+                pData.price[l] = document.getElementById(`price_${l}`).value;
+                pData.location[l] = document.getElementById(`loc_${l}`).value;
+                pData.stats[l] = document.getElementById(`stats_${l}`).value;
+            });
+
+            if (currentEditingId === 'new') allProperties.push(pData);
+            else {
+                const idx = allProperties.findIndex(x => x.id == currentEditingId);
+                allProperties[idx] = pData;
+            }
+
+            await fetch('/api/properties', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(allProperties)
+            });
+
+            closeModal();
+            init();
+            showToast('Объект сохранен!');
+        }
+
+        async function generatePages() {
+            const btn = event.target;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Публикация...';
+            const res = await fetch('/api/generate-pages', { method: 'POST' });
+            showToast('Страницы успешно созданы!');
+            btn.innerHTML = '<i class="fas fa-magic"></i> Опубликовать страницы';
+        }
+
+        async function deleteObject(id) {
+            if (!confirm('Вы уверены?')) return;
+            allProperties = allProperties.filter(x => x.id != id);
+            await fetch('/api/properties', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(allProperties)
+            });
+            init();
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.innerText = msg;
+            t.style.display = 'block';
+            setTimeout(() => t.style.display = 'none', 3000);
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
