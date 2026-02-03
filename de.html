@@ -196,12 +196,12 @@
 
         .nav-desk {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
 
         .nav-desk a {
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--primary);
         }
 
@@ -219,6 +219,37 @@
             color: var(--primary);
             font-size: 18px;
             display: block;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .lang-switcher.mobile-lang-switcher {
+            display: none;
+        }
+
+        .lang-switcher a {
+            color: var(--primary);
+            opacity: 0.5;
+            transition: 0.3s;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .lang-switcher a.active {
+            opacity: 1;
+            background: rgba(13, 46, 97, 0.1);
+        }
+
+        .lang-switcher a:hover {
+            opacity: 1;
+            color: var(--accent);
         }
 
         .sub-phone {
@@ -764,39 +795,9 @@
             padding-top: 20px;
         }
 
-        /* LANG SWITCHER */
-        .lang-switcher {
-            display: flex;
-            gap: 10px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-right: 20px;
-        }
 
-        .mobile-lang-switcher {
-            display: none;
-            /* Hidden by default, shown in mobile media query */
-        }
 
-        .lang-switcher a {
-            color: var(--primary);
-            opacity: 0.5;
-            transition: 0.3s;
-            padding: 2px 5px;
-            border-radius: 4px;
-        }
-
-        .lang-switcher a.active {
-            opacity: 1;
-            background: rgba(13, 46, 97, 0.1);
-        }
-
-        .lang-switcher a:hover {
-            opacity: 1;
-            color: var(--accent);
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .nav-desk {
                 display: none;
                 position: absolute;
@@ -808,6 +809,7 @@
                 padding: 20px;
                 text-align: center;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1001;
             }
 
             .nav-desk.active {
@@ -816,10 +818,13 @@
 
             .mobile-toggle {
                 display: block;
+                margin-right: 15px;
             }
 
-            .header-contacts {
-                display: none;
+            /* Hide desktop lang switcher and contacts in mobile header */
+            .header-inner .header-contacts,
+            .header-inner .lang-switcher:not(.mobile-lang-switcher) {
+                display: none !important;
             }
 
             .hero-wrapper {
@@ -839,11 +844,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .lang-switcher {
-                margin: 10px 0;
-                justify-content: center;
-            }
-
             /* Trust block mobile */
             .trust-grid {
                 grid-template-columns: 1fr;
@@ -861,14 +861,9 @@
                 font-size: 40px;
             }
 
-            /* Hide desktop lang switcher on mobile */
-            .header-inner .lang-switcher {
-                display: none;
-            }
-
             /* Show mobile lang switcher inside menu */
-            .nav-desk .mobile-lang-switcher {
-                display: flex;
+            .nav-desk .lang-switcher.mobile-lang-switcher {
+                display: flex !important;
                 margin-top: 20px;
                 padding-top: 20px;
                 border-top: 1px solid #eee;
@@ -903,16 +898,25 @@
                     <a href="de.html" class="active">DE</a>
                     <a href="zh.html">ZH</a>
                 </div>
+            </nav>
+
+            <div style="display: flex; align-items: center;">
+                <div class="lang-switcher">
+                    <a href="index.html">RU</a>
+                    <a href="en.html">EN</a>
+                    <a href="de.html" class="active">DE</a>
+                    <a href="zh.html">ZH</a>
+                </div>
 
                 <div class="header-contacts">
                     <a href="tel:+79052491755" class="phone">+7 905-249-17-55</a>
                     <span class="sub-phone">Kaliningrad & Region</span>
                 </div>
-        </div>
+            </div>
 
-        <div class="mobile-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
@@ -942,11 +946,14 @@
 
             <div class="hero-img">
                 <img src="images/apartment-1.png" class="hero-slider-img active" alt="Wohnung am Meer kaufen">
-                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1000&q=80"
-                    class="hero-slider-img" alt="Immobilien in Kaliningrad">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80"
-                    class="hero-slider-img" alt="Häuser an der Küste">
-
+                <img src="images/hero-main/photo_1.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
+                <img src="images/hero-main/photo_2.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
+                <img src="images/hero-main/photo_3.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
+                <img src="images/hero-main/photo_4.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
+                <img src="images/hero-main/photo_5.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
+                <img src="images/hero-main/photo_6.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
+                <img src="images/hero-main/photo_7.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
+                <img src="images/hero-main/photo_8.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
                 <div class="float-badge">
                     <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 5px;"></i>
                     Neue Objekte an der Ostseeküste verfügbar

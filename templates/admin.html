@@ -347,6 +347,14 @@
             <!-- TAB: BASIC -->
             <div id="tab-basic" class="tab-content active">
                 <div class="form-group">
+                    <label class="form-label">Тип недвижимости</label>
+                    <select id="propertyType" class="form-input" onchange="togglePropertyFields()">
+                        <option value="house">🏡 Дом / Коттедж</option>
+                        <option value="apartment">🏢 Квартира / Апартаменты</option>
+                        <option value="townhouse">🏘️ Таунхаус</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label class="form-label">Название (RU)</label>
                     <input type="text" id="inpTitle" class="form-input">
                 </div>
@@ -368,26 +376,86 @@
 
             <!-- TAB: DETAILS -->
             <div id="tab-details" class="tab-content">
-                <div class="grid-2">
-                    <div class="form-group">
-                        <label class="form-label">Площадь (м²)</label>
-                        <input type="text" id="specArea" class="form-input" placeholder="300 м²">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Участок (сот.)</label>
-                        <input type="text" id="specPlot" class="form-input" placeholder="8.5 сот.">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Этажей</label>
-                        <input type="text" id="specFloors" class="form-input" placeholder="2">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Комнат</label>
-                        <input type="text" id="specRooms" class="form-input" placeholder="5+">
+                <!-- HOUSE FIELDS -->
+                <div id="houseFields">
+                    <h4 style="margin-bottom: 1rem; color: var(--primary);">Характеристики дома</h4>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label class="form-label">Площадь дома (м²)</label>
+                            <input type="text" id="specHouseArea" class="form-input" placeholder="300">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Участок (соток)</label>
+                            <input type="text" id="specPlot" class="form-input" placeholder="15">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Этажей в доме</label>
+                            <input type="text" id="specFloors" class="form-input" placeholder="2">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Количество комнат</label>
+                            <input type="text" id="specRooms" class="form-input" placeholder="5+">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Материал стен</label>
+                            <input type="text" id="specMaterial" class="form-input" placeholder="Кирпич">
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group">
+                <!-- APARTMENT FIELDS -->
+                <div id="apartmentFields" style="display: none;">
+                    <h4 style="margin-bottom: 1rem; color: var(--primary);">Характеристики квартиры</h4>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label class="form-label">Площадь (м²)</label>
+                            <input type="text" id="specAptArea" class="form-input" placeholder="64">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Этаж / Этажность</label>
+                            <input type="text" id="specFloor" class="form-input" placeholder="5/9">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Количество комнат</label>
+                            <input type="text" id="specAptRooms" class="form-input" placeholder="2">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Подъезд (номер)</label>
+                            <input type="text" id="specEntrance" class="form-input" placeholder="1">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Балкон / Лоджия</label>
+                            <select id="specBalcony" class="form-input">
+                                <option value="">Не указано</option>
+                                <option value="Балкон">Балкон</option>
+                                <option value="Лоджия">Лоджия</option>
+                                <option value="2 балкона">2 балкона</option>
+                                <option value="Нет">Нет</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Отопление</label>
+                            <select id="specHeating" class="form-input">
+                                <option value="">Не указано</option>
+                                <option value="Центральное">Центральное</option>
+                                <option value="Автономное">Автономное</option>
+                                <option value="Газовое">Газовое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ремонт</label>
+                            <select id="specRenovation" class="form-input">
+                                <option value="">Не указано</option>
+                                <option value="Без ремонта">Без ремонта</option>
+                                <option value="Косметический">Косметический</option>
+                                <option value="Евроремонт">Евроремонт</option>
+                                <option value="Дизайнерский">Дизайнерский</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 1.5rem;">
                     <label class="form-label">Описание (HTML поддерживается)</label>
                     <textarea id="inpDesc" class="form-textarea" placeholder="Подробное описание объекта..."></textarea>
                 </div>
@@ -501,9 +569,28 @@
         }
 
         // --- EDIT MODAL ---
+        function togglePropertyFields() {
+            const type = document.getElementById('propertyType').value;
+            const houseFields = document.getElementById('houseFields');
+            const apartmentFields = document.getElementById('apartmentFields');
+
+            if (type === 'apartment') {
+                houseFields.style.display = 'none';
+                apartmentFields.style.display = 'block';
+            } else {
+                // house or townhouse
+                houseFields.style.display = 'block';
+                apartmentFields.style.display = 'none';
+            }
+        }
+
         function openEdit(id) {
             currentObjId = id;
             const p = properties.find(x => x.id === id);
+
+            // Property Type
+            document.getElementById('propertyType').value = p.type || 'house';
+            togglePropertyFields();
 
             // Basic
             document.getElementById('inpId').value = p.id;
@@ -511,12 +598,26 @@
             document.getElementById('inpPrice').value = p.price?.ru || '';
             document.getElementById('inpLocation').value = p.location?.ru || '';
 
-            // Details (Specs)
+            // Details (Specs) - Load based on type
             const specs = p.specs?.ru || {};
-            document.getElementById('specArea').value = specs.Area || '';
-            document.getElementById('specPlot').value = specs.Plot || '';
-            document.getElementById('specFloors').value = specs.Floors || '';
-            document.getElementById('specRooms').value = specs.Rooms || '';
+
+            if (p.type === 'apartment') {
+                // Apartment fields
+                document.getElementById('specAptArea').value = specs.area || '';
+                document.getElementById('specFloor').value = specs.floor || '';
+                document.getElementById('specAptRooms').value = specs.rooms || '';
+                document.getElementById('specEntrance').value = specs.entrance || '';
+                document.getElementById('specBalcony').value = specs.balcony || '';
+                document.getElementById('specHeating').value = specs.heating || '';
+                document.getElementById('specRenovation').value = specs.renovation || '';
+            } else {
+                // House fields
+                document.getElementById('specHouseArea').value = specs.houseArea || specs.Area || '';
+                document.getElementById('specPlot').value = specs.landArea || specs.Plot || '';
+                document.getElementById('specFloors').value = specs.floors || specs.Floors || '';
+                document.getElementById('specRooms').value = specs.rooms || specs.Rooms || '';
+                document.getElementById('specMaterial').value = specs.material || '';
+            }
 
             // Description
             document.getElementById('inpDesc').value = p.description?.ru || '';
@@ -627,19 +728,36 @@
             if (!currentObjId) return;
             const p = properties.find(x => x.id === currentObjId);
 
+            // Save property type
+            p.type = document.getElementById('propertyType').value;
+
             // Update simple fields
             if (!p.title) p.title = {}; p.title.ru = document.getElementById('inpTitle').value;
             if (!p.price) p.price = {}; p.price.ru = document.getElementById('inpPrice').value;
             if (!p.location) p.location = {}; p.location.ru = document.getElementById('inpLocation').value;
             if (!p.description) p.description = {}; p.description.ru = document.getElementById('inpDesc').value;
 
-            // Updated Params
+            // Updated Params - based on type
             if (!p.specs) p.specs = {};
             if (!p.specs.ru) p.specs.ru = {};
-            p.specs.ru.Area = document.getElementById('specArea').value;
-            p.specs.ru.Plot = document.getElementById('specPlot').value;
-            p.specs.ru.Floors = document.getElementById('specFloors').value;
-            p.specs.ru.Rooms = document.getElementById('specRooms').value;
+
+            if (p.type === 'apartment') {
+                // Save apartment fields
+                p.specs.ru.area = document.getElementById('specAptArea').value;
+                p.specs.ru.floor = document.getElementById('specFloor').value;
+                p.specs.ru.rooms = document.getElementById('specAptRooms').value;
+                p.specs.ru.entrance = document.getElementById('specEntrance').value;
+                p.specs.ru.balcony = document.getElementById('specBalcony').value;
+                p.specs.ru.heating = document.getElementById('specHeating').value;
+                p.specs.ru.renovation = document.getElementById('specRenovation').value;
+            } else {
+                // Save house fields
+                p.specs.ru.houseArea = document.getElementById('specHouseArea').value;
+                p.specs.ru.landArea = document.getElementById('specPlot').value;
+                p.specs.ru.floors = document.getElementById('specFloors').value;
+                p.specs.ru.rooms = document.getElementById('specRooms').value;
+                p.specs.ru.material = document.getElementById('specMaterial').value;
+            }
 
             // Features (split by comma)
             const featStr = document.getElementById('inpFeatures').value;

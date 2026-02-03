@@ -106,12 +106,12 @@
 
         .nav-desk {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
 
         .nav-desk a {
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--primary);
         }
 
@@ -137,7 +137,12 @@
             gap: 10px;
             font-size: 12px;
             font-weight: 600;
-            margin-right: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .lang-switcher.mobile-lang-switcher {
+            display: none;
         }
 
         .lang-switcher a {
@@ -145,6 +150,11 @@
             transition: 0.3s;
             padding: 2px 5px;
             border-radius: 4px;
+        }
+
+        .lang-switcher a.active {
+            opacity: 1;
+            background: rgba(13, 46, 97, 0.1);
         }
 
         .lang-switcher a:hover {
@@ -597,11 +607,56 @@
 
             .nav-desk {
                 display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1001;
+            }
+
+            .nav-desk.active {
+                display: flex;
             }
 
             .mobile-toggle {
                 display: block;
+                margin-right: 15px;
             }
+
+
+
+            /* Hide desktop lang switcher and contacts in mobile header */
+            .header-inner .desktop-only,
+            .header-inner .header-contacts,
+            .header-inner .lang-switcher:not(.mobile-lang-switcher) {
+                display: none !important;
+            }
+
+            /* Extra specificity for stubborn browsers (Yandex, etc) */
+            header .header-inner div.desktop-only {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
+            }
+
+            /* Show mobile lang switcher inside menu */
+            .nav-desk .lang-switcher.mobile-lang-switcher {
+                display: flex !important;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                justify-content: center;
+                width: 100%;
+            }
+
+
         }
     </style>
 </head>
@@ -610,34 +665,43 @@
     <!-- 1. SHAPKA -->
     <header>
         <div class="container header-inner">
-            <a href="index.html" class="logo-wrapper">
+            <a href="zh.html" class="logo-wrapper">
                 <div class="logo">Balt<span>homes</span></div>
                 <div class="logo-subtitle">
-                    <span>Б</span><span>а</span><span>л</span><span>т</span><span>и</span><span>й</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>д</span><span>о</span><span>м</span><span>а</span>
+                    <span>波</span><span>罗</span><span>的</span><span>海</span><span>之</span><span>家</span>
                 </div>
             </a>
-            <nav class="nav-desk">
-                <a href="index.html#catalog">Каталог</a>
-                <a href="index.html#categories">Побережье</a>
-                <a href="index.html#quiz">Подбор</a>
-                <a href="index.html#services">Услуги</a>
+            <nav class="nav-desk" id="navMenu">
+                <a href="zh.html#catalog">房产目录</a>
+                <a href="zh.html#categories">海岸线</a>
+                <a href="zh.html#quiz">选房</a>
+                <a href="zh.html#services">服务</a>
+                <!-- Mobile Language Switcher (visible only inside burger menu) -->
+                <div class="lang-switcher mobile-lang-switcher">
+                    <a href="object-13.html">RU</a>
+                    <a href="object-13-en.html">EN</a>
+                    <a href="object-13-de.html">DE</a>
+                    <a href="object-13-zh.html" class="active">ZH</a>
+                </div>
             </nav>
 
-            <div style="display: flex; align-items: center;">
+
+            <div class="desktop-only" style="display: flex; align-items: center;">
                 <div class="lang-switcher">
                     <a href="object-13.html">RU</a>
                     <a href="object-13-en.html">EN</a>
                     <a href="object-13-de.html">DE</a>
-                    <a href="object-13-zh.html">ZH</a>
+                    <a href="object-13-zh.html" class="active">ZH</a>
                 </div>
 
                 <div class="header-contacts">
                     <a href="tel:+79052491755" class="phone">+7 905-249-17-55</a>
-                    <div class="sub-phone">Калинингад и область</div>
+                    <div class="sub-phone">加里宁格勒及地区</div>
                 </div>
             </div>
 
-            <div class="mobile-toggle">
+
+            <div class="mobile-toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
@@ -645,7 +709,7 @@
 
     <main class="container property-hero">
         <div class="breadcrumb">
-            <a href="index.html">Главная</a> / <a href="index.html#categories">Зеленоградск</a> / 一室公寓，48平米
+            <a href="zh.html">首页</a> / <a href="zh.html#categories">Зеленоградск</a> / 一室公寓，48平米
         </div>
 
         <div class="property-title-section">
@@ -687,9 +751,9 @@
                     </div>
                 </div>
 
-                <div class="description"><h3>О доме</h3><p>位于斯韦特洛戈尔斯克1区的独家公寓。房间宽敞，厨房大，带阳台。俯瞰松树林。房屋配有现代电梯，楼道干净整洁。步行到海边只需15分钟。</p></div>
+                <div class="description"><h3>关于房产</h3><p>位于斯韦特洛戈尔斯克1区的独家公寓。房间宽敞，厨房大，带阳台。俯瞰松树林。房屋配有现代电梯，楼道干净整洁。步行到海边只需15分钟。</p></div>
 
-                <div class="description"><h3>Преимущества</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> Вид на лес</div><div class="feature-item"><i class="fas fa-check"></i> Мансардные окна</div><div class="feature-item"><i class="fas fa-check"></i> Рядом с морем</div><div class="feature-item"><i class="fas fa-check"></i> Охраняемая парковка</div></div></div>
+                <div class="description"><h3>房产特色</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> Вид на лес</div><div class="feature-item"><i class="fas fa-check"></i> Мансардные окна</div><div class="feature-item"><i class="fas fa-check"></i> Рядом с морем</div><div class="feature-item"><i class="fas fa-check"></i> Охраняемая парковка</div></div></div>
 
             </div>
 
@@ -701,7 +765,7 @@
                             alt="Светлана Лакшинская" class="agent-photo">
                         <div>
                             <div class="agent-name">Светлана Лакшинская</div>
-                            <div class="agent-role">Ведущий специалист</div>
+                            <div class="agent-role">首席专家</div>
                         </div>
                     </div>
                     <form class="contact-form" id="leadForm">
@@ -709,7 +773,7 @@
                         <input type="text" name="Имя" placeholder="Ваше имя" required>
                         <input type="tel" name="Телефон" placeholder="Номер телефона" required>
                         <textarea name="Сообщение" placeholder="Меня интересует этот объект" rows="4"></textarea>
-                        <button type="submit" class="btn">Записаться на просмотр</button>
+                        <button type="submit" class="btn">预约看房</button>
                     </form>
                     <div style="margin-top: 15px; text-align: center;">
                         <a href="https://t.me/laki_svetlana" target="_blank"
@@ -724,7 +788,7 @@
         <section class="map-section" style="margin-bottom: 80px;">
             <h3
                 style="font-size: 24px; margin-bottom: 25px; font-family: 'Cormorant Garamond', serif; border-left: 3px solid var(--accent); padding-left: 15px;">
-                Расположение</h3>
+                地理位置</h3>
             <div
                 style="width: 100%; height: 450px; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid #eee;">
                 <iframe
@@ -858,6 +922,10 @@
                 closeGallery();
             }
         });
+
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
 
         // TELEGRAM FORM SUBMISSION
         const TELEGRAM_BOT_TOKEN = '8210607938:AAHjhkVwJiCXTLJ3enh9OzdY_9QZ9D5LoJs';

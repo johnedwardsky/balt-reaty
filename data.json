@@ -91,6 +91,24 @@
                 "Plot": "",
                 "Floors": "",
                 "Rooms": ""
+            },
+            "en": {
+                "Area": "",
+                "Plot": "",
+                "Floors": "",
+                "Rooms": ""
+            },
+            "de": {
+                "Area": "",
+                "Plot": "",
+                "Floors": "",
+                "Rooms": ""
+            },
+            "zh": {
+                "Area": "",
+                "Plot": "",
+                "Floors": "",
+                "Rooms": ""
             }
         },
         "mapUrl": ""
@@ -175,6 +193,24 @@
         },
         "specs": {
             "ru": {
+                "Area": "",
+                "Plot": "",
+                "Floors": "",
+                "Rooms": ""
+            },
+            "en": {
+                "Area": "",
+                "Plot": "",
+                "Floors": "",
+                "Rooms": ""
+            },
+            "de": {
+                "Area": "",
+                "Plot": "",
+                "Floors": "",
+                "Rooms": ""
+            },
+            "zh": {
                 "Area": "",
                 "Plot": "",
                 "Floors": "",
@@ -292,6 +328,24 @@
         },
         "specs": {
             "ru": {
+                "Area": "",
+                "Plot": "",
+                "Floors": "",
+                "Rooms": ""
+            },
+            "en": {
+                "Area": "",
+                "Plot": "",
+                "Floors": "",
+                "Rooms": ""
+            },
+            "de": {
+                "Area": "",
+                "Plot": "",
+                "Floors": "",
+                "Rooms": ""
+            },
+            "zh": {
                 "Area": "",
                 "Plot": "",
                 "Floors": "",

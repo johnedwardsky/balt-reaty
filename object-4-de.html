@@ -106,12 +106,12 @@
 
         .nav-desk {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
 
         .nav-desk a {
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--primary);
         }
 
@@ -137,7 +137,12 @@
             gap: 10px;
             font-size: 12px;
             font-weight: 600;
-            margin-right: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .lang-switcher.mobile-lang-switcher {
+            display: none;
         }
 
         .lang-switcher a {
@@ -145,6 +150,11 @@
             transition: 0.3s;
             padding: 2px 5px;
             border-radius: 4px;
+        }
+
+        .lang-switcher a.active {
+            opacity: 1;
+            background: rgba(13, 46, 97, 0.1);
         }
 
         .lang-switcher a:hover {
@@ -597,11 +607,56 @@
 
             .nav-desk {
                 display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1001;
+            }
+
+            .nav-desk.active {
+                display: flex;
             }
 
             .mobile-toggle {
                 display: block;
+                margin-right: 15px;
             }
+
+
+
+            /* Hide desktop lang switcher and contacts in mobile header */
+            .header-inner .desktop-only,
+            .header-inner .header-contacts,
+            .header-inner .lang-switcher:not(.mobile-lang-switcher) {
+                display: none !important;
+            }
+
+            /* Extra specificity for stubborn browsers (Yandex, etc) */
+            header .header-inner div.desktop-only {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
+            }
+
+            /* Show mobile lang switcher inside menu */
+            .nav-desk .lang-switcher.mobile-lang-switcher {
+                display: flex !important;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                justify-content: center;
+                width: 100%;
+            }
+
+
         }
     </style>
 </head>
@@ -610,34 +665,43 @@
     <!-- 1. SHAPKA -->
     <header>
         <div class="container header-inner">
-            <a href="index.html" class="logo-wrapper">
+            <a href="de.html" class="logo-wrapper">
                 <div class="logo">Balt<span>homes</span></div>
                 <div class="logo-subtitle">
-                    <span>Б</span><span>а</span><span>л</span><span>т</span><span>и</span><span>й</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>д</span><span>о</span><span>м</span><span>а</span>
+                    <span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>s</span><span>c</span><span>h</span><span>e</span><span>&nbsp;</span><span>H</span><span>ä</span><span>u</span><span>s</span><span>e</span><span>r</span>
                 </div>
             </a>
-            <nav class="nav-desk">
-                <a href="index.html#catalog">Каталог</a>
-                <a href="index.html#categories">Побережье</a>
-                <a href="index.html#quiz">Подбор</a>
-                <a href="index.html#services">Услуги</a>
+            <nav class="nav-desk" id="navMenu">
+                <a href="de.html#catalog">Katalog</a>
+                <a href="de.html#categories">Ostseeküste</a>
+                <a href="de.html#quiz">Auswahl</a>
+                <a href="de.html#services">Leistungen</a>
+                <!-- Mobile Language Switcher (visible only inside burger menu) -->
+                <div class="lang-switcher mobile-lang-switcher">
+                    <a href="object-4.html">RU</a>
+                    <a href="object-4-en.html">EN</a>
+                    <a href="object-4-de.html" class="active">DE</a>
+                    <a href="object-4-zh.html">ZH</a>
+                </div>
             </nav>
 
-            <div style="display: flex; align-items: center;">
+
+            <div class="desktop-only" style="display: flex; align-items: center;">
                 <div class="lang-switcher">
                     <a href="object-4.html">RU</a>
                     <a href="object-4-en.html">EN</a>
-                    <a href="object-4-de.html">DE</a>
+                    <a href="object-4-de.html" class="active">DE</a>
                     <a href="object-4-zh.html">ZH</a>
                 </div>
 
                 <div class="header-contacts">
                     <a href="tel:+79052491755" class="phone">+7 905-249-17-55</a>
-                    <div class="sub-phone">Калинингад и область</div>
+                    <div class="sub-phone">Kaliningrad & Region</div>
                 </div>
             </div>
 
-            <div class="mobile-toggle">
+
+            <div class="mobile-toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
@@ -645,7 +709,7 @@
 
     <main class="container property-hero">
         <div class="breadcrumb">
-            <a href="index.html">Главная</a> / <a href="index.html#categories">Зеленоградск</a> / Haus in Zelenogradsk (Malinovka)
+            <a href="de.html">Startseite</a> / <a href="de.html#categories">Зеленоградск</a> / Haus in Zelenogradsk (Malinovka)
         </div>
 
         <div class="property-title-section">
@@ -699,9 +763,9 @@
                     </div>
                 </div>
 
-                <div class="description"><h3>О доме</h3><p>Zum Verkauf steht ein modernes geräumiges Haus im Eliteviertel Malinovka der Stadt Zelenogradsk. Der Baustil verbindet klassische baltische Ästhetik mit modernen Materialien. Panoramaverglasung, hohe Decken, durchdachte Raumaufteilung.</p></div>
+                <div class="description"><h3>Über das Haus</h3><p>Zum Verkauf steht ein modernes geräumiges Haus im Eliteviertel Malinovka der Stadt Zelenogradsk. Der Baustil verbindet klassische baltische Ästhetik mit modernen Materialien. Panoramaverglasung, hohe Decken, durchdachte Raumaufteilung.</p></div>
 
-                <div class="description"><h3>Преимущества</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> Первая линия</div><div class="feature-item"><i class="fas fa-check"></i> Газовое отопление</div><div class="feature-item"><i class="fas fa-check"></i> Видеонаблюдение</div><div class="feature-item"><i class="fas fa-check"></i> Ландшафтный дизайн</div></div></div>
+                <div class="description"><h3>Vorteile</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> Первая линия</div><div class="feature-item"><i class="fas fa-check"></i> Газовое отопление</div><div class="feature-item"><i class="fas fa-check"></i> Видеонаблюдение</div><div class="feature-item"><i class="fas fa-check"></i> Ландшафтный дизайн</div></div></div>
 
             </div>
 
@@ -713,7 +777,7 @@
                             alt="Светлана Лакшинская" class="agent-photo">
                         <div>
                             <div class="agent-name">Светлана Лакшинская</div>
-                            <div class="agent-role">Ведущий специалист</div>
+                            <div class="agent-role">Führender Spezialist</div>
                         </div>
                     </div>
                     <form class="contact-form" id="leadForm">
@@ -721,7 +785,7 @@
                         <input type="text" name="Имя" placeholder="Ваше имя" required>
                         <input type="tel" name="Телефон" placeholder="Номер телефона" required>
                         <textarea name="Сообщение" placeholder="Меня интересует этот объект" rows="4"></textarea>
-                        <button type="submit" class="btn">Записаться на просмотр</button>
+                        <button type="submit" class="btn">Besichtigung buchen</button>
                     </form>
                     <div style="margin-top: 15px; text-align: center;">
                         <a href="https://t.me/laki_svetlana" target="_blank"
@@ -736,7 +800,7 @@
         <section class="map-section" style="margin-bottom: 80px;">
             <h3
                 style="font-size: 24px; margin-bottom: 25px; font-family: 'Cormorant Garamond', serif; border-left: 3px solid var(--accent); padding-left: 15px;">
-                Расположение</h3>
+                Lage</h3>
             <div
                 style="width: 100%; height: 450px; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid #eee;">
                 <iframe
@@ -870,6 +934,10 @@
                 closeGallery();
             }
         });
+
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
 
         // TELEGRAM FORM SUBMISSION
         const TELEGRAM_BOT_TOKEN = '8210607938:AAHjhkVwJiCXTLJ3enh9OzdY_9QZ9D5LoJs';
