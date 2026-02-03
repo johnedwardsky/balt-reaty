@@ -4,6 +4,7 @@ import json
 import os
 import shutil
 import glob
+import re
 
 # === 1. КОПИРОВАНИЕ ФОТОГРАФИЙ (Safe Copy) ===
 def sync_images():
@@ -63,23 +64,52 @@ def generate_all():
                 return ''
 
             title = get_text('title')
-            # Заменяем заголовок в <h1> и в <title>
-            content = content.replace('<title>Дом в Зеленоградске (Малиновка) </title>', f' <title>{title} </title>')
-            content = content.replace('Дом в Зеленоградске (Малиновка)', title)
+            # 1. Заголовки
+            content = content.replace('Дом в Зеленоградске 300 м² | BaltHomes — Элитная недвижимость', f'{title} | BaltHomes')
+            content = content.replace('Современный дом в Зеленоградске', title)
             
+            # 2. Цена и Локация
             content = content.replace('27 500 000 ₽', get_text('price'))
+            content = content.replace('г. Зеленоградск, 2-й Задонский переулок, 4', get_text('location'))
             content = content.replace('Зеленоградск, Район Малиновка', get_text('location'))
-            content = content.replace('300 м² | Участок 8.5 сот.', get_text('stats'))
+            content = content.replace('Дом в Малиновке', title) # Хлебные крошки
+            
+            # 3. Характеристики (Specs)
+            content = content.replace('>300 м²</div>', f'>{get_text("stats").split("|")[0].strip()}</div>')
+            content = content.replace('>8.5 сот.</div>', f'>{get_text("stats").split("|")[-1].strip()}</div>')
+            
+            # 4. Описание
+            desc = get_text('description')
+            desc_html = desc.replace('\n', '</p><p>').replace('\\n', '</p><p>')
+            new_desc_html = f'<div class="description"><h3>О доме</h3><p>{desc_html}</p></div>'
+            description_pattern = r'<div class="description">\s*<h3>О доме</h3>.*?</div>'
+            content = re.sub(description_pattern, new_desc_html, content, flags=re.DOTALL)
 
             
+            # 5. Преимущества
+            feat_list = prop.get('features', [])
+            features_html = '<div class="description"><h3>Преимущества</h3><div class="features-list">'
+            for f in feat_list:
+                features_html += f'<div class="feature-item"><i class="fas fa-check"></i> {f}</div>'
+            features_html += '</div></div>'
+            
+            features_pattern = r'<div class="description">\s*<h3>Преимущества</h3>.*?</div>\s*</div>'
+            content = re.sub(features_pattern, features_html + '\n            </div>', content, flags=re.DOTALL)
+
+            # 6. Форма (Название объекта)
+            content = content.replace('value="Дом в Зеленоградске (ID 10915771)"', f'value="{title} (ID {obj_id})"')
+
             # --- ССЫЛКИ И ЯЗЫКИ ---
             for l in ['ru', 'en', 'de', 'zh']:
-                old_link = f'object-1.html' if l == 'ru' else f'object-1-{l}.html'
+                old_id = "10915771"
+                old_link = f'object-{old_id}.html' if l == 'ru' else f'object-{old_id}-{l}.html'
                 new_link = f'object-{obj_id}.html' if l == 'ru' else f'object-{obj_id}-{l}.html'
                 # Активный класс
                 active_cls = ' class="active"' if l == lang else ''
+                # Сначала меняем ссылки с классом active
                 content = content.replace(f'<a href="{old_link}" class="active">', f'<a href="{new_link}"{active_cls}>')
                 content = content.replace(f'href="{old_link}"', f'href="{new_link}"')
+
 
             # --- ГАЛЕРЕЯ (HTML ПРЕВЬЮ - ПЕРВЫЕ 5) ---
             # Здесь мы генерируем HTML блок для первых 5 фото
@@ -104,7 +134,6 @@ def generate_all():
             gallery_html += '        </div>'
             
             # Заменяем блок галереи в шаблоне (ищем по классу gallery-grid)
-            import re
             content = re.sub(
                 r'<div class="gallery-grid".*?</div>', 
                 gallery_html, 
