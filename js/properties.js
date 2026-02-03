@@ -67,11 +67,38 @@ const propertiesData = [
             "ru": "Зеленоградск, Район Малиновка",
             "zh": "马林诺夫卡"
         },
+        "mapUrl": "",
         "price": {
             "de": "€ 275.000*",
             "en": "€ 275,000*",
             "ru": "27 500 000 ₽",
             "zh": "¥ 2,100,000*"
+        },
+        "specs": {
+            "de": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            },
+            "en": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            },
+            "ru": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            },
+            "zh": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            }
         },
         "stats": {
             "de": "300 m² | 8.5 Ar",
@@ -84,16 +111,7 @@ const propertiesData = [
             "en": "House in Zelenogradsk (Malinovka)",
             "ru": "Дом в Зеленоградске (Малиновка)",
             "zh": "泽列诺格勒茨克的房子"
-        },
-        "specs": {
-            "ru": {
-                "Area": "",
-                "Plot": "",
-                "Floors": "",
-                "Rooms": ""
-            }
-        },
-        "mapUrl": ""
+        }
     },
     {
         "description": {
@@ -118,17 +136,14 @@ const propertiesData = [
         "images": [
             "images/object-10/0d23698358648b08dc7f35e8aa76f057555dd020.jpeg",
             "images/object-10/9072412442bb8dac65219ffa728da1e12cf515a4.jpeg",
-            "images/object-10/2c96e2b06e3ff5b2ef7dfa6517d030d03ecac116.jpeg",
+            "images/object-10/b7f1f5d0400daddc5a489d02d3adaf2d17b44868.jpeg",
             "images/object-10/4ae186842b98bc20694c972d03e749ad8c6c0162.jpeg",
             "images/object-10/4ea59bd48cebea652d1bb2a2d46952d89a2ffd9e.jpeg",
-            "images/object-10/5dcdcac5cc2e9d4d9f9e04ff89aa5c950fc790c3.jpeg",
             "images/object-10/5ff03086e71d512a057078b99e2e730524d8dcf0.jpeg",
             "images/object-10/6d25e6ec6583883db1600f807a95d1656343bff2.jpeg",
             "images/object-10/7ad241776a1898f36c3ca95950fd9b44003d0c5b.jpeg",
             "images/object-10/7ae532b7894729d5df43b30197ac948013d3cef6.jpeg",
             "images/object-10/31b92d6d5cef53e8f6500e8f92abb5df62b3576e.jpeg",
-            "images/object-10/63a61589be7242122469bdd815f34b59319d6036.jpeg",
-            "images/object-10/80e8ed92c260d932ec9bb8e00a9eaffbaa9659eb.jpeg",
             "images/object-10/305e8d1b85c83ca5c5dcde82517832286a288b61.jpeg",
             "images/object-10/391efdc6cf6ad0d08f5148cbd0bccadd1286441b.jpeg",
             "images/object-10/461fc8b5e6d9d189b6651d3178317a382f7cec77.jpeg",
@@ -142,12 +157,10 @@ const propertiesData = [
             "images/object-10/a1dd76561ec9294640e4de5349929e1b2ee8bad3.jpeg",
             "images/object-10/ab88234bf5e3dc97fa6a5d76eb4945dd5c576639.jpeg",
             "images/object-10/b5a8ac8bceb96d74809dad18456a031aa9c63c56.jpeg",
-            "images/object-10/b7f1f5d0400daddc5a489d02d3adaf2d17b44868.jpeg",
             "images/object-10/bdc97d563982654c20107313644511332c716ed7.jpeg",
             "images/object-10/c185ca10073be2c9f2ba802dd9752ccd93af3067.jpeg",
             "images/object-10/e7c8e3878d143b2253e713ef63532a77306a83ac.jpeg",
-            "images/object-10/f789ce70d46acc7ccffca4de6cbc727e47412a20.jpeg",
-            "images/object-10/f865c54623179875a30ddfad08e0f25ab28c5d74.jpeg"
+            "images/object-10/f789ce70d46acc7ccffca4de6cbc727e47412a20.jpeg"
         ],
         "location": {
             "de": "Kaliningrad, Aksakova str.",
@@ -155,11 +168,45 @@ const propertiesData = [
             "ru": "Калининград, ул. Аксакова, 133",
             "zh": "加里宁格勒"
         },
+        "mapUrl": "",
         "price": {
             "de": "€ 86.500*",
             "en": "€ 86,500*",
             "ru": "8 650 000 ₽",
             "zh": "¥ 665,000*"
+        },
+        "specs": {
+            "de": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            },
+            "en": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            },
+            "ru": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": "",
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": ""
+            },
+            "zh": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            }
         },
         "stats": {
             "de": "64 m² | 5. Stock",
@@ -173,15 +220,7 @@ const propertiesData = [
             "ru": "2-к квартира, 64м², ул. Аксакова",
             "zh": "两室公寓，64平米"
         },
-        "specs": {
-            "ru": {
-                "Area": "",
-                "Plot": "",
-                "Floors": "",
-                "Rooms": ""
-            }
-        },
-        "mapUrl": ""
+        "type": "apartment"
     },
     {
         "description": {
@@ -272,11 +311,38 @@ const propertiesData = [
             "ru": "Калининград, ул. Гагарина, 2ак2",
             "zh": "加里宁格勒"
         },
+        "mapUrl": "",
         "price": {
             "de": "€ 86.500*",
             "en": "€ 86,500*",
             "ru": "8 650 000 ₽",
             "zh": "¥ 665,000*"
+        },
+        "specs": {
+            "de": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            },
+            "en": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            },
+            "ru": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            },
+            "zh": {
+                "Area": "",
+                "Floors": "",
+                "Plot": "",
+                "Rooms": ""
+            }
         },
         "stats": {
             "de": "65 m² | 8. Stock",
@@ -289,16 +355,7 @@ const propertiesData = [
             "en": "2-room Apt, 65m², Gagarina str.",
             "ru": "2-к квартира, 65м², ул. Гагарина",
             "zh": "两室公寓，65平米"
-        },
-        "specs": {
-            "ru": {
-                "Area": "",
-                "Plot": "",
-                "Floors": "",
-                "Rooms": ""
-            }
-        },
-        "mapUrl": ""
+        }
     },
     {
         "description": {
