@@ -63,9 +63,14 @@ def generate_all():
                 return ''
 
             title = get_text('title')
-            content = content.replace('2-к квартира, Зеленоградск', title)
-            content = content.replace('8 500 000 ₽', get_text('price'))
-            content = content.replace('ул. Окружная', get_text('location'))
+            # Заменяем заголовок в <h1> и в <title>
+            content = content.replace('<title>Дом в Зеленоградске (Малиновка) </title>', f' <title>{title} </title>')
+            content = content.replace('Дом в Зеленоградске (Малиновка)', title)
+            
+            content = content.replace('27 500 000 ₽', get_text('price'))
+            content = content.replace('Зеленоградск, Район Малиновка', get_text('location'))
+            content = content.replace('300 м² | Участок 8.5 сот.', get_text('stats'))
+
             
             # --- ССЫЛКИ И ЯЗЫКИ ---
             for l in ['ru', 'en', 'de', 'zh']:
