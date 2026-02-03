@@ -93,8 +93,11 @@ def generate_all():
                 features_html += f'<div class="feature-item"><i class="fas fa-check"></i> {f}</div>'
             features_html += '</div></div>'
             
-            features_pattern = r'<div class="description">\s*<h3>Преимущества</h3>.*?</div>\s*</div>'
-            content = re.sub(features_pattern, features_html + '\n            </div>', content, flags=re.DOTALL)
+            # Use a pattern that matches all three closing divs: item, list, and description
+            features_pattern = r'<div class="description">\s*<h3>Преимущества</h3>.*?</div>\s*</div>\s*</div>'
+            content = re.sub(features_pattern, features_html, content, flags=re.DOTALL)
+
+
 
             # 6. Форма (Название объекта)
             content = content.replace('value="Дом в Зеленоградске (ID 10915771)"', f'value="{title} (ID {obj_id})"')
