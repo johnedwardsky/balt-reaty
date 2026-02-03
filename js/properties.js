@@ -454,8 +454,11 @@ function renderProperties() {
 
     container.innerHTML = propertiesData.map(prop => {
         // Build image segments
-        const imgs = prop.images && prop.images.length > 0 ? prop.images : [prop.fallbackImages[0]];
-        const fallback = prop.fallbackImages || [];
+        const fallback = prop.fallbackImages || [
+            "https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=800&q=80"
+        ];
+        const imgs = prop.images && prop.images.length > 0 ? prop.images : [fallback[0]];
+
 
         // Determine link based on language
         let detailsLink = 'https://kaliningrad.etagi.com/realtors/170927/';
