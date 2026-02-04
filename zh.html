@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>购买加里宁格勒及波罗的海沿岸房产 | 公寓、别墅、历史建筑</title>
-    <meta name="description" content="加里宁格勒及其地区房产出售。购买新开发公寓、历史德式住宅或沿海私立住宅（泽列诺格勒茨克、斯韦特洛戈尔斯克）。完整数据库、价格、抵押贷款。">
-    <meta name="keywords" content="购买公寓加里宁格勒, 购买住宅加里宁格勒, 房产斯韦特洛戈尔斯克, 购买公寓泽列诺格勒茨克, 德式住宅加里宁格勒, 加里宁格勒房产经纪人, 购买海滨房产">
+    <title>加里宁格勒房产：免佣金新房，海边别墅 | BaltHomes</title>
+    <meta name="description" content="加里宁格勒及沿海地区（泽列诺格勒茨克、斯韦特洛戈尔斯克、扬塔尔内）房产。免佣金公寓和别墅数据库。免费选房，开发商价格，3.5% 低息贷款。独家房源及新盘首发。">
+    <meta name="keywords" content="加里宁格勒买房, 加里宁格勒别墅, 斯韦特洛戈尔斯克房产, 泽列诺格勒茨克公寓, 加里宁格勒新房免佣金, 3.5%贷款, 加里宁格勒房产经纪人, 豪宅">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="购买加里宁格勒房产 | 公寓和住宅目录">
-    <meta property="og:description" content="多种住房选择：从德式住宅到海滨新开发项目。与 Svetlana Lakshinskaya 一起安全购买。">
+    <meta property="og:title" content="在加里宁格勒购买房产 | 公寓和别墅目录">
+    <meta property="og:description" content="海量房源选择：从德国风格百年老宅到现代海滨新盘。Svetlana Lakshinskaya 为您的置业保驾护航。">
     <meta property="og:image" content="https://balthomes.ru/images/apartment-view.jpg">
     <meta property="og:url" content="https://balthomes.ru/zh.html">
     <meta property="og:type" content="website">
@@ -266,7 +266,6 @@
             background: linear-gradient(135deg, #fdfbf7 0%, #edf1f5 100%);
             padding: 60px 0;
             overflow: hidden;
-            position: relative;
         }
 
         .hero-wrapper {
@@ -307,7 +306,6 @@
             position: relative;
             width: 45%;
             height: 400px;
-            /* Fixed height for consistency */
         }
 
         .hero-slider-img {
@@ -436,7 +434,6 @@
             background: #ddd;
             position: relative;
         }
-
 
         .img-slider-container {
             width: 100%;
@@ -751,6 +748,25 @@
             gap: 15px;
         }
 
+        /* SEO Text Block */
+        .seo-text {
+            background: #fafafa;
+            padding: 40px 0;
+            font-size: 13px;
+            color: #777;
+            border-top: 1px solid #eee;
+        }
+
+        .seo-text h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .seo-text p {
+            margin-bottom: 10px;
+        }
+
         /* FOOTER */
         footer {
             background: #1a1a1a;
@@ -792,9 +808,24 @@
             padding-top: 20px;
         }
 
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            justify-content: flex-start;
+        }
 
-
+        /* MOBILE ADAPTATION */
         @media (max-width: 992px) {
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
             .nav-desk {
                 display: none;
                 position: absolute;
@@ -818,7 +849,6 @@
                 margin-right: 15px;
             }
 
-            /* Hide desktop lang switcher and contacts in mobile header */
             .header-inner .header-contacts,
             .header-inner .lang-switcher:not(.mobile-lang-switcher) {
                 display: none !important;
@@ -841,17 +871,10 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Show mobile lang switcher inside menu */
-            .nav-desk .lang-switcher.mobile-lang-switcher {
-                display: flex !important;
-                margin-top: 20px;
-                padding-top: 20px;
-                border-top: 1px solid #eee;
-                justify-content: center;
-                width: 100%;
+            .about-img-wrapper {
+                order: -1;
             }
 
-            /* Trust block mobile */
             .trust-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -868,7 +891,6 @@
                 font-size: 40px;
             }
 
-            /* Show mobile lang switcher inside menu */
             .nav-desk .lang-switcher.mobile-lang-switcher {
                 display: flex !important;
                 margin-top: 20px;
@@ -883,6 +905,7 @@
 
 <body>
 
+    <!-- 1. HEADER -->
     <header>
         <div class="container header-inner">
             <a href="zh.html" class="logo-wrapper">
@@ -893,12 +916,11 @@
             </a>
 
             <nav class="nav-desk" id="navMenu">
-                <a href="#catalog">房产目录</a>
-                <a href="#categories">海岸线</a>
-                <a href="#quiz">选房</a>
-                <a href="#services">我的服务</a>
+                <a href="#catalog">房源目录</a>
+                <a href="#categories">沿海地区</a>
+                <a href="#quiz">选房服务</a>
+                <a href="#services">专家服务</a>
                 <a href="#reviews">客户评价</a>
-                <!-- Mobile Language Switcher -->
                 <div class="lang-switcher mobile-lang-switcher">
                     <a href="index.html">RU</a>
                     <a href="en.html">EN</a>
@@ -917,7 +939,7 @@
 
                 <div class="header-contacts">
                     <a href="tel:+79052491755" class="phone">+7 905-249-17-55</a>
-                    <span class="sub-phone">加里宁格勒及地区</span>
+                    <span class="sub-phone">加里宁格勒及周边</span>
                 </div>
             </div>
 
@@ -927,6 +949,7 @@
         </div>
     </header>
 
+    <!-- 2. HERO -->
     <section class="hero">
         <div class="hero-watermark"
             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; width: 85%; pointer-events: none; z-index: 0;">
@@ -938,27 +961,27 @@
                 <div class="hero-badges">
                     <span class="badge"><i class="fas fa-home"></i> 5000+ 优质房源</span>
                     <span class="badge" style="background: rgba(227,30,36,0.1); color: var(--etagi-red);"><i
-                            class="fas fa-shield-alt"></i> 安全保障</span>
+                            class="fas fa-shield-alt"></i> 交易保障</span>
                 </div>
-                <h1>在加里宁格勒及海滨<br>购买理想房产</h1>
-                <p>为您精选新开发公寓、历史德式住宅及海滨别墅。为您在加里宁格勒地区提供个性化选房服务。</p>
+                <h1>加里宁格勒新房与独家房源</h1>
+                <p>内部房源库为您提供海滨投资项目及公寓，享开发商直销价（无佣金）。提供免费选房服务及全程交易支持。</p>
 
-                <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; ">
+                <div class="hero-btns">
                     <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">查看目录</a>
                     <a href="#quiz" class="btn btn-outline">帮我选房</a>
                 </div>
             </div>
 
             <div class="hero-img">
-                <img src="images/apartment-1.png" class="hero-slider-img active" alt="在加里宁格勒购买房产">
-                <img src="images/hero-main/photo_1.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_2.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_3.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_4.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_5.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_6.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_7.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_8.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
+                <img src="images/apartment-1.png" class="hero-slider-img active" alt="购买海景房">
+                <img src="images/hero-main/photo_1.jpg?v=2" class="hero-slider-img" alt="加里宁格勒豪宅">
+                <img src="images/hero-main/photo_2.jpg?v=2" class="hero-slider-img" alt="加里宁格勒豪宅">
+                <img src="images/hero-main/photo_3.jpg?v=2" class="hero-slider-img" alt="加里宁格勒豪宅">
+                <img src="images/hero-main/photo_4.jpg?v=2" class="hero-slider-img" alt="加里宁格勒豪宅">
+                <img src="images/hero-main/photo_5.jpg?v=2" class="hero-slider-img" alt="加里宁格勒豪宅">
+                <img src="images/hero-main/photo_6.jpg?v=2" class="hero-slider-img" alt="加里宁格勒豪宅">
+                <img src="images/hero-main/photo_7.jpg?v=2" class="hero-slider-img" alt="加里宁格勒豪宅">
+                <img src="images/hero-main/photo_8.jpg?v=2" class="hero-slider-img" alt="加里宁格勒豪宅">
                 <div class="float-badge">
                     <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 5px;"></i>
                     波罗的海沿岸新房源已上线
@@ -967,89 +990,327 @@
         </div>
     </section>
 
-    <section id="categories" style="padding-bottom: 40px; background: var(--white);">
+    <!-- 3. BENEFITS BAR -->
+    <div class="benefits-bar"
+        style="background: var(--primary); padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,0.05); overflow: hidden;">
         <div class="container">
-            <h2 style="font-size: 28px; margin-bottom: 30px;">您在寻找什么？</h2>
+            <style>
+                .benefits-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                    width: 100%;
+                }
+
+                .ben-item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 13px;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    color: #fff;
+                    white-space: nowrap;
+                    position: relative;
+                }
+
+                .ben-item i {
+                    color: var(--accent);
+                    margin-right: 12px;
+                    font-size: 14px;
+                }
+
+                @media (min-width: 600px) {
+                    .benefits-grid {
+                        grid-template-columns: 1fr 1fr;
+                        gap: 20px;
+                        justify-items: center;
+                    }
+
+                    .ben-item {
+                        justify-content: flex-start;
+                        width: fit-content;
+                    }
+                }
+
+                @media (min-width: 1024px) {
+                    .benefits-grid {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        gap: 0;
+                    }
+
+                    .ben-item {
+                        padding: 0 20px;
+                    }
+
+                    .ben-item:not(:last-child)::after {
+                        content: "|";
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: rgba(255, 255, 255, 0.15);
+                        font-weight: 300;
+                    }
+                }
+            </style>
+
+            <div class="benefits-grid">
+                <div class="ben-item">
+                    <i class="fas fa-check"></i>
+                    <span><strong style="color: var(--accent); font-weight: 700; font-size: 15px;">100%</strong>
+                        无佣金</span>
+                </div>
+                <div class="ben-item">
+                    <i class="fas fa-check"></i>
+                    <span>房贷 <strong style="color: var(--accent); font-weight: 700; font-size: 15px;">3.5%</strong>
+                        无首付</span>
+                </div>
+                <div class="ben-item">
+                    <i class="fas fa-check"></i>
+                    <span>建造单户住宅 <strong
+                            style="color: var(--accent); font-weight: 700; font-size: 15px;">无首付</strong></span>
+                </div>
+                <div class="ben-item">
+                    <i class="fas fa-check"></i>
+                    <span><strong style="color: var(--accent); font-weight: 700; font-size: 15px;">免费</strong> 审批</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3.1. CATEGORIES -->
+    <section id="categories" style="padding: 50px 0; background: var(--white); border-bottom: 1px solid #eee;">
+        <div class="container">
+            <h2 style="font-size: 28px; margin-bottom: 30px; text-align: center; color: var(--primary);">您在寻找什么？</h2>
             <div class="categories-grid">
-                <a href="javascript:void(0)" onclick="setFormValues('海景公寓', '海滨 (泽列/斯韦特)')" class="cat-item">
+                <a href="javascript:void(0)" onclick="setFormValues('海景公寓', '泽列诺格勒茨克 / 斯韦特洛戈尔斯克')" class="cat-item">
                     <div class="cat-icon"><i class="fas fa-water"></i></div>
                     <div class="cat-title">泽列诺格勒茨克公寓</div>
                 </a>
-                <a href="javascript:void(0)" onclick="setFormValues('私人别墅 / 住宅', '海滨 (泽列/斯韦特)')" class="cat-item">
+                <a href="javascript:void(0)" onclick="setFormValues('私人别墅 / 庄园', '泽列诺格勒茨克 / 斯韦特洛戈尔斯克')"
+                    class="cat-item">
                     <div class="cat-icon"><i class="fas fa-tree"></i></div>
                     <div class="cat-title">斯韦特洛戈尔斯克别墅</div>
                 </a>
-                <a href="javascript:void(0)" onclick="setFormValues('历史德式豪宅', '加里宁格勒 (市区)')" class="cat-item">
+                <a href="javascript:void(0)" onclick="setFormValues('德式老房', '加里宁格勒（市区）')" class="cat-item">
                     <div class="cat-icon"><i class="fas fa-house-chimney-window"></i></div>
-                    <div class="cat-title">历史德式建筑</div>
+                    <div class="cat-title">德式百年老宅</div>
                 </a>
-                <a href="javascript:void(0)" onclick="setFormValues('公寓 (新房/二手房)', '加里宁格勒 (市区)')" class="cat-item">
+                <a href="javascript:void(0)" onclick="setFormValues('公寓（新房/二手）', '加里宁格勒（市区）')" class="cat-item">
                     <div class="cat-icon"><i class="fas fa-building"></i></div>
-                    <div class="cat-title">新开发楼盘</div>
+                    <div class="cat-title">现代新房项目</div>
                 </a>
+            </div>
+        </div>
+
+        <script>
+            function setFormValues(type, location) {
+                document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    const typeSelect = document.querySelector('select[name="type"]');
+                    const locSelect = document.querySelector('select[name="location"]');
+                    if (typeSelect) typeSelect.value = type;
+                    if (locSelect) locSelect.value = location;
+                    document.querySelector('.quiz-box').style.borderColor = 'var(--accent)';
+                    setTimeout(() => document.querySelector('.quiz-box').style.borderColor = 'rgba(255,255,255,0.2)', 1000);
+                }, 500);
+            }
+        </script>
+    </section>
+
+    <!-- 3.2. LOCATIONS -->
+    <section id="locations" style="padding: 60px 0; background-color: #fff;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px;">热门区域</h2>
+            <div class="locations-grid">
+                <style>
+                    .locations-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                        gap: 30px;
+                    }
+
+                    .loc-item {
+                        cursor: pointer;
+                        display: flex;
+                        flex-direction: column;
+                        transition: transform 0.3s ease;
+                    }
+
+                    .loc-item:hover {
+                        transform: translateY(-7px);
+                    }
+
+                    .loc-img-wrap {
+                        height: 220px;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        margin-bottom: 15px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+                    }
+
+                    .loc-img-wrap img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.8s;
+                    }
+
+                    .loc-item:hover .loc-img-wrap img {
+                        transform: scale(1.08);
+                    }
+
+                    .loc-text h3 {
+                        font-family: 'Cormorant Garamond', serif;
+                        font-size: 22px;
+                        margin-bottom: 8px;
+                        color: var(--primary);
+                        font-weight: 700;
+                    }
+
+                    .loc-text p {
+                        font-size: 14px;
+                        color: #666;
+                        line-height: 1.6;
+                        font-family: 'Montserrat', sans-serif;
+                    }
+                </style>
+
+                <div class="loc-item" onclick="setFormValues('海景公寓', '泽列诺格勒茨克 / 斯韦特洛戈尔斯克')">
+                    <div class="loc-img-wrap"><img src="images/ Zelenogradsk.jpeg" alt="泽列诺格勒茨克"></div>
+                    <div class="loc-text">
+                        <h3>泽列诺格勒茨克</h3>
+                        <p>旅游之都。蜿蜒的滨海大道，温馨的欧洲风情街道。这里拥有最完善的度假配套，是投资和租赁的首选之地。</p>
+                    </div>
+                </div>
+
+                <div class="loc-item" onclick="setFormValues('私人别墅 / 庄园', '泽列诺格勒茨克 / 斯韦特洛戈尔斯克')">
+                    <div class="loc-img-wrap"><img src="images/Svetlogorsk.jpg" alt="斯韦特洛戈尔斯克"></div>
+                    <div class="loc-text">
+                        <h3>斯韦特洛戈尔斯克</h3>
+                        <p>松林间的宁静港湾。被誉为“俄罗斯的瑞士”，拥有起伏的山丘景观和德式古老别墅。追求隐秘与纯净空气的理想之选。</p>
+                    </div>
+                </div>
+
+                <div class="loc-item" onclick="setFormValues('公寓（新房/二手）', '加里宁格勒（市区）')">
+                    <div class="loc-img-wrap"><img src="images/Kaliningrad.jpeg" alt="加里宁格勒"></div>
+                    <div class="loc-text">
+                        <h3>加里宁格勒</h3>
+                        <p>整个地区的心脏。渔人村、康德岛和极具盛名的阿玛琳瑙区。将现代城市的便利与历史文化的魅力完美融合。</p>
+                    </div>
+                </div>
+
+                <div class="loc-item" onclick="setFormValues('海景公寓', '沿海地区（巴尔梯斯克、扬塔尔内）')">
+                    <div class="loc-img-wrap"><img src="images/Yantarnyi.jpg" alt="扬塔尔内"></div>
+                    <div class="loc-text">
+                        <h3>扬塔尔内 / 辟欧涅尔斯基</h3>
+                        <p>拥有俄罗斯最美的沙滩。扬塔尔内的“蓝旗”海滩、开阔的沙丘和水疗酒店。极具潜力的增值地段。</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- 4. CATALOG PREVIEW -->
     <section id="catalog" class="catalog-preview" style="background: var(--bg-light); padding-top: 60px;">
         <div class="container">
-            <h2>最新出售房源</h2>
-
-            <div id="catalog-grid" class="catalog-grid" style="margin-bottom: 40px;">
-                <!-- Динамический контент из js/properties.js -->
-            </div>
-
+            <h2 style="text-align: center; margin-bottom: 10px;">最新房源</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px;">实时更新的二手房待售数据库</p>
+            <div id="catalog-grid" class="catalog-grid" style="margin-bottom: 40px;"></div>
             <div style="text-align: center;">
-                <p style="margin-bottom: 15px; color: #666; font-size: 14px;">*价格根据当前卢布汇率折算</p>
-                <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">查看完整目录</a>
+                <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">进入完整目录</a>
             </div>
         </div>
     </section>
 
+    <!-- 5. PRICING -->
+    <section id="pricing" style="padding: 60px 0; background: white;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">2026年房产价格参考</h2>
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="service-card" style="display: block; text-align: center; border-top: 4px solid #bbb;">
+                    <h4 style="font-size: 20px; color: #333;">周边州县</h4>
+                    <p style="color: #666; font-size: 14px; margin-bottom: 15px;">古里耶夫斯克及周边</p>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">300万 卢布起
+                    </div>
+                    <p style="font-size: 13px; color: #888;">高性价比，适合起步置业或长期出租</p>
+                </div>
+
+                <div class="service-card"
+                    style="display: block; text-align: center; border-top: 4px solid var(--primary); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <div
+                        style="background: var(--accent); color: white; display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 10px; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">
+                        热门选择</div>
+                    <h4 style="font-size: 20px; color: var(--primary);">加里宁格勒</h4>
+                    <p style="color: #666; font-size: 14px; margin-bottom: 15px;">市区核心地段</p>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">330万 卢布起
+                    </div>
+                    <p style="font-size: 13px; color: #888;">配套成熟，生活便利的新建楼盘或现房</p>
+                </div>
+
+                <div class="service-card"
+                    style="display: block; text-align: center; border-top: 4px solid var(--accent);">
+                    <h4 style="font-size: 20px; color: #333;">海滨区域</h4>
+                    <p style="color: #666; font-size: 14px; margin-bottom: 15px;">斯韦特洛戈尔斯克、泽列诺格勒茨克</p>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">390万 卢布起
+                    </div>
+                    <p style="font-size: 13px; color: #888;">度假型房产，极具投资价值与升值潜力</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. QUIZ -->
     <section id="quiz" class="quiz-section">
         <div class="container">
-            <h2>难以从成千上万的房源中挑选？</h2>
-            <p style="margin-bottom: 30px;">填写表格，我将根据您的需求，通过社交软件直接分享精选的高质量房源。</p>
+            <h2>没有找到心仪的房源？</h2>
+            <p style="margin-bottom: 30px;">市场瞬息万变。填写表格 — 我将为您免费发送内部精选房源目录（包含急售及低于市场价房源）。</p>
 
             <div class="quiz-box">
                 <form action="thanks.html" method="GET">
                     <div class="form-row">
                         <div class="form-group">
                             <label>您的姓名：</label>
-                            <input type="text" name="name" placeholder="我该如何称呼您？" required>
+                            <input type="text" name="name" placeholder="请问如何称呼您？" required>
                         </div>
                         <div class="form-group">
-                            <label>房产类型：</label>
+                            <label>您想购买什么类型的房产？</label>
                             <select name="type">
-                                <option>公寓 (新房/二手房)</option>
-                                <option>私人别墅 / 住宅</option>
+                                <option>公寓（新房/二手）</option>
+                                <option>私人别墅 / 庄园</option>
                                 <option>海景公寓</option>
-                                <option>历史德式豪宅</option>
+                                <option>德式老房</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>意向位置：</label>
+                            <label>考虑的区域？</label>
                             <select name="location">
-                                <option>加里宁格勒 (市区)</option>
-                                <option>海滨 (泽列/斯韦特)</option>
-                                <option>加里宁格勒大区</option>
+                                <option>加里宁格勒（市区）</option>
+                                <option>泽列诺格勒茨克 / 斯韦特洛戈尔斯克</option>
+                                <option>沿海地区（巴尔梯斯克、扬塔尔内）</option>
+                                <option>周边州县（古里耶夫斯克等）</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>预算范围：</label>
+                            <label>购房预算？</label>
                             <select name="budget">
-                                <option>50万人民币以下</option>
-                                <option>50万 - 100万人民币</option>
-                                <option>100万人民币以上</option>
+                                <option>500万卢布以下</option>
+                                <option>500万 - 900万卢布</option>
+                                <option>900万卢布以上</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group" style="flex: 1;">
                             <label>联系电话 / 社交账号：</label>
-                            <input type="tel" name="phone" placeholder="+86 000 0000 0000" required>
+                            <input type="tel" name="phone" placeholder="+86 000-0000-0000" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-quiz">获取价格与照片</button>
@@ -1058,80 +1319,94 @@
         </div>
     </section>
 
-    <div class="trust-block">
-        <div class="container">
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <div class="trust-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <div class="trust-content">
-                        <h4>贴心关怀</h4>
-                        <p>我是您的专属房产顾问。从第一次咨询到交付钥匙，我将全程陪同，并提供接机服务。</p>
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon"><i class="fas fa-file-contract"></i></div>
-                    <div class="trust-content">
-                        <h4>交易安全</h4>
-                        <p>所有法律审核和交易流程均通过“Etagi”企业系统完成，确保万无一失。</p>
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon"><i class="fas fa-percent"></i></div>
-                    <div class="trust-content">
-                        <h4>贷款支持</h4>
-                        <p>作为顶级代理机构，我可协助您申请抵押贷款，且不收取任何额外服务费用。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section id="services">
+    <!-- 7. SERVICES -->
+    <section id="services" style="padding: 80px 0;">
         <div class="container about-section">
             <div class="about-content">
-                <h2>服务流程</h2>
-                <p>我的目标是让您的海外置业或投资变得轻松、透明。所有服务均遵循国际一流的房产代理标准。</p>
-
+                <h2>专业服务与交易保障</h2>
+                <p>我们将确保您的置业过程安全、舒适。我将亲自把控各个阶段，并由全俄最大的房产公司“Etagi”进行严格的法律审核。</p>
                 <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-video"></i></div>
+                    <div class="service-card" style="background: #f0f7ff; border: none;">
+                        <div class="service-icon"><i class="fas fa-university"></i></div>
                         <div class="service-content">
-                            <h4>远程购房</h4>
-                            <p>我将通过实时视频带您看房，审核所有法律文件，并协助完成远程电子签约。</p>
+                            <h4>贷款支持服务</h4>
+                            <p style="font-size: 13px; line-height: 1.6;">支持多种贷款方案，审批通过率高达98%：</p>
+                            <ul style="margin-top: 10px; font-size: 13px; color: #555; padding-left: 20px;">
+                                <li>家庭及IT行业专项贷款</li>
+                                <li>分期付款方案</li>
+                                <li>组合贷款（提升额度上限）</li>
+                            </ul>
                         </div>
                     </div>
-
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-car-side"></i></div>
+                        <div class="service-icon"><i class="fas fa-globe-europe"></i></div>
                         <div class="service-content">
-                            <h4>接机与向导</h4>
-                            <p>我将亲自驱车在哈拉布罗沃机场迎接您，并帮助您熟悉城市环境和生活配套。</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <div class="service-content">
-                            <h4>市场分析</h4>
-                            <p>诚恳建议：我将为您分析真实的投资前景，避开溢价区域，选择最具升值潜力的地段。</p>
+                            <h4>远程置业服务</h4>
+                            <p>为您节省往返交通成本与时间。</p>
+                            <ul style="margin-top: 10px; font-size: 13px; color: #555; padding-left: 20px;">
+                                <li>实时在线视频看房</li>
+                                <li>电子合同签署及权利登记</li>
+                                <li>落地接机及私人向导服务</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="about-img-wrapper">
                 <img src="images/realtor.jpg" alt="加里宁格勒房产专家">
-                <div class="img-label">倾力为您，在美丽的波罗的海 🌊</div>
+                <div class="img-label"><i class="fas fa-shield-alt" style="margin-right: 5px;"></i> 安全交易保障</div>
             </div>
         </div>
     </section>
 
+    <!-- 8. REVIEWS -->
+    <section id="reviews" style="background: var(--bg-light); padding: 80px 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">客户评价</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p class="review-text">"一直在寻找加里宁格勒的投资机会。Svetlana为我推荐了泽列诺格勒茨克的公寓，非常有潜力。整个购房过程非常专业，服务周到。"</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="author-avatar" alt="客户">
+                        <div class="author-info"><strong>王伟</strong><span>房产投资人</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"我远程购买了波罗的海沿岸的房产作为长期投资。Svetlana团队处理了所有法律文件和转账审核，过程非常透明，让人非常放心。"</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="author-avatar" alt="客户">
+                        <div class="author-info"><strong>李娜</strong><span>海外业主</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"这里的投资分析非常专业。对于中国投资者来说，Svetlana提供的一站式服务非常有吸引力。从选房到物业管理都非常到位。"</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" class="author-avatar" alt="客户">
+                        <div class="author-info"><strong>陈平</strong><span>资深投资顾问</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO TEXT BLOCK -->
+    <div class="seo-text">
+        <div class="container">
+            <h3>在加里宁格勒及周边购买房产</h3>
+            <p>如果您计划在<strong>加里宁格勒购买公寓</strong>或在<strong>沿海地区</strong>（泽列诺格勒茨克、斯韦特洛戈尔斯克、巴尔梯斯克、扬塔尔内）购置<strong>私人别墅</strong>，选择一个可靠的合作伙伴至关重要。该地区的房地产市场既提供具有历史底蕴的<strong>德式老房</strong>，也提供现代化的<strong>新建楼盘</strong>。
+            </p>
+            <p>房价因地段而异。该地区热门区域包括塞尔玛、中央区和上湖区。对于向往海滨生活的人士，我们提供：<strong>斯韦特洛戈尔斯克别墅</strong>及泽列诺格勒茨克公寓的精选方案。</p>
+            <p>我们提供的房源包括一些未在公开平台挂出的独家房源，负责法律审核，并确保您的交易过程安全无虞。数据库包含：二手房、在建房、土地及商业地产。</p>
+        </div>
+    </div>
+
+    <!-- 9. FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo" style="color: #fff; margin-bottom: 15px;">Balt<span>homes</span></div>
-                    <p>助您在波罗的海之滨安家落户。</p>
+                    <p>助您在美丽的波罗的海之滨安家落户。</p>
                 </div>
                 <div class="footer-col">
                     <h4>联系方式</h4>
@@ -1148,10 +1423,9 @@
                     </div>
                 </div>
             </div>
-
             <div class="legal-text">
-                <p>Balthomes.ru 仅供信息参考。 <br>
-                    Svetlana Lakshinskaya 是一名独立的房产专家，也是“Etagi”全国网络的合作伙伴。 <br>
+                <p>Balthomes.ru 网站内容仅供参考。 <br>
+                    Svetlana Lakshinskaya 为独立房产专家，“Etagi”联邦网络官方合作伙伴。 <br>
                     法律支持由“Etagi-Kaliningrad”责任有限公司提供。</p>
                 <p style="margin-top: 10px;">© 2026 版权所有。</p>
             </div>
@@ -1163,9 +1437,9 @@
             document.getElementById('navMenu').classList.toggle('active');
         }
     </script>
-    <script src="js/telegram-sender.js"></script>
-    <script src="js/properties.js"></script>
-    <script src="js/hero-slider.js"></script>
+    <script src="js/telegram-sender.js?v=10"></script>
+    <script src="js/properties.js?v=10"></script>
+    <script src="js/hero-slider.js?v=10"></script>
 </body>
 
 </html>

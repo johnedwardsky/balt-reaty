@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immobilien kaufen in Kaliningrad & an der Ostseeküste | Wohnungen, Häuser, Historische Bauten</title>
+    <title>Immobilien in Kaliningrad: Neubauten ohne Provision, Häuser am Meer | BaltHomes</title>
     <meta name="description"
-        content="Immobilienverkauf in Kaliningrad und der Region (ehem. Königsberg). Kaufen Sie Wohnungen im Neubau, historische deutsche Häuser oder Privathäuser an der Küste (Svetlogorsk, Zelenogradsk).">
+        content="Immobilien in Kaliningrad und an der Küste (Selenogradsk, Swetlogorsk, Jantarny). Datenbank für Wohnungen und Häuser ohne Provision. Kostenlose Auswahl, Bauträgerpreise, Hypothek 3,5%. Exklusive Objekte.">
     <meta name="keywords"
-        content="Immobilien Kaliningrad, Wohnung kaufen Kaliningrad, Haus kaufen Kaliningrad, Immobilie Svetlogorsk, Zelenogradsk Wohnung, Königsberg Haus, Immobilienmakler Kaliningrad">
+        content="Wohnung kaufen Kaliningrad, Haus kaufen Kaliningrad, Immobilien Swetlogorsk, Wohnung kaufen Selenogradsk, Neubau Kaliningrad ohne Provision, Hypothek 3.5, Makler Kaliningrad, Luxusimmobilien">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Immobilien in Kaliningrad kaufen | Katalog für Wohnungen und Häuser">
+    <meta property="og:title" content="Immobilien kaufen in Kaliningrad | Katalog für Wohnungen und Häuser">
     <meta property="og:description"
-        content="Große Auswahl an Wohnraum: von historischen deutschen Häusern bis zu Neubauten am Meer. Sicherer Kauf mit Svetlana Lakshinskaya.">
+        content="Große Auswahl an Wohnraum: von deutschen Häusern bis hin zu Neubauten am Meer. Sicherer Kauf mit Svetlana Lakshinskaya.">
     <meta property="og:image" content="https://balthomes.ru/images/apartment-view.jpg">
     <meta property="og:url" content="https://balthomes.ru/de.html">
     <meta property="og:type" content="website">
@@ -269,7 +269,6 @@
             background: linear-gradient(135deg, #fdfbf7 0%, #edf1f5 100%);
             padding: 60px 0;
             overflow: hidden;
-            position: relative;
         }
 
         .hero-wrapper {
@@ -310,7 +309,6 @@
             position: relative;
             width: 45%;
             height: 400px;
-            /* Fixed height for consistency */
         }
 
         .hero-slider-img {
@@ -439,7 +437,6 @@
             background: #ddd;
             position: relative;
         }
-
 
         .img-slider-container {
             width: 100%;
@@ -754,6 +751,25 @@
             gap: 15px;
         }
 
+        /* SEO Text Block */
+        .seo-text {
+            background: #fafafa;
+            padding: 40px 0;
+            font-size: 13px;
+            color: #777;
+            border-top: 1px solid #eee;
+        }
+
+        .seo-text h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .seo-text p {
+            margin-bottom: 10px;
+        }
+
         /* FOOTER */
         footer {
             background: #1a1a1a;
@@ -795,9 +811,24 @@
             padding-top: 20px;
         }
 
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            justify-content: flex-start;
+        }
 
-
+        /* MOBILE ADAPTATION */
         @media (max-width: 992px) {
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
             .nav-desk {
                 display: none;
                 position: absolute;
@@ -821,7 +852,6 @@
                 margin-right: 15px;
             }
 
-            /* Hide desktop lang switcher and contacts in mobile header */
             .header-inner .header-contacts,
             .header-inner .lang-switcher:not(.mobile-lang-switcher) {
                 display: none !important;
@@ -844,7 +874,10 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Trust block mobile */
+            .about-img-wrapper {
+                order: -1;
+            }
+
             .trust-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -861,7 +894,6 @@
                 font-size: 40px;
             }
 
-            /* Show mobile lang switcher inside menu */
             .nav-desk .lang-switcher.mobile-lang-switcher {
                 display: flex !important;
                 margin-top: 20px;
@@ -876,6 +908,7 @@
 
 <body>
 
+    <!-- 1. HEADER -->
     <header>
         <div class="container header-inner">
             <a href="de.html" class="logo-wrapper">
@@ -887,11 +920,10 @@
 
             <nav class="nav-desk" id="navMenu">
                 <a href="#catalog">Katalog</a>
-                <a href="#categories">Ostseeküste</a>
+                <a href="#categories">Küste</a>
                 <a href="#quiz">Auswahl</a>
-                <a href="#services">Leistungen</a>
+                <a href="#services">Dienstleistungen</a>
                 <a href="#reviews">Bewertungen</a>
-                <!-- Mobile Language Switcher -->
                 <div class="lang-switcher mobile-lang-switcher">
                     <a href="index.html">RU</a>
                     <a href="en.html">EN</a>
@@ -920,6 +952,7 @@
         </div>
     </header>
 
+    <!-- 2. HERO -->
     <section class="hero">
         <div class="hero-watermark"
             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; width: 85%; pointer-events: none; z-index: 0;">
@@ -933,27 +966,27 @@
                     <span class="badge" style="background: rgba(227,30,36,0.1); color: var(--etagi-red);"><i
                             class="fas fa-shield-alt"></i> Garantien</span>
                 </div>
-                <h1>Immobilien kaufen in<br>Kaliningrad & am Meer</h1>
-                <p>Neubauwohnungen, historische deutsche Häuser und Ferienhäuser an der Küste. Persönliche Auswahl in
-                    der Region Kaliningrad.</p>
+                <h1>Neubauten und exklusive Immobilien in Kaliningrad</h1>
+                <p>Eine exklusive Datenbank für Investitionsobjekte und Wohnungen am Meer zu Bauträgerpreisen
+                    (provisionsfrei). Kostenlose Auswahl und komplette Abwicklung.</p>
 
-                <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; ">
+                <div class="hero-btns">
                     <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">Katalog
                         ansehen</a>
-                    <a href="#quiz" class="btn btn-outline">Beratung anfordern</a>
+                    <a href="#quiz" class="btn btn-outline">Objekt finden</a>
                 </div>
             </div>
 
             <div class="hero-img">
                 <img src="images/apartment-1.png" class="hero-slider-img active" alt="Wohnung am Meer kaufen">
-                <img src="images/hero-main/photo_1.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_2.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_3.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_4.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_5.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_6.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_7.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
-                <img src="images/hero-main/photo_8.jpg?v=2" class="hero-slider-img" alt="Элитная недвижимость Калининград">
+                <img src="images/hero-main/photo_1.jpg?v=2" class="hero-slider-img" alt="Luxusimmobilien Kaliningrad">
+                <img src="images/hero-main/photo_2.jpg?v=2" class="hero-slider-img" alt="Luxusimmobilien Kaliningrad">
+                <img src="images/hero-main/photo_3.jpg?v=2" class="hero-slider-img" alt="Luxusimmobilien Kaliningrad">
+                <img src="images/hero-main/photo_4.jpg?v=2" class="hero-slider-img" alt="Luxusimmobilien Kaliningrad">
+                <img src="images/hero-main/photo_5.jpg?v=2" class="hero-slider-img" alt="Luxusimmobilien Kaliningrad">
+                <img src="images/hero-main/photo_6.jpg?v=2" class="hero-slider-img" alt="Luxusimmobilien Kaliningrad">
+                <img src="images/hero-main/photo_7.jpg?v=2" class="hero-slider-img" alt="Luxusimmobilien Kaliningrad">
+                <img src="images/hero-main/photo_8.jpg?v=2" class="hero-slider-img" alt="Luxusimmobilien Kaliningrad">
                 <div class="float-badge">
                     <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 5px;"></i>
                     Neue Objekte an der Ostseeküste verfügbar
@@ -962,185 +995,449 @@
         </div>
     </section>
 
-    <section id="categories" style="padding-bottom: 40px; background: var(--white);">
+    <!-- 3. BENEFITS BAR -->
+    <div class="benefits-bar"
+        style="background: var(--primary); padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,0.05); overflow: hidden;">
         <div class="container">
-            <h2 style="font-size: 28px; margin-bottom: 30px;">Was suchen Sie?</h2>
+            <style>
+                .benefits-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                    width: 100%;
+                }
+
+                .ben-item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 13px;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    color: #fff;
+                    white-space: nowrap;
+                    position: relative;
+                }
+
+                .ben-item i {
+                    color: var(--accent);
+                    margin-right: 12px;
+                    font-size: 14px;
+                }
+
+                @media (min-width: 600px) {
+                    .benefits-grid {
+                        grid-template-columns: 1fr 1fr;
+                        gap: 20px;
+                        justify-items: center;
+                    }
+
+                    .ben-item {
+                        justify-content: flex-start;
+                        width: fit-content;
+                    }
+                }
+
+                @media (min-width: 1024px) {
+                    .benefits-grid {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        gap: 0;
+                    }
+
+                    .ben-item {
+                        padding: 0 20px;
+                    }
+
+                    .ben-item:not(:last-child)::after {
+                        content: "|";
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: rgba(255, 255, 255, 0.15);
+                        font-weight: 300;
+                    }
+                }
+            </style>
+
+            <div class="benefits-grid">
+                <div class="ben-item">
+                    <i class="fas fa-check"></i>
+                    <span><strong style="color: var(--accent); font-weight: 700; font-size: 15px;">100%</strong>
+                        Provisionsfrei</span>
+                </div>
+                <div class="ben-item">
+                    <i class="fas fa-check"></i>
+                    <span>Hypothek <strong
+                            style="color: var(--accent); font-weight: 700; font-size: 15px;">3.5%</strong> ohne
+                        AZ</span>
+                </div>
+                <div class="ben-item">
+                    <i class="fas fa-check"></i>
+                    <span>Hausbau <strong style="color: var(--accent); font-weight: 700; font-size: 15px;">ohne
+                            AZ</strong></span>
+                </div>
+                <div class="ben-item">
+                    <i class="fas fa-check"></i>
+                    <span><strong style="color: var(--accent); font-weight: 700; font-size: 15px;">Kostenlose</strong>
+                        Genehmigung</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3.1. CATEGORIES -->
+    <section id="categories" style="padding: 50px 0; background: var(--white); border-bottom: 1px solid #eee;">
+        <div class="container">
+            <h2 style="font-size: 28px; margin-bottom: 30px; text-align: center; color: var(--primary);">Was suchen Sie?
+            </h2>
             <div class="categories-grid">
-                <a href="javascript:void(0)"
-                    onclick="setFormValues('Ferienwohnung am Meer', 'Ostseeküste (Kranz/Rauschen)')" class="cat-item">
+                <a href="javascript:void(0)" onclick="setFormValues('Apartment am Meer', 'Zelenogradsk / Svetlogorsk')"
+                    class="cat-item">
                     <div class="cat-icon"><i class="fas fa-water"></i></div>
-                    <div class="cat-title">Zelenogradsk (Cranz)</div>
+                    <div class="cat-title">Wohnungen in Selenogradsk</div>
                 </a>
-                <a href="javascript:void(0)"
-                    onclick="setFormValues('Einfamilienhaus / Villa', 'Ostseeküste (Kranz/Rauschen)')" class="cat-item">
+                <a href="javascript:void(0)" onclick="setFormValues('Haus / Villa', 'Zelenogradsk / Svetlogorsk')"
+                    class="cat-item">
                     <div class="cat-icon"><i class="fas fa-tree"></i></div>
-                    <div class="cat-title">Svetlogorsk (Rauschen)</div>
+                    <div class="cat-title">Häuser in Swetlogorsk</div>
                 </a>
-                <a href="javascript:void(0)"
-                    onclick="setFormValues('Historisches deutsches Haus', 'Kaliningrad (Stadt)')" class="cat-item">
+                <a href="javascript:void(0)" onclick="setFormValues('Historisches Haus', 'Kaliningrad (Stadt)')"
+                    class="cat-item">
                     <div class="cat-icon"><i class="fas fa-house-chimney-window"></i></div>
-                    <div class="cat-title">Historischer Bestand</div>
+                    <div class="cat-title">Preußische Häuser</div>
                 </a>
-                <a href="javascript:void(0)" onclick="setFormValues('Wohnung (Neubau/Bestand)', 'Kaliningrad (Stadt)')"
+                <a href="javascript:void(0)" onclick="setFormValues('Wohnung (Neubau)', 'Kaliningrad (Stadt)')"
                     class="cat-item">
                     <div class="cat-icon"><i class="fas fa-building"></i></div>
                     <div class="cat-title">Neubauprojekte</div>
                 </a>
             </div>
         </div>
+
+        <script>
+            function setFormValues(type, location) {
+                document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    const typeSelect = document.querySelector('select[name="type"]');
+                    const locSelect = document.querySelector('select[name="location"]');
+                    if (typeSelect) typeSelect.value = type;
+                    if (locSelect) locSelect.value = location;
+                    document.querySelector('.quiz-box').style.borderColor = 'var(--accent)';
+                    setTimeout(() => document.querySelector('.quiz-box').style.borderColor = 'rgba(255,255,255,0.2)', 1000);
+                }, 500);
+            }
+        </script>
     </section>
 
-    <section id="catalog" class="catalog-preview" style="background: var(--bg-light); padding-top: 60px;">
+    <!-- 3.2. LOCATIONS -->
+    <section id="locations" style="padding: 60px 0; background-color: #fff;">
         <div class="container">
-            <h2>Aktuelle Verkaufsangebote</h2>
+            <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px;">Beliebte Standorte</h2>
+            <div class="locations-grid">
+                <style>
+                    .locations-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                        gap: 30px;
+                    }
 
-            <div id="catalog-grid" class="catalog-grid" style="margin-bottom: 40px;">
-                <!-- Динамический контент из js/properties.js -->
-            </div>
+                    .loc-item {
+                        cursor: pointer;
+                        display: flex;
+                        flex-direction: column;
+                        transition: transform 0.3s ease;
+                    }
 
-            <div style="text-align: center;">
-                <p style="margin-bottom: 15px; color: #666; font-size: 14px;">*Preise basieren auf dem aktuellen
-                    RUB-Wechselkurs</p>
-                <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">Gesamten Katalog
-                    öffnen</a>
+                    .loc-item:hover {
+                        transform: translateY(-7px);
+                    }
+
+                    .loc-img-wrap {
+                        height: 220px;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        margin-bottom: 15px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+                    }
+
+                    .loc-img-wrap img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.8s;
+                    }
+
+                    .loc-item:hover .loc-img-wrap img {
+                        transform: scale(1.08);
+                    }
+
+                    .loc-text h3 {
+                        font-family: 'Cormorant Garamond', serif;
+                        font-size: 22px;
+                        margin-bottom: 8px;
+                        color: var(--primary);
+                        font-weight: 700;
+                    }
+
+                    .loc-text p {
+                        font-size: 14px;
+                        color: #666;
+                        line-height: 1.6;
+                        font-family: 'Montserrat', sans-serif;
+                    }
+                </style>
+
+                <div class="loc-item" onclick="setFormValues('Apartment am Meer', 'Zelenogradsk / Svetlogorsk')">
+                    <div class="loc-img-wrap"><img src="images/ Zelenogradsk.jpeg" alt="Selenogradsk"></div>
+                    <div class="loc-text">
+                        <h3>Selenogradsk (Cranz)</h3>
+                        <p>Die Kurhauptstadt. Endlose Promenade, gemütliche europäische Gassen und beste Infrastruktur
+                            für Erholung. Ideal für Investitionen.</p>
+                    </div>
+                </div>
+
+                <div class="loc-item" onclick="setFormValues('Haus / Villa', 'Zelenogradsk / Svetlogorsk')">
+                    <div class="loc-img-wrap"><img src="images/Svetlogorsk.jpg" alt="Swetlogorsk"></div>
+                    <div class="loc-text">
+                        <h3>Swetlogorsk (Rauschen)</h3>
+                        <p>Ein ruhiger Hafen unter Pinien. "Russische Schweiz" mit hügeliger Landschaft und alten
+                            Villen. Wahl für diejenigen, die Privatsphäre schätzen.</p>
+                    </div>
+                </div>
+
+                <div class="loc-item" onclick="setFormValues('Wohnung (Neubau)', 'Kaliningrad (Stadt)')">
+                    <div class="loc-img-wrap"><img src="images/Kaliningrad.jpeg" alt="Kaliningrad"></div>
+                    <div class="loc-text">
+                        <h3>Kaliningrad (Königsberg)</h3>
+                        <p>Das Herz der Region. Fischdorf, Kant-Insel und die prestigeträchtigen Amalienau-Viertel.
+                            Komfort einer modernen Stadt kombiniert mit historischem Charme.</p>
+                    </div>
+                </div>
+
+                <div class="loc-item" onclick="setFormValues('Apartment am Meer', 'Küste (Baltijsk, Jantarny)')">
+                    <div class="loc-img-wrap"><img src="images/Yantarnyi.jpg" alt="Jantarny"></div>
+                    <div class="loc-text">
+                        <h3>Jantarny / Pionerski</h3>
+                        <p>Die besten Strände Russlands. Jantarny mit seiner "Blauen Flagge", breiten Sanddünen und
+                            Wellnesshotels. Ein vielversprechender Standort.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- 4. CATALOG PREVIEW -->
+    <section id="catalog" class="catalog-preview" style="background: var(--bg-light); padding-top: 60px;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 10px;">Aktuelle Angebote</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px;">Aktualisierte Datenbank von
+                Gebrauchtimmobilien zum Verkauf</p>
+            <div id="catalog-grid" class="catalog-grid" style="margin-bottom: 40px;"></div>
+            <div style="text-align: center;">
+                <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">Vollständigen
+                    Katalog ansehen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PRICING -->
+    <section id="pricing" style="padding: 60px 0; background: white;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Immobilienpreise 2026</h2>
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="service-card" style="display: block; text-align: center; border-top: 4px solid #bbb;">
+                    <h4 style="font-size: 20px; color: #333;">Region</h4>
+                    <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Gurjewsk und Umgebung</p>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">bis
+                        30.000 €</div>
+                    <p style="font-size: 13px; color: #888;">Günstiger Einstieg für Wohnen oder Vermietung</p>
+                </div>
+
+                <div class="service-card"
+                    style="display: block; text-align: center; border-top: 4px solid var(--primary); transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <div
+                        style="background: var(--accent); color: white; display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 10px; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">
+                        Beliebt</div>
+                    <h4 style="font-size: 20px; color: var(--primary);">Kaliningrad</h4>
+                    <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Im Stadtgebiet</p>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">ab
+                        35.000 €</div>
+                    <p style="font-size: 13px; color: #888;">Neu- und Bestandswohnungen in entwickelten Bezirken</p>
+                </div>
+
+                <div class="service-card"
+                    style="display: block; text-align: center; border-top: 4px solid var(--accent);">
+                    <h4 style="font-size: 20px; color: #333;">Küste</h4>
+                    <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Swetlogorsk, Selenogradsk</p>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">ab
+                        40.000 €</div>
+                    <p style="font-size: 13px; color: #888;">Ferienimmobilien für Investitionen und Erholung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. QUIZ -->
     <section id="quiz" class="quiz-section">
         <div class="container">
-            <h2>Finden Sie nicht das passende Objekt?</h2>
-            <p style="margin-bottom: 30px;">Füllen Sie das Formular aus und ich sende Ihnen eine exklusive Liste
-                passender Immobilien direkt per Messenger.</p>
+            <h2>Haben Sie die richtige Immobilie noch nicht gefunden?</h2>
+            <p style="margin-bottom: 30px;">Der Markt ändert sich täglich. Füllen Sie das Formular aus — ich sende Ihnen
+                kostenlos eine private Auswahl an Objekten (einschließlich Eilverkäufen).</p>
 
             <div class="quiz-box">
                 <form action="thanks.html" method="GET">
                     <div class="form-row">
                         <div class="form-group">
                             <label>Ihr Name:</label>
-                            <input type="text" name="name" placeholder="Wie darf ich Sie nennen?" required>
+                            <input type="text" name="name" placeholder="Wie darf ich Sie ansprechen?" required>
                         </div>
                         <div class="form-group">
-                            <label>Objekttyp?</label>
+                            <label>Was möchten Sie kaufen?</label>
                             <select name="type">
-                                <option>Wohnung (Neubau/Bestand)</option>
-                                <option>Einfamilienhaus / Villa</option>
-                                <option>Ferienwohnung am Meer</option>
-                                <option>Historisches deutsches Haus</option>
+                                <option>Wohnung (Neubau/Gebraucht)</option>
+                                <option>Haus / Villa</option>
+                                <option>Apartment am Meer</option>
+                                <option>Historisches Haus</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Lage?</label>
+                            <label>Wo suchen Sie?</label>
                             <select name="location">
                                 <option>Kaliningrad (Stadt)</option>
-                                <option>Ostseeküste (Kranz/Rauschen)</option>
-                                <option>Region Kaliningrad</option>
+                                <option>Selenogradsk / Swetlogorsk</option>
+                                <option>Küste (Pionerski, Baltijsk, Jantarny)</option>
+                                <option>Region (Gurjewsk etc.)</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Budget?</label>
                             <select name="budget">
-                                <option>Bis € 50k</option>
-                                <option>€ 50k - € 100k</option>
-                                <option>Über € 100k</option>
+                                <option>bis 50.000 €</option>
+                                <option>50.000 - 100.000 €</option>
+                                <option>über 100.000 €</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group" style="flex: 1;">
                             <label>Telefon / Messenger:</label>
-                            <input type="tel" name="phone" placeholder="+49 000 0000000" required>
+                            <input type="tel" name="phone" placeholder="+49 (000) 000-00-00" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-quiz">Angebote erhalten</button>
+                    <button type="submit" class="btn btn-quiz">Fotos & Preise erhalten</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <div class="trust-block">
-        <div class="container">
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <div class="trust-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <div class="trust-content">
-                        <h4>Persönliche Betreuung</h4>
-                        <p>Ich bin Ihre persönliche Maklerin. Ich begleite Sie vom ersten Anruf bis zur
-                            Schlüsselübergabe.</p>
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon"><i class="fas fa-file-contract"></i></div>
-                    <div class="trust-content">
-                        <h4>Sicherheit</h4>
-                        <p>Alle rechtlichen Prüfungen und die Abwicklung erfolgen über die Fachabteilungen des
-                            "Etagi"-Netzwerkes.</p>
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon"><i class="fas fa-percent"></i></div>
-                    <div class="trust-content">
-                        <h4>Finanzierung</h4>
-                        <p>Als Partner eines großen Netzwerks unterstütze ich Sie bei der Kreditabwicklung ohne
-                            Zusatzgebühren.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section id="services">
+    <!-- 7. SERVICES -->
+    <section id="services" style="padding: 80px 0;">
         <div class="container about-section">
             <div class="about-content">
-                <h2>Wie ich arbeite</h2>
-                <p>Mein Ziel ist es, Ihren Umzug oder Ihr Investment stressfrei zu gestalten. Professioneller Service
-                    nach internationalen Standards.</p>
-
+                <h2>Persönliche Betreuung & Garantien</h2>
+                <p>Ihre Transaktion wird sicher und komfortabel sein. Ich kontrolliere persönlich alle Phasen, und die
+                    rechtliche Reinheit wird vom größten Unternehmen "Etagi" geprüft.</p>
                 <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-video"></i></div>
+                    <div class="service-card" style="background: #f0f7ff; border: none;">
+                        <div class="service-icon"><i class="fas fa-university"></i></div>
                         <div class="service-content">
-                            <h4>Fernkauf & Besichtigung</h4>
-                            <p>Ich führe Live-Videotouren durch, prüfe alle Dokumente und organisiere die
-                                Fernunterzeichnung.</p>
+                            <h4>Hypothekenunterstützung</h4>
+                            <p style="font-size: 13px; line-height: 1.6;">Wir arbeiten mit allen Arten von Programmen.
+                                98% Genehmigungsrate:</p>
+                            <ul style="margin-top: 10px; font-size: 13px; color: #555; padding-left: 20px;">
+                                <li>Familien- und IT-Hypothek</li>
+                                <li>Militärhypothek</li>
+                                <li>Tranchen-Hypothek (Zahlungen ab 1 € bis zur Fertigstellung)</li>
+                                <li>Kombi-Hypothek zur Limiterhöhung</li>
+                            </ul>
                         </div>
                     </div>
-
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-car-side"></i></div>
+                        <div class="service-icon"><i class="fas fa-globe-europe"></i></div>
                         <div class="service-content">
-                            <h4>Ankunft & Transfer</h4>
-                            <p>Ich hole Sie vom Flughafen Kaliningrad ab und helfe Ihnen bei der ersten Orientierung in
-                                der Stadt.</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <div class="service-content">
-                            <h4>Marktanalyse</h4>
-                            <p>Ehrliche Beratung: Ich zeige Ihnen die besten Investmentchancen und warne vor
-                                überteuerten Lagen.</p>
+                            <h4>Fernkauf</h4>
+                            <p>Sparen Sie Zeit und Geld für Flüge.</p>
+                            <ul style="margin-top: 10px; font-size: 13px; color: #555; padding-left: 20px;">
+                                <li>Echtzeit-Videotouren</li>
+                                <li>Elektronische Registrierung der Transaktion</li>
+                                <li>Abholung am Flughafen (Transfer)</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="about-img-wrapper">
-                <img src="images/realtor.jpg" alt="Svetlana Lakshinskaya — Immobilienexpertin Kaliningrad">
-                <div class="img-label">Mit Liebe zur Ostsee 🌊</div>
+                <img src="images/realtor.jpg" alt="Svetlana Lakshinskaya — Immobilienexpertin">
+                <div class="img-label"><i class="fas fa-shield-alt" style="margin-right: 5px;"></i> Sicherer Deal</div>
             </div>
         </div>
     </section>
 
+    <!-- 8. REVIEWS -->
+    <section id="reviews" style="background: var(--bg-light); padding: 80px 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Kundenbewertungen</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p class="review-text">"Wir haben ein Haus in der Region Kaliningrad gesucht. Swetlana hat uns
+                        hervorragende Optionen in Meeresnähe gezeigt. Die Abwicklung war höchst professionell."</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/men/44.jpg" class="author-avatar" alt="Klient">
+                        <div class="author-info"><strong>Hans Schmidt</strong><span>Hauskäufer</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Kauf eines historischen Hauses in einem Küstenort. Alles verlief
+                        reibungslos, von der ersten Besichtigung bis zur Schlüsselübergabe in Kaliningrad."</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="author-avatar" alt="Klient">
+                        <div class="author-info"><strong>Klaus Weber</strong><span>Immobilienkäufer</span></div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Ein Ferienhaus an der Ostsee war unser Traum. Dank der fachkundigen
+                        Unterstützung von BaltHomes haben wir das perfekte Objekt für unsere Familie gefunden."</p>
+                    <div class="review-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="author-avatar" alt="Klient">
+                        <div class="author-info"><strong>Helga Müller</strong><span>Ferienhausbesitzerin</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO TEXT BLOCK -->
+    <div class="seo-text">
+        <div class="container">
+            <h3>Immobilienkauf in Kaliningrad und der Region</h3>
+            <p>Wenn Sie planen, eine <strong>Wohnung in Kaliningrad zu kaufen</strong> oder ein <strong>Privathaus an
+                    der Küste</strong> (Selenogradsk, Swetlogorsk, Baltijsk, Jantarny) zu erwerben, ist es wichtig,
+                einen zuverlässigen Partner zu wählen. Der regionale Immobilienmarkt bietet sowohl Wohnungen in
+                <strong>deutschen Häusern</strong> mit Geschichte als auch moderne <strong>Neubauten</strong>.
+            </p>
+            <p>Die Immobilienpreise hängen von der Gegend ab. Beliebt sind Wohnungen in Selma, im Zentralbezirk und am
+                Oberen See. Für diejenigen, die am Meer leben möchten, bieten wir eine Auswahl: <strong>Haus kaufen in
+                    Swetlogorsk</strong> oder Apartments in Selenogradsk.</p>
+            <p>Wir arbeiten mit Objekten, die nicht auf gängigen Anzeigenportalen zu finden sind, prüfen die rechtliche
+                Reinheit und helfen bei der sicheren Abwicklung der Transaktion. Die Datenbank umfasst:
+                Gebrauchtimmobilien, Häuser im Bau, Grundstücke und Gewerbeimmobilien.</p>
+        </div>
+    </div>
+
+    <!-- 9. FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo" style="color: #fff; margin-bottom: 15px;">Balt<span>homes</span></div>
-                    <p>Wir finden Ihr Zuhause an der Ostsee.</p>
+                    <p>Wir helfen Ihnen, ein Zuhause an der Ostsee zu finden.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Kontakt</h4>
@@ -1157,11 +1454,12 @@
                     </div>
                 </div>
             </div>
-
             <div class="legal-text">
                 <p>Balthomes.ru dient nur zu Informationszwecken. <br>
-                    Svetlana Lakshinskaya ist eine unabhängige Expertin und Partnerin des "Etagi"-Netzwerkes. <br>
-                    Rechtliche Unterstützung durch "Etagi-Kaliningrad" GmbH.</p>
+                    Svetlana Lakshinskaya ist eine unabhängige Immobilienexpertin und Partnerin des "Etagi" Netzwerks.
+                    <br>
+                    Rechtliche Unterstützung durch "Etagi-Kaliningrad" LLC.
+                </p>
                 <p style="margin-top: 10px;">© 2026 Alle Rechte vorbehalten.</p>
             </div>
         </div>
@@ -1172,9 +1470,9 @@
             document.getElementById('navMenu').classList.toggle('active');
         }
     </script>
-    <script src="js/telegram-sender.js"></script>
-    <script src="js/properties.js"></script>
-    <script src="js/hero-slider.js"></script>
+    <script src="js/telegram-sender.js?v=10"></script>
+    <script src="js/properties.js?v=10"></script>
+    <script src="js/hero-slider.js?v=10"></script>
 </body>
 
 </html>

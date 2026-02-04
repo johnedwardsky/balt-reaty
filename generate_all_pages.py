@@ -163,24 +163,31 @@ def translate_property_data(prop: Dict, force_retranslate: bool = False) -> Dict
 
 # === 1. КОПИРОВАНИЕ ФОТОГРАФИЙ (Smart Sync) ===
 def sync_images():
-    # Путь к эталону на рабочем столе (ТОЛЬКО ЧТЕНИЕ)
-    desktop_base = "/Users/johnsky/Desktop/Balthomes/images/object-10915771"
-    desktop_hero = os.path.join(desktop_base, "hero")
+    # Путь к источникам фото (ТЕПЕРЬ ВНУТРИ ПРОЕКТА)
+    # Используем абсолютный путь для надежности, но относительно текущей папки
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    source_base = os.path.join(base_dir, "source_photos", "object-4")
+    source_hero = os.path.join(source_base, "hero")
     
-    # Путь в проекте (ID 4 - это тот самый дом)
-    project_path = "images/object-4"
+    # Путь назначения (куда копируем для сайта)
+    project_path = os.path.join(base_dir, "images", "object-4")
+    
+    # Создаем папку назначения, если её нет
     if os.path.exists(project_path):
-        shutil.rmtree(project_path)  # Очищаем старое, чтобы не было дублей
-    os.makedirs(project_path)
-    
-    print(f"🔄 Синхронизация фото из {desktop_base}...")
+        # Опционально: можно чистить или просто перезаписывать. 
+        # Если чистить - раскомментировать: shutil.rmtree(project_path)
+        pass
+    else:
+        os.makedirs(project_path)
+
+    print(f"🔄 Синхронизация фото из {source_base}...")
     
     counter = 1
     
     # 1. Сначала берет фото из папки HERO
-    if os.path.exists(desktop_hero):
-        hero_files = sorted(glob.glob(os.path.join(desktop_hero, "*.[jJ][pP][gG]"))) \
-                   + sorted(glob.glob(os.path.join(desktop_hero, "*.[jJ][pP][eE][gG]")))
+    if os.path.exists(source_hero):
+        hero_files = sorted(glob.glob(os.path.join(source_hero, "*.[jJ][pP][gG]"))) \
+                   + sorted(glob.glob(os.path.join(source_hero, "*.[jJ][pP][eE][gG]")))
                    
         if hero_files:
             print(f"  🌟 Найдено {len(hero_files)} фото в папке HERO")
@@ -190,19 +197,20 @@ def sync_images():
                 counter += 1
     
     # 2. Затем берет все остальные фото из основной папки
-    main_files = sorted(glob.glob(os.path.join(desktop_base, "*.[jJ][pP][gG]"))) \
-               + sorted(glob.glob(os.path.join(desktop_base, "*.[jJ][pP][eE][gG]")))
-               
-    for photo in main_files:
-        # Пропускаем, если это не фото (например, папка hero)
-        if os.path.isdir(photo):
-            continue
-            
-        dest = os.path.join(project_path, f"photo_{counter}.jpg")
-        shutil.copy2(photo, dest)
-        counter += 1
+    if os.path.exists(source_base):
+        main_files = sorted(glob.glob(os.path.join(source_base, "*.[jJ][pP][gG]"))) \
+                   + sorted(glob.glob(os.path.join(source_base, "*.[jJ][pP][eE][gG]")))
+                   
+        for photo in main_files:
+            if os.path.isdir(photo):
+                continue
+                
+            dest = os.path.join(project_path, f"photo_{counter}.jpg")
+            shutil.copy2(photo, dest)
+            counter += 1
         
     print(f"✅ Всего скопировано {counter-1} фото для Объекта 4")
+
 
 
 # === 2. ГЕНЕРАЦИЯ СТРАНИЦ ===
