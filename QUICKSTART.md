@@ -25,7 +25,7 @@ source ~/.zshrc
 
 ### Запуск админки:
 ```bash
-cd /Users/johnsky/.gemini/antigravity/scratch/kaliningrad-real-estate
+cd /Users/johnsky/Documents/balthomes.ru
 python3 admin_server.py
 ```
 Откройте: **http://localhost:8000/admin**

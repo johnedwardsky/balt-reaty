@@ -1,7 +1,7 @@
 import os
 import re
 
-base_dir = "/Users/johnsky/.gemini/antigravity/scratch/kaliningrad-real-estate"
+base_dir = "/Users/johnsky/Documents/balthomes.ru"
 files = ['index.html', 'en.html', 'de.html', 'zh.html']
 
 # Уменьшил opacity с 0.9 до 0.6 для лучшей видимости фото

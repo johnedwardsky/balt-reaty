@@ -1,3 +1,8 @@
+const bannerConfig = {
+    "type": "image",
+    "videoUrl": "images/banner.mp4"
+};
+
 const propertiesData = [
     {
         "description": {
@@ -509,7 +514,7 @@ function renderProperties() {
 
     const lang = document.documentElement.lang || 'ru';
 
-    container.innerHTML = propertiesData.map(prop => {
+    let html = propertiesData.map(prop => {
         // Build image segments
         const fallback = prop.fallbackImages || [
             "https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=800&q=80"
@@ -528,7 +533,7 @@ function renderProperties() {
         }
 
         return `
-        <div class="card">
+        <div class="card" onclick="trackView('object', ${prop.id})">
             <div class="card-img">
                 <div class="img-slider-container">
                     ${imgs.map((img, idx) => `
@@ -553,7 +558,47 @@ function renderProperties() {
             </div>
         </div>
     `}).join('');
+
+    // Add Banner
+    html += `
+        <div class="banner-card" style="border-radius: 12px; overflow: hidden; position: relative; height: 100%; min-height: 250px; background: #000;">
+            <a href="https://wa.me/79052491755" target="_blank" onclick="trackView('banner_click', 'main_banner')">
+                ${bannerConfig.type === 'video' ? `
+                    <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.8);">
+                        <source src="${bannerConfig.videoUrl || 'images/banner.mp4'}" type="video/mp4">
+                        <img src="images/banner.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="Special Offer">
+                    </video>
+                ` : `
+                    <img src="images/banner.jpeg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Special Offer">
+                `}
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: #fff;">
+                    <div style="display: inline-block; padding: 4px 12px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; text-transform: uppercase; border-radius: 4px; margin-bottom: 10px; letter-spacing: 1px;">
+                        VIP Предложение
+                    </div>
+                    <div style="font-weight: 700; font-size: 22px; margin-bottom: 5px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Спецпредложение недели</div>
+                    <div style="font-size: 14px; opacity: 0.9; font-weight: 400;">Узнайте о закрытых продажах в WhatsApp <i class="fab fa-whatsapp" style="margin-left: 5px; color: #25D366;"></i></div>
+                </div>
+            </a>
+        </div>
+    `;
+
+    container.innerHTML = html;
+
+    // Track page view and banner impression
+    trackView('page_view', 'home');
+    trackView('banner_impression', 'main_banner');
 }
+
+// Global Tracking Function
+window.trackView = function (type, id) {
+    try {
+        fetch('/api/stats/track', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type, id, timestamp: new Date().toISOString() })
+        });
+    } catch (e) { }
+};
 
 // Global function to switch images
 window.switchSliderImg = function (element, index) {

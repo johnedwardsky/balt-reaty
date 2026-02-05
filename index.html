@@ -870,14 +870,18 @@
 
             .hero-badges {
                 justify-content: center;
+                flex-wrap: wrap;
             }
 
             .hero-img {
                 width: 100%;
+                height: 300px;
+                margin-bottom: 20px;
             }
 
             .about-section {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .about-img-wrapper {
@@ -909,6 +913,49 @@
                 border-top: 1px solid #eee;
                 justify-content: center;
                 width: 100%;
+            }
+
+            /* Catalog Grid Mobile Overrides */
+            .catalog-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            .banner-card {
+                grid-column: span 1 !important;
+                min-height: 200px !important;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-text h1 {
+                font-size: 24px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+                padding: 14px 20px;
+            }
+
+            .quiz-box {
+                padding: 20px;
+            }
+
+            .form-group {
+                min-width: 100%;
             }
         }
     </style>
@@ -1282,10 +1329,40 @@
     <!-- 4. ПРЕВЬЮ КАТАЛОГА -->
     <section id="catalog" class="catalog-preview" style="background: var(--bg-light); padding-top: 60px;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 10px;">Свежие предложения</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 40px;">Актуальная база объектов вторичного жилья в
-                продаже</p>
+            <style>
+                .catalog-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
 
+                @media (min-width: 768px) {
+                    .catalog-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                @media (min-width: 1024px) {
+                    .catalog-grid {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+
+                .banner-card {
+                    grid-column: span 1;
+                }
+
+                @media (min-width: 768px) {
+                    /* If we have 1 card on the last row of a 2-col grid, it stays col-span-1. 
+                       If we want it to fill, we could use span 2. */
+                }
+
+                @media (min-width: 1024px) {
+                    .banner-card {
+                        grid-column: span 2;
+                    }
+                }
+            </style>
             <div id="catalog-grid" class="catalog-grid" style="margin-bottom: 40px;">
                 <!-- Динамический контент из js/properties.js -->
             </div>

@@ -1,7 +1,7 @@
 import os
 import re
 
-base_dir = "/Users/johnsky/.gemini/antigravity/scratch/kaliningrad-real-estate"
+base_dir = "/Users/johnsky/Documents/balthomes.ru"
 files = ['index.html', 'en.html', 'de.html', 'zh.html']
 
 # Новый стиль: используем локальную картинку (например photo_3.jpg) и убираем fixed

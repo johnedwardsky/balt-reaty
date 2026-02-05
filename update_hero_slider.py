@@ -2,7 +2,7 @@ import os
 import re
 
 # Папка с html
-base_dir = "/Users/johnsky/.gemini/antigravity/scratch/kaliningrad-real-estate"
+base_dir = "/Users/johnsky/Documents/balthomes.ru"
 
 # Новые картинки (пути относительно корня сайта)
 new_images = []

@@ -53,9 +53,72 @@ def save_properties(data):
             # We would lose functions here, but this is a safety fallback. 
             # In real usage, the structure should be stable.
 
+STATS_JSON = os.path.join(BASE_DIR, 'stats.json')
+
+def read_stats():
+    if not os.path.exists(STATS_JSON):
+        return {"views": {}, "banner": {"impressions": 0, "clicks": 0, "config": {"type": "image", "videoUrl": ""}}, "pages": {}}
+    with open(STATS_JSON, 'r', encoding='utf-8') as f:
+        stats = json.load(f)
+        if 'config' not in stats['banner']:
+            stats['banner']['config'] = {"type": "image", "videoUrl": ""}
+        return stats
+
+def save_stats(stats):
+    with open(STATS_JSON, 'w', encoding='utf-8') as f:
+        json.dump(stats, f, indent=4, ensure_ascii=False)
+
+@app.route('/api/banner-config', methods=['POST'])
+def save_banner_config():
+    config = request.json
+    stats = read_stats()
+    stats['banner']['config'] = config
+    save_stats(stats)
+    
+    # Sync to js/properties.js
+    with open(PROPERTIES_JS, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    config_js = f"const bannerConfig = {json.dumps(config, indent=4, ensure_ascii=False)};"
+    
+    if 'const bannerConfig =' in content:
+        import re
+        content = re.sub(r'const bannerConfig = \{.*?\};', config_js, content, flags=re.DOTALL)
+    else:
+        content = config_js + "\n\n" + content
+        
+    with open(PROPERTIES_JS, 'w', encoding='utf-8') as f:
+        f.write(content)
+        
+    return jsonify({"status": "success"})
+
 @app.route('/api/properties', methods=['GET'])
 def get_properties():
     return jsonify(read_properties())
+
+@app.route('/api/stats', methods=['GET'])
+def get_stats():
+    return jsonify(read_stats())
+
+@app.route('/api/stats/track', methods=['POST'])
+def track_stats():
+    data = request.json
+    t = data.get('type')
+    obj_id = str(data.get('id'))
+    
+    stats = read_stats()
+    
+    if t == 'object':
+        stats['views'][obj_id] = stats['views'].get(obj_id, 0) + 1
+    elif t == 'banner_impression':
+        stats['banner']['impressions'] += 1
+    elif t == 'banner_click':
+        stats['banner']['clicks'] += 1
+    elif t == 'page_view':
+        stats['pages'][obj_id] = stats['pages'].get(obj_id, 0) + 1
+        
+    save_stats(stats)
+    return jsonify({"status": "success"})
 
 @app.route('/api/properties', methods=['POST'])
 def update_properties():
@@ -65,10 +128,10 @@ def update_properties():
 
 @app.route('/api/upload', methods=['POST'])
 def upload_image():
-    if 'images' not in request.files:
-        return jsonify({"error": "No images provided"}), 400
+    if 'image' not in request.files:
+        return jsonify({"error": "No image provided"}), 400
     
-    files = request.files.getlist('images')
+    files = request.files.getlist('image')
     obj_id = request.form.get('id')
     
     # Определяем папку назначения
@@ -78,20 +141,27 @@ def upload_image():
         target_dir = IMAGES_DIR # Fallback
         
     if not os.path.exists(target_dir):
-        os.makedirs(target_dir)
+        os.makedirs(target_dir, exist_ok=True)
         
-    saved_files = []
+    saved_paths = []
     for file in files:
         if file.filename:
             filename = file.filename
             filepath = os.path.join(target_dir, filename)
             file.save(filepath)
-            
             # Возвращаем путь относительно корня сайта
             rel_path = f"images/object-{obj_id}/{filename}" if obj_id else f"images/{filename}"
-            saved_files.append(rel_path)
+            saved_paths.append(rel_path)
     
-    return jsonify({"status": "success", "files": saved_files})
+    if saved_paths:
+        # Return first path for single-upload compatibility, and all paths for multi-upload
+        return jsonify({
+            "status": "success", 
+            "path": saved_paths[0], 
+            "paths": saved_paths
+        })
+    
+    return jsonify({"status": "error"}), 400
 
 @app.route('/api/generate-pages', methods=['POST'])
 def generate_pages():
@@ -136,7 +206,7 @@ def deploy_to_github():
 
 @app.route('/admin')
 def admin_page():
-    path = os.path.join(TEMPLATE_DIR, 'admin.html')
+    path = os.path.join(BASE_DIR, 'admin', 'index.html')
     with open(path, 'r', encoding='utf-8') as f:
         return f.read()
 
@@ -145,7 +215,5 @@ def serve_static(path):
     return send_from_directory('.', path)
 
 if __name__ == '__main__':
-    os.makedirs('admin', exist_ok=True)
-    os.makedirs('templates', exist_ok=True)
     os.makedirs('images', exist_ok=True)
     app.run(port=8000, debug=False)

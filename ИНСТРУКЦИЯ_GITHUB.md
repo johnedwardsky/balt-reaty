@@ -36,7 +36,7 @@ cd название-репозитория
 ### Шаг 2: Скопируйте папку images/
 ```bash
 # Скопируйте папку images из текущего проекта
-cp -r /Users/johnsky/.gemini/antigravity/scratch/kaliningrad-real-estate/images ./
+cp -r /Users/johnsky/Documents/balthomes.ru/images ./
 ```
 
 ### Шаг 3: Загрузите на GitHub
@@ -52,7 +52,7 @@ git push origin main
 
 ### Шаг 1: Инициализируйте Git
 ```bash
-cd /Users/johnsky/.gemini/antigravity/scratch/kaliningrad-real-estate
+cd /Users/johnsky/Documents/balthomes.ru
 git init
 ```
 

@@ -40,7 +40,7 @@
 ### 1. Установка зависимостей
 
 ```bash
-cd /Users/johnsky/.gemini/antigravity/scratch/kaliningrad-real-estate
+cd /Users/johnsky/Documents/balthomes.ru
 pip3 install googletrans==4.0.0rc1
 ```
 

@@ -1237,6 +1237,35 @@
             <h2 style="text-align: center; margin-bottom: 10px;">Aktuelle Angebote</h2>
             <p style="text-align: center; color: #666; margin-bottom: 40px;">Aktualisierte Datenbank von
                 Gebrauchtimmobilien zum Verkauf</p>
+            <style>
+                .catalog-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+
+                @media (min-width: 768px) {
+                    .catalog-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                @media (min-width: 1024px) {
+                    .catalog-grid {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+
+                .banner-card {
+                    grid-column: span 1;
+                }
+
+                @media (min-width: 1024px) {
+                    .banner-card {
+                        grid-column: span 2;
+                    }
+                }
+            </style>
             <div id="catalog-grid" class="catalog-grid" style="margin-bottom: 40px;"></div>
             <div style="text-align: center;">
                 <a href="https://kaliningrad.etagi.com/realtors/170927/" target="_blank" class="btn">Vollständigen

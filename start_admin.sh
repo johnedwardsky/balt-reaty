@@ -10,7 +10,10 @@ then
 fi
 
 echo "Проверка зависимостей..."
-python3 -m pip install flask flask-cors fs-extra &> /dev/null
+python3 -m pip install flask flask-cors &> /dev/null
 
 echo "Запуск сервера..."
+# Open browser after a short delay
+(sleep 2 && open "http://localhost:8000/admin") &
+
 python3 admin_server.py
