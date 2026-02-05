@@ -440,9 +440,9 @@
                     </select>
                 </div>
                 <div id="videoUrlGroup" class="form-group" style="display: none;">
-                    <label class="form-label" style="font-size: 11px;">Ссылка на видео (.mp4)</label>
+                    <label class="form-label" style="font-size: 11px;">Ссылка на видео (.mp4 или Kinescope)</label>
                     <input type="text" id="bannerVideoUrl" class="form-input" placeholder="images/banner.mp4"
-                        onchange="updateBannerConfig()" style="padding: 4px; font-size: 12px;">
+                        oninput="updateBannerConfig()" style="padding: 4px; font-size: 12px;">
                 </div>
                 <div id="imageUploadGroup" class="upload-area" onclick="document.getElementById('bannerUpload').click()"
                     style="padding: 0.5rem; margin-top: 0.5rem; font-size: 12px;">

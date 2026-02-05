@@ -81,9 +81,13 @@ def save_banner_config():
     
     config_js = f"const bannerConfig = {json.dumps(config, indent=4, ensure_ascii=False)};"
     
-    if 'const bannerConfig =' in content:
-        import re
-        content = re.sub(r'const bannerConfig = \{.*?\};', config_js, content, flags=re.DOTALL)
+    import re
+    config_js = f"const bannerConfig = {json.dumps(config, indent=4, ensure_ascii=False)};"
+    
+    # More robust substitution
+    pattern = r'const bannerConfig = \{.*?\};?'
+    if re.search(pattern, content, flags=re.DOTALL):
+        content = re.sub(pattern, config_js, content, flags=re.DOTALL, count=1)
     else:
         content = config_js + "\n\n" + content
         

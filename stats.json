@@ -2,7 +2,11 @@
     "views": {},
     "banner": {
         "impressions": 0,
-        "clicks": 0
+        "clicks": 0,
+        "config": {
+            "type": "video",
+            "videoUrl": "https://kinescope.io/akSwB2asqm2qYrz69Ysas5"
+        }
     },
     "pages": {}
 }

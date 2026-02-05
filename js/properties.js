@@ -1,6 +1,6 @@
 const bannerConfig = {
-    "type": "image",
-    "videoUrl": "images/banner.mp4"
+    "type": "video",
+    "videoUrl": "https://kinescope.io/akSwB2asqm2qYrz69Ysas5"
 };
 
 const propertiesData = [
@@ -566,11 +566,11 @@ function renderProperties() {
                 ${bannerConfig.type === 'video' ? (
             bannerConfig.videoUrl.includes('kinescope.io') ? `
                         <iframe src="${bannerConfig.videoUrl.replace('kinescope.io/', 'kinescope.io/embed/')}?autoplay=1&muted=1&loop=1&playsinline=1&controls=0&dnt=1" 
-                                style="width: 100%; height: 100%; border: none; pointer-events: none; position: absolute; top:0; left:0; filter: brightness(0.8);" 
-                                allow="autoplay; fullscreen; picture-in-picture; encrypted-media;"></iframe>
+                                style="width: 100%; height: 100%; border: none; pointer-events: none; position: absolute; top:0; left:0;" 
+                                allow="autoplay; fullscreen; picture-in-picture; encrypted-in-picture; encrypted-media;"></iframe>
                         <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:2;"></div>
                     ` : `
-                        <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.8);">
+                        <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; display: block;">
                             <source src="${bannerConfig.videoUrl || 'images/banner.mp4'}" type="video/mp4">
                             <img src="images/banner.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="Special Offer">
                         </video>
@@ -578,13 +578,6 @@ function renderProperties() {
         ) : `
                     <img src="images/banner.jpeg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Special Offer">
                 `}
-                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: #fff; z-index: 3;">
-                    <div style="display: inline-block; padding: 4px 12px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; text-transform: uppercase; border-radius: 4px; margin-bottom: 10px; letter-spacing: 1px;">
-                        VIP Предложение
-                    </div>
-                    <div style="font-weight: 700; font-size: 22px; margin-bottom: 5px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Спецпредложение недели</div>
-                    <div style="font-size: 14px; opacity: 0.9; font-weight: 400;">Узнайте о закрытых продажах в WhatsApp <i class="fab fa-whatsapp" style="margin-left: 5px; color: #25D366;"></i></div>
-                </div>
             </a>
         </div>
     `;
