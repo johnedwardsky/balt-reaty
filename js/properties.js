@@ -563,15 +563,22 @@ function renderProperties() {
     html += `
         <div class="banner-card" style="border-radius: 12px; overflow: hidden; position: relative; height: 100%; min-height: 250px; background: #000;">
             <a href="https://wa.me/79052491755" target="_blank" onclick="trackView('banner_click', 'main_banner')">
-                ${bannerConfig.type === 'video' ? `
-                    <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.8);">
-                        <source src="${bannerConfig.videoUrl || 'images/banner.mp4'}" type="video/mp4">
-                        <img src="images/banner.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="Special Offer">
-                    </video>
-                ` : `
+                ${bannerConfig.type === 'video' ? (
+            bannerConfig.videoUrl.includes('kinescope.io') ? `
+                        <iframe src="${bannerConfig.videoUrl.replace('kinescope.io/', 'kinescope.io/embed/')}?autoplay=1&muted=1&loop=1&playsinline=1&controls=0&dnt=1" 
+                                style="width: 100%; height: 100%; border: none; pointer-events: none; position: absolute; top:0; left:0; filter: brightness(0.8);" 
+                                allow="autoplay; fullscreen; picture-in-picture; encrypted-media;"></iframe>
+                        <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:2;"></div>
+                    ` : `
+                        <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.8);">
+                            <source src="${bannerConfig.videoUrl || 'images/banner.mp4'}" type="video/mp4">
+                            <img src="images/banner.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="Special Offer">
+                        </video>
+                    `
+        ) : `
                     <img src="images/banner.jpeg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Special Offer">
                 `}
-                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: #fff;">
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: #fff; z-index: 3;">
                     <div style="display: inline-block; padding: 4px 12px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; text-transform: uppercase; border-radius: 4px; margin-bottom: 10px; letter-spacing: 1px;">
                         VIP Предложение
                     </div>
