@@ -226,7 +226,7 @@
         "description": {
             "de": "Gemütliche und helle Wohnung in einer Gegend mit entwickelter Infrastruktur. Backsteinhaus mit hervorragender Wärme- und Schalldämmung. In der Wohnung wurden kosmetische Reparaturen durchgeführt.",
             "en": "Cozy and bright apartment in an area with developed infrastructure. Brick house providing excellent thermal and sound insulation. The apartment has undergone cosmetic repairs, communications have been replaced.",
-            "ru": "Уютная и светлая квартира в районе с развитой инфраструктурой. Кирпичный дом, обеспечивающий отличную тепло- и звукоизоляцию. В квартире выполнен косметический ремонт, заменены коммуникации. Прекрасный вариант как для жизни, так и для сдачи в аренду.",
+            "ru": "Продается уютная 1-комнатная квартира 37,5 м² в Московском районе с качественным свежим ремонтом и полностью замененными коммуникациями. Вся мебель и техника остаются новым владельцам — идеальный вариант «заходи и живи» без вложений. Дом расположен в развитой локации: во дворе школа №56 и детские сады, рядом магазины и остановки, удобный выезд к морю. Квартира юридически чиста, один взрослый собственник — быстрая и безопасная сделка гарантирована!",
             "zh": "位于基础设施发达地区的温馨明亮的公寓。砖房提供极佳的隔热和隔音效果。公寓进行了美容维修，更换了通讯设施。无论是自住还是出租的完美选择。"
         },
         "detailsLink": {
@@ -266,7 +266,47 @@
             "en": "2-room Apt, 65m², Gaydara str.",
             "ru": "2-к квартира, 65м², ул. Гайдара",
             "zh": "两室公寓，65平米"
-        }
+        },
+        "type": "apartment",
+        "specs": {
+            "ru": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": ""
+            },
+            "en": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": ""
+            },
+            "de": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": ""
+            },
+            "zh": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": ""
+            }
+        },
+        "mapUrl": ""
     },
     {
         "description": {
