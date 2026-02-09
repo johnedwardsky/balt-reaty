@@ -254,11 +254,50 @@ const propertiesData = [
             "ru": "Калининград, ул. Гайдара, 114",
             "zh": "加里宁格勒"
         },
+        "mapUrl": "",
         "price": {
             "de": "€ 62.000*",
             "en": "€ 62,000*",
             "ru": "6 200 000 ₽",
             "zh": "¥ 476,000*"
+        },
+        "specs": {
+            "de": {
+                "area": "",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
+            },
+            "en": {
+                "area": "",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
+            },
+            "ru": {
+                "area": "",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
+            },
+            "zh": {
+                "area": "",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
+            }
         },
         "stats": {
             "de": "65 m² | 5. Stock",
@@ -272,25 +311,13 @@ const propertiesData = [
             "ru": "2-к квартира, 65м², ул. Гайдара",
             "zh": "两室公寓，65平米"
         },
-        "type": "apartment",
-        "specs": {
-            "ru": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "",
-                "heating": "",
-                "renovation": ""
-            }
-        },
-        "mapUrl": ""
+        "type": "apartment"
     },
     {
         "description": {
             "de": "Wohnung in einer modernen Wohnanlage der Komfortklasse. Hochwertige 'graue Schlüssel' Veredelung, die jedes Designprojekt ermöglicht. Die Fenster blicken in einen ruhigen Innenhof.",
             "en": "Apartment in a modern comfort-class residential complex. High-quality 'gray key' finishing, allowing to implement any design project. Windows overlook a quiet courtyard. The territory of the complex is fenced.",
-            "ru": "Квартира в современном жилом комплексе комфорт-класса. Качественный серый ключ, позволяющий реализовать любой дизайн-проект. Окна выходят в тихий двор. Территория комплекса огорожена, ведется видеонаблюдение.",
+            "ru": "Продается видовая 2-комнатная квартира 65 м² с автономным отоплением и высокими потолками 2,85 м в престижном ЖК «Королевские ворота». Выполнен стильный ремонт с теплыми полами, остается вся мебель и техника — наслаждайтесь панорамой на реку и стадион сразу после переезда. Дом расположен в тихой зеленой зоне у исторического вала, при этом в шаговой доступности супермаркеты, кафе и транспорт.\n",
             "zh": "舒适级现代住宅楼群内的公寓。优质的'灰色钥匙'交付，允许实施任何设计项目。窗户朝向安静的院子。楼群区域封闭，设有视频监控。"
         },
         "detailsLink": {
@@ -353,7 +380,14 @@ const propertiesData = [
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": ""
             },
             "zh": {
                 "Area": "",
@@ -373,7 +407,8 @@ const propertiesData = [
             "en": "2-room Apt, 65m², Gagarina str.",
             "ru": "2-к квартира, 65м², ул. Гагарина",
             "zh": "两室公寓，65平米"
-        }
+        },
+        "type": "apartment"
     },
     {
         "description": {

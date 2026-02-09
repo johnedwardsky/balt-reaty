@@ -260,55 +260,30 @@ def generate_all():
                 return ''
 
             title = get_text('title')
-            # 1. Заголовки
-            content = content.replace('Дом в Зеленоградске 300 м² | BaltHomes — Элитная недвижимость', f'{title} | BaltHomes')
-            content = content.replace('Современный дом в Зеленоградске', title)
             
-            # 2. Цена и Локация
-            content = content.replace('27 500 000 ₽', get_text('price'))
-            content = content.replace('г. Зеленоградск, 2-й Задонский переулок, 4', get_text('location'))
-            content = content.replace('Зеленоградск, Район Малиновка', get_text('location'))
-            content = content.replace('Дом в Малиновке', title) # Хлебные крошки
-            
-            # 3. Характеристики (Specs)
-            content = content.replace('>300 м²</div>', f'>{get_text("stats").split("|")[0].strip()}</div>')
-            content = content.replace('>8.5 сот.</div>', f'>{get_text("stats").split("|")[-1].strip()}</div>')
-            
-            # 4. Описание
-            desc = get_text('description')
-            desc_html = desc.replace('\n', '</p><p>').replace('\\n', '</p><p>')
-            new_desc_html = f'<div class="description"><h3>О доме</h3><p>{desc_html}</p></div>'
-            description_pattern = r'<div class="description">\s*<h3>О доме</h3>.*?</div>'
-            content = re.sub(description_pattern, new_desc_html, content, flags=re.DOTALL)
+            # 1. Определение типа объекта
+            prop_type = prop.get('type', '')
+            if not prop_type:
+                title_ru = prop.get('title', {}).get('ru', '').lower()
+                if 'квартира' in title_ru: prop_type = 'apartment'
+                elif 'апартамент' in title_ru: prop_type = 'apartment'
+                elif 'таунхаус' in title_ru: prop_type = 'townhouse'
+                else: prop_type = 'house'
 
-            
-            
-            # 5. Преимущества
-            features = prop.get('features', [])
-            if isinstance(features, dict):
-                # Если features - словарь с переводами
-                feat_list = features.get(lang, features.get('ru', []))
-            else:
-                # Если features - простой список (старый формат)
-                feat_list = features
-            
-            features_html = '<div class="description"><h3>Преимущества</h3><div class="features-list">'
-            for f in feat_list:
-                features_html += f'<div class="feature-item"><i class="fas fa-check"></i> {f}</div>'
-            features_html += '</div></div>'
-            
-            
-            features_pattern = r'<div class="description">\s*<h3>Преимущества</h3>.*?</div>\s*</div>\s*</div>'
-            content = re.sub(features_pattern, features_html, content, flags=re.DOTALL)
-
-
-
-            # --- ПЕРЕВОДЫ ШАПКИ И ЗАГОЛОВКОВ ---
+            # 2. Инициализация переводов интерфейса
             trans = {
                 'ru': {
                     'subtitle': '<span>Б</span><span>а</span><span>л</span><span>т</span><span>и</span><span>й</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>д</span><span>о</span><span>м</span><span>а</span>',
                     'menu': ['Каталог', 'Побережье', 'Подбор', 'Услуги', 'Отзывы'],
-                    'headings': ['О доме', 'Преимущества', 'Расположение', 'Контактные данные', 'Записаться на просмотр'],
+                    'headings': {
+                        'house': 'О доме',
+                        'apartment': 'О квартире',
+                        'townhouse': 'О таунхаусе',
+                        'features': 'Преимущества',
+                        'location': 'Расположение',
+                        'contacts': 'Контактные данные',
+                        'viewing': 'Записаться на просмотр'
+                    },
                     'agent_role': 'Ведущий специалист',
                     'sub_phone': 'Калининград и область',
                     'breadcrumb_home': 'Главная',
@@ -317,16 +292,32 @@ def generate_all():
                 'en': {
                     'subtitle': '<span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>c</span><span>&nbsp;</span><span>H</span><span>o</span><span>m</span><span>e</span><span>s</span>',
                     'menu': ['Catalog', 'Coastline', 'Selection', 'Services', 'Reviews'],
-                    'headings': ['About House', 'Features', 'Location', 'Contact Details', 'Book a Viewing'],
+                    'headings': {
+                        'house': 'About House',
+                        'apartment': 'About Apartment',
+                        'townhouse': 'About Townhouse',
+                        'features': 'Features',
+                        'location': 'Location',
+                        'contacts': 'Contact Details',
+                        'viewing': 'Book a Viewing'
+                    },
                     'agent_role': 'Leading Specialist',
                     'sub_phone': 'Kaliningrad & Region',
                     'breadcrumb_home': 'Home',
                     'home_link': 'en.html'
                 },
                 'de': {
-                    'subtitle': '<span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>s</span><span>c</span><span>h</span><span>e</span><span>&nbsp;</span><span>H</span><span>ä</span><span>u</span><span>s</span><span>e</span><span>r</span>',
+                    'subtitle': '<span>B</span><span>a</span><span>l</span><span>т</span><span>и</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>H</span><span>ä</span><span>u</span><span>s</span><span>e</span><span>r</span>',
                     'menu': ['Katalog', 'Ostseeküste', 'Auswahl', 'Leistungen', 'Bewertungen'],
-                    'headings': ['Über das Haus', 'Vorteile', 'Lage', 'Kontaktdaten', 'Besichtigung buchen'],
+                    'headings': {
+                        'house': 'Über das Haus',
+                        'apartment': 'Über die Wohnung',
+                        'townhouse': 'Über das Townhouse',
+                        'features': 'Vorteile',
+                        'location': 'Lage',
+                        'contacts': 'Kontaktdaten',
+                        'viewing': 'Besichtigung buchen'
+                    },
                     'agent_role': 'Führender Spezialist',
                     'sub_phone': 'Kaliningrad & Region',
                     'breadcrumb_home': 'Startseite',
@@ -335,7 +326,15 @@ def generate_all():
                 'zh': {
                     'subtitle': '<span>波</span><span>罗</span><span>的</span><span>海</span><span>之</span><span>家</span>',
                     'menu': ['房产目录', '海岸线', '选房', '服务', '评论'],
-                    'headings': ['关于房产', '房产特色', '地理位置', '联系方式', '预约看房'],
+                    'headings': {
+                        'house': '关于房屋',
+                        'apartment': '关于公寓',
+                        'townhouse': '关于联排别墅',
+                        'features': '房产特色',
+                        'location': '地理位置',
+                        'contacts': '联系方式',
+                        'viewing': '预约看房'
+                    },
                     'agent_role': '首席专家',
                     'sub_phone': '加里宁格勒及地区',
                     'breadcrumb_home': '首页',
@@ -343,35 +342,69 @@ def generate_all():
                 }
             }
             t = trans.get(lang, trans['ru'])
+            about_heading = t['headings'].get(prop_type, t['headings']['house'])
 
-            # Замена подзаголовка логотипа и ссылки на главную
+            # 3. Основные замены текста
+            content = content.replace('Дом в Зеленоградске 300 м² | BaltHomes — Элитная недвижимость', f'{title} | BaltHomes')
+            content = content.replace('Современный дом в Зеленоградске', title)
+            content = content.replace('27 500 000 ₽', get_text('price'))
+            content = content.replace('г. Зеленоградск, 2-й Задонский переулок, 4', get_text('location'))
+            content = content.replace('Зеленоградск, Район Малиновка', get_text('location'))
+            content = content.replace('Дом в Малиновке', title) # Breadcrumbs
             content = content.replace('<span>Б</span><span>а</span><span>л</span><span>т</span><span>и</span><span>й</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>д</span><span>о</span><span>м</span><span>а</span>', t['subtitle'])
             content = content.replace('href="index.html"', f'href="{t["home_link"]}"')
             
-            # Замена меню и ссылок-якорей
-            content = content.replace('href="index.html#catalog"', f'href="{t["home_link"]}#catalog"')
-            content = content.replace('href="index.html#categories"', f'href="{t["home_link"]}#categories"')
-            content = content.replace('href="index.html#quiz"', f'href="{t["home_link"]}#quiz"')
-            content = content.replace('href="index.html#services"', f'href="{t["home_link"]}#services"')
+            # Ссылки меню
+            for i, anchor in enumerate(['#catalog', '#categories', '#quiz', '#services']):
+                content = content.replace(f'href="index.html{anchor}"', f'href="{t["home_link"]}{anchor}"')
             
             content = content.replace('>Каталог<', f'>{t["menu"][0]}<')
             content = content.replace('>Побережье<', f'>{t["menu"][1]}<')
             content = content.replace('>Подбор<', f'>{t["menu"][2]}<')
             content = content.replace('>Услуги<', f'>{t["menu"][3]}<')
             content = content.replace('>Отзывы<', f'>{t["menu"][4]}<')
+
+            # 4. Характеристики (Specs)
+            spec_labels = {
+                'ru': {'area': 'Площадь', 'plot': 'Участок', 'floor': 'Этаж', 'floors': 'Этажей', 'rooms': 'Комнат'},
+                'en': {'area': 'Area', 'plot': 'Plot', 'floor': 'Floor', 'floors': 'Floors', 'rooms': 'Rooms'},
+                'de': {'area': 'Fläche', 'plot': 'Grundstück', 'floor': 'Etage', 'floors': 'Etagen', 'rooms': 'Zimmer'},
+                'zh': {'area': '面积', 'plot': '土地', 'floor': '楼层', 'floors': '层数', 'rooms': '房间'}
+            }
+            sl = spec_labels.get(lang, spec_labels['ru'])
             
-            # Замена заголовков разделов
-            content = content.replace('<h3>О доме</h3>', f'<h3>{t["headings"][0]}</h3>')
-            content = content.replace('<h3>Преимущества</h3>', f'<h3>{t["headings"][1]}</h3>')
-            content = content.replace('Расположение</h3>', f'{t["headings"][2]}</h3>')
-            content = content.replace('Записаться на просмотр</button>', f'{t["headings"][4]}</button>')
+            content = content.replace('>Площадь</div>', f'>{sl["area"]}</div>')
+            content = content.replace('>300 м²</div>', f'>{get_text("stats").split("|")[0].strip()}</div>')
             
-            # Роль агента и подпись телефона
+            if prop_type == 'house':
+                content = content.replace('>Участок</div>', f'>{sl["plot"]}</div>')
+            else:
+                content = content.replace('>Участок</div>', f'>{sl["floor"]}</div>')
+            
+            content = content.replace('>Этажей</div>', f'>{sl["floors"]}</div>')
+            content = content.replace('>8.5 сот.</div>', f'>{get_text("stats").split("|")[-1].strip()}</div>')
+            content = content.replace('>Комнат</div>', f'>{sl["rooms"]}</div>')
+
+            # 5. Описание и преимущества
+            desc = get_text('description')
+            desc_html = desc.replace('\n', '</p><p>').replace('\\n', '</p><p>')
+            new_desc_html = f'<div class="description"><h3>{about_heading}</h3><p>{desc_html}</p></div>'
+            content = re.sub(r'<div class="description">\s*<h3>О доме</h3>.*?</div>', new_desc_html, content, flags=re.DOTALL)
+
+            features = prop.get('features', [])
+            feat_list = features.get(lang, features.get('ru', [])) if isinstance(features, dict) else features
+            features_html = f'<div class="description"><h3>{t["headings"]["features"]}</h3><div class="features-list">'
+            for f in feat_list:
+                features_html += f'<div class="feature-item"><i class="fas fa-check"></i> {f}</div>'
+            features_html += '</div></div>'
+            content = re.sub(r'<div class="description">\s*<h3>Преимущества</h3>.*?</div>\s*</div>\s*</div>', features_html, content, flags=re.DOTALL)
+
+            # 6. Остальные замены
+            content = content.replace('Расположение</h3>', f'{t["headings"]["location"]}</h3>')
+            content = content.replace('Записаться на просмотр</button>', f'{t["headings"]["viewing"]}</button>')
             content = content.replace('Ведущий специалист', t['agent_role'])
             content = content.replace('Калинингад и область', t['sub_phone'])
             content = content.replace('>Главная<', f'>{t["breadcrumb_home"]}<')
-
-            # 6. Форма (Название объекта)
             content = content.replace('value="Дом в Зеленоградске (ID 10915771)"', f'value="{title} (ID {obj_id})"')
 
             # --- ССЫЛКИ И ЯЗЫКИ (ПОЛНАЯ ПЕРЕГЕНЕРАЦИЯ БЛОКОВ) ---
