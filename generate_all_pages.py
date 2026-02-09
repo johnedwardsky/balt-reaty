@@ -210,7 +210,7 @@ def generate_all():
     print("\n🌍 Начинаем автоматический перевод...")
     for i, prop in enumerate(properties):
         print(f"\n📝 Объект {prop.get('id', i+1)}: {prop.get('title', {}).get('ru', 'Без названия')}")
-        properties[i] = translate_property_data(prop, force_retranslate=True)
+        # properties[i] = translate_property_data(prop, force_retranslate=True)
     
     # Сохраняем обновленные данные с переводами
     with open('data.json', 'w', encoding='utf-8') as f:
@@ -453,14 +453,14 @@ def generate_all():
             content = content.replace('>Комнат</div>', f'>{sl["rooms"]}</div>')
 
             
-            # 5. Описание и преимущества
+            # 5. Описание и преимущества (Простая замена плейсхолдеров)
             desc = get_text('description')
+            if not desc or len(desc) < 5:
+                # print(f"WARNING: No description for object {obj_id}, using fallback.")
+                desc = "Описание скоро появится."
+            
             desc_html = desc.replace('\n', '</p><p>').replace('\\n', '</p><p>')
             new_desc_html = f'<div class="description"><h3>{about_heading}</h3><p>{desc_html}</p></div>'
-
-            # Более гибкая регулярка для замены описания (ищем блок перед следующим блоком description)
-            description_pattern = r'<div class="description">.*?<h3>.*?</h3>.*?(?=\s*<div class="description">)'
-            content = re.sub(description_pattern, new_desc_html, content, flags=re.DOTALL)
 
             features = prop.get('features', [])
             feat_list = features.get(lang, features.get('ru', [])) if isinstance(features, dict) else features
@@ -468,10 +468,10 @@ def generate_all():
             for f in feat_list:
                 features_html += f'<div class="feature-item"><i class="fas fa-check"></i> {f}</div>'
             features_html += '</div></div>'
-            # Исправленная регулярка: жадный поиск до закрывающего тега property-info (перед SIDEBAR)
-            # Ищем блок, содержащий features-list, с любым заголовком
-            features_pattern = r'<div class="description">\s*<h3>.*?</h3>\s*<div class="features-list">.*?(?=\s*</div>\s*<!-- SIDEBAR -->)'
-            content = re.sub(features_pattern, features_html, content, flags=re.DOTALL)
+
+            # Прямая замена плейсхолдеров из шаблона
+            content = content.replace('{{ DESCRIPTION }}', new_desc_html)
+            content = content.replace('{{ FEATURES }}', features_html)
 
             # 6. Остальные замены (включая страховку для заголовков)
             content = content.replace('<h3>О доме</h3>', f'<h3>{about_heading}</h3>')
