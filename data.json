@@ -14,16 +14,20 @@
         },
         "features": {
             "de": [
-                "Erste Meereslinie",
-                "Gasheizung",
-                "Videoüberwachung",
-                "Landschaftsgestaltung"
+                "Funktionierender Kamin und Sauna im Haus",
+                "autonome Gasheizung mit ländlichem Tarif",
+                "beheizte Garage und deutsche Fliesen",
+                "Trockenbereich mit Entwässerung und Bepflanzung",
+                "Schulbus und Ausfahrt nach Okruzhnaya in 1 Minute",
+                "15 Minuten in die Innenstadt."
             ],
             "en": [
-                "First line",
-                "Gas heating",
-                "Video surveillance",
-                "Landscape design"
+                "Working fireplace and sauna inside the house",
+                "autonomous gas heating with rural tariff",
+                "heated garage and German tiles",
+                "dry area with drainage and plantings",
+                "school bus and exit to Okruzhnaya in 1 minute",
+                "15 minutes to the city center."
             ],
             "ru": [
                 "Действующий камин и сауна внутри дома",
@@ -34,10 +38,12 @@
                 "15 минут до центра города."
             ],
             "zh": [
-                "第一线",
-                "天然气采暖",
-                "视频监控",
-                "景观设计"
+                "屋内有工作壁炉和桑拿房",
+                "农村电价自主燃气供暖",
+                "加热车库和德国瓷砖",
+                "有排水系统和植物的干燥区域",
+                "校车 1 分钟内即可到达 Okruzhnaya",
+                "15分钟即可到达市中心。"
             ]
         },
         "id": 4,
@@ -579,16 +585,20 @@
         },
         "features": {
             "de": [
-                "Designer-Renovierung",
-                "Möbel inklusive",
-                "See in der Nähe",
-                "Concierge-Service"
+                "Designer-Renovierung mit italienischen Möbeln",
+                "unabhängige Heizung",
+                "Lage in der Nähe des Lake Tikhoe und der Wälder",
+                "Keller als Geschenk",
+                "Panorama-Loggia",
+                "15 Minuten zu Fuß zum Meer."
             ],
             "en": [
-                "Designer renovation",
-                "Furniture included",
-                "Near lake",
-                "Concierge service"
+                "Designer renovation with Italian furniture",
+                "independent heating",
+                "location near Lake Tikhoe and forests",
+                "basement as a gift",
+                "panoramic loggia",
+                "15 minutes walk to the sea."
             ],
             "ru": [
                 "Дизайнерский ремонт с итальянской мебелью",
@@ -599,10 +609,12 @@
                 "15 минут пешком до моря."
             ],
             "zh": [
-                "设计师装修",
-                "赠送家具",
-                "靠近湖泊",
-                "礼宾服务"
+                "意大利家具的设计师翻新",
+                "独立加热",
+                "靠近蒂科湖和森林的位置",
+                "地下室作为礼物",
+                "全景凉廊",
+                "步行15分钟到海边。"
             ]
         },
         "id": 14,
@@ -643,6 +655,33 @@
                 "balcony": "",
                 "heating": "",
                 "renovation": "Дизайнерский"
+            },
+            "en": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": "Designer"
+            },
+            "de": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": "Designer"
+            },
+            "zh": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": "设计师"
             }
         },
         "mapUrl": ""
@@ -662,16 +701,20 @@
         },
         "features": {
             "de": [
-                "Historisches Gebäude",
-                "Hohe Decken",
-                "Zwei Ebenen",
-                "Kamin"
+                "Autonome Heizung",
+                "zwei Keller als Geschenk",
+                "Wohnküche 21 m² mit Panoramaloggia",
+                "eingezäuntes Gelände mit Grillplatz",
+                "Dachgeschoss ohne Lärm von oben",
+                "entwickelte Infrastruktur neben dem Sport- und Erholungszentrum."
             ],
             "en": [
-                "Historical building",
-                "High ceilings",
-                "Two levels",
-                "Fireplace"
+                "Autonomous heating",
+                "two cellars as a gift",
+                "kitchen-living room 21 m² with panoramic loggia",
+                "fenced area with barbecue area",
+                "top floor without noise from above",
+                "developed infrastructure next to the sports and recreation center."
             ],
             "ru": [
                 "Автономное отопление",
@@ -682,10 +725,12 @@
                 "развитая инфраструктура рядом с ФОК."
             ],
             "zh": [
-                "历史建筑",
-                "高高的天花板",
-                "两个级别",
-                "壁炉"
+                "自主采暖",
+                "两个地窖作为礼物",
+                "厨房兼客厅 21 平方米，带全景凉廊",
+                "带烧烤区的围栏区",
+                "顶楼，上方无噪音",
+                "体育和娱乐中心旁边的基础设施发达。"
             ]
         },
         "id": 15,
@@ -726,6 +771,33 @@
                 "balcony": "Лоджия",
                 "heating": "Автономное",
                 "renovation": "Дизайнерский"
+            },
+            "en": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "Loggia",
+                "heating": "Autonomous",
+                "renovation": "Designer"
+            },
+            "de": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "Loggia",
+                "heating": "Autonom",
+                "renovation": "Designer"
+            },
+            "zh": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "阳台",
+                "heating": "自主",
+                "renovation": "设计师"
             }
         },
         "mapUrl": ""

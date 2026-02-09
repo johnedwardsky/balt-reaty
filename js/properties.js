@@ -92,11 +92,11 @@ const propertiesData = [
                 "Floors": "",
                 "Plot": "",
                 "Rooms": "",
+                "floors": "",
                 "houseArea": "177.6",
                 "landArea": "4.5",
-                "floors": "",
-                "rooms": "",
-                "material": ""
+                "material": "",
+                "rooms": ""
             },
             "zh": {
                 "Area": "",
@@ -620,11 +620,23 @@ const propertiesData = [
             "ru": "Светлогорск, ул. Майский проезд, 9",
             "zh": "斯韦特洛戈尔斯克"
         },
+        "mapUrl": "",
         "price": {
             "de": "€ 149.000*",
             "en": "€ 149,000*",
             "ru": "14 900 000 ₽",
             "zh": "¥ 1,146,000*"
+        },
+        "specs": {
+            "ru": {
+                "area": "",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "Дизайнерский",
+                "rooms": ""
+            }
         },
         "stats": {
             "de": "35 m² | 3. Stock",
@@ -638,19 +650,7 @@ const propertiesData = [
             "ru": "1-к квартира, Майский (Светлогорск)",
             "zh": "一室公寓，五月区"
         },
-        "type": "apartment",
-        "specs": {
-            "ru": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "",
-                "heating": "",
-                "renovation": "Дизайнерский"
-            }
-        },
-        "mapUrl": ""
+        "type": "apartment"
     },
     {
         "description": {
@@ -703,11 +703,23 @@ const propertiesData = [
             "ru": "Светлогорск, ул. Спортивный переулок, 3",
             "zh": "斯韦特洛戈尔斯克"
         },
+        "mapUrl": "",
         "price": {
             "de": "€ 119.000*",
             "en": "€ 119,000*",
             "ru": "11 900 000 ₽",
             "zh": "¥ 915,000*"
+        },
+        "specs": {
+            "ru": {
+                "area": "",
+                "balcony": "Лоджия",
+                "entrance": "",
+                "floor": "",
+                "heating": "Автономное",
+                "renovation": "Дизайнерский",
+                "rooms": ""
+            }
         },
         "stats": {
             "de": "66 m² | 4. Stock",
@@ -721,19 +733,7 @@ const propertiesData = [
             "ru": "2-к квартира, Спортивный переулок",
             "zh": "两室公寓，体育巷"
         },
-        "type": "apartment",
-        "specs": {
-            "ru": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "Лоджия",
-                "heating": "Автономное",
-                "renovation": "Дизайнерский"
-            }
-        },
-        "mapUrl": ""
+        "type": "apartment"
     }
 ];
 

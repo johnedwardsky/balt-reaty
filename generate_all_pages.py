@@ -195,53 +195,8 @@ def translate_property_data(prop: Dict, force_retranslate: bool = False) -> Dict
 
 # === 1. КОПИРОВАНИЕ ФОТОГРАФИЙ (Smart Sync) ===
 def sync_images():
-    # Путь к источникам фото (ТЕПЕРЬ ВНУТРИ ПРОЕКТА)
-    # Используем абсолютный путь для надежности, но относительно текущей папки
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    source_base = os.path.join(base_dir, "source_photos", "object-4")
-    source_hero = os.path.join(source_base, "hero")
-    
-    # Путь назначения (куда копируем для сайта)
-    project_path = os.path.join(base_dir, "images", "object-4")
-    
-    # Создаем папку назначения, если её нет
-    if os.path.exists(project_path):
-        # Опционально: можно чистить или просто перезаписывать. 
-        # Если чистить - раскомментировать: shutil.rmtree(project_path)
-        pass
-    else:
-        os.makedirs(project_path)
-
-    print(f"🔄 Синхронизация фото из {source_base}...")
-    
-    counter = 1
-    
-    # 1. Сначала берет фото из папки HERO
-    if os.path.exists(source_hero):
-        hero_files = sorted(glob.glob(os.path.join(source_hero, "*.[jJ][pP][gG]"))) \
-                   + sorted(glob.glob(os.path.join(source_hero, "*.[jJ][pP][eE][gG]")))
-                   
-        if hero_files:
-            print(f"  🌟 Найдено {len(hero_files)} фото в папке HERO")
-            for photo in hero_files:
-                dest = os.path.join(project_path, f"photo_{counter}.jpg")
-                shutil.copy2(photo, dest)
-                counter += 1
-    
-    # 2. Затем берет все остальные фото из основной папки
-    if os.path.exists(source_base):
-        main_files = sorted(glob.glob(os.path.join(source_base, "*.[jJ][pP][gG]"))) \
-                   + sorted(glob.glob(os.path.join(source_base, "*.[jJ][pP][eE][gG]")))
-                   
-        for photo in main_files:
-            if os.path.isdir(photo):
-                continue
-                
-            dest = os.path.join(project_path, f"photo_{counter}.jpg")
-            shutil.copy2(photo, dest)
-            counter += 1
-        
-    print(f"✅ Всего скопировано {counter-1} фото для Объекта 4")
+    # Отключаем жесткую синхронизацию, так как теперь фото управляются через админку
+    pass
 
 
 
@@ -271,18 +226,33 @@ def generate_all():
         obj_id = prop['id']
         
         # 1. Читаем реальное количество фото в папке
-        img_dir = f"images/object-{obj_id}"
-        if os.path.exists(img_dir):
-            photos = [f for f in os.listdir(img_dir) if f.lower().endswith(('.jpg', '.jpeg'))]
-            
-            # Натуральная сортировка (чтобы photo_2 шло перед photo_10)
-            def natural_keys(text):
-                return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', text)]
-                
-            photos.sort(key=natural_keys)
-            photo_count = len(photos)
+        # 1. Читаем реальное количество фото
+        # Сначала пробуем взять список из JSON (так как там сохранен порядок из админки)
+        json_images = prop.get('images', [])
+        if json_images:
+             # Очищаем пути, оставляем только имена файлов, если нужно, или используем как есть
+             # В админке сохраняются полные пути типа "images/object-10/photo.jpg"
+             # Нам для проверки существования нужны абсолютные пути или относительные от корня
+             photos = []
+             for img_path in json_images:
+                 if os.path.exists(img_path):
+                     photos.append(os.path.basename(img_path))
+             photo_count = len(photos)
         else:
-            photo_count = 0
+            # Fallback: читаем папку, если в JSON пусто
+            img_dir = f"images/object-{obj_id}"
+            if os.path.exists(img_dir):
+                photos = [f for f in os.listdir(img_dir) if f.lower().endswith(('.jpg', '.jpeg'))]
+                
+                # Натуральная сортировка
+                def natural_keys(text):
+                    return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', text)]
+                    
+                photos.sort(key=natural_keys)
+                photo_count = len(photos)
+            else:
+                photos = []
+                photo_count = 0
             
         print(f"  Объект {obj_id}: найдено {photo_count} фото")
 
@@ -499,16 +469,25 @@ def generate_all():
             # photos.sort() # Сортировка уже сделана правильно выше
             gallery_html = f'<div class="gallery-grid" onclick="openGallery(0)">\n'
             
-            main_img_name = photos[0] if photo_count > 0 else "placeholder.jpg"
-            main_img = f"images/object-{obj_id}/{main_img_name}"
+            # Определяем путь к главному фото
+            if photos:
+                if '/' in photos[0]: # Это уже полный путь из JSON
+                   main_img = photos[0]
+                else: # Это просто имя файла из папки
+                   main_img = f"images/object-{obj_id}/{photos[0]}"
+            else:
+                main_img = "images/placeholder.jpg"
+
             gallery_html += f'''            <div class="gallery-item gallery-main">
                 <img src="{main_img}" alt="{title}">
                 <div class="gallery-overlay"><i class="far fa-image"></i> {photo_count} фото</div>
             </div>\n'''
             
             for i in range(1, min(5, photo_count)):
-                img_name = photos[i]
-                img_path = f"images/object-{obj_id}/{img_name}"
+                if '/' in photos[i]:
+                    img_path = photos[i]
+                else:
+                    img_path = f"images/object-{obj_id}/{photos[i]}"
                 gallery_html += f'''            <div class="gallery-item">
                 <img src="{img_path}" alt="фото {i+1}">
             </div>\n'''
@@ -523,9 +502,15 @@ def generate_all():
             )
             
             # --- JS ЦИКЛ ---
-            # --- JS ЦИКЛ ---
             # Формируем массив реальных имен файлов
-            js_photos_array = json.dumps([f"images/object-{obj_id}/{p}" for p in photos])
+            final_photos_list = []
+            for p in photos:
+                if '/' in p:
+                    final_photos_list.append(p)
+                else:
+                    final_photos_list.append(f"images/object-{obj_id}/{p}")
+            
+            js_photos_array = json.dumps(final_photos_list)
             
             js_code = f'const allPhotos = {js_photos_array};\n        const photoCount = {photo_count};'
             
