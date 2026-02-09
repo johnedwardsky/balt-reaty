@@ -8,7 +8,7 @@ const propertiesData = [
         "description": {
             "de": "Zum Verkauf steht ein modernes geräumiges Haus im Eliteviertel Malinovka der Stadt Zelenogradsk. Der Baustil verbindet klassische baltische Ästhetik mit modernen Materialien. Panoramaverglasung, hohe Decken, durchdachte Raumaufteilung.",
             "en": "Offered for sale is a modern spacious house in the elite district of Malinovka, Zelenogradsk. The architectural style combines classical Baltic aesthetics and modern materials. Panoramic glazing, high ceilings, thoughtful layout. Wide sandy beaches and promenade within walking distance.",
-            "ru": "Предлагается к продаже современный просторный дом в элитном районе Малиновка города Зеленоградска. Архитектурный стиль сочетает классическую балтийскую эстетику и современные материалы. Панорамное остекление, высокие потолки, продуманная планировка. В шаговой доступности широкие песчаные пляжи и променад.",
+            "ru": "Продается добротный дом 178 м² в п. Малое Лесное — идеальное место для жизни с действующим камином и собственной сауной прямо в доме. Вас ждут теплые полы, автономное газовое отопление по выгодному сельскому тарифу и отапливаемый гараж под надежной крышей из немецкой керамической черепицы. На сухом дренированном участке 4,5 сотки уже есть сад и теплица, а до центра Калининграда всего 15 минут езды. Школьный автобус и близость к Окружной делают локацию максимально удобной — звоните, чтобы лично оценить тепло и уют!",
             "zh": "位于泽列诺格勒茨克马林诺夫卡精英区的现代化宽敞房屋。建筑风格结合了经典的波罗的海美学和现代材料。全景玻璃、高天花板、精心布局。"
         },
         "detailsLink": {
@@ -31,10 +31,12 @@ const propertiesData = [
                 "Landscape design"
             ],
             "ru": [
-                "Первая линия",
-                "Газовое отопление",
-                "Видеонаблюдение",
-                "Ландшафтный дизайн"
+                "Действующий камин и сауна внутри дома",
+                "автономное газовое отопление с сельским тарифом",
+                "отапливаемый гараж и немецкая черепица",
+                "сухой участок с дренажем и насаждениями",
+                "школьный автобус и выезд на Окружную за 1 минуту",
+                "15 минут до центра города."
             ],
             "zh": [
                 "第一线",
