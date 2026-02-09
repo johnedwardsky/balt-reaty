@@ -765,6 +765,8 @@
                     </div>
                 </div>
 
+                <div class="description"><h3>关于公寓</h3><p>出售的是斯韦特洛戈尔斯克一套 42.5 平方米的时尚单室公寓，配有设计师装修、独立暖气和来自波兰的定制家具。所有品牌电器均保留下来，在温暖的砖房中提供“入住并居住”的舒适感。该地点将苹果园的宁静与发达的基础设施融为一体：附近有一个带游泳池的体育中心、一所学校和超市。距离大海仅 10 分钟车程，便捷的转乘让您可以快速到达邻近的度假村和加里宁格勒。</p></div>
+
                 <div class="description"><h3>房产特色</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> 森林景观</div><div class="feature-item"><i class="fas fa-check"></i> 老虎窗</div><div class="feature-item"><i class="fas fa-check"></i> 靠近大海</div><div class="feature-item"><i class="fas fa-check"></i> 安全停车</div></div></div>
 
             </div>
@@ -859,8 +861,7 @@
     </div>
 
     <script>
-        const allPhotos = ["images/object-13/070b0ede45a956fb018d005760dacb1952fa80fb.jpeg", "images/object-13/32990374a9ea984f5e4e22618fdd09b79945d60c.jpeg", "images/object-13/32fcf4dca76efd8cd6d43b3725f657f5195c397e.jpeg", "images/object-13/8398bd0c3b498b49d32fca50db9e2c6d661061d4.jpeg", "images/object-13/4fd8f5fd5169a8ac02445a473ca24ed183e46cc1.jpeg", "images/object-13/62bf386e6534929bd192ec7531b31fe67f65bb5b.jpeg", "images/object-13/4ec7b09bed8cf29e96443df4f27ba8fe16334258.jpeg", "images/object-13/a1393cf058b94d13f5ec4f452bd4c18b372a488a.jpeg", "images/object-13/1971670d0c7b3c8a733938292fbac782743f5989.jpeg"];
-        const photoCount = 9;
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -947,7 +948,7 @@
             btn.innerText = 'Отправка...';
             btn.disabled = true;
 
-            let message = "🔔 *Новая заявка с сайта (Объект 10915771)*\n\n";
+            let message = "🔔 *Новая заявка с сайта (一室公寓，48平方米，斯韦特洛戈尔斯克, ID 13)*\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });

@@ -765,6 +765,8 @@
                     </div>
                 </div>
 
+                <div class="description"><h3>About Apartment</h3><p>For sale is a cozy 1-room apartment of 37.5 m² in the Moskovsky district with high-quality fresh renovation and completely replaced communications.All furniture and appliances remain with the new owners - an ideal “come in and live” option without investment.The house is located in a developed location: in the courtyard there is school No. 56 and kindergartens, nearby shops and bus stops, convenient access to the sea.The apartment is legally clean, there is one adult owner - a fast and safe transaction is guaranteed!</p></div>
+
                 <div class="description"><h3>Features</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> Brick house</div><div class="feature-item"><i class="fas fa-check"></i> Green courtyard</div><div class="feature-item"><i class="fas fa-check"></i> Near supermarket</div><div class="feature-item"><i class="fas fa-check"></i> Good transport links</div></div></div>
 
             </div>
@@ -859,8 +861,7 @@
     </div>
 
     <script>
-        const allPhotos = ["images/object-11/0b5aa9862aace04f9a94c4574183b308d83e59f9.jpeg", "images/object-11/c11cf87d2ca6ea0d2dad3a960229586c45dde1d6.jpeg", "images/object-11/00e74cb831be612ca95d920e598e9a7522f73bb9.jpeg", "images/object-11/9de3132e45897dd718741b446dbdca4ed3d55223.jpeg", "images/object-11/aac061f830dfd56e68ab6010d18fdb5be561ca86.jpeg", "images/object-11/236877dee81a76cef027c80fcb8e1f3e0c4bcf04.jpeg", "images/object-11/1340dcc1adb88ab18a5bbd0f399ff609914d9739.jpeg", "images/object-11/d6d9bbf1ba55301ede9037c241652340e208198d.jpeg", "images/object-11/ee9d842cf01ea634259d78d1494dc99bf8f3fc3c.jpeg"];
-        const photoCount = 9;
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -947,7 +948,7 @@
             btn.innerText = 'Отправка...';
             btn.disabled = true;
 
-            let message = "🔔 *Новая заявка с сайта (Объект 10915771)*\n\n";
+            let message = "🔔 *Новая заявка с сайта (1-room apartment, 37.5 m², 7/10 floor., ID 11)*\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });

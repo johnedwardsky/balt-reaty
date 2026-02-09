@@ -765,6 +765,8 @@
                     </div>
                 </div>
 
+                <div class="description"><h3>Über die Wohnung</h3><p>Zum Verkauf steht eine geräumige 2-Zimmer-Wohnung von 68 m² mit großer Wohnküche und Panoramaloggia in einem gemütlichen Flachbau in Swetlogorsk.Sie finden die Ruhe der obersten Etage ohne darüber liegende Nachbarn, hochwertige Sanierung mit Massivholztüren und sparsamer Standheizung.Im umzäunten, begrünten Bereich gibt es einen Parkplatz und einen Grillplatz, außerdem erhalten Sie zwei große Trockenkeller (einer davon 16 m²!) geschenkt.In der Nähe eines Sportkomplexes mit Schwimmbad und Geschäften, zum Meer und zum Lake Tikhoe – 5 Minuten mit dem Transport oder einem angenehmen Spaziergang.</p></div>
+
                 <div class="description"><h3>Vorteile</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> Autonome Heizung</div><div class="feature-item"><i class="fas fa-check"></i> zwei Keller als Geschenk</div><div class="feature-item"><i class="fas fa-check"></i> Wohnküche 21 m² mit Panoramaloggia</div><div class="feature-item"><i class="fas fa-check"></i> eingezäuntes Gelände mit Grillplatz</div><div class="feature-item"><i class="fas fa-check"></i> Dachgeschoss ohne Lärm von oben</div><div class="feature-item"><i class="fas fa-check"></i> entwickelte Infrastruktur neben dem Sport- und Erholungszentrum.</div></div></div>
 
             </div>
@@ -859,8 +861,7 @@
     </div>
 
     <script>
-        const allPhotos = ["images/object-15/1b4d0322f02915a1aa048939aa021049610f6a81.jpeg", "images/object-15/07f189a113b81121b5af84c19349e99b67b11c44.jpeg", "images/object-15/8a804ffd8d2bba64e6fddf422aeaddf31b02a356.jpeg", "images/object-15/032f9dd90df8aa9e886dea28559d16f3315fc55c.jpeg", "images/object-15/59da6530c91a741e6075a4c8c89738724dd7a772.jpeg", "images/object-15/89b28672d7a611403a5b5e298e375f369c792394.jpeg", "images/object-15/598b32312e2baece278e0465ee26b2f973ff473a.jpeg", "images/object-15/570937c10114903649e4f2a17e48412d685a5f57.jpeg", "images/object-15/c3ea6ce5ab3afc833dc1f774fd3e1ab46476e508.jpeg", "images/object-15/c8d70161df7c17ab1fec6b76be90987a63bac981.jpeg", "images/object-15/e0eac0b7fc895813995a50497905d74741db8a71.jpeg", "images/object-15/e464561776d42b4e00030e38208fd8100c32b590.jpeg", "images/object-15/fa13ce6748c67687e62bd089b35f0065fadc7664.jpeg", "images/object-15/fe09361ee31ed85dda139c41b41c249c623280a9.jpeg"];
-        const photoCount = 14;
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -947,7 +948,7 @@
             btn.innerText = 'Отправка...';
             btn.disabled = true;
 
-            let message = "🔔 *Новая заявка с сайта (Объект 10915771)*\n\n";
+            let message = "🔔 *Новая заявка с сайта (2-Zimmer-Wohnung, Sportivny-Gasse, Swetlogorsk, ID 15)*\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });

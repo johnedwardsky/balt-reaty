@@ -765,6 +765,8 @@
                     </div>
                 </div>
 
+                <div class="description"><h3>Über die Wohnung</h3><p>Zum Verkauf steht eine stilvolle 1-Zimmer-Wohnung von 42,5 m² in Swetlogorsk mit Designer-Renovierung, unabhängiger Heizung und maßgefertigten Möbeln aus Polen.Alle Markengeräte bleiben erhalten und bieten den Komfort eines „Einzugs- und Wohnens“ in einem warmen Backsteinhaus.Der Standort verbindet die Stille eines Apfelgartens mit einer ausgebauten Infrastruktur: In der Nähe befindet sich ein Sportkomplex mit Schwimmbad, einer Schule und Supermärkten.Das Meer ist nur 10 Autominuten entfernt und über einen bequemen Verkehrsknotenpunkt gelangen Sie schnell zu den benachbarten Ferienorten und nach Kaliningrad.</p></div>
+
                 <div class="description"><h3>Vorteile</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> Blick auf den Wald</div><div class="feature-item"><i class="fas fa-check"></i> Dachfenster</div><div class="feature-item"><i class="fas fa-check"></i> Nahe am Meer</div><div class="feature-item"><i class="fas fa-check"></i> Sicheres Parken</div></div></div>
 
             </div>
@@ -859,8 +861,7 @@
     </div>
 
     <script>
-        const allPhotos = ["images/object-13/070b0ede45a956fb018d005760dacb1952fa80fb.jpeg", "images/object-13/32990374a9ea984f5e4e22618fdd09b79945d60c.jpeg", "images/object-13/32fcf4dca76efd8cd6d43b3725f657f5195c397e.jpeg", "images/object-13/8398bd0c3b498b49d32fca50db9e2c6d661061d4.jpeg", "images/object-13/4fd8f5fd5169a8ac02445a473ca24ed183e46cc1.jpeg", "images/object-13/62bf386e6534929bd192ec7531b31fe67f65bb5b.jpeg", "images/object-13/4ec7b09bed8cf29e96443df4f27ba8fe16334258.jpeg", "images/object-13/a1393cf058b94d13f5ec4f452bd4c18b372a488a.jpeg", "images/object-13/1971670d0c7b3c8a733938292fbac782743f5989.jpeg"];
-        const photoCount = 9;
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -947,7 +948,7 @@
             btn.innerText = 'Отправка...';
             btn.disabled = true;
 
-            let message = "🔔 *Новая заявка с сайта (Объект 10915771)*\n\n";
+            let message = "🔔 *Новая заявка с сайта (1-Zimmer-Wohnung, 48m², Swetlogorsk, ID 13)*\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });

@@ -679,22 +679,12 @@
                 <a href="index.html#quiz">Подбор</a>
                 <a href="index.html#services">Услуги</a>
                 <!-- Mobile Language Switcher (visible only inside burger menu) -->
-                <div class="lang-switcher mobile-lang-switcher">
-                    <a href="object-10915771.html" class="active">RU</a>
-                    <a href="object-10915771-en.html">EN</a>
-                    <a href="object-10915771-de.html">DE</a>
-                    <a href="object-10915771-zh.html">ZH</a>
-                </div>
+                {{ MOBILE_LANG_SWITCHER }}
             </nav>
 
 
             <div class="desktop-only" style="display: flex; align-items: center;">
-                <div class="lang-switcher">
-                    <a href="object-10915771.html" class="active">RU</a>
-                    <a href="object-10915771-en.html">EN</a>
-                    <a href="object-10915771-de.html">DE</a>
-                    <a href="object-10915771-zh.html">ZH</a>
-                </div>
+                {{ DESKTOP_LANG_SWITCHER }}
 
                 <div class="header-contacts">
                     <a href="tel:+79052491755" class="phone">+7 905-249-17-55</a>
@@ -724,9 +714,7 @@
         </div>
 
         <!-- GALLEREYA -->
-        <div class="gallery-grid" onclick="openGallery(0)">
-            <!-- Gallery will be injected here -->
-        </div>
+        {{ GALLERY_GRID }}
 
         <!-- MAIN CONTENT -->
         <div class="property-main">
@@ -846,10 +834,7 @@
     </div>
 
     <script>
-        const allPhotos = [];
-        for (let i = 1; i <= 39; i++) {
-            allPhotos.push(`images/object-10915771/photo_${i}.jpg`);
-        }
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');

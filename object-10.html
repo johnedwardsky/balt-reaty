@@ -765,6 +765,8 @@
                     </div>
                 </div>
 
+                <div class="description"><h3>О квартире</h3><p>Продается уютная квартира формата «заезжай и живи» с качественным современным ремонтом и экономичным автономным отоплением в монолитном доме с бесшумным лифтом Schindler. Вас ждет комфорт и низкие коммунальные платежи, ухоженный подъезд, паркинг и развитая инфраструктура: рядом школа №57, ТЦ «Гиант» и фитнес-центр «Альбатрос». Удобная транспортная развязка позволяет выехать на Окружную за 3 минуты, добраться до центра за 15, а до моря всего за полчаса. Мебель и техника остаются по согласованию — звоните, чтобы оценить все преимущества лично!</p></div>
+
                 <div class="description"><h3>Преимущества</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> Автономное отопление</div><div class="feature-item"><i class="fas fa-check"></i> Новый дом</div><div class="feature-item"><i class="fas fa-check"></i> Рядом школа</div><div class="feature-item"><i class="fas fa-check"></i> С ремонтом</div></div></div>
 
             </div>
@@ -859,8 +861,7 @@
     </div>
 
     <script>
-        const allPhotos = ["images/object-10/0d23698358648b08dc7f35e8aa76f057555dd020.jpeg", "images/object-10/9072412442bb8dac65219ffa728da1e12cf515a4.jpeg", "images/object-10/b7f1f5d0400daddc5a489d02d3adaf2d17b44868.jpeg", "images/object-10/5ff03086e71d512a057078b99e2e730524d8dcf0.jpeg", "images/object-10/6d25e6ec6583883db1600f807a95d1656343bff2.jpeg", "images/object-10/7ae532b7894729d5df43b30197ac948013d3cef6.jpeg", "images/object-10/607ab10288ceb2252e24361f5683bd9c175ca58c.jpeg", "images/object-10/7341f3ff9c2c36aa12c7641cba4db88c6360dfe8.jpeg", "images/object-10/7905bc973ed1f9829d28cad1f16ba1986d9afd82.jpeg", "images/object-10/69802f9f67e092e379f0a484acf38c9cd259d9bc.jpeg", "images/object-10/ab88234bf5e3dc97fa6a5d76eb4945dd5c576639.jpeg", "images/object-10/31b92d6d5cef53e8f6500e8f92abb5df62b3576e.jpeg", "images/object-10/b5a8ac8bceb96d74809dad18456a031aa9c63c56.jpeg", "images/object-10/bdc97d563982654c20107313644511332c716ed7.jpeg", "images/object-10/a1dd76561ec9294640e4de5349929e1b2ee8bad3.jpeg", "images/object-10/c185ca10073be2c9f2ba802dd9752ccd93af3067.jpeg", "images/object-10/4ae186842b98bc20694c972d03e749ad8c6c0162.jpeg"];
-        const photoCount = 17;
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -947,7 +948,7 @@
             btn.innerText = 'Отправка...';
             btn.disabled = true;
 
-            let message = "🔔 *Новая заявка с сайта (Объект 10915771)*\n\n";
+            let message = "🔔 *Новая заявка с сайта (2-к квартира, 64м², ул. Аксакова, ID 10)*\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });

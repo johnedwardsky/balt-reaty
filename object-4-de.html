@@ -765,6 +765,8 @@
                     </div>
                 </div>
 
+                <div class="description"><h3>Über das Haus</h3><p>Im Dorf Maloye Lesnoye steht ein hochwertiges Haus von 178 m² zum Verkauf – ein idealer Wohnort mit funktionierendem Kamin und eigener Sauna direkt im Haus.Sie finden Fußbodenheizung, autonome Gasheizung zum günstigen Landtarif und eine beheizte Garage unter einem zuverlässigen Dach aus deutschen Keramikfliesen.Auf einem trockenen, entwässerten Grundstück von 4,5 Hektar gibt es bereits einen Garten und ein Gewächshaus, und das Zentrum von Kaliningrad ist nur 15 Autominuten entfernt.Der Schulbus und die Nähe zu Okruzhnaya machen die Lage so bequem wie möglich – rufen Sie an, um die Wärme und den Komfort persönlich zu erleben!</p></div>
+
                 <div class="description"><h3>Vorteile</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> Funktionierender Kamin und Sauna im Haus</div><div class="feature-item"><i class="fas fa-check"></i> autonome Gasheizung mit ländlichem Tarif</div><div class="feature-item"><i class="fas fa-check"></i> beheizte Garage und deutsche Fliesen</div><div class="feature-item"><i class="fas fa-check"></i> Trockenbereich mit Entwässerung und Bepflanzung</div><div class="feature-item"><i class="fas fa-check"></i> Schulbus und Ausfahrt nach Okruzhnaya in 1 Minute</div><div class="feature-item"><i class="fas fa-check"></i> 15 Minuten in die Innenstadt.</div></div></div>
 
             </div>
@@ -859,8 +861,7 @@
     </div>
 
     <script>
-        const allPhotos = ["images/object-4/6a5e0bb52a022a7f9e106b4d3381a1e5b4a7878b.jpeg", "images/object-4/33f9200eeb8ce5131418ebd8dc45421cc491f92d.jpeg", "images/object-4/558e4c71cbab7b9028decdc71344c0099b9b699b.jpeg", "images/object-4/975d9fa399dccb65209eb3f1c631870d1e2e6699.jpeg", "images/object-4/16640d5a08315d9b1258a862113fe5e5b9d51f2d.jpeg", "images/object-4/b2cee32696f3627caaf8a3a16d545b29d5d5ae02.jpeg", "images/object-4/bf91a66f56511b812a31a8022d2d2e6954fe5be0.jpeg", "images/object-4/c2263cae7618140298fb0ac23308c4d33a1ca234.jpeg", "images/object-4/d8f2804d49a4535942c42ce0859144a653bd8626.jpeg", "images/object-4/e01fed41cde9448d6c8e3bede07c94973ce88ae8.jpeg", "images/object-4/e63b73fb937b93d9776cb323dd81bad0bdcad55a.jpeg", "images/object-4/ea9b4575d4e6a250faab47da0f9f1450a6beb1a5.jpeg", "images/object-4/fe3ae93301f2f6b9a27d9ee0af4e360740cbd667.jpeg"];
-        const photoCount = 13;
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -947,7 +948,7 @@
             btn.innerText = 'Отправка...';
             btn.disabled = true;
 
-            let message = "🔔 *Новая заявка с сайта (Объект 10915771)*\n\n";
+            let message = "🔔 *Новая заявка с сайта (Haus mit Sauna und Kamin in Maly Lesnoy, ID 4)*\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });

@@ -473,65 +473,13 @@ def generate_all():
             content = content.replace('{{ DESCRIPTION }}', new_desc_html)
             content = content.replace('{{ FEATURES }}', features_html)
 
-            # 6. Остальные замены (включая страховку для заголовков)
-            content = content.replace('<h3>О доме</h3>', f'<h3>{about_heading}</h3>')
-            content = content.replace('<h3>Преимущества</h3>', f'<h3>{t["headings"]["features"]}</h3>')
-            content = content.replace('Расположение</h3>', f'{t["headings"]["location"]}</h3>')
-            content = content.replace('Записаться на просмотр</button>', f'{t["headings"]["viewing"]}</button>')
-            content = content.replace('Ведущий специалист', t['agent_role'])
-            content = content.replace('Калинингад и область', t['sub_phone'])
-            content = content.replace('>Главная<', f'>{t["breadcrumb_home"]}<')
-            content = content.replace('value="Дом в Зеленоградске (ID 10915771)"', f'value="{title} (ID {obj_id})"')
-
-            # --- ССЫЛКИ И ЯЗЫКИ (ПОЛНАЯ ПЕРЕГЕНЕРАЦИЯ БЛОКОВ) ---
-            # Генерируем HTML для переключателя языков
-            switcher_html = '<div class="lang-switcher{extra_classes}">'
-            for l in ['ru', 'en', 'de', 'zh']:
-                link = f'object-{obj_id}.html' if l == 'ru' else f'object-{obj_id}-{l}.html'
-                active_class = ' class="active"' if l == lang else ''
-                switcher_html += f'\n                    <a href="{link}"{active_class}>{l.upper()}</a>'
-            switcher_html += '\n                </div>'
-
-            # 1. Заменяем мобильный переключатель
-            mobile_switcher = switcher_html.format(extra_classes=" mobile-lang-switcher")
-            content = re.sub(
-                r'<div class="lang-switcher mobile-lang-switcher">.*?</div>', 
-                mobile_switcher, 
-                content, 
-                flags=re.DOTALL
-            )
-            
-            # Возвращаем стратегию с lookahead, но с динамическим заголовком и проверкой features-list
-            # Это гарантирует, что мы берем ПОСЛЕДНИЙ блок (перед сайдбаром) и захватываем его целиком
-            features_pattern = r'<div class="description">\s*<h3>.*?</h3>\s*<div class="features-list">.*?(?=\s*</div>\s*<!-- SIDEBAR -->)'
-            content = re.sub(features_pattern, features_html, content, flags=re.DOTALL)
-            
-            # 2. Заменяем десктопный переключатель
-            # Ищем блок: <div class="lang-switcher">...</div> (без mobile-lang-switcher)
-            # Но так как мы уже заменили мобильный, можно искать просто <div class="lang-switcher">
-            # Важно: регулярка должна не захватить лишнего. Ищем точное вхождение из шаблона.
-            
-            # Проще: заменим оставшийся блок
-            desktop_switcher = switcher_html.format(extra_classes="")
-            content = re.sub(
-                r'<div class="lang-switcher">\s*<a href="object-10915771.*?</div>', 
-                desktop_switcher, 
-                content, 
-                flags=re.DOTALL
-            )
-
-
-
             # --- ГАЛЕРЕЯ (HTML ПРЕВЬЮ - ПЕРВЫЕ 5) ---
-            # photos.sort() # Сортировка уже сделана правильно выше
             gallery_html = f'<div class="gallery-grid" onclick="openGallery(0)">\n'
             
             # Определяем путь к главному фото
             if photos:
-                if '/' in photos[0]: # Это уже полный путь из JSON
-                   main_img = photos[0]
-                else: # Это просто имя файла из папки
-                   main_img = f"images/object-{obj_id}/{photos[0]}"
+                if '/' in photos[0]: main_img = photos[0]
+                else: main_img = f"images/object-{obj_id}/{photos[0]}"
             else:
                 main_img = "images/placeholder.jpg"
 
@@ -541,51 +489,50 @@ def generate_all():
             </div>\n'''
             
             for i in range(1, min(5, photo_count)):
-                if '/' in photos[i]:
-                    img_path = photos[i]
-                else:
-                    img_path = f"images/object-{obj_id}/{photos[i]}"
+                if '/' in photos[i]: img_path = photos[i]
+                else: img_path = f"images/object-{obj_id}/{photos[i]}"
                 gallery_html += f'''            <div class="gallery-item">
                 <img src="{img_path}" alt="фото {i+1}">
             </div>\n'''
             
             gallery_html += '        </div>'
-            
-            content = re.sub(
-                r'<div class="gallery-grid".*?</div>', 
-                gallery_html, 
-                content, 
-                flags=re.DOTALL
-            )
-            
-            # --- JS ЦИКЛ ---
-            # Формируем массив реальных имен файлов
+            content = content.replace('{{ GALLERY_GRID }}', gallery_html)
+
+            # --- JS ГАЛЕРЕЯ ---
             final_photos_list = []
             for p in photos:
-                if '/' in p:
-                    final_photos_list.append(p)
-                else:
-                    final_photos_list.append(f"images/object-{obj_id}/{p}")
+                if '/' in p: final_photos_list.append(p)
+                else: final_photos_list.append(f"images/object-{obj_id}/{p}")
             
-            js_photos_array = json.dumps(final_photos_list)
-            
+            js_photos_array = json.dumps(final_photos_list, ensure_ascii=False)
             js_code = f'const allPhotos = {js_photos_array};\n        const photoCount = {photo_count};'
-            
-            # Заменяем старый хардкод:
-            # const allPhotos = [];
-            # for (let i = 1; i <= 39; i++) { ... }
-            # let currentImgIdx = 0;
-            
-            # Используем более широкий захват до следующей переменной
-            content = re.sub(
-                r'const allPhotos = \[\];.*?(?=let currentImgIdx)',
-                f'{js_code}\n\n        ',
-                content,
-                flags=re.DOTALL
-            )
-            
+            content = content.replace('{{ GALLERY_JS }}', js_code)
+
+            # 6. Остальные замены
+            content = content.replace('Расположение</h3>', f'{t["headings"]["location"]}</h3>')
+            content = content.replace('Записаться на просмотр</button>', f'{t["headings"]["viewing"]}</button>')
+            content = content.replace('Ведущий специалист', t['agent_role'])
+            content = content.replace('Калинингад и область', t['sub_phone'])
+            content = content.replace('>Главная<', f'>{t["breadcrumb_home"]}<')
+            content = content.replace('value="Дом в Зеленоградске (ID 10915771)"', f'value="{title} (ID {obj_id})"')
             content = content.replace('id="modalCounter">1 / 3</div>', f'id="modalCounter">1 / {photo_count}</div>')
-            
+            content = content.replace('🔔 *Новая заявка с сайта (Объект 10915771)*', f'🔔 *Новая заявка с сайта ({title}, ID {obj_id})*')
+
+            # --- ЯЗЫКИ (ПЕРЕКЛЮЧАТЕЛЬ) ---
+            # Генерируем основной HTML для переключателя
+            def make_switcher(is_mobile=False):
+                extra = " mobile-lang-switcher" if is_mobile else ""
+                html = f'<div class="lang-switcher{extra}">'
+                for l in ['ru', 'en', 'de', 'zh']:
+                    link = f'object-{obj_id}.html' if l == 'ru' else f'object-{obj_id}-{l}.html'
+                    active = ' class="active"' if l == lang else ''
+                    html += f'\n                    <a href="{link}"{active}>{l.upper()}</a>'
+                html += '\n                </div>'
+                return html
+
+            content = content.replace('{{ MOBILE_LANG_SWITCHER }}', make_switcher(True))
+            content = content.replace('{{ DESKTOP_LANG_SWITCHER }}', make_switcher(False))
+
             # Сохраняем файл
             suffix = '' if lang == 'ru' else f'-{lang}'
             filename = f"object-{obj_id}{suffix}.html"

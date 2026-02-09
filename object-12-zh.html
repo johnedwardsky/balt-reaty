@@ -765,6 +765,8 @@
                     </div>
                 </div>
 
+                <div class="description"><h3>关于公寓</h3><p>出售的是一套 65 平方米的景观 2 室公寓，配有自动供暖系统和 2.85 m 的高天花板，位于著名的住宅区“Royal Gate”。时尚的装修已完成，配有加热地板，所有家具和电器均保留 - 入住后即可欣赏河流和体育场的全景。房子位于历史城墙附近的安静绿地，步行即可到达超市、咖啡馆和交通设施。</p></div>
+
                 <div class="description"><h3>房产特色</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> 围栏区域</div><div class="feature-item"><i class="fas fa-check"></i> 可视对讲</div><div class="feature-item"><i class="fas fa-check"></i> 全景</div><div class="feature-item"><i class="fas fa-check"></i> 静音电梯</div></div></div>
 
             </div>
@@ -859,8 +861,7 @@
     </div>
 
     <script>
-        const allPhotos = ["images/object-12/0f6524458c2fcb85b09f6c8266b99ab8c4a20695.jpeg", "images/object-12/0faabf0c065ff00cdbcad2883c0a3c12e69dfde1.jpeg", "images/object-12/4df673a5ef084c62e376edf827affd190cc1ea9d.jpeg", "images/object-12/12ee697c75e273a4232da4621d87663511212429.jpeg", "images/object-12/86ddc291751507c022ee0a1ae696c2e05e6706d9.jpeg", "images/object-12/625e4881cbc2c838df048f175bb7c9fb63f69f36.jpeg", "images/object-12/748c951719aa7a40e25842c3ac6530230cdaa711.jpeg", "images/object-12/971a3e921f22755de96b1ad06cd8955fd26aa758.jpeg", "images/object-12/6366209cba133174bc9a4e5b5266604fcf4d95a9.jpeg", "images/object-12/9945064c984b5e5192ac4ed75062eaace3609ae9.jpeg", "images/object-12/a6abccb18f9ccf62bdde16e6925c91bde6507976.jpeg", "images/object-12/a40b1f0182d017efbef62be5b234e715d8b15a0e.jpeg", "images/object-12/a2458696be6c0f628c1983ab0dc2ad3d589a41c9.jpeg", "images/object-12/bd101bc9be7fce214a0b7c8afa87b48be4ed5b07.jpeg", "images/object-12/de9f6734dae54a32bacebaaec0384dc4d97a2526.jpeg"];
-        const photoCount = 15;
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -947,7 +948,7 @@
             btn.innerText = 'Отправка...';
             btn.disabled = true;
 
-            let message = "🔔 *Новая заявка с сайта (Объект 10915771)*\n\n";
+            let message = "🔔 *Новая заявка с сайта (2 室公寓，65 平方米，圣。加加林, ID 12)*\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });
