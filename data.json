@@ -13,11 +13,11 @@
             "zh": "object-4-zh.html"
         },
         "features": {
-            "ru": [
-                "Первая линия",
-                "Газовое отопление",
-                "Видеонаблюдение",
-                "Ландшафтный дизайн"
+            "de": [
+                "Erste Meereslinie",
+                "Gasheizung",
+                "Videoüberwachung",
+                "Landschaftsgestaltung"
             ],
             "en": [
                 "First line",
@@ -25,11 +25,11 @@
                 "Video surveillance",
                 "Landscape design"
             ],
-            "de": [
-                "Erste Meereslinie",
-                "Gasheizung",
-                "Videoüberwachung",
-                "Landschaftsgestaltung"
+            "ru": [
+                "Первая линия",
+                "Газовое отопление",
+                "Видеонаблюдение",
+                "Ландшафтный дизайн"
             ],
             "zh": [
                 "第一线",
@@ -147,11 +147,11 @@
             "zh": "object-10-zh.html"
         },
         "features": {
-            "ru": [
-                "Автономное отопление",
-                "Новый дом",
-                "Рядом школа",
-                "С ремонтом"
+            "de": [
+                "Autonome Heizung",
+                "Neubau",
+                "Schule in der Nähe",
+                "Mit Renovierung"
             ],
             "en": [
                 "Autonomous heating",
@@ -159,11 +159,11 @@
                 "Near school",
                 "Renovated"
             ],
-            "de": [
-                "Autonome Heizung",
-                "Neubau",
-                "Schule in der Nähe",
-                "Mit Renovierung"
+            "ru": [
+                "Автономное отопление",
+                "Новый дом",
+                "Рядом школа",
+                "С ремонтом"
             ],
             "zh": [
                 "自主采暖",
@@ -276,11 +276,11 @@
             "zh": "object-11-zh.html"
         },
         "features": {
-            "ru": [
-                "Кирпичный дом",
-                "Зеленый двор",
-                "Рядом супермаркет",
-                "Хорошая транспортная развязка"
+            "de": [
+                "Backsteinhaus",
+                "Grüner Innenhof",
+                "Supermarkt in der Nähe",
+                "Gute Verkehrsanbindung"
             ],
             "en": [
                 "Brick house",
@@ -288,11 +288,11 @@
                 "Near supermarket",
                 "Good transport links"
             ],
-            "de": [
-                "Backsteinhaus",
-                "Grüner Innenhof",
-                "Supermarkt in der Nähe",
-                "Gute Verkehrsanbindung"
+            "ru": [
+                "Кирпичный дом",
+                "Зеленый двор",
+                "Рядом супермаркет",
+                "Хорошая транспортная развязка"
             ],
             "zh": [
                 "砖房",
@@ -382,11 +382,11 @@
             "zh": "object-12-zh.html"
         },
         "features": {
-            "ru": [
-                "Огороженная территория",
-                "Видеодомофон",
-                "Панорамный вид",
-                "Бесшумный лифт"
+            "de": [
+                "Eingezäunter Bereich",
+                "Video-Gegensprechanlage",
+                "Panoramablick",
+                "Leiser Aufzug"
             ],
             "en": [
                 "Fenced area",
@@ -394,11 +394,11 @@
                 "Panoramic view",
                 "Silent elevator"
             ],
-            "de": [
-                "Eingezäunter Bereich",
-                "Video-Gegensprechanlage",
-                "Panoramablick",
-                "Leiser Aufzug"
+            "ru": [
+                "Огороженная территория",
+                "Видеодомофон",
+                "Панорамный вид",
+                "Бесшумный лифт"
             ],
             "zh": [
                 "围栏区域",
@@ -499,11 +499,11 @@
             "zh": "object-13-zh.html"
         },
         "features": {
-            "ru": [
-                "Вид на лес",
-                "Мансардные окна",
-                "Рядом с морем",
-                "Охраняемая парковка"
+            "de": [
+                "Blick auf den Wald",
+                "Dachfenster",
+                "Nahe am Meer",
+                "Sicheres Parken"
             ],
             "en": [
                 "Forest view",
@@ -511,11 +511,11 @@
                 "Close to the sea",
                 "Secure parking"
             ],
-            "de": [
-                "Blick auf den Wald",
-                "Dachfenster",
-                "Nahe am Meer",
-                "Sicheres Parken"
+            "ru": [
+                "Вид на лес",
+                "Мансардные окна",
+                "Рядом с морем",
+                "Охраняемая парковка"
             ],
             "zh": [
                 "森林景观",
@@ -534,11 +534,50 @@
             "ru": "Светлогорск, ул. Молодежная, 6к2",
             "zh": "斯韦特洛戈尔斯克"
         },
+        "mapUrl": "",
         "price": {
             "de": "€ 86.500*",
             "en": "€ 86,500*",
             "ru": "8 650 000 ₽",
             "zh": "¥ 665,000*"
+        },
+        "specs": {
+            "de": {
+                "area": "",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
+            },
+            "en": {
+                "area": "",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
+            },
+            "ru": {
+                "area": "",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
+            },
+            "zh": {
+                "area": "",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
+            }
         },
         "stats": {
             "de": "48.7 m² | 6. Stock",
@@ -552,52 +591,13 @@
             "ru": "1-к квартира, 48м², Светлогорск",
             "zh": "一室公寓，48平米"
         },
-        "type": "apartment",
-        "specs": {
-            "ru": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "",
-                "heating": "",
-                "renovation": ""
-            },
-            "en": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "",
-                "heating": "",
-                "renovation": ""
-            },
-            "de": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "",
-                "heating": "",
-                "renovation": ""
-            },
-            "zh": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "",
-                "heating": "",
-                "renovation": ""
-            }
-        },
-        "mapUrl": ""
+        "type": "apartment"
     },
     {
         "description": {
             "de": "Premium-Apartments in fußläufiger Entfernung zum Tikhoe-See. Designer-Renovierung mit teuren Materialien, Möbel und Geräte bleiben erhalten.",
             "en": "Premium apartments within walking distance from Lake Tikhoe. Designer renovation using expensive materials, furniture and appliances remain. Ideal place for rest or high-yield rental.",
-            "ru": "Апартаменты премиум-класса в шаговой доступности от озера Тихое. Дизайнерский ремонт с использованием дорогих материалов, мебель и техника остаются. Идеальное место для отдыха или высокодоходной аренды.",
+            "ru": "Продается роскошная квартира 35 м² с дизайнерским ремонтом и итальянской мебелью в престижном районе Светлогорска у озера Тихое. Кирпичный дом с автономным отоплением, панорамная лоджия с видом на сосновый бор и полная комплектация премиальной техникой создают идеальные условия для отдыха. Закрытая территория обеспечивает тишину, а до моря и «Янтарь-холла» всего 15 минут прогулочным шагом. Приятный бонус — подвал в подарок и разумный торг; квартира никогда не сдавалась и полностью готова к проживанию!",
             "zh": "距离提赫湖步行距离内的优质公寓。使用昂贵材料进行的设计师装修，家具和家电保留。休闲或高收益出租的理想场所。"
         },
         "detailsLink": {
@@ -607,11 +607,11 @@
             "zh": "object-14-zh.html"
         },
         "features": {
-            "ru": [
-                "Дизайнерский ремонт",
-                "Мебель в подарок",
-                "Рядом озеро",
-                "Консьерж-сервис"
+            "de": [
+                "Designer-Renovierung",
+                "Möbel inklusive",
+                "See in der Nähe",
+                "Concierge-Service"
             ],
             "en": [
                 "Designer renovation",
@@ -619,11 +619,13 @@
                 "Near lake",
                 "Concierge service"
             ],
-            "de": [
-                "Designer-Renovierung",
-                "Möbel inklusive",
-                "See in der Nähe",
-                "Concierge-Service"
+            "ru": [
+                "Дизайнерский ремонт с итальянской мебелью",
+                "автономное отопление",
+                "локация у озера Тихое и леса",
+                "подвал в подарок",
+                "панорамная лоджия",
+                "15 минут пешком до моря."
             ],
             "zh": [
                 "设计师装修",
@@ -659,7 +661,20 @@
             "en": "1-room Apt, Mayskiy district",
             "ru": "1-к квартира, Майский (Светлогорск)",
             "zh": "一室公寓，五月区"
-        }
+        },
+        "type": "apartment",
+        "specs": {
+            "ru": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": "Дизайнерский"
+            }
+        },
+        "mapUrl": ""
     },
     {
         "description": {
@@ -675,11 +690,11 @@
             "zh": "object-15-zh.html"
         },
         "features": {
-            "ru": [
-                "Историческое здание",
-                "Высокие потолки",
-                "Два уровня",
-                "Камин"
+            "de": [
+                "Historisches Gebäude",
+                "Hohe Decken",
+                "Zwei Ebenen",
+                "Kamin"
             ],
             "en": [
                 "Historical building",
@@ -687,11 +702,11 @@
                 "Two levels",
                 "Fireplace"
             ],
-            "de": [
-                "Historisches Gebäude",
-                "Hohe Decken",
-                "Zwei Ebenen",
-                "Kamin"
+            "ru": [
+                "Историческое здание",
+                "Высокие потолки",
+                "Два уровня",
+                "Камин"
             ],
             "zh": [
                 "历史建筑",
