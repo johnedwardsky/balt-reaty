@@ -210,7 +210,7 @@
                 "Floors": "",
                 "Plot": "",
                 "Rooms": "",
-                "area": "",
+                "area": "64",
                 "balcony": "",
                 "entrance": "",
                 "floor": "",
@@ -720,7 +720,7 @@
         "title": {
             "de": "1-Zi Wohnung, Mayskiy Viertel",
             "en": "1-room Apt, Mayskiy district",
-            "ru": "1-к квартира, Майский (Светлогорск)",
+            "ru": "1-к квартира, Майский, Светлогорск",
             "zh": "一室公寓，五月区"
         },
         "type": "apartment"
@@ -849,7 +849,7 @@
         "title": {
             "de": "2-Zi Wohnung, Sportivny lane",
             "en": "2-room Apt, Sportivny lane",
-            "ru": "2-к квартира, Спортивный переулок. (Светлогорск)",
+            "ru": "2-к квартира, Спортивный переулок, Светлогорск",
             "zh": "两室公寓，体育巷"
         },
         "type": "apartment"

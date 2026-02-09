@@ -209,7 +209,7 @@ const propertiesData = [
                 "Floors": "",
                 "Plot": "",
                 "Rooms": "",
-                "area": "",
+                "area": "64",
                 "balcony": "",
                 "entrance": "",
                 "floor": "",
