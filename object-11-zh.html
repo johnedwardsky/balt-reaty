@@ -726,7 +726,7 @@
         <!-- GALLEREYA -->
         <div class="gallery-grid" onclick="openGallery(0)">
             <div class="gallery-item gallery-main">
-                <img src="images/placeholder.jpg" alt="两室公寓，65平米">
+                <img src="images/object-11/placeholder.jpg" alt="两室公寓，65平米">
                 <div class="gallery-overlay"><i class="far fa-image"></i> 0 фото</div>
             </div>
         </div>
@@ -755,7 +755,8 @@
 
                 <div class="description"><h3>关于公寓</h3><p>位于基础设施发达地区的温馨明亮的公寓。砖房提供极佳的隔热和隔音效果。公寓进行了美容维修，更换了通讯设施。无论是自住还是出租的完美选择。</p></div>
 
-                <div class="description"><h3>房产特色</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> Кирпичный дом</div><div class="feature-item"><i class="fas fa-check"></i> Зеленый двор</div><div class="feature-item"><i class="fas fa-check"></i> Рядом супермаркет</div><div class="feature-item"><i class="fas fa-check"></i> Хорошая транспортная развязка</div></div></div>
+                <div class="description"><h3>房产特色</h3><div class="features-list"><div class="feature-item"><i class="fas fa-check"></i> 砖房</div><div class="feature-item"><i class="fas fa-check"></i> 绿色庭院</div><div class="feature-item"><i class="fas fa-check"></i> 靠近超市</div><div class="feature-item"><i class="fas fa-check"></i> 便利的交通</div></div></div>
+                </div>
 
             </div>
 
@@ -849,13 +850,8 @@
     </div>
 
     <script>
-        const allPhotos = [];
+        const allPhotos = ["images/object-11/0d23698358648b08dc7f35e8aa76f057555dd020.jpeg", "images/object-11/0ffc99dc2410d4da42d5582245fee523b5ccedf0.jpeg", "images/object-11/2ad823b4f7fdcd8d22fb89cff84e59ef8977aa56.jpeg", "images/object-11/2c96e2b06e3ff5b2ef7dfa6517d030d03ecac116.jpeg", "images/object-11/4ae186842b98bc20694c972d03e749ad8c6c0162.jpeg", "images/object-11/4ea59bd48cebea652d1bb2a2d46952d89a2ffd9e.jpeg", "images/object-11/5dcdcac5cc2e9d4d9f9e04ff89aa5c950fc790c3.jpeg", "images/object-11/5ff03086e71d512a057078b99e2e730524d8dcf0.jpeg", "images/object-11/6d25e6ec6583883db1600f807a95d1656343bff2.jpeg", "images/object-11/7ad241776a1898f36c3ca95950fd9b44003d0c5b.jpeg", "images/object-11/7ae532b7894729d5df43b30197ac948013d3cef6.jpeg", "images/object-11/31b92d6d5cef53e8f6500e8f92abb5df62b3576e.jpeg", "images/object-11/63a61589be7242122469bdd815f34b59319d6036.jpeg", "images/object-11/80e8ed92c260d932ec9bb8e00a9eaffbaa9659eb.jpeg", "images/object-11/305e8d1b85c83ca5c5dcde82517832286a288b61.jpeg", "images/object-11/391efdc6cf6ad0d08f5148cbd0bccadd1286441b.jpeg", "images/object-11/461fc8b5e6d9d189b6651d3178317a382f7cec77.jpeg", "images/object-11/607ab10288ceb2252e24361f5683bd9c175ca58c.jpeg", "images/object-11/4737e414c7e52d25051b30eae8247abfbd73f774.jpeg", "images/object-11/7341f3ff9c2c36aa12c7641cba4db88c6360dfe8.jpeg", "images/object-11/7905bc973ed1f9829d28cad1f16ba1986d9afd82.jpeg", "images/object-11/47815d0241d8466c8c353cbe9fb44aa7339bd116.jpeg", "images/object-11/69802f9f67e092e379f0a484acf38c9cd259d9bc.jpeg", "images/object-11/89279fb4fcae61eb08669a60d18ddcd87f34d57c.jpeg", "images/object-11/9072412442bb8dac65219ffa728da1e12cf515a4.jpeg", "images/object-11/a1dd76561ec9294640e4de5349929e1b2ee8bad3.jpeg", "images/object-11/ab88234bf5e3dc97fa6a5d76eb4945dd5c576639.jpeg", "images/object-11/b5a8ac8bceb96d74809dad18456a031aa9c63c56.jpeg", "images/object-11/b7f1f5d0400daddc5a489d02d3adaf2d17b44868.jpeg", "images/object-11/bdc97d563982654c20107313644511332c716ed7.jpeg", "images/object-11/c185ca10073be2c9f2ba802dd9752ccd93af3067.jpeg", "images/object-11/e7c8e3878d143b2253e713ef63532a77306a83ac.jpeg", "images/object-11/f789ce70d46acc7ccffca4de6cbc727e47412a20.jpeg", "images/object-11/f865c54623179875a30ddfad08e0f25ab28c5d74.jpeg", "images/object-11/fb8b214a8efe823ba149abd7c5caa48a599795a2.jpeg"];
         const photoCount = 0;
-        const folder = "images/object-11/";
-        
-        for (let i = 1; i <= photoCount; i++) {
-            allPhotos.push(folder + `photo_${i}.jpg`);
-        }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');

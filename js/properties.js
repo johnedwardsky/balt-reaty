@@ -382,12 +382,12 @@ const propertiesData = [
                 "Plot": "",
                 "Rooms": "",
                 "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
                 "balcony": "",
+                "entrance": "",
+                "floor": "",
                 "heating": "",
-                "renovation": ""
+                "renovation": "",
+                "rooms": ""
             },
             "zh": {
                 "Area": "",
@@ -414,7 +414,7 @@ const propertiesData = [
         "description": {
             "de": "Exklusive Wohnung in Svetlogorsk-1. Geräumiges Zimmer, große Küche mit Zugang zur Loggia. Blick auf den Kiefernwald. Moderner Aufzug im Haus installiert.",
             "en": "Exclusive apartment in Svetlogorsk-1. Spacious room, large kitchen with access to the loggia. View of the pine forest. Modern elevator installed in the house. 15 minutes walking distance to the sea shore.",
-            "ru": "Эксклюзивная квартира в Светлогорске-1. Просторная комната, большая кухня с выходом на лоджию. Вид на сосновый лес. В доме установлен современный лифт, чистый и ухоженный подъезд. До берега моря — 15 минут прогулочным шагом.",
+            "ru": "Продается стильная 1-комнатная квартира 42,5 м² в Светлогорске с дизайнерским ремонтом, автономным отоплением и заказной мебелью из Польши. Вся брендовая техника остается, обеспечивая комфорт формата «заезжай и живи» в теплом кирпичном доме. Локация сочетает тишину яблоневого сада с развитой инфраструктурой: рядом ФОК с бассейном, школа и супермаркеты. До моря всего 10 минут на авто, а удобная развязка позволяет быстро добраться до соседних курортов и Калининграда.",
             "zh": "位于斯韦特洛戈尔斯克1区的独家公寓。房间宽敞，厨房大，带阳台。俯瞰松树林。房屋配有现代电梯，楼道干净整洁。步行到海边只需15分钟。"
         },
         "detailsLink": {
@@ -456,7 +456,20 @@ const propertiesData = [
             "en": "1-room Apt, 48m², Svetlogorsk",
             "ru": "1-к квартира, 48м², Светлогорск",
             "zh": "一室公寓，48平米"
-        }
+        },
+        "type": "apartment",
+        "specs": {
+            "ru": {
+                "area": "",
+                "floor": "",
+                "rooms": "",
+                "entrance": "",
+                "balcony": "",
+                "heating": "",
+                "renovation": ""
+            }
+        },
+        "mapUrl": ""
     },
     {
         "description": {

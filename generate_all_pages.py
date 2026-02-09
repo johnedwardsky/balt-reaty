@@ -12,6 +12,26 @@ from googletrans import Translator
 from typing import Dict, Optional
 import time
 
+# Словарь статических переводов для преимуществ
+FEATURE_TRANS = {
+    'Автономное отопление': {'en': 'Autonomous heating', 'de': 'Autonome Heizung', 'zh': '自主采暖'},
+    'Новый дом': {'en': 'New building', 'de': 'Neubau', 'zh': '新建房屋'},
+    'Рядом школа': {'en': 'Near school', 'de': 'Schule in der Nähe', 'zh': '靠近学校'},
+    'С ремонтом': {'en': 'Renovated', 'de': 'Mit Renovierung', 'zh': '已装修'},
+    'Первая линия': {'en': 'First line', 'de': 'Erste Meereslinie', 'zh': '第一线'},
+    'Газовое отопление': {'en': 'Gas heating', 'de': 'Gasheizung', 'zh': '天然气采暖'},
+    'Видеонаблюдение': {'en': 'Video surveillance', 'de': 'Videoüberwachung', 'zh': '视频监控'},
+    'Ландшафтный дизайн': {'en': 'Landscape design', 'de': 'Landschaftsgestaltung', 'zh': '景观设计'},
+    'Кирпичный дом': {'en': 'Brick house', 'de': 'Backsteinhaus', 'zh': '砖房'},
+    'Зеленый двор': {'en': 'Green courtyard', 'de': 'Grüner Innenhof', 'zh': '绿色庭院'},
+    'Рядом супермаркет': {'en': 'Near supermarket', 'de': 'Supermarkt in der Nähe', 'zh': '靠近超市'},
+    'Хорошая транспортная развязка': {'en': 'Good transport links', 'de': 'Gute Verkehrsanbindung', 'zh': '便利的交通'},
+    'Дизайнерский ремонт': {'en': 'Designer renovation', 'de': 'Designer-Renovierung', 'zh': '设计师装修'},
+    'Мебель в подарок': {'en': 'Furniture included', 'de': 'Möbel inklusive', 'zh': '赠送家具'},
+    'Рядом озеро': {'en': 'Near lake', 'de': 'See in der Nähe', 'zh': '靠近湖泊'},
+    'Консьерж-сервис': {'en': 'Concierge service', 'de': 'Concierge-Service', 'zh': '礼宾服务'}
+}
+
 # === ИНИЦИАЛИЗАЦИЯ ПЕРЕВОДЧИКА ===
 translator = Translator()
 
@@ -86,17 +106,29 @@ def translate_property_data(prop: Dict, force_retranslate: bool = False) -> Dict
             prop[field][lang] = translate_text(ru_text, lang)
     
     # Перевод преимуществ (features)
-    if 'features' in prop and isinstance(prop['features'], dict):
-        ru_features = prop['features'].get('ru', [])
-        for lang in languages:
-            if not force_retranslate and prop['features'].get(lang):
-                continue
+    if 'features' in prop:
+        # Если это простой список, превращаем его в словарь с ключом 'ru'
+        if isinstance(prop['features'], list):
+            prop['features'] = {'ru': prop['features']}
             
-            print(f"  🌐 Переводим преимущества на {lang.upper()}...")
-            translated_features = []
-            for feature in ru_features:
-                translated_features.append(translate_text(feature, lang))
-            prop['features'][lang] = translated_features
+        if isinstance(prop['features'], dict):
+            ru_features = prop['features'].get('ru', [])
+            for lang in languages:
+                # Всегда обновляем преимущества, так как список короткий и это важно для синхронизации
+                # if not force_retranslate and prop['features'].get(lang):
+                #     if len(prop['features'][lang]) == len(ru_features):
+                #         continue
+                
+                print(f"  🌐 Переводим преимущества на {lang.upper()}...")
+                translated_features = []
+                for feature in ru_features:
+                    # Сначала ищем в статическом словаре
+                    if feature in FEATURE_TRANS and FEATURE_TRANS[feature].get(lang):
+                        translated_features.append(FEATURE_TRANS[feature][lang])
+                    else:
+                        # Если нет - переводим через Google
+                        translated_features.append(translate_text(feature, lang))
+                prop['features'][lang] = translated_features
     
     # Перевод характеристик (specs) - только ключи
     if 'specs' in prop and isinstance(prop['specs'], dict):
@@ -241,7 +273,13 @@ def generate_all():
         # 1. Читаем реальное количество фото в папке
         img_dir = f"images/object-{obj_id}"
         if os.path.exists(img_dir):
-            photos = [f for f in os.listdir(img_dir) if f.startswith('photo_') and f.endswith('.jpg')]
+            photos = [f for f in os.listdir(img_dir) if f.lower().endswith(('.jpg', '.jpeg'))]
+            
+            # Натуральная сортировка (чтобы photo_2 шло перед photo_10)
+            def natural_keys(text):
+                return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', text)]
+                
+            photos.sort(key=natural_keys)
             photo_count = len(photos)
         else:
             photo_count = 0
@@ -264,11 +302,20 @@ def generate_all():
             # 1. Определение типа объекта
             prop_type = prop.get('type', '')
             if not prop_type:
-                title_ru = prop.get('title', {}).get('ru', '').lower()
-                if 'квартира' in title_ru: prop_type = 'apartment'
-                elif 'апартамент' in title_ru: prop_type = 'apartment'
-                elif 'таунхаус' in title_ru: prop_type = 'townhouse'
-                else: prop_type = 'house'
+                # Получаем русское название для определения типа
+                title_ru = ''
+                raw_title = prop.get('title', '')
+                if isinstance(raw_title, dict):
+                    title_ru = raw_title.get('ru', '').lower()
+                else:
+                    title_ru = str(raw_title).lower()
+                
+                if any(kw in title_ru for kw in ['квартира', 'апартамент', 'студия']): 
+                    prop_type = 'apartment'
+                elif 'таунхаус' in title_ru: 
+                    prop_type = 'townhouse'
+                else: 
+                    prop_type = 'house'
 
             # 2. Инициализация переводов интерфейса
             trans = {
@@ -389,7 +436,9 @@ def generate_all():
             desc = get_text('description')
             desc_html = desc.replace('\n', '</p><p>').replace('\\n', '</p><p>')
             new_desc_html = f'<div class="description"><h3>{about_heading}</h3><p>{desc_html}</p></div>'
-            content = re.sub(r'<div class="description">\s*<h3>О доме</h3>.*?</div>', new_desc_html, content, flags=re.DOTALL)
+            # Более гибкая регулярка для замены описания
+            description_pattern = r'<div class="description">\s*<h3>О доме</h3>.*?</div>'
+            content = re.sub(description_pattern, new_desc_html, content, flags=re.DOTALL)
 
             features = prop.get('features', [])
             feat_list = features.get(lang, features.get('ru', [])) if isinstance(features, dict) else features
@@ -397,9 +446,13 @@ def generate_all():
             for f in feat_list:
                 features_html += f'<div class="feature-item"><i class="fas fa-check"></i> {f}</div>'
             features_html += '</div></div>'
-            content = re.sub(r'<div class="description">\s*<h3>Преимущества</h3>.*?</div>\s*</div>\s*</div>', features_html, content, flags=re.DOTALL)
+            # Исправленная регулярка для замены преимуществ (убрал лишние </div>)
+            features_pattern = r'<div class="description">\s*<h3>Преимущества</h3>.*?</div>\s*</div>'
+            content = re.sub(features_pattern, features_html, content, flags=re.DOTALL)
 
-            # 6. Остальные замены
+            # 6. Остальные замены (включая страховку для заголовков)
+            content = content.replace('<h3>О доме</h3>', f'<h3>{about_heading}</h3>')
+            content = content.replace('<h3>Преимущества</h3>', f'<h3>{t["headings"]["features"]}</h3>')
             content = content.replace('Расположение</h3>', f'{t["headings"]["location"]}</h3>')
             content = content.replace('Записаться на просмотр</button>', f'{t["headings"]["viewing"]}</button>')
             content = content.replace('Ведущий специалист', t['agent_role'])
@@ -443,18 +496,21 @@ def generate_all():
 
 
             # --- ГАЛЕРЕЯ (HTML ПРЕВЬЮ - ПЕРВЫЕ 5) ---
+            # photos.sort() # Сортировка уже сделана правильно выше
             gallery_html = f'<div class="gallery-grid" onclick="openGallery(0)">\n'
             
-            main_img = f"images/object-{obj_id}/photo_1.jpg" if photo_count > 0 else "images/placeholder.jpg"
+            main_img_name = photos[0] if photo_count > 0 else "placeholder.jpg"
+            main_img = f"images/object-{obj_id}/{main_img_name}"
             gallery_html += f'''            <div class="gallery-item gallery-main">
                 <img src="{main_img}" alt="{title}">
                 <div class="gallery-overlay"><i class="far fa-image"></i> {photo_count} фото</div>
             </div>\n'''
             
-            for i in range(2, min(6, photo_count + 1)):
-                img_path = f"images/object-{obj_id}/photo_{i}.jpg"
+            for i in range(1, min(5, photo_count)):
+                img_name = photos[i]
+                img_path = f"images/object-{obj_id}/{img_name}"
                 gallery_html += f'''            <div class="gallery-item">
-                <img src="{img_path}" alt="фото {i}">
+                <img src="{img_path}" alt="фото {i+1}">
             </div>\n'''
             
             gallery_html += '        </div>'
@@ -467,19 +523,21 @@ def generate_all():
             )
             
             # --- JS ЦИКЛ ---
-            js_loop = f'''
-        const allPhotos = [];
-        const photoCount = {photo_count};
-        const folder = "images/object-{obj_id}/";
-        
-        for (let i = 1; i <= photoCount; i++) {{
-            allPhotos.push(folder + `photo_${{i}}.jpg`);
-        }}
-            '''
+            # --- JS ЦИКЛ ---
+            # Формируем массив реальных имен файлов
+            js_photos_array = json.dumps([f"images/object-{obj_id}/{p}" for p in photos])
             
+            js_code = f'const allPhotos = {js_photos_array};\n        const photoCount = {photo_count};'
+            
+            # Заменяем старый хардкод:
+            # const allPhotos = [];
+            # for (let i = 1; i <= 39; i++) { ... }
+            # let currentImgIdx = 0;
+            
+            # Используем более широкий захват до следующей переменной
             content = re.sub(
-                r'const allPhotos = .*?const thumbContainer',
-                f'{js_loop.strip()}\n\n        let currentImgIdx = 0;\n        const thumbContainer',
+                r'const allPhotos = \[\];.*?(?=let currentImgIdx)',
+                f'{js_code}\n\n        ',
                 content,
                 flags=re.DOTALL
             )
