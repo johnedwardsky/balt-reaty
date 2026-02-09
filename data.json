@@ -40,58 +40,31 @@
         },
         "id": 4,
         "images": [
-            "images/object-4/photo_1.jpg",
-            "images/object-4/814d948e7ad4e8939d452684b37263c4b68abe18.jpeg",
-            "images/object-4/4cfa815347be059d9e285ade79301a20b2f4c055.jpeg",
-            "images/object-4/3fe6e2febc44ad1f94c191bf42ea09f959fce13b.jpeg",
-            "images/object-4/2a4faec833bfe2c3732039a0c7ca943b890542e1.jpeg",
-            "images/object-4/4d37e476fb463fc1e267db3305e48f5706ab7247.jpeg",
-            "images/object-4/5e0913094815ca2c95123fa413f244fd9290bdd5.jpeg",
-            "images/object-4/7e292719e400d98a8c7845d1387bd9f9ae1c9eb9.jpeg",
-            "images/object-4/7e2505280f4bf35eadf4dd84bcb25fdd1fe2e578.jpeg",
-            "images/object-4/aecd6d3f16b8101ffa530266a9d49ce74c3b0e53.jpeg",
-            "images/object-4/8e8cbd2f3a7379cd80142354be5648fffe1c1ca1.jpeg",
-            "images/object-4/9b69243599d60d1a16137508ca0a54258a2742bd.jpeg",
-            "images/object-4/40ce538f766d8d942277b5ce1e975fab2d24d021.jpeg",
-            "images/object-4/41e5c99fbfd60ac97c91103fd94a8178c24cb8c9.jpeg",
-            "images/object-4/0e256bf6e9ffd673239a732d2d60c28b337e4426.jpeg",
-            "images/object-4/84baad128657cebc82175d46b0fb24496e5d767f.jpeg",
-            "images/object-4/86e593cb8d659cd46354f1d72f66c2d3483b88cc.jpeg",
-            "images/object-4/219ae9bea8675092c054a7bca372df9da4fda1da.jpeg",
-            "images/object-4/247db3a6f9eb67c84cd59a0af037cdfdd120ef02.jpeg",
-            "images/object-4/742a88244f4d6361e092f3a2621adf3a294f2810.jpeg",
-            "images/object-4/6071f708eac41e22c64454673c67508db3dbf818.jpeg",
-            "images/object-4/626731e218b070d73a2a98b91344a32247bbff4d.jpeg",
-            "images/object-4/17e5689c3206ddff465450a9416d10c08c099235.jpeg",
-            "images/object-4/7110312f43c56263627bce0dccf704852d7fd182.jpeg",
-            "images/object-4/73351644b6fb24b7af3dbf7b0b9a53d16681c2d4.jpeg",
-            "images/object-4/b3bb98dbf9b77c2b5a5a3956d2e00618949b5cd5.jpeg",
-            "images/object-4/b5b80dcebb1d55791e1e147dc1dc8ea184166d6e.jpeg",
-            "images/object-4/bbaf574faf37de3eee905227a9d2380bae07a43a.jpeg",
-            "images/object-4/bde0d546c64abfc3106b859744421383773e6026.jpeg",
-            "images/object-4/c56de23c57c8a08b5a2bc6f98e74fe91c5947291.jpeg",
-            "images/object-4/cd39344d2b23904220b0e3b1a6a56f35fcdbe014.jpeg",
-            "images/object-4/d2f9d1f36faa0ba0357f9a4e8d8f3eadfe769d20.jpeg",
-            "images/object-4/d5a8fb71cf9c421ab80187bded3f4985ed6e4ba4.jpeg",
-            "images/object-4/d6e6d80b8706b2e99497214008f73e29c944ca74.jpeg",
-            "images/object-4/e4f4b504782025904bddf70bb38a2085e174380c.jpeg",
-            "images/object-4/e5e8076d1e373358b82f6b40e941c40637a8016c.jpeg",
-            "images/object-4/ef2200a98b92ee8f7c13acb52e12491fe38cd30a.jpeg",
-            "images/object-4/fb46dafe69f4de66af9f57c2ca85b868faf80243.jpeg",
-            "images/object-4/fb2994f4ed0726c8e8ee972e36e93fade12291c2.jpeg",
-            "images/object-4/ffd2197acf7289ba905339f1b8d6c9b92da43c2b.jpeg"
+            "images/object-4/6a5e0bb52a022a7f9e106b4d3381a1e5b4a7878b.jpeg",
+            "images/object-4/33f9200eeb8ce5131418ebd8dc45421cc491f92d.jpeg",
+            "images/object-4/558e4c71cbab7b9028decdc71344c0099b9b699b.jpeg",
+            "images/object-4/975d9fa399dccb65209eb3f1c631870d1e2e6699.jpeg",
+            "images/object-4/16640d5a08315d9b1258a862113fe5e5b9d51f2d.jpeg",
+            "images/object-4/b2cee32696f3627caaf8a3a16d545b29d5d5ae02.jpeg",
+            "images/object-4/bf91a66f56511b812a31a8022d2d2e6954fe5be0.jpeg",
+            "images/object-4/c2263cae7618140298fb0ac23308c4d33a1ca234.jpeg",
+            "images/object-4/d8f2804d49a4535942c42ce0859144a653bd8626.jpeg",
+            "images/object-4/e01fed41cde9448d6c8e3bede07c94973ce88ae8.jpeg",
+            "images/object-4/e63b73fb937b93d9776cb323dd81bad0bdcad55a.jpeg",
+            "images/object-4/ea9b4575d4e6a250faab47da0f9f1450a6beb1a5.jpeg",
+            "images/object-4/fe3ae93301f2f6b9a27d9ee0af4e360740cbd667.jpeg"
         ],
         "location": {
             "de": "Zelenogradsk, Malinovka",
             "en": "Zelenogradsk, Malinovka",
-            "ru": "Зеленоградск, Район Малиновка",
+            "ru": "Гурьевский муниципальный округ, посёлок Малое Лесное,",
             "zh": "马林诺夫卡"
         },
-        "mapUrl": "",
+        "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4617.709074316945!2d20.558659499999997!3d54.641779549999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e3174140574d97%3A0x384f909917decef6!2z0JzQsNC70L7QtSDQm9C10YHQvdC-0LUsINCa0LDQu9C40L3QuNC90LPRgNCw0LTRgdC60LDRjyDQvtCx0LsuLCAyMzg0MzQ!5e0!3m2!1sru!2sru!4v1770650972512!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>\n",
         "price": {
             "de": "€ 275.000*",
             "en": "€ 275,000*",
-            "ru": "27 500 000 ₽",
+            "ru": "22 900 000 ₽",
             "zh": "¥ 2,100,000*"
         },
         "specs": {
@@ -111,7 +84,12 @@
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "houseArea": "177.6",
+                "landArea": "4.5",
+                "floors": "",
+                "rooms": "",
+                "material": ""
             },
             "zh": {
                 "Area": "",
@@ -129,9 +107,10 @@
         "title": {
             "de": "Haus in Zelenogradsk (Malinovka)",
             "en": "House in Zelenogradsk (Malinovka)",
-            "ru": "Дом в Зеленоградске (Малиновка)",
+            "ru": "Дом с сауной и камином в Малом Лесном",
             "zh": "泽列诺格勒茨克的房子"
-        }
+        },
+        "type": "house"
     },
     {
         "description": {
