@@ -440,7 +440,6 @@ def generate_all():
             switcher_html += '\n                </div>'
 
             # 1. Заменяем мобильный переключатель
-            # Ищем блок: <div class="lang-switcher mobile-lang-switcher">...</div>
             mobile_switcher = switcher_html.format(extra_classes=" mobile-lang-switcher")
             content = re.sub(
                 r'<div class="lang-switcher mobile-lang-switcher">.*?</div>', 
@@ -448,6 +447,11 @@ def generate_all():
                 content, 
                 flags=re.DOTALL
             )
+            
+            # Возвращаем стратегию с lookahead, но с динамическим заголовком и проверкой features-list
+            # Это гарантирует, что мы берем ПОСЛЕДНИЙ блок (перед сайдбаром) и захватываем его целиком
+            features_pattern = r'<div class="description">\s*<h3>.*?</h3>\s*<div class="features-list">.*?(?=\s*</div>\s*<!-- SIDEBAR -->)'
+            content = re.sub(features_pattern, features_html, content, flags=re.DOTALL)
             
             # 2. Заменяем десктопный переключатель
             # Ищем блок: <div class="lang-switcher">...</div> (без mobile-lang-switcher)

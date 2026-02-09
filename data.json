@@ -93,11 +93,11 @@
                 "Floors": "",
                 "Plot": "",
                 "Rooms": "",
+                "floors": "",
                 "houseArea": "177.6",
                 "landArea": "4.5",
-                "floors": "",
-                "rooms": "",
-                "material": ""
+                "material": "",
+                "rooms": ""
             },
             "zh": {
                 "Area": "",
@@ -185,11 +185,11 @@
             "ru": "Калининград, ул. Аксакова, 133",
             "zh": "加里宁格勒"
         },
-        "mapUrl": "",
+        "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2304.890006696282!2d20.5836631!3d54.71155829999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e31427e090c2b7%3A0xc3cf486624429af3!2z0YPQuy4g0JDQutGB0LDQutC-0LLQsCwgMTMzLCDQmtCw0LvQuNC90LjQvdCz0YDQsNC0LCDQmtCw0LvQuNC90LjQvdCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgMjM2MDQ4!5e0!3m2!1sru!2sru!4v1770656021718!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "price": {
             "de": "€ 86.500*",
             "en": "€ 86,500*",
-            "ru": "8 650 000 ₽",
+            "ru": "9 200 000 ₽",
             "zh": "¥ 665,000*"
         },
         "specs": {
@@ -279,18 +279,28 @@
             ]
         },
         "id": 11,
-        "images": [],
+        "images": [
+            "images/object-11/0b5aa9862aace04f9a94c4574183b308d83e59f9.jpeg",
+            "images/object-11/c11cf87d2ca6ea0d2dad3a960229586c45dde1d6.jpeg",
+            "images/object-11/00e74cb831be612ca95d920e598e9a7522f73bb9.jpeg",
+            "images/object-11/9de3132e45897dd718741b446dbdca4ed3d55223.jpeg",
+            "images/object-11/aac061f830dfd56e68ab6010d18fdb5be561ca86.jpeg",
+            "images/object-11/236877dee81a76cef027c80fcb8e1f3e0c4bcf04.jpeg",
+            "images/object-11/1340dcc1adb88ab18a5bbd0f399ff609914d9739.jpeg",
+            "images/object-11/d6d9bbf1ba55301ede9037c241652340e208198d.jpeg",
+            "images/object-11/ee9d842cf01ea634259d78d1494dc99bf8f3fc3c.jpeg"
+        ],
         "location": {
             "de": "Kaliningrad, Gaydara str.",
             "en": "Kaliningrad, Gaydara str.",
-            "ru": "Калининград, ул. Гайдара, 114",
+            "ru": "Калининград, улица Ульяны Громовой, 95",
             "zh": "加里宁格勒"
         },
-        "mapUrl": "",
+        "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2307.460473305516!2d20.502249!3d54.666323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e317ba11001ec3%3A0xc6a7620c335258a8!2z0YPQuy4g0KPQu9GM0Y_QvdGLINCT0YDQvtC80L7QstC-0LksIDk1LCDQmtCw0LvQuNC90LjQvdCz0YDQsNC0LCDQmtCw0LvQuNC90LjQvdCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgMjM2MDQ0!5e0!3m2!1sru!2sru!4v1770656130915!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "price": {
             "de": "€ 62.000*",
             "en": "€ 62,000*",
-            "ru": "6 200 000 ₽",
+            "ru": "4 800 000 ₽",
             "zh": "¥ 476,000*"
         },
         "specs": {
@@ -313,13 +323,13 @@
                 "rooms": ""
             },
             "ru": {
-                "area": "",
+                "area": "37,5",
                 "balcony": "",
                 "entrance": "",
-                "floor": "",
+                "floor": "7/10",
                 "heating": "",
                 "renovation": "",
-                "rooms": ""
+                "rooms": "1"
             },
             "zh": {
                 "area": "",
@@ -340,7 +350,7 @@
         "title": {
             "de": "2-Zi Wohnung, 65m², Gaydara str.",
             "en": "2-room Apt, 65m², Gaydara str.",
-            "ru": "2-к квартира, 65м², ул. Гайдара",
+            "ru": "1-комн квартира, 37.5 м², 7 /10 эт.",
             "zh": "两室公寓，65平米"
         },
         "type": "apartment"
@@ -412,7 +422,7 @@
         "price": {
             "de": "€ 86.500*",
             "en": "€ 86,500*",
-            "ru": "8 650 000 ₽",
+            "ru": "11 900 000 ₽",
             "zh": "¥ 665,000*"
         },
         "specs": {
@@ -433,12 +443,12 @@
                 "Floors": "",
                 "Plot": "",
                 "Rooms": "",
-                "area": "",
+                "area": "73",
                 "balcony": "",
                 "entrance": "",
-                "floor": "",
-                "heating": "",
-                "renovation": "",
+                "floor": "9/11",
+                "heating": "Автономное",
+                "renovation": "Дизайнерский",
                 "rooms": ""
             },
             "zh": {
@@ -503,7 +513,15 @@
         },
         "id": 13,
         "images": [
-            "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=800&q=80"
+            "images/object-13/070b0ede45a956fb018d005760dacb1952fa80fb.jpeg",
+            "images/object-13/32990374a9ea984f5e4e22618fdd09b79945d60c.jpeg",
+            "images/object-13/32fcf4dca76efd8cd6d43b3725f657f5195c397e.jpeg",
+            "images/object-13/8398bd0c3b498b49d32fca50db9e2c6d661061d4.jpeg",
+            "images/object-13/4fd8f5fd5169a8ac02445a473ca24ed183e46cc1.jpeg",
+            "images/object-13/62bf386e6534929bd192ec7531b31fe67f65bb5b.jpeg",
+            "images/object-13/4ec7b09bed8cf29e96443df4f27ba8fe16334258.jpeg",
+            "images/object-13/a1393cf058b94d13f5ec4f452bd4c18b372a488a.jpeg",
+            "images/object-13/1971670d0c7b3c8a733938292fbac782743f5989.jpeg"
         ],
         "location": {
             "de": "Svetlogorsk, Molodezhnaya str.",
@@ -538,13 +556,13 @@
                 "rooms": ""
             },
             "ru": {
-                "area": "",
-                "balcony": "",
+                "area": "42.5",
+                "balcony": "Балкон",
                 "entrance": "",
-                "floor": "",
-                "heating": "",
-                "renovation": "",
-                "rooms": ""
+                "floor": "2/5",
+                "heating": "Автономное",
+                "renovation": "Дизайнерский",
+                "rooms": "1"
             },
             "zh": {
                 "area": "",
@@ -619,7 +637,28 @@
         },
         "id": 14,
         "images": [
-            "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80"
+            "images/object-14/3afec8b613c0456ea02efed72134bfa8828370d6.jpeg",
+            "images/object-14/4c34a0b6ac2cf446d73bd245ba8cebf6b67c6d58.jpeg",
+            "images/object-14/8eb18acf0630a5a99f7fd6a3ad44a5103255edc8.jpeg",
+            "images/object-14/21e25b96c34a25ad370308a67b09eb05d85accd9.jpeg",
+            "images/object-14/30b4c333b1e7a2c6cde51a5c7795d137cca707dc.jpeg",
+            "images/object-14/47f696cd63dd5293e1d220f7e8765ae65726e864.jpeg",
+            "images/object-14/051f71556acbbe3befd896c04d3e2ad58eae215e.jpeg",
+            "images/object-14/0073a8467a054311326f27ceb6536f770d46a2ce.jpeg",
+            "images/object-14/82e22f226e7c0f788b2f61b45ee4aab5c5ca571f.jpeg",
+            "images/object-14/594ade78fed5be774638d92187b18fb2ee438126.jpeg",
+            "images/object-14/608a9bdaefe043b7d231353bcf8543491d9c5463.jpeg",
+            "images/object-14/795a86a3c63369180d8d797717df0b9f85eb4c03.jpeg",
+            "images/object-14/771996ee9cc5f8f91da3013dcf636441b388f6ce.jpeg",
+            "images/object-14/776997d5547ec68c79ec8c93bd4d8e118e1d7f96.jpeg",
+            "images/object-14/be0ca1ab5e7a4ddda07576aa430638cce01aef3e.jpeg",
+            "images/object-14/be1d60c68238250cbcefd8447e3c4b4de773770b.jpeg",
+            "images/object-14/c88a7b3fab4ce26bef94348ea441077dac722546.jpeg",
+            "images/object-14/e11dfa2d6739d7610bd03f631b39c56b2a0e6fe8.jpeg",
+            "images/object-14/e77470eea415a6ba0768db0e165402733dd7443b.jpeg",
+            "images/object-14/eb6b42e0b268a6d1ade945ca950dad337c6f55bb.jpeg",
+            "images/object-14/ecaa72c87d3cf3c99fd446038f046c65c38a0673.jpeg",
+            "images/object-14/f5a883df77a44b94fcfa23d486d1fca8882563e2.jpeg"
         ],
         "location": {
             "de": "Svetlogorsk, Mayskiy ave.",
@@ -627,11 +666,50 @@
             "ru": "Светлогорск, ул. Майский проезд, 9",
             "zh": "斯韦特洛戈尔斯克"
         },
+        "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d18338.547954147092!2d20.126437724145482!3d54.93243030863782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0KHQstC10YLQu9C-0LPQvtGA0YHQuiwg0JzQsNC50YHQutC40Lkg0L_RgNC-0LXQt9C0LCA5!5e0!3m2!1sru!2sru!4v1770656529292!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "price": {
             "de": "€ 149.000*",
             "en": "€ 149,000*",
             "ru": "14 900 000 ₽",
             "zh": "¥ 1,146,000*"
+        },
+        "specs": {
+            "ru": {
+                "area": "35",
+                "balcony": "Балкон",
+                "entrance": "",
+                "floor": "3/7",
+                "heating": "Автономное",
+                "renovation": "Дизайнерский",
+                "rooms": "1"
+            },
+            "en": {
+                "area": "35",
+                "balcony": "Balcony",
+                "entrance": "",
+                "floor": "3/7",
+                "heating": "Autonomous",
+                "renovation": "Designer",
+                "rooms": "1"
+            },
+            "de": {
+                "area": "35",
+                "balcony": "Balkon",
+                "entrance": "",
+                "floor": "3/7",
+                "heating": "Autonom",
+                "renovation": "Designer",
+                "rooms": "1"
+            },
+            "zh": {
+                "area": "35",
+                "balcony": "阳台",
+                "entrance": "",
+                "floor": "3/7",
+                "heating": "自主",
+                "renovation": "设计师",
+                "rooms": "1"
+            }
         },
         "stats": {
             "de": "35 m² | 3. Stock",
@@ -645,46 +723,7 @@
             "ru": "1-к квартира, Майский (Светлогорск)",
             "zh": "一室公寓，五月区"
         },
-        "type": "apartment",
-        "specs": {
-            "ru": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "",
-                "heating": "",
-                "renovation": "Дизайнерский"
-            },
-            "en": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "",
-                "heating": "",
-                "renovation": "Designer"
-            },
-            "de": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "",
-                "heating": "",
-                "renovation": "Designer"
-            },
-            "zh": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "",
-                "heating": "",
-                "renovation": "设计师"
-            }
-        },
-        "mapUrl": ""
+        "type": "apartment"
     },
     {
         "description": {
@@ -735,7 +774,20 @@
         },
         "id": 15,
         "images": [
-            "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80"
+            "images/object-15/1b4d0322f02915a1aa048939aa021049610f6a81.jpeg",
+            "images/object-15/07f189a113b81121b5af84c19349e99b67b11c44.jpeg",
+            "images/object-15/8a804ffd8d2bba64e6fddf422aeaddf31b02a356.jpeg",
+            "images/object-15/032f9dd90df8aa9e886dea28559d16f3315fc55c.jpeg",
+            "images/object-15/59da6530c91a741e6075a4c8c89738724dd7a772.jpeg",
+            "images/object-15/89b28672d7a611403a5b5e298e375f369c792394.jpeg",
+            "images/object-15/598b32312e2baece278e0465ee26b2f973ff473a.jpeg",
+            "images/object-15/570937c10114903649e4f2a17e48412d685a5f57.jpeg",
+            "images/object-15/c3ea6ce5ab3afc833dc1f774fd3e1ab46476e508.jpeg",
+            "images/object-15/c8d70161df7c17ab1fec6b76be90987a63bac981.jpeg",
+            "images/object-15/e0eac0b7fc895813995a50497905d74741db8a71.jpeg",
+            "images/object-15/e464561776d42b4e00030e38208fd8100c32b590.jpeg",
+            "images/object-15/fa13ce6748c67687e62bd089b35f0065fadc7664.jpeg",
+            "images/object-15/fe09361ee31ed85dda139c41b41c249c623280a9.jpeg"
         ],
         "location": {
             "de": "Svetlogorsk, Sportivny lane",
@@ -743,11 +795,50 @@
             "ru": "Светлогорск, ул. Спортивный переулок, 3",
             "zh": "斯韦特洛戈尔斯克"
         },
+        "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2292.7001738899785!2d20.1616242!3d54.9257333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e34bb24b37881d%3A0x57f786c873f40d14!2z0L_QtdGALiDQodC_0L7RgNGC0LjQstC90YvQuSwgMywg0JrQsNC70LjQvdC40L3Qs9GA0LDQtNGB0LrQsNGPINC-0LHQuy4sIDIzODU2Mw!5e0!3m2!1sru!2sru!4v1770656683273!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "price": {
             "de": "€ 119.000*",
             "en": "€ 119,000*",
-            "ru": "11 900 000 ₽",
+            "ru": "11 800 000 ₽",
             "zh": "¥ 915,000*"
+        },
+        "specs": {
+            "ru": {
+                "area": "66",
+                "balcony": "Лоджия",
+                "entrance": "",
+                "floor": "4/4",
+                "heating": "Автономное",
+                "renovation": "Дизайнерский",
+                "rooms": "2"
+            },
+            "en": {
+                "area": "66",
+                "balcony": "Loggia",
+                "entrance": "",
+                "floor": "4/4",
+                "heating": "Autonomous",
+                "renovation": "Designer",
+                "rooms": "2"
+            },
+            "de": {
+                "area": "66",
+                "balcony": "Loggia",
+                "entrance": "",
+                "floor": "4/4",
+                "heating": "Autonom",
+                "renovation": "Designer",
+                "rooms": "2"
+            },
+            "zh": {
+                "area": "66",
+                "balcony": "阳台",
+                "entrance": "",
+                "floor": "4/4",
+                "heating": "自主",
+                "renovation": "设计师",
+                "rooms": "2"
+            }
         },
         "stats": {
             "de": "66 m² | 4. Stock",
@@ -758,48 +849,9 @@
         "title": {
             "de": "2-Zi Wohnung, Sportivny lane",
             "en": "2-room Apt, Sportivny lane",
-            "ru": "2-к квартира, Спортивный переулок",
+            "ru": "2-к квартира, Спортивный переулок. (Светлогорск)",
             "zh": "两室公寓，体育巷"
         },
-        "type": "apartment",
-        "specs": {
-            "ru": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "Лоджия",
-                "heating": "Автономное",
-                "renovation": "Дизайнерский"
-            },
-            "en": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "Loggia",
-                "heating": "Autonomous",
-                "renovation": "Designer"
-            },
-            "de": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "Loggia",
-                "heating": "Autonom",
-                "renovation": "Designer"
-            },
-            "zh": {
-                "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
-                "balcony": "阳台",
-                "heating": "自主",
-                "renovation": "设计师"
-            }
-        },
-        "mapUrl": ""
+        "type": "apartment"
     }
 ]
