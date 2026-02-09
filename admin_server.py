@@ -128,6 +128,20 @@ def track_stats():
 def update_properties():
     data = request.json
     save_properties(data)
+    
+    # Auto-generate pages on save
+    import subprocess
+    try:
+        subprocess.run(
+            ['python3', 'generate_all_pages.py'],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+    except Exception as e:
+        print(f"Auto-generation failed: {e}")
+        
     return jsonify({"status": "success"})
 
 @app.route('/api/upload', methods=['POST'])

@@ -446,8 +446,8 @@ def generate_all():
             for f in feat_list:
                 features_html += f'<div class="feature-item"><i class="fas fa-check"></i> {f}</div>'
             features_html += '</div></div>'
-            # Исправленная регулярка для замены преимуществ (убрал лишние </div>)
-            features_pattern = r'<div class="description">\s*<h3>Преимущества</h3>.*?</div>\s*</div>'
+            # Исправленная регулярка: жадный поиск до закрывающего тега property-info (перед SIDEBAR)
+            features_pattern = r'<div class="description">\s*<h3>Преимущества</h3>.*?(?=\s*</div>\s*<!-- SIDEBAR -->)'
             content = re.sub(features_pattern, features_html, content, flags=re.DOTALL)
 
             # 6. Остальные замены (включая страховку для заголовков)
