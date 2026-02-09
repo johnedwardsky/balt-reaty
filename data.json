@@ -1,10 +1,10 @@
 [
     {
         "description": {
-            "de": "Zum Verkauf steht ein modernes geräumiges Haus im Eliteviertel Malinovka der Stadt Zelenogradsk. Der Baustil verbindet klassische baltische Ästhetik mit modernen Materialien. Panoramaverglasung, hohe Decken, durchdachte Raumaufteilung.",
-            "en": "Offered for sale is a modern spacious house in the elite district of Malinovka, Zelenogradsk. The architectural style combines classical Baltic aesthetics and modern materials. Panoramic glazing, high ceilings, thoughtful layout. Wide sandy beaches and promenade within walking distance.",
+            "de": "Im Dorf Maloye Lesnoye steht ein hochwertiges Haus von 178 m² zum Verkauf – ein idealer Wohnort mit funktionierendem Kamin und eigener Sauna direkt im Haus.Sie finden Fußbodenheizung, autonome Gasheizung zum günstigen Landtarif und eine beheizte Garage unter einem zuverlässigen Dach aus deutschen Keramikfliesen.Auf einem trockenen, entwässerten Grundstück von 4,5 Hektar gibt es bereits einen Garten und ein Gewächshaus, und das Zentrum von Kaliningrad ist nur 15 Autominuten entfernt.Der Schulbus und die Nähe zu Okruzhnaya machen die Lage so bequem wie möglich – rufen Sie an, um die Wärme und den Komfort persönlich zu erleben!",
+            "en": "A good-quality house of 178 m² is for sale in the village of Maloye Lesnoye - an ideal place to live with a working fireplace and its own sauna right in the house.You will find heated floors, autonomous gas heating at a favorable rural rate and a heated garage under a reliable roof made of German ceramic tiles.There is already a garden and a greenhouse on a dry, drained plot of 4.5 acres, and the center of Kaliningrad is only a 15-minute drive.The school bus and proximity to Okruzhnaya make the location as convenient as possible - call to personally experience the warmth and comfort!",
             "ru": "Продается добротный дом 178 м² в п. Малое Лесное — идеальное место для жизни с действующим камином и собственной сауной прямо в доме. Вас ждут теплые полы, автономное газовое отопление по выгодному сельскому тарифу и отапливаемый гараж под надежной крышей из немецкой керамической черепицы. На сухом дренированном участке 4,5 сотки уже есть сад и теплица, а до центра Калининграда всего 15 минут езды. Школьный автобус и близость к Окружной делают локацию максимально удобной — звоните, чтобы лично оценить тепло и уют!",
-            "zh": "位于泽列诺格勒茨克马林诺夫卡精英区的现代化宽敞房屋。建筑风格结合了经典的波罗的海美学和现代材料。全景玻璃、高天花板、精心布局。"
+            "zh": "Maloye Lesnoye 村出售一栋 178 平方米的优质房屋，这是理想的居住场所，房屋内设有工作壁炉和自己的桑拿浴室。您会发现加热地板、以优惠的乡村价格提供的自动燃气供暖系统以及位于德国瓷砖制成的可靠屋顶下的加热车库。占地 4.5 英亩的干燥排水地块上已建有花园和温室，距离加里宁格勒市中心仅 15 分钟车程。校车和靠近 Okruzhnaya 的位置使位置尽可能方便 - 致电亲自体验温暖和舒适！"
         },
         "detailsLink": {
             "de": "object-4-de.html",
@@ -63,10 +63,10 @@
             "images/object-4/fe3ae93301f2f6b9a27d9ee0af4e360740cbd667.jpeg"
         ],
         "location": {
-            "de": "Zelenogradsk, Malinovka",
-            "en": "Zelenogradsk, Malinovka",
+            "de": "Gemeindebezirk Guryevsky, Dorf Maloye Lesnoye,",
+            "en": "Guryevsky municipal district, Maloye Lesnoye village,",
             "ru": "Гурьевский муниципальный округ, посёлок Малое Лесное,",
-            "zh": "马林诺夫卡"
+            "zh": "古里耶夫斯基市辖区，Maloye Lesnoye 村，"
         },
         "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4617.709074316945!2d20.558659499999997!3d54.641779549999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e3174140574d97%3A0x384f909917decef6!2z0JzQsNC70L7QtSDQm9C10YHQvdC-0LUsINCa0LDQu9C40L3QuNC90LPRgNCw0LTRgdC60LDRjyDQvtCx0LsuLCAyMzg0MzQ!5e0!3m2!1sru!2sru!4v1770650972512!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>\n",
         "price": {
@@ -80,13 +80,23 @@
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "floors": "",
+                "houseArea": "177.6",
+                "landArea": "4.5",
+                "material": "",
+                "rooms": ""
             },
             "en": {
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "floors": "",
+                "houseArea": "177.6",
+                "landArea": "4.5",
+                "material": "",
+                "rooms": ""
             },
             "ru": {
                 "Area": "",
@@ -103,7 +113,12 @@
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "floors": "",
+                "houseArea": "177.6",
+                "landArea": "4.5",
+                "material": "",
+                "rooms": ""
             }
         },
         "stats": {
@@ -113,19 +128,19 @@
             "zh": "300平 | 8.5亩"
         },
         "title": {
-            "de": "Haus in Zelenogradsk (Malinovka)",
-            "en": "House in Zelenogradsk (Malinovka)",
+            "de": "Haus mit Sauna und Kamin in Maly Lesnoy",
+            "en": "House with sauna and fireplace in Maly Lesnoy",
             "ru": "Дом с сауной и камином в Малом Лесном",
-            "zh": "泽列诺格勒茨克的房子"
+            "zh": "马利莱斯诺伊带桑拿浴室和壁炉的房子"
         },
         "type": "house"
     },
     {
         "description": {
-            "de": "Moderne Wohnung in einem der beliebtesten Viertel der Stadt. Gute Aufteilung nach zwei Seiten, geräumige Wohnküche, autonome Heizung. Hausbaujahr 2018.",
-            "en": "Modern apartment in one of the most popular districts of the city. Good layout on two sides, spacious kitchen-living room, autonomous heating. House built in 2018. Modern playgrounds in the courtyard, near a new school and kindergarten.",
+            "de": "Zum Verkauf steht eine gemütliche „Einzugs- und Wohn“-Wohnung mit hochwertiger moderner Renovierung und sparsamer Standheizung in einem monolithischen Gebäude mit leisem Schindler-Aufzug.Sie finden Komfort und niedrige Stromrechnungen, einen gepflegten Eingang, Parkplätze und eine ausgebaute Infrastruktur: in der Nähe der Schule Nr. 57, des Giant-Einkaufszentrums und des Albatross-Fitnesscenters.Durch den bequemen Verkehrsknotenpunkt gelangen Sie in 3 Minuten nach Okruzhnaya, in 15 Minuten ins Zentrum und in nur einer halben Stunde ans Meer.Möbel und Geräte unterliegen weiterhin der Vereinbarung – rufen Sie an, um alle Vorteile persönlich zu testen!",
+            "en": "For sale is a cozy “move in and live” apartment with high-quality modern renovation and economical independent heating in a monolithic building with a silent Schindler elevator.You will find comfort and low utility bills, a well-maintained entrance, parking and developed infrastructure: near school No. 57, the Giant shopping center and the Albatross fitness center.Convenient transport interchange allows you to go to Okruzhnaya in 3 minutes, get to the center in 15, and to the sea in just half an hour.Furniture and appliances remain subject to agreement - call to evaluate all the benefits in person!",
             "ru": "Продается уютная квартира формата «заезжай и живи» с качественным современным ремонтом и экономичным автономным отоплением в монолитном доме с бесшумным лифтом Schindler. Вас ждет комфорт и низкие коммунальные платежи, ухоженный подъезд, паркинг и развитая инфраструктура: рядом школа №57, ТЦ «Гиант» и фитнес-центр «Альбатрос». Удобная транспортная развязка позволяет выехать на Окружную за 3 минуты, добраться до центра за 15, а до моря всего за полчаса. Мебель и техника остаются по согласованию — звоните, чтобы оценить все преимущества лично!",
-            "zh": "位于该市最受欢迎的地区的现代公寓。双面布局合理，宽敞的厨卫，自主采暖。2018年建成的房屋。院子里的现代化游乐场，靠近新学校和幼儿园。"
+            "zh": "出售的是一套舒适的“入住即住”公寓，拥有高品质的现代化装修和经济的独立供暖系统，位于一栋整体建筑内，配有静音迅达电梯。您会发现这里舒适且水电费低廉、维护良好的入口、停车场和发达的基础设施：靠近 57 号学校、Giant 购物中心和 Albatross 健身中心。便捷的交通换乘让您3分钟即可到达Okruzhnaya，15分钟即可到达市中心，半小时即可到达大海。家具和电器仍须遵守协议 - 亲自致电评估所有好处！"
         },
         "detailsLink": {
             "de": "object-10-de.html",
@@ -180,10 +195,10 @@
             "images/object-10/4ae186842b98bc20694c972d03e749ad8c6c0162.jpeg"
         ],
         "location": {
-            "de": "Kaliningrad, Aksakova str.",
-            "en": "Kaliningrad, Aksakova str.",
+            "de": "Kaliningrad, st.Aksakova, 133",
+            "en": "Kaliningrad, st.Aksakova, 133",
             "ru": "Калининград, ул. Аксакова, 133",
-            "zh": "加里宁格勒"
+            "zh": "加里宁格勒，圣。阿克萨科娃，133"
         },
         "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2304.890006696282!2d20.5836631!3d54.71155829999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e31427e090c2b7%3A0xc3cf486624429af3!2z0YPQuy4g0JDQutGB0LDQutC-0LLQsCwgMTMzLCDQmtCw0LvQuNC90LjQvdCz0YDQsNC0LCDQmtCw0LvQuNC90LjQvdCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgMjM2MDQ4!5e0!3m2!1sru!2sru!4v1770656021718!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "price": {
@@ -197,13 +212,27 @@
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "area": "64",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
             },
             "en": {
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "area": "64",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
             },
             "ru": {
                 "Area": "",
@@ -222,7 +251,14 @@
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "area": "64",
+                "balcony": "",
+                "entrance": "",
+                "floor": "",
+                "heating": "",
+                "renovation": "",
+                "rooms": ""
             }
         },
         "stats": {
@@ -232,19 +268,19 @@
             "zh": "64平 | 5/9层"
         },
         "title": {
-            "de": "2-Zi Wohnung, 64m², Aksakova str.",
-            "en": "2-room Apt, 64m², Aksakova str.",
+            "de": "2-Zimmer-Wohnung, 64m², St. Aksakova",
+            "en": "2-room apartment, 64m², st.Aksakova",
             "ru": "2-к квартира, 64м², ул. Аксакова",
-            "zh": "两室公寓，64平米"
+            "zh": "2 室公寓，64 平方米，圣。阿克萨科娃"
         },
         "type": "apartment"
     },
     {
         "description": {
-            "de": "Gemütliche und helle Wohnung in einer Gegend mit entwickelter Infrastruktur. Backsteinhaus mit hervorragender Wärme- und Schalldämmung. In der Wohnung wurden kosmetische Reparaturen durchgeführt.",
-            "en": "Cozy and bright apartment in an area with developed infrastructure. Brick house providing excellent thermal and sound insulation. The apartment has undergone cosmetic repairs, communications have been replaced.",
+            "de": "Zum Verkauf steht eine gemütliche 1-Zimmer-Wohnung von 37,5 m² im Moskauer Stadtteil mit hochwertiger Frischrenovierung und komplett erneuerter Kommunikation.Sämtliche Möbel und Geräte verbleiben bei den neuen Eigentümern – eine ideale „Einkommen und Wohnen“-Option ohne Investitionen.Das Haus befindet sich in einer erschlossenen Lage: Im Innenhof befinden sich die Schule Nr. 56 und Kindergärten, nahegelegene Geschäfte und Bushaltestellen, bequemer Zugang zum Meer.Die Wohnung ist rechtlich sauber, es gibt einen erwachsenen Eigentümer – eine schnelle und sichere Abwicklung ist garantiert!",
+            "en": "For sale is a cozy 1-room apartment of 37.5 m² in the Moskovsky district with high-quality fresh renovation and completely replaced communications.All furniture and appliances remain with the new owners - an ideal “come in and live” option without investment.The house is located in a developed location: in the courtyard there is school No. 56 and kindergartens, nearby shops and bus stops, convenient access to the sea.The apartment is legally clean, there is one adult owner - a fast and safe transaction is guaranteed!",
             "ru": "Продается уютная 1-комнатная квартира 37,5 м² в Московском районе с качественным свежим ремонтом и полностью замененными коммуникациями. Вся мебель и техника остаются новым владельцам — идеальный вариант «заходи и живи» без вложений. Дом расположен в развитой локации: во дворе школа №56 и детские сады, рядом магазины и остановки, удобный выезд к морю. Квартира юридически чиста, один взрослый собственник — быстрая и безопасная сделка гарантирована!",
-            "zh": "位于基础设施发达地区的温馨明亮的公寓。砖房提供极佳的隔热和隔音效果。公寓进行了美容维修，更换了通讯设施。无论是自住还是出租的完美选择。"
+            "zh": "出售的是莫斯科夫斯基区一套 37.5 平方米的舒适单室公寓，拥有高品质的全新装修和完全更换的通讯系统。所有家具和电器仍归新主人所有——这是无需投资的理想“入住并居住”选择。房子位于发达的位置：院内有56号学校和幼儿园，附近有商店和公交车站，出海方便。公寓合法干净，有一名成年业主 - 保证快速安全的交易！"
         },
         "detailsLink": {
             "de": "object-11-de.html",
@@ -291,10 +327,10 @@
             "images/object-11/ee9d842cf01ea634259d78d1494dc99bf8f3fc3c.jpeg"
         ],
         "location": {
-            "de": "Kaliningrad, Gaydara str.",
-            "en": "Kaliningrad, Gaydara str.",
+            "de": "Kaliningrad, Ulyana Gromova Straße, 95",
+            "en": "Kaliningrad, Ulyana Gromova street, 95",
             "ru": "Калининград, улица Ульяны Громовой, 95",
-            "zh": "加里宁格勒"
+            "zh": "加里宁格勒, 乌里安娜格罗莫娃街, 95"
         },
         "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2307.460473305516!2d20.502249!3d54.666323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e317ba11001ec3%3A0xc6a7620c335258a8!2z0YPQuy4g0KPQu9GM0Y_QvdGLINCT0YDQvtC80L7QstC-0LksIDk1LCDQmtCw0LvQuNC90LjQvdCz0YDQsNC0LCDQmtCw0LvQuNC90LjQvdCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgMjM2MDQ0!5e0!3m2!1sru!2sru!4v1770656130915!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "price": {
@@ -305,22 +341,22 @@
         },
         "specs": {
             "de": {
-                "area": "",
+                "area": "37,5",
                 "balcony": "",
                 "entrance": "",
-                "floor": "",
+                "floor": "7/10",
                 "heating": "",
                 "renovation": "",
-                "rooms": ""
+                "rooms": "1"
             },
             "en": {
-                "area": "",
+                "area": "37,5",
                 "balcony": "",
                 "entrance": "",
-                "floor": "",
+                "floor": "7/10",
                 "heating": "",
                 "renovation": "",
-                "rooms": ""
+                "rooms": "1"
             },
             "ru": {
                 "area": "37,5",
@@ -332,13 +368,13 @@
                 "rooms": "1"
             },
             "zh": {
-                "area": "",
+                "area": "37,5",
                 "balcony": "",
                 "entrance": "",
-                "floor": "",
+                "floor": "7/10",
                 "heating": "",
                 "renovation": "",
-                "rooms": ""
+                "rooms": "1"
             }
         },
         "stats": {
@@ -348,19 +384,19 @@
             "zh": "65平 | 5/5层"
         },
         "title": {
-            "de": "2-Zi Wohnung, 65m², Gaydara str.",
-            "en": "2-room Apt, 65m², Gaydara str.",
+            "de": "1-Zimmer-Wohnung, 37,5 m², 7./10. Etage.",
+            "en": "1-room apartment, 37.5 m², 7/10 floor.",
             "ru": "1-комн квартира, 37.5 м², 7 /10 эт.",
-            "zh": "两室公寓，65平米"
+            "zh": "一室公寓，37.5 平方米，7/10 层。"
         },
         "type": "apartment"
     },
     {
         "description": {
-            "de": "Wohnung in einer modernen Wohnanlage der Komfortklasse. Hochwertige 'graue Schlüssel' Veredelung, die jedes Designprojekt ermöglicht. Die Fenster blicken in einen ruhigen Innenhof.",
-            "en": "Apartment in a modern comfort-class residential complex. High-quality 'gray key' finishing, allowing to implement any design project. Windows overlook a quiet courtyard. The territory of the complex is fenced.",
+            "de": "Zum Verkauf steht eine 2-Zimmer-Wohnung von 65 m² mit autonomer Heizung und hohen Decken von 2,85 m in der prestigeträchtigen Wohnanlage „Royal Gate“.Eine stilvolle Renovierung mit Fußbodenheizung wurde abgeschlossen, alle Möbel und Geräte sind erhalten geblieben – genießen Sie gleich nach dem Einzug das Panorama auf den Fluss und das Stadion.Das Haus liegt in einer ruhigen Grünanlage in der Nähe der historischen Stadtmauer, Supermärkte, Cafés und Verkehrsmittel sind zu Fuß erreichbar.",
+            "en": "For sale is a view 2-room apartment of 65 m² with autonomous heating and high ceilings of 2.85 m in the prestigious residential complex \"Royal Gate\".A stylish renovation has been completed with heated floors, all the furniture and appliances remain - enjoy the panorama of the river and the stadium immediately after moving in.The house is located in a quiet green area near the historical rampart, with supermarkets, cafes and transport within walking distance.",
             "ru": "Продается видовая 2-комнатная квартира 65 м² с автономным отоплением и высокими потолками 2,85 м в престижном ЖК «Королевские ворота». Выполнен стильный ремонт с теплыми полами, остается вся мебель и техника — наслаждайтесь панорамой на реку и стадион сразу после переезда. Дом расположен в тихой зеленой зоне у исторического вала, при этом в шаговой доступности супермаркеты, кафе и транспорт.\n",
-            "zh": "舒适级现代住宅楼群内的公寓。优质的'灰色钥匙'交付，允许实施任何设计项目。窗户朝向安静的院子。楼群区域封闭，设有视频监控。"
+            "zh": "出售的是一套 65 平方米的景观 2 室公寓，配有自动供暖系统和 2.85 m 的高天花板，位于著名的住宅区“Royal Gate”。时尚的装修已完成，配有加热地板，所有家具和电器均保留 - 入住后即可欣赏河流和体育场的全景。房子位于历史城墙附近的安静绿地，步行即可到达超市、咖啡馆和交通设施。"
         },
         "detailsLink": {
             "de": "object-12-de.html",
@@ -413,10 +449,10 @@
             "images/object-12/de9f6734dae54a32bacebaaec0384dc4d97a2526.jpeg"
         ],
         "location": {
-            "de": "Kaliningrad, Gagarina str.",
-            "en": "Kaliningrad, Gagarina str.",
+            "de": "Kaliningrad, st.Gagarina, 2ak2",
+            "en": "Kaliningrad, st.Gagarina, 2ak2",
             "ru": "Калининград, ул. Гагарина, 2ак2",
-            "zh": "加里宁格勒"
+            "zh": "加里宁格勒，圣。加加林娜，2ak2"
         },
         "mapUrl": "",
         "price": {
@@ -430,13 +466,27 @@
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "area": "73",
+                "balcony": "",
+                "entrance": "",
+                "floor": "I/11",
+                "heating": "Autonom",
+                "renovation": "Designer",
+                "rooms": ""
             },
             "en": {
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "area": "73",
+                "balcony": "",
+                "entrance": "",
+                "floor": "I/11",
+                "heating": "Autonomous",
+                "renovation": "Designer",
+                "rooms": ""
             },
             "ru": {
                 "Area": "",
@@ -455,7 +505,14 @@
                 "Area": "",
                 "Floors": "",
                 "Plot": "",
-                "Rooms": ""
+                "Rooms": "",
+                "area": "73",
+                "balcony": "",
+                "entrance": "",
+                "floor": "我/11",
+                "heating": "自主",
+                "renovation": "设计师",
+                "rooms": ""
             }
         },
         "stats": {
@@ -465,19 +522,19 @@
             "zh": "65平 | 8/10层"
         },
         "title": {
-            "de": "2-Zi Wohnung, 65m², Gagarina str.",
-            "en": "2-room Apt, 65m², Gagarina str.",
+            "de": "2-Zimmer-Wohnung, 65m², St. Gagarin",
+            "en": "2-room apartment, 65m², st.Gagarin",
             "ru": "2-к квартира, 65м², ул. Гагарина",
-            "zh": "两室公寓，65平米"
+            "zh": "2 室公寓，65 平方米，圣。加加林"
         },
         "type": "apartment"
     },
     {
         "description": {
-            "de": "Exklusive Wohnung in Svetlogorsk-1. Geräumiges Zimmer, große Küche mit Zugang zur Loggia. Blick auf den Kiefernwald. Moderner Aufzug im Haus installiert.",
-            "en": "Exclusive apartment in Svetlogorsk-1. Spacious room, large kitchen with access to the loggia. View of the pine forest. Modern elevator installed in the house. 15 minutes walking distance to the sea shore.",
+            "de": "Zum Verkauf steht eine stilvolle 1-Zimmer-Wohnung von 42,5 m² in Swetlogorsk mit Designer-Renovierung, unabhängiger Heizung und maßgefertigten Möbeln aus Polen.Alle Markengeräte bleiben erhalten und bieten den Komfort eines „Einzugs- und Wohnens“ in einem warmen Backsteinhaus.Der Standort verbindet die Stille eines Apfelgartens mit einer ausgebauten Infrastruktur: In der Nähe befindet sich ein Sportkomplex mit Schwimmbad, einer Schule und Supermärkten.Das Meer ist nur 10 Autominuten entfernt und über einen bequemen Verkehrsknotenpunkt gelangen Sie schnell zu den benachbarten Ferienorten und nach Kaliningrad.",
+            "en": "For sale is a stylish 1-room apartment of 42.5 m² in Svetlogorsk with designer renovation, independent heating and custom-made furniture from Poland.All branded appliances remain, providing the comfort of a “move in and live” format in a warm brick house.The location combines the silence of an apple orchard with developed infrastructure: nearby a sports complex with a swimming pool, a school and supermarkets.The sea is only 10 minutes away by car, and a convenient interchange allows you to quickly get to neighboring resorts and Kaliningrad.",
             "ru": "Продается стильная 1-комнатная квартира 42,5 м² в Светлогорске с дизайнерским ремонтом, автономным отоплением и заказной мебелью из Польши. Вся брендовая техника остается, обеспечивая комфорт формата «заезжай и живи» в теплом кирпичном доме. Локация сочетает тишину яблоневого сада с развитой инфраструктурой: рядом ФОК с бассейном, школа и супермаркеты. До моря всего 10 минут на авто, а удобная развязка позволяет быстро добраться до соседних курортов и Калининграда.",
-            "zh": "位于斯韦特洛戈尔斯克1区的独家公寓。房间宽敞，厨房大，带阳台。俯瞰松树林。房屋配有现代电梯，楼道干净整洁。步行到海边只需15分钟。"
+            "zh": "出售的是斯韦特洛戈尔斯克一套 42.5 平方米的时尚单室公寓，配有设计师装修、独立暖气和来自波兰的定制家具。所有品牌电器均保留下来，在温暖的砖房中提供“入住并居住”的舒适感。该地点将苹果园的宁静与发达的基础设施融为一体：附近有一个带游泳池的体育中心、一所学校和超市。距离大海仅 10 分钟车程，便捷的转乘让您可以快速到达邻近的度假村和加里宁格勒。"
         },
         "detailsLink": {
             "de": "object-13-de.html",
@@ -524,10 +581,10 @@
             "images/object-13/1971670d0c7b3c8a733938292fbac782743f5989.jpeg"
         ],
         "location": {
-            "de": "Svetlogorsk, Molodezhnaya str.",
-            "en": "Svetlogorsk, Molodezhnaya str.",
+            "de": "Swetlogorsk, st.Molodezhnaya, 6k2",
+            "en": "Svetlogorsk, st.Molodezhnaya, 6k2",
             "ru": "Светлогорск, ул. Молодежная, 6к2",
-            "zh": "斯韦特洛戈尔斯克"
+            "zh": "斯韦特洛戈尔斯克，圣。莫洛杰日纳亚, 6k2"
         },
         "mapUrl": "",
         "price": {
@@ -538,22 +595,22 @@
         },
         "specs": {
             "de": {
-                "area": "",
-                "balcony": "",
+                "area": "42.5",
+                "balcony": "Balkon",
                 "entrance": "",
-                "floor": "",
-                "heating": "",
-                "renovation": "",
-                "rooms": ""
+                "floor": "2/5",
+                "heating": "Autonom",
+                "renovation": "Designer",
+                "rooms": "1"
             },
             "en": {
-                "area": "",
-                "balcony": "",
+                "area": "42.5",
+                "balcony": "Balcony",
                 "entrance": "",
-                "floor": "",
-                "heating": "",
-                "renovation": "",
-                "rooms": ""
+                "floor": "2/5",
+                "heating": "Autonomous",
+                "renovation": "Designer",
+                "rooms": "1"
             },
             "ru": {
                 "area": "42.5",
@@ -565,13 +622,13 @@
                 "rooms": "1"
             },
             "zh": {
-                "area": "",
-                "balcony": "",
+                "area": "42.5",
+                "balcony": "阳台",
                 "entrance": "",
-                "floor": "",
-                "heating": "",
-                "renovation": "",
-                "rooms": ""
+                "floor": "2/5",
+                "heating": "自主",
+                "renovation": "设计师",
+                "rooms": "1"
             }
         },
         "stats": {
@@ -581,19 +638,19 @@
             "zh": "48.7平 | 6/6层"
         },
         "title": {
-            "de": "1-Zi Wohnung, 48m², Svetlogorsk",
-            "en": "1-room Apt, 48m², Svetlogorsk",
+            "de": "1-Zimmer-Wohnung, 48m², Swetlogorsk",
+            "en": "1-room apartment, 48m², Svetlogorsk",
             "ru": "1-к квартира, 48м², Светлогорск",
-            "zh": "一室公寓，48平米"
+            "zh": "一室公寓，48平方米，斯韦特洛戈尔斯克"
         },
         "type": "apartment"
     },
     {
         "description": {
-            "de": "Premium-Apartments in fußläufiger Entfernung zum Tikhoe-See. Designer-Renovierung mit teuren Materialien, Möbel und Geräte bleiben erhalten.",
-            "en": "Premium apartments within walking distance from Lake Tikhoe. Designer renovation using expensive materials, furniture and appliances remain. Ideal place for rest or high-yield rental.",
+            "de": "Zum Verkauf steht eine luxuriöse 35 m² große Wohnung mit Designer-Renovierung und italienischen Möbeln in einer prestigeträchtigen Gegend von Swetlogorsk in der Nähe des Tikhoe-Sees.Ein Backsteinhaus mit autonomer Heizung, eine Panorama-Loggia mit Blick auf einen Pinienwald und eine komplette Ausstattung mit Premium-Geräten schaffen ideale Bedingungen zum Entspannen.Der geschlossene Bereich sorgt für Ruhe und das Meer sowie die Yantar-Halle sind nur 15 Gehminuten entfernt.Ein schöner Bonus – ein Keller als Geschenk und vernünftige Verhandlungen;Die Wohnung wurde noch nie vermietet und ist komplett bezugsfertig!",
+            "en": "For sale is a luxurious 35 m² apartment with designer renovation and Italian furniture in a prestigious area of ​​Svetlogorsk near Lake Tikhoe.A brick house with autonomous heating, a panoramic loggia overlooking a pine forest and a full set of premium appliances create ideal conditions for relaxation.The closed area ensures silence, and the sea and the Yantar Hall are only a 15-minute walk away.A nice bonus - a basement as a gift and reasonable bargaining;The apartment has never been rented out and is completely ready to move in!",
             "ru": "Продается роскошная квартира 35 м² с дизайнерским ремонтом и итальянской мебелью в престижном районе Светлогорска у озера Тихое. Кирпичный дом с автономным отоплением, панорамная лоджия с видом на сосновый бор и полная комплектация премиальной техникой создают идеальные условия для отдыха. Закрытая территория обеспечивает тишину, а до моря и «Янтарь-холла» всего 15 минут прогулочным шагом. Приятный бонус — подвал в подарок и разумный торг; квартира никогда не сдавалась и полностью готова к проживанию!",
-            "zh": "距离提赫湖步行距离内的优质公寓。使用昂贵材料进行的设计师装修，家具和家电保留。休闲或高收益出租的理想场所。"
+            "zh": "出售的是一套 35 平方米的豪华公寓，配有设计师装修和意大利家具，位于蒂霍湖附近斯韦特洛戈尔斯克的著名地区。带自动供暖的砖房、俯瞰松树林的全景凉廊和全套优质电器为放松身心创造了理想的条件。封闭区域确保安静，距离大海和 Yantar Hall 大厅仅有 15 分钟步行路程。一个不错的奖励——一个地下室作为礼物和合理的讨价还价；该公寓从未出租，完全可以入住！"
         },
         "detailsLink": {
             "de": "object-14-de.html",
@@ -661,10 +718,10 @@
             "images/object-14/f5a883df77a44b94fcfa23d486d1fca8882563e2.jpeg"
         ],
         "location": {
-            "de": "Svetlogorsk, Mayskiy ave.",
-            "en": "Svetlogorsk, Mayskiy ave.",
+            "de": "Swetlogorsk, st.Maysky Proezd, 9",
+            "en": "Svetlogorsk, st.Maysky proezd, 9",
             "ru": "Светлогорск, ул. Майский проезд, 9",
-            "zh": "斯韦特洛戈尔斯克"
+            "zh": "斯韦特洛戈尔斯克，圣。梅斯基进程，9"
         },
         "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d18338.547954147092!2d20.126437724145482!3d54.93243030863782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0KHQstC10YLQu9C-0LPQvtGA0YHQuiwg0JzQsNC50YHQutC40Lkg0L_RgNC-0LXQt9C0LCA5!5e0!3m2!1sru!2sru!4v1770656529292!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "price": {
@@ -718,19 +775,19 @@
             "zh": "35平 | 3/7层"
         },
         "title": {
-            "de": "1-Zi Wohnung, Mayskiy Viertel",
-            "en": "1-room Apt, Mayskiy district",
+            "de": "1-Zimmer-Wohnung, Maisky, Swetlogorsk",
+            "en": "1-room apartment, Maisky, Svetlogorsk",
             "ru": "1-к квартира, Майский, Светлогорск",
-            "zh": "一室公寓，五月区"
+            "zh": "一室公寓，Maisky，斯韦特洛戈尔斯克"
         },
         "type": "apartment"
     },
     {
         "description": {
-            "de": "Luxuriöse Duplex-Wohnung im historischen Teil von Svetlogorsk. Hohe Decken, originelle Architektur, Fenster mit Blick auf alte Villen.",
-            "en": "Luxurious duplex apartment in the historical part of Svetlogorsk. High ceilings, original architecture, windows overlook old villas. Rare offer for lovers of the atmosphere of the old town.",
+            "de": "Zum Verkauf steht eine geräumige 2-Zimmer-Wohnung von 68 m² mit großer Wohnküche und Panoramaloggia in einem gemütlichen Flachbau in Swetlogorsk.Sie finden die Ruhe der obersten Etage ohne darüber liegende Nachbarn, hochwertige Sanierung mit Massivholztüren und sparsamer Standheizung.Im umzäunten, begrünten Bereich gibt es einen Parkplatz und einen Grillplatz, außerdem erhalten Sie zwei große Trockenkeller (einer davon 16 m²!) geschenkt.In der Nähe eines Sportkomplexes mit Schwimmbad und Geschäften, zum Meer und zum Lake Tikhoe – 5 Minuten mit dem Transport oder einem angenehmen Spaziergang.",
+            "en": "For sale is a spacious 2-room apartment of 68 m² with a large kitchen-living room and a panoramic loggia in a cozy low-rise building in Svetlogorsk.You will find the silence of the top floor without neighbors above, high-quality renovation with solid wood doors and economical independent heating.In the fenced, landscaped area there is a parking and a barbecue area, and as a gift you get two large dry cellars (one is 16 m²!).Near a sports complex with a swimming pool and shops, to the sea and Lake Tikhoe - 5 minutes by transport or a pleasant walk.",
             "ru": "Продается просторная 2-комнатная квартира 68 м² с большой кухней-гостиной и панорамной лоджией в уютном малоэтажном доме Светлогорска. Вас ждет тишина верхнего этажа без соседей сверху, качественный ремонт с дверьми из массива и экономичное автономное отопление. На огороженной территории с ландшафтным дизайном есть парковка и зона барбекю, а в подарок вы получаете два больших сухих подвала (один — 16 м²!). Рядом ФОК с бассейном и магазины, до моря и озера Тихое — 5 минут на транспорте или приятная прогулка пешком.",
-            "zh": "斯韦特洛戈尔斯克历史区的豪华复式公寓。高天花板、原始建筑，窗户俯瞰旧别墅。为老城氛围爱好者提供的难得一见的对象。"
+            "zh": "出售的是斯韦特洛戈尔斯克一栋舒适的低层建筑内的宽敞 2 室公寓，面积 68 平方米，设有大型厨房客厅和全景凉廊。您会发现顶层没有邻居的安静，配有实木门的高品质装修和经济的独立暖气。带围栏的景观区设有停车场和烧烤区，作为礼物，您将获得两个大型干燥地窖（其中一个面积为 16 平方米！）。靠近一个设有游泳池和商店的体育中心，距离大海和蒂霍湖 - 乘坐交通工具或步行 5 分钟即可到达。"
         },
         "detailsLink": {
             "de": "object-15-de.html",
@@ -790,10 +847,10 @@
             "images/object-15/fe09361ee31ed85dda139c41b41c249c623280a9.jpeg"
         ],
         "location": {
-            "de": "Svetlogorsk, Sportivny lane",
-            "en": "Svetlogorsk, Sportivny lane",
+            "de": "Swetlogorsk, st.Sportivny Lane, 3",
+            "en": "Svetlogorsk, st.Sportivny Lane, 3",
             "ru": "Светлогорск, ул. Спортивный переулок, 3",
-            "zh": "斯韦特洛戈尔斯克"
+            "zh": "斯韦特洛戈尔斯克，圣。运动巷 3 号"
         },
         "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2292.7001738899785!2d20.1616242!3d54.9257333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e34bb24b37881d%3A0x57f786c873f40d14!2z0L_QtdGALiDQodC_0L7RgNGC0LjQstC90YvQuSwgMywg0JrQsNC70LjQvdC40L3Qs9GA0LDQtNGB0LrQsNGPINC-0LHQuy4sIDIzODU2Mw!5e0!3m2!1sru!2sru!4v1770656683273!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "price": {
@@ -847,10 +904,10 @@
             "zh": "66平 | 4/4层"
         },
         "title": {
-            "de": "2-Zi Wohnung, Sportivny lane",
-            "en": "2-room Apt, Sportivny lane",
+            "de": "2-Zimmer-Wohnung, Sportivny-Gasse, Swetlogorsk",
+            "en": "2-room apartment, Sportivny lane, Svetlogorsk",
             "ru": "2-к квартира, Спортивный переулок, Светлогорск",
-            "zh": "两室公寓，体育巷"
+            "zh": "2 室公寓，Sportivny 巷，斯韦特洛戈尔斯克"
         },
         "type": "apartment"
     }

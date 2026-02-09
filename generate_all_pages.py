@@ -210,12 +210,62 @@ def generate_all():
     print("\n🌍 Начинаем автоматический перевод...")
     for i, prop in enumerate(properties):
         print(f"\n📝 Объект {prop.get('id', i+1)}: {prop.get('title', {}).get('ru', 'Без названия')}")
-        properties[i] = translate_property_data(prop)
+        properties[i] = translate_property_data(prop, force_retranslate=True)
     
     # Сохраняем обновленные данные с переводами
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(properties, f, indent=4, ensure_ascii=False)
     print("\n✅ Переводы сохранены в data.json")
+    
+    # --- ОБНОВЛЕНИЕ JS/PROPERTIES.JS ---
+    # Читаем текущий js файл
+    js_path = 'js/properties.js'
+    if os.path.exists(js_path):
+        with open(js_path, 'r', encoding='utf-8') as f:
+            js_content = f.read()
+        
+        # Заменяем блок const propertiesData = [...]
+        # Используем json.dumps чтобы корректно сформировать JS объект
+        new_data_js = "const propertiesData = " + json.dumps(properties, indent=4, ensure_ascii=False) + ";"
+        
+        # Регулярка ищет от 'const propertiesData = [' до '];'
+        # Но так как внутри могут быть скобки, надежнее найти начало и до function renderProperties
+        # Или просто заменить всё от const propertiesData до ; (но там много строк)
+        # Попробуем заменить весь блок
+        
+        # Стратегия: Ищем 'const propertiesData =' и ';' перед 'function renderProperties'
+        # Или проще: полностью перезаписываем блок, зная структуру файла
+        
+        # Вариант: Найти начало и конец массива
+        start_marker = "const propertiesData = ["
+        end_marker = "];"
+        
+        start_idx = js_content.find(start_marker)
+        if start_idx != -1:
+            # Ищем точку с запятой после закрывающей скобки массива, но "];" может встречаться внутри строк (маловероятно)
+            # Надежнее: найти function renderProperties и отступить назад
+            func_idx = js_content.find("function renderProperties()")
+            if func_idx != -1:
+                # Ищем последний "];" перед функцией
+                end_idx = js_content.rfind("];", 0, func_idx)
+                if end_idx != -1:
+                    end_idx += 2 # Включаем ];
+                    
+                    new_js_content = js_content[:start_idx] + new_data_js + js_content[func_idx:] # Оставляем пробел между ними если надо
+                    # Но нужно быть аккуратным с отступами.
+                    # Попробуем просто вставить
+                    # В js файле между ]; и function обычно пусто.
+                    
+                    # Перезаписываем файл
+                    with open(js_path, 'w', encoding='utf-8') as f:
+                        f.write(new_js_content)
+                    print("✅ Обновлен файл js/properties.js")
+                else:
+                    print("⚠️ Не удалось найти конец массива propertiesData в js/properties.js")
+            else:
+                 print("⚠️ Не удалось найти функцию renderProperties в js/properties.js")
+        else:
+             print("⚠️ Не удалось найти const propertiesData в js/properties.js")
 
     # Читаем шаблон
     with open('templates/full-object-template.html', 'r', encoding='utf-8') as f:
@@ -402,12 +452,14 @@ def generate_all():
             content = content.replace('>8.5 сот.</div>', f'>{get_text("stats").split("|")[-1].strip()}</div>')
             content = content.replace('>Комнат</div>', f'>{sl["rooms"]}</div>')
 
+            
             # 5. Описание и преимущества
             desc = get_text('description')
             desc_html = desc.replace('\n', '</p><p>').replace('\\n', '</p><p>')
             new_desc_html = f'<div class="description"><h3>{about_heading}</h3><p>{desc_html}</p></div>'
-            # Более гибкая регулярка для замены описания
-            description_pattern = r'<div class="description">\s*<h3>О доме</h3>.*?</div>'
+
+            # Более гибкая регулярка для замены описания (ищем блок перед следующим блоком description)
+            description_pattern = r'<div class="description">.*?<h3>.*?</h3>.*?(?=\s*<div class="description">)'
             content = re.sub(description_pattern, new_desc_html, content, flags=re.DOTALL)
 
             features = prop.get('features', [])
@@ -417,7 +469,8 @@ def generate_all():
                 features_html += f'<div class="feature-item"><i class="fas fa-check"></i> {f}</div>'
             features_html += '</div></div>'
             # Исправленная регулярка: жадный поиск до закрывающего тега property-info (перед SIDEBAR)
-            features_pattern = r'<div class="description">\s*<h3>Преимущества</h3>.*?(?=\s*</div>\s*<!-- SIDEBAR -->)'
+            # Ищем блок, содержащий features-list, с любым заголовком
+            features_pattern = r'<div class="description">\s*<h3>.*?</h3>\s*<div class="features-list">.*?(?=\s*</div>\s*<!-- SIDEBAR -->)'
             content = re.sub(features_pattern, features_html, content, flags=re.DOTALL)
 
             # 6. Остальные замены (включая страховку для заголовков)
