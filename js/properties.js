@@ -122,7 +122,7 @@ const propertiesData = [
         "description": {
             "de": "Moderne Wohnung in einem der beliebtesten Viertel der Stadt. Gute Aufteilung nach zwei Seiten, geräumige Wohnküche, autonome Heizung. Hausbaujahr 2018.",
             "en": "Modern apartment in one of the most popular districts of the city. Good layout on two sides, spacious kitchen-living room, autonomous heating. House built in 2018. Modern playgrounds in the courtyard, near a new school and kindergarten.",
-            "ru": "Современная квартира в одном из самых востребованных районов города. Удачная планировка на две стороны, просторная кухня-гостиная, автономное отопление. Дом 2018 года постройки. Во дворе современные детские площадки, рядом новая школа и детский сад.",
+            "ru": "Продается уютная квартира формата «заезжай и живи» с качественным современным ремонтом и экономичным автономным отоплением в монолитном доме с бесшумным лифтом Schindler. Вас ждет комфорт и низкие коммунальные платежи, ухоженный подъезд, паркинг и развитая инфраструктура: рядом школа №57, ТЦ «Гиант» и фитнес-центр «Альбатрос». Удобная транспортная развязка позволяет выехать на Окружную за 3 минуты, добраться до центра за 15, а до моря всего за полчаса. Мебель и техника остаются по согласованию — звоните, чтобы оценить все преимущества лично!",
             "zh": "位于该市最受欢迎的地区的现代公寓。双面布局合理，宽敞的厨卫，自主采暖。2018年建成的房屋。院子里的现代化游乐场，靠近新学校和幼儿园。"
         },
         "detailsLink": {
@@ -199,12 +199,12 @@ const propertiesData = [
                 "Plot": "",
                 "Rooms": "",
                 "area": "",
-                "floor": "",
-                "rooms": "",
-                "entrance": "",
                 "balcony": "",
+                "entrance": "",
+                "floor": "",
                 "heating": "",
-                "renovation": ""
+                "renovation": "",
+                "rooms": ""
             },
             "zh": {
                 "Area": "",
