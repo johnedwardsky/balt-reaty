@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дом в Зеленоградске 300 м² | BaltHomes — Элитная недвижимость</title>
-    <meta name="description"
-        content="Просторный дом в Скандинавском стиле в Зеленоградске (Малиновка). Дизайнерский ремонт, 10 минут до моря, 300 кв.м.">
+    <title>{{ TITLE }} | BaltHomes — Элитная недвижимость</title>
+    <meta name="description" content="BaltHomes — Элитная недвижимость Калининграда и области.">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=3">
 
 
@@ -647,16 +646,17 @@
                 height: 0 !important;
                 overflow: hidden !important;
             }
+        }
 
-            /* Show mobile lang switcher inside menu */
-            .nav-desk .lang-switcher.mobile-lang-switcher {
-                display: flex !important;
-                margin-top: 20px;
-                padding-top: 20px;
-                border-top: 1px solid #eee;
-                justify-content: center;
-                width: 100%;
-            }
+        /* Show mobile lang switcher inside menu */
+        .nav-desk .lang-switcher.mobile-lang-switcher {
+            display: flex !important;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            justify-content: center;
+            width: 100%;
+        }
 
 
         }
@@ -670,7 +670,7 @@
             <a href="index.html" class="logo-wrapper">
                 <div class="logo">Balt<span>homes</span></div>
                 <div class="logo-subtitle">
-                    <span>Б</span><span>а</span><span>л</span><span>т</span><span>и</span><span>й</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>д</span><span>о</span><span>м</span><span>а</span>
+                    {{ SUBTITLE }}
                 </div>
             </a>
             <nav class="nav-desk" id="navMenu">
@@ -688,7 +688,7 @@
 
                 <div class="header-contacts">
                     <a href="tel:+79052491755" class="phone">+7 905-249-17-55</a>
-                    <div class="sub-phone">Калинингад и область</div>
+                    <div class="sub-phone">Калининград и область</div>
                 </div>
             </div>
 
@@ -701,16 +701,16 @@
 
     <main class="container property-hero">
         <div class="breadcrumb">
-            <a href="index.html">Главная</a> / <a href="index.html#categories">Зеленоградск</a> / Дом в Малиновке
+            <a href="index.html">{{ BREADCRUMB_HOME }}</a> / <a href="index.html#categories">{{ BREADCRUMB_LOC }}</a> /
+            {{ BREADCRUMB_TITLE }}
         </div>
 
         <div class="property-title-section">
             <div class="property-title">
-                <h1>Современный дом в Зеленоградске</h1>
-                <p class="property-location"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> г.
-                    Зеленоградск, 2-й Задонский переулок, 4</p>
+                <h1>{{ TITLE }}</h1>
+                <p class="property-location"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> {{ LOCATION }}</p>
             </div>
-            <div class="property-price">27 500 000 ₽</div>
+            <div class="property-price">{{ PRICE }}</div>
         </div>
 
         <!-- GALLEREYA -->
@@ -721,26 +721,26 @@
             <div class="property-info">
                 <div class="specs-grid">
                     <div class="spec-item">
-                        <div class="spec-label">Площадь</div>
-                        <div class="spec-value">300 м²</div>
+                        <div class="spec-label">{{ SPEC_1_LBL }}</div>
+                        <div class="spec-value">{{ SPEC_1_VAL }}</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Участок</div>
-                        <div class="spec-value">8.5 сот.</div>
+                        <div class="spec-label">{{ SPEC_2_LBL }}</div>
+                        <div class="spec-value">{{ SPEC_2_VAL }}</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Этажей</div>
-                        <div class="spec-value">2</div>
+                        <div class="spec-label">{{ SPEC_3_LBL }}</div>
+                        <div class="spec-value">{{ SPEC_3_VAL }}</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-label">Комнат</div>
-                        <div class="spec-value">5+</div>
+                        <div class="spec-label">{{ SPEC_4_LBL }}</div>
+                        <div class="spec-value">{{ SPEC_4_VAL }}</div>
                     </div>
                 </div>
 
-                {{ DESCRIPTION }}
+                {{ DESCRIPTION_BLOCK }}
 
-                {{ FEATURES }}
+                {{ FEATURES_BLOCK }}
 
             </div>
 
@@ -756,11 +756,11 @@
                         </div>
                     </div>
                     <form class="contact-form" id="leadForm">
-                        <input type="hidden" name="Объект" value="Дом в Зеленоградске (ID 10915771)">
-                        <input type="text" name="Имя" placeholder="Ваше имя" required>
-                        <input type="tel" name="Телефон" placeholder="Номер телефона" required>
-                        <textarea name="Сообщение" placeholder="Меня интересует этот объект" rows="4"></textarea>
-                        <button type="submit" class="btn">Записаться на просмотр</button>
+                        <input type="hidden" name="Объект" value="{{ FORM_OBJECT_VALUE }}">
+                        <input type="text" name="Имя" placeholder="{{ FORM_NAME_PLH }}" required>
+                        <input type="tel" name="Телефон" placeholder="{{ FORM_PHONE_PLH }}" required>
+                        <textarea name="Сообщение" placeholder="{{ FORM_MSG_PLH }}" rows="4"></textarea>
+                        <button type="submit" class="btn">{{ FORM_SUBMIT_BTN }}</button>
                     </form>
                     <div style="margin-top: 15px; text-align: center;">
                         <a href="https://t.me/laki_svetlana" target="_blank"
@@ -778,9 +778,7 @@
                 Расположение</h3>
             <div
                 style="width: 100%; height: 450px; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid #eee;">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2303.882142279762!2d20.4335493158933!3d54.94476098034505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e479c3f3a8b3e1%3A0x7d6c6e7d6e7d6e7d!2zMtC5INCX0LDQtNC-0L3RgdC60LjQuSDQv9C10YAuLCA0LCDQl9C10LvQtdC90L7Qs9GA0LDQtNGB0LosINCa0LDQu9C40L3QuNC90LPRgNCw0LTRgdC60LDRjyDQvtCx0LsuLCAyMzg1MzA!5e0!3m2!1sru!2sru!4v1620000000000!5m2!1sru!2sru"
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                {{ MAP_IFRAME }}
             </div>
         </section>
     </main>
@@ -834,7 +832,7 @@
     </div>
 
     <script>
-        { { GALLERY_JS } }
+        {{ GALLERY_JS }}
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -921,7 +919,7 @@
             btn.innerText = 'Отправка...';
             btn.disabled = true;
 
-            let message = "🔔 *Новая заявка с сайта (Объект 10915771)*\n\n";
+            let message = "🔔 {{ TG_MSG_HEADER }}\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });
@@ -946,7 +944,7 @@
             } catch (err) {
                 alert('Произошла ошибка при отправке. Пожалуйста, позвоните нам по телефону.');
             } finally {
-                btn.innerText = 'Записаться на просмотр';
+                btn.innerText = '{{ FORM_SUBMIT_BTN }}';
                 btn.disabled = false;
             }
         });

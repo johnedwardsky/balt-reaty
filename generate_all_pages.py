@@ -301,237 +301,213 @@ def generate_all():
         for lang in ['ru', 'en', 'de', 'zh']:
             content = template
             
-            # --- БАЗОВЫЕ ЗАМЕНЫ ---
+            # --- HELPER: Get translation for a field ---
             def get_text(field):
                 if field in prop:
-                    if isinstance(prop[field], dict):
-                        return prop[field].get(lang, prop[field].get('ru', ''))
-                    return str(prop[field])
+                    val = prop[field]
+                    if isinstance(val, dict):
+                        return val.get(lang, val.get('ru', ''))
+                    return str(val)
                 return ''
 
+            # 1. Page Metadata
             title = get_text('title')
+            location = get_text('location')
+            price = get_text('price')
+            description = get_text('description')
             
-            # 1. Определение типа объекта
-            prop_type = prop.get('type', '')
+            # 2. Property Type Deduction
+            prop_type = prop.get('type', 'house')
             if not prop_type:
-                # Получаем русское название для определения типа
-                title_ru = ''
-                raw_title = prop.get('title', '')
-                if isinstance(raw_title, dict):
-                    title_ru = raw_title.get('ru', '').lower()
-                else:
-                    title_ru = str(raw_title).lower()
-                
-                if any(kw in title_ru for kw in ['квартира', 'апартамент', 'студия']): 
-                    prop_type = 'apartment'
-                elif 'таунхаус' in title_ru: 
-                    prop_type = 'townhouse'
-                else: 
-                    prop_type = 'house'
+                title_ru = prop.get('title', {}).get('ru', '').lower()
+                if any(kw in title_ru for kw in ['квартира', 'апартамент', 'студия']): prop_type = 'apartment'
+                elif 'таунхаус' in title_ru: prop_type = 'townhouse'
+                else: prop_type = 'house'
 
-            # 2. Инициализация переводов интерфейса
+            # 3. Translation Dictionary
             trans = {
                 'ru': {
                     'subtitle': '<span>Б</span><span>а</span><span>л</span><span>т</span><span>и</span><span>й</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>д</span><span>о</span><span>м</span><span>а</span>',
                     'menu': ['Каталог', 'Побережье', 'Подбор', 'Услуги', 'Отзывы'],
-                    'headings': {
-                        'house': 'О доме',
-                        'apartment': 'О квартире',
-                        'townhouse': 'О таунхаусе',
-                        'features': 'Преимущества',
-                        'location': 'Расположение',
-                        'contacts': 'Контактные данные',
-                        'viewing': 'Записаться на просмотр'
-                    },
                     'agent_role': 'Ведущий специалист',
                     'sub_phone': 'Калининград и область',
                     'breadcrumb_home': 'Главная',
-                    'home_link': 'index.html'
+                    'home_link': 'index.html',
+                    'about': {'house': 'О доме', 'apartment': 'О квартире', 'townhouse': 'О таунхаусе'},
+                    'features_lbl': 'Преимущества',
+                    'location_lbl': 'Расположение',
+                    'spec_labels': {'area': 'Площадь', 'plot': 'Участок', 'floor': 'Этаж', 'floors': 'Этажей', 'rooms': 'Комнат'},
+                    'form': {'name': 'Ваше имя', 'phone': 'Номер телефона', 'msg': 'Меня интересует этот объект', 'submit': 'Записаться на просмотр', 'tg': '*Новая заявка с сайта*'}
                 },
                 'en': {
                     'subtitle': '<span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>c</span><span>&nbsp;</span><span>H</span><span>o</span><span>m</span><span>e</span><span>s</span>',
                     'menu': ['Catalog', 'Coastline', 'Selection', 'Services', 'Reviews'],
-                    'headings': {
-                        'house': 'About House',
-                        'apartment': 'About Apartment',
-                        'townhouse': 'About Townhouse',
-                        'features': 'Features',
-                        'location': 'Location',
-                        'contacts': 'Contact Details',
-                        'viewing': 'Book a Viewing'
-                    },
                     'agent_role': 'Leading Specialist',
                     'sub_phone': 'Kaliningrad & Region',
                     'breadcrumb_home': 'Home',
-                    'home_link': 'en.html'
+                    'home_link': 'en.html',
+                    'about': {'house': 'About House', 'apartment': 'About Apartment', 'townhouse': 'About Townhouse'},
+                    'features_lbl': 'Features',
+                    'location_lbl': 'Location',
+                    'spec_labels': {'area': 'Area', 'plot': 'Plot', 'floor': 'Floor', 'floors': 'Floors', 'rooms': 'Rooms'},
+                    'form': {'name': 'Your Name', 'phone': 'Phone Number', 'msg': 'I am interested in this property', 'submit': 'Book a Viewing', 'tg': '*New lead from website*'}
                 },
                 'de': {
                     'subtitle': '<span>B</span><span>a</span><span>l</span><span>т</span><span>и</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>H</span><span>ä</span><span>u</span><span>s</span><span>e</span><span>r</span>',
                     'menu': ['Katalog', 'Ostseeküste', 'Auswahl', 'Leistungen', 'Bewertungen'],
-                    'headings': {
-                        'house': 'Über das Haus',
-                        'apartment': 'Über die Wohnung',
-                        'townhouse': 'Über das Townhouse',
-                        'features': 'Vorteile',
-                        'location': 'Lage',
-                        'contacts': 'Kontaktdaten',
-                        'viewing': 'Besichtigung buchen'
-                    },
                     'agent_role': 'Führender Spezialist',
                     'sub_phone': 'Kaliningrad & Region',
                     'breadcrumb_home': 'Startseite',
-                    'home_link': 'de.html'
+                    'home_link': 'de.html',
+                    'about': {'house': 'Über das Haus', 'apartment': 'Über die Wohnung', 'townhouse': 'Über das Townhouse'},
+                    'features_lbl': 'Vorteile',
+                    'location_lbl': 'Lage',
+                    'spec_labels': {'area': 'Fläche', 'plot': 'Grundstück', 'floor': 'Etage', 'floors': 'Etagen', 'rooms': 'Zimmer'},
+                    'form': {'name': 'Ihr Name', 'phone': 'Telefonnummer', 'msg': 'Ich interessiere mich für dieses Objekt', 'submit': 'Besichtigung buchen', 'tg': '*Neue Anfrage von der Website*'}
                 },
                 'zh': {
                     'subtitle': '<span>波</span><span>罗</span><span>的</span><span>海</span><span>之</span><span>家</span>',
                     'menu': ['房产目录', '海岸线', '选房', '服务', '评论'],
-                    'headings': {
-                        'house': '关于房屋',
-                        'apartment': '关于公寓',
-                        'townhouse': '关于联排别墅',
-                        'features': '房产特色',
-                        'location': '地理位置',
-                        'contacts': '联系方式',
-                        'viewing': '预约看房'
-                    },
                     'agent_role': '首席专家',
                     'sub_phone': '加里宁格勒及地区',
                     'breadcrumb_home': '首页',
-                    'home_link': 'zh.html'
+                    'home_link': 'zh.html',
+                    'about': {'house': '关于房屋', 'apartment': '关于公寓', 'townhouse': '关于联排别墅'},
+                    'features_lbl': '房产特色',
+                    'location_lbl': '地理位置',
+                    'spec_labels': {'area': '面积', 'plot': '土地', 'floor': '楼层', 'floors': '层数', 'rooms': '房间'},
+                    'form': {'name': '您的姓名', 'phone': '电话号码', 'msg': '我对这个房产感兴趣', 'submit': '预约看房', 'tg': '*来自网站的新询盘*'}
                 }
             }
             t = trans.get(lang, trans['ru'])
-            about_heading = t['headings'].get(prop_type, t['headings']['house'])
 
-            # 3. Основные замены текста
-            content = content.replace('Дом в Зеленоградске 300 м² | BaltHomes — Элитная недвижимость', f'{title} | BaltHomes')
-            content = content.replace('Современный дом в Зеленоградске', title)
-            content = content.replace('27 500 000 ₽', get_text('price'))
-            content = content.replace('г. Зеленоградск, 2-й Задонский переулок, 4', get_text('location'))
-            content = content.replace('Зеленоградск, Район Малиновка', get_text('location'))
-            content = content.replace('Дом в Малиновке', title) # Breadcrumbs
-            content = content.replace('<span>Б</span><span>а</span><span>л</span><span>т</span><span>и</span><span>й</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>д</span><span>о</span><span>м</span><span>а</span>', t['subtitle'])
-            content = content.replace('href="index.html"', f'href="{t["home_link"]}"')
+            # 4. Fill Placeholders
+            content = content.replace('{{ BREADCRUMB_HOME }}', t['breadcrumb_home'])
+            content = content.replace('{{ BREADCRUMB_TITLE }}', title)
+            content = content.replace('{{ BREADCRUMB_LOC }}', location.split(',')[0]) # Simplification
             
-            # Ссылки меню
-            for i, anchor in enumerate(['#catalog', '#categories', '#quiz', '#services']):
-                content = content.replace(f'href="index.html{anchor}"', f'href="{t["home_link"]}{anchor}"')
+            content = content.replace('{{ TITLE }}', title)
+            content = content.replace('<title>Дом в Зеленоградске 300 м² | BaltHomes — Элитная недвижимость</title>', f'<title>{title} | BaltHomes</title>')
+            content = content.replace('{{ LOCATION }}', location)
+            content = content.replace('{{ PRICE }}', price)
             
-            content = content.replace('>Каталог<', f'>{t["menu"][0]}<')
-            content = content.replace('>Побережье<', f'>{t["menu"][1]}<')
-            content = content.replace('>Подбор<', f'>{t["menu"][2]}<')
-            content = content.replace('>Услуги<', f'>{t["menu"][3]}<')
-            content = content.replace('>Отзывы<', f'>{t["menu"][4]}<')
+            content = content.replace('{{ SUBTITLE }}', t['subtitle'])
+            content = content.replace('index.html"', f'{t["home_link"]}"') # Links in header
+            
+            # Specs logic
+            specs = prop.get('specs', {}).get(lang, prop.get('specs', {}).get('ru', {}))
+            
+            # Normalize spec keys (handle both Area and area)
+            def find_spec(keys):
+                for k in keys:
+                    if k in specs and specs[k]: return specs[k]
+                return '—'
 
-            # 4. Характеристики (Specs)
-            spec_labels = {
-                'ru': {'area': 'Площадь', 'plot': 'Участок', 'floor': 'Этаж', 'floors': 'Этажей', 'rooms': 'Комнат'},
-                'en': {'area': 'Area', 'plot': 'Plot', 'floor': 'Floor', 'floors': 'Floors', 'rooms': 'Rooms'},
-                'de': {'area': 'Fläche', 'plot': 'Grundstück', 'floor': 'Etage', 'floors': 'Etagen', 'rooms': 'Zimmer'},
-                'zh': {'area': '面积', 'plot': '土地', 'floor': '楼层', 'floors': '层数', 'rooms': '房间'}
-            }
-            sl = spec_labels.get(lang, spec_labels['ru'])
-            
-            content = content.replace('>Площадь</div>', f'>{sl["area"]}</div>')
-            content = content.replace('>300 м²</div>', f'>{get_text("stats").split("|")[0].strip()}</div>')
-            
             if prop_type == 'house':
-                content = content.replace('>Участок</div>', f'>{sl["plot"]}</div>')
+                s1_lbl, s1_val = t['spec_labels']['area'], find_spec(['area', 'Area', 'houseArea']) + " м²"
+                s2_lbl, s2_val = t['spec_labels']['plot'], find_spec(['plot', 'Plot', 'landArea']) + " сот."
+                s3_lbl, s3_val = t['spec_labels']['floors'], find_spec(['floors', 'Floors'])
+                s4_lbl, s4_val = t['spec_labels']['rooms'], find_spec(['rooms', 'Rooms'])
             else:
-                content = content.replace('>Участок</div>', f'>{sl["floor"]}</div>')
-            
-            content = content.replace('>Этажей</div>', f'>{sl["floors"]}</div>')
-            content = content.replace('>8.5 сот.</div>', f'>{get_text("stats").split("|")[-1].strip()}</div>')
-            content = content.replace('>Комнат</div>', f'>{sl["rooms"]}</div>')
+                s1_lbl, s1_val = t['spec_labels']['area'], find_spec(['area', 'Area']) + " м²"
+                s2_lbl, s2_val = t['spec_labels']['floor'], find_spec(['floor', 'Floor'])
+                s3_lbl, s3_val = t['spec_labels']['floors'], find_spec(['floors', 'Floors'])
+                s4_lbl, s4_val = t['spec_labels']['rooms'], find_spec(['rooms', 'Rooms'])
 
-            
-            # 5. Описание и преимущества (Простая замена плейсхолдеров)
-            desc = get_text('description')
-            if not desc or len(desc) < 5:
-                # print(f"WARNING: No description for object {obj_id}, using fallback.")
-                desc = "Описание скоро появится."
-            
-            desc_html = desc.replace('\n', '</p><p>').replace('\\n', '</p><p>')
-            new_desc_html = f'<div class="description"><h3>{about_heading}</h3><p>{desc_html}</p></div>'
+            content = content.replace('{{ SPEC_1_LBL }}', s1_lbl)
+            content = content.replace('{{ SPEC_1_VAL }}', s1_val)
+            content = content.replace('{{ SPEC_1_VAL }}', s1_val) # Duplicate for safety
+            content = content.replace('{{ SPEC_2_LBL }}', s2_lbl)
+            content = content.replace('{{ SPEC_2_VAL }}', s2_val)
+            content = content.replace('{{ SPEC_3_LBL }}', s3_lbl)
+            content = content.replace('{{ SPEC_3_VAL }}', s3_val)
+            content = content.replace('{{ SPEC_4_LBL }}', s4_lbl)
+            content = content.replace('{{ SPEC_4_VAL }}', s4_val)
 
-            features = prop.get('features', [])
-            feat_list = features.get(lang, features.get('ru', [])) if isinstance(features, dict) else features
-            features_html = f'<div class="description"><h3>{t["headings"]["features"]}</h3><div class="features-list">'
+            # Description
+            desc_html = description.replace('\n', '</p><p>').replace('\\n', '</p><p>')
+            content = content.replace('{{ DESCRIPTION_BLOCK }}', f'<div class="description"><h3>{t["about"][prop_type]}</h3><p>{desc_html}</p></div>')
+            
+            # Features
+            feat_list = prop.get('features', {}).get(lang, prop.get('features', {}).get('ru', [])) if isinstance(prop.get('features'), dict) else prop.get('features', [])
+            feat_html = f'<div class="description"><h3>{t["features_lbl"]}</h3><div class="features-list">'
             for f in feat_list:
-                features_html += f'<div class="feature-item"><i class="fas fa-check"></i> {f}</div>'
-            features_html += '</div></div>'
+                feat_html += f'<div class="feature-item"><i class="fas fa-check"></i> {f}</div>'
+            feat_html += '</div></div>'
+            content = content.replace('{{ FEATURES_BLOCK }}', feat_html)
 
-            # Прямая замена плейсхолдеров из шаблона
-            content = content.replace('{{ DESCRIPTION }}', new_desc_html)
-            content = content.replace('{{ FEATURES }}', features_html)
+            # Map
+            map_html = prop.get('mapUrl', '')
+            if not map_html or '<iframe' not in map_html:
+                # Fallback map or search
+                map_html = f'<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d20.43!3d54.94!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z{location}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>'
+            else:
+                # Ensure width/height are 100%
+                map_html = map_html.replace('width="600"', 'width="100%"').replace('height="450"', 'height="100%"')
+            content = content.replace('{{ MAP_IFRAME }}', map_html)
 
-            # --- ГАЛЕРЕЯ (HTML ПРЕВЬЮ - ПЕРВЫЕ 5) ---
-            gallery_html = f'<div class="gallery-grid" onclick="openGallery(0)">\n'
-            
-            # Определяем путь к главному фото
+            # Form
+            content = content.replace('{{ FORM_OBJECT_VALUE }}', f"{title} (ID {obj_id})")
+            content = content.replace('{{ FORM_NAME_PLH }}', t['form']['name'])
+            content = content.replace('{{ FORM_PHONE_PLH }}', t['form']['phone'])
+            content = content.replace('{{ FORM_MSG_PLH }}', t['form']['msg'])
+            content = content.replace('{{ FORM_SUBMIT_BTN }}', t['form']['submit'])
+            content = content.replace('{{ TG_MSG_HEADER }}', f"{t['form']['tg']} ({title}, ID {obj_id})")
+
+            # --- GALLERY ---
             if photos:
-                if '/' in photos[0]: main_img = photos[0]
-                else: main_img = f"images/object-{obj_id}/{photos[0]}"
+                main_img = photos[0] if '/' in photos[0] else f"images/object-{obj_id}/{photos[0]}"
             else:
                 main_img = "images/placeholder.jpg"
-
+            
+            gallery_html = f'<div class="gallery-grid" onclick="openGallery(0)">\n'
             gallery_html += f'''            <div class="gallery-item gallery-main">
                 <img src="{main_img}" alt="{title}">
                 <div class="gallery-overlay"><i class="far fa-image"></i> {photo_count} фото</div>
             </div>\n'''
             
             for i in range(1, min(5, photo_count)):
-                if '/' in photos[i]: img_path = photos[i]
-                else: img_path = f"images/object-{obj_id}/{photos[i]}"
+                img_p = photos[i] if '/' in photos[i] else f"images/object-{obj_id}/{photos[i]}"
                 gallery_html += f'''            <div class="gallery-item">
-                <img src="{img_path}" alt="фото {i+1}">
+                <img src="{img_p}" alt="фото {i+1}">
             </div>\n'''
-            
             gallery_html += '        </div>'
             content = content.replace('{{ GALLERY_GRID }}', gallery_html)
 
-            # --- JS ГАЛЕРЕЯ ---
-            final_photos_list = []
+            # JS Gallery
+            final_photos = []
             for p in photos:
-                if '/' in p: final_photos_list.append(p)
-                else: final_photos_list.append(f"images/object-{obj_id}/{p}")
-            
-            js_photos_array = json.dumps(final_photos_list, ensure_ascii=False)
-            js_code = f'const allPhotos = {js_photos_array};\n        const photoCount = {photo_count};'
-            content = content.replace('{{ GALLERY_JS }}', js_code)
+                final_photos.append(p if '/' in p else f"images/object-{obj_id}/{p}")
+            content = content.replace('{{ GALLERY_JS }}', f'const allPhotos = {json.dumps(final_photos)};')
 
-            # 6. Остальные замены
-            content = content.replace('Расположение</h3>', f'{t["headings"]["location"]}</h3>')
-            content = content.replace('Записаться на просмотр</button>', f'{t["headings"]["viewing"]}</button>')
-            content = content.replace('Ведущий специалист', t['agent_role'])
-            content = content.replace('Калинингад и область', t['sub_phone'])
-            content = content.replace('>Главная<', f'>{t["breadcrumb_home"]}<')
-            content = content.replace('value="Дом в Зеленоградске (ID 10915771)"', f'value="{title} (ID {obj_id})"')
-            content = content.replace('id="modalCounter">1 / 3</div>', f'id="modalCounter">1 / {photo_count}</div>')
-            content = content.replace('🔔 *Новая заявка с сайта (Объект 10915771)*', f'🔔 *Новая заявка с сайта ({title}, ID {obj_id})*')
-
-            # --- ЯЗЫКИ (ПЕРЕКЛЮЧАТЕЛЬ) ---
-            # Генерируем основной HTML для переключателя
-            def make_switcher(is_mobile=False):
-                extra = " mobile-lang-switcher" if is_mobile else ""
-                html = f'<div class="lang-switcher{extra}">'
+            # Lang Switchers
+            def make_sw(is_mob):
+                cls = "lang-switcher mobile-lang-switcher" if is_mob else "lang-switcher"
+                h = f'<div class="{cls}">'
                 for l in ['ru', 'en', 'de', 'zh']:
                     link = f'object-{obj_id}.html' if l == 'ru' else f'object-{obj_id}-{l}.html'
-                    active = ' class="active"' if l == lang else ''
-                    html += f'\n                    <a href="{link}"{active}>{l.upper()}</a>'
-                html += '\n                </div>'
-                return html
+                    active_cls = ' class="active"' if l == lang else ''
+                    h += f'<a href="{link}"{active_cls}>{l.upper()}</a>'
+                return h + '</div>'
+            
+            content = content.replace('{{ MOBILE_LANG_SWITCHER }}', make_sw(True))
+            content = content.replace('{{ DESKTOP_LANG_SWITCHER }}', make_sw(False))
 
-            content = content.replace('{{ MOBILE_LANG_SWITCHER }}', make_switcher(True))
-            content = content.replace('{{ DESKTOP_LANG_SWITCHER }}', make_switcher(False))
+            # Menu active state or translations
+            content = content.replace('>Каталог<', f'>{t["menu"][0]}<')
+            content = content.replace('>Побережье<', f'>{t["menu"][1]}<')
+            content = content.replace('>Подбор<', f'>{t["menu"][2]}<')
+            content = content.replace('>Услуги<', f'>{t["menu"][3]}<')
 
-            # Сохраняем файл
-            suffix = '' if lang == 'ru' else f'-{lang}'
-            filename = f"object-{obj_id}{suffix}.html"
-            with open(filename, 'w', encoding='utf-8') as out:
+            # Breadcrumb loc
+            content = content.replace('Зеленоградск', location.split(',')[0].strip())
+
+            # Save
+            f_name = f"object-{obj_id}.html" if lang == 'ru' else f"object-{obj_id}-{lang}.html"
+            with open(f_name, 'w', encoding='utf-8') as out:
                 out.write(content)
 
-    print("✅ Генерация завершена")
+    print("✅ Генерирация страниц завершена")
 
     # === 3. ОЧИСТКА УДАЛЕННЫХ СТРАНИЦ ===
     current_ids = [p['id'] for p in properties]
