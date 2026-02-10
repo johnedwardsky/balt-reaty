@@ -48,3 +48,5 @@
 [main 9af2e73] Content update from Admin Panel
  11 files changed, 64 insertions(+), 54 deletions(-)
 127.0.0.1 - - [10/Feb/2026 21:21:27] "POST /api/deploy HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 21:23:28] "GET /api/properties HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 21:23:28] "GET /api/stats HTTP/1.1" 200 -
