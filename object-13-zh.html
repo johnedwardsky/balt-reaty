@@ -137,7 +137,7 @@
             display: flex;
             gap: 10px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             margin-right: 15px;
             flex-shrink: 0;
         }
@@ -646,19 +646,16 @@
                 height: 0 !important;
                 overflow: hidden !important;
             }
-        }
 
-        /* Show mobile lang switcher inside menu */
-        .nav-desk .lang-switcher.mobile-lang-switcher {
-            display: flex !important;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            justify-content: center;
-            width: 100%;
-        }
-
-
+            /* Show mobile lang switcher inside menu */
+            .nav-desk .lang-switcher.mobile-lang-switcher {
+                display: flex !important;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                justify-content: center;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -667,17 +664,16 @@
     <!-- 1. SHAPKA -->
     <header>
         <div class="container header-inner">
-            <a href="zh.html" class="logo-wrapper">
+            <a href="index.html" class="logo-wrapper">
                 <div class="logo">Balt<span>homes</span></div>
-                <div class="logo-subtitle">
-                    <span>波</span><span>罗</span><span>的</span><span>海</span><span>之</span><span>家</span>
-                </div>
+                <div class="logo-subtitle"><span>波</span><span>罗</span><span>的</span><span>海</span><span>之</span><span>家</span></div>
             </a>
             <nav class="nav-desk" id="navMenu">
-                <a href="index.html#catalog">房产目录</a>
-                <a href="index.html#categories">海岸线</a>
-                <a href="index.html#quiz">选房</a>
-                <a href="index.html#services">服务</a>
+                <a href="zh.html#catalog">房产目录</a>
+                <a href="zh.html#categories">海岸线</a>
+                <a href="zh.html#quiz">选房</a>
+                <a href="zh.html#services">服务</a>
+                <a href="zh.html#reviews">评论</a>
                 <!-- Mobile Language Switcher (visible only inside burger menu) -->
                 <div class="lang-switcher mobile-lang-switcher"><a href="object-13.html">RU</a><a href="object-13-en.html">EN</a><a href="object-13-de.html">DE</a><a href="object-13-zh.html" class="active">ZH</a></div>
             </nav>
@@ -701,14 +697,15 @@
 
     <main class="container property-hero">
         <div class="breadcrumb">
-            <a href="zh.html">首页</a> / <a href="index.html#categories">斯韦特洛戈尔斯克，圣。莫洛杰日纳亚</a> /
+            <a href="index.html">首页</a> / <a href="index.html#categories">斯韦特洛戈尔斯克，圣。莫洛杰日纳亚</a> /
             一室公寓，48平方米，斯韦特洛戈尔斯克
         </div>
 
         <div class="property-title-section">
             <div class="property-title">
                 <h1>一室公寓，48平方米，斯韦特洛戈尔斯克</h1>
-                <p class="property-location"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 斯韦特洛戈尔斯克，圣。莫洛杰日纳亚, 6k2</p>
+                <p class="property-location"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> {{
+                    LOCATION }}</p>
             </div>
             <div class="property-price">¥ 665,000*</div>
         </div>
@@ -811,7 +808,7 @@
                 <div class="footer-col">
                     <h4>Контакты</h4>
                     <p>📞 +7 905-249-17-55</p>
-                    <p>📍 г. Калининград</p>
+                    <p>�� г. Калининград</p>
                     <p>✉️ svetlana@balthomes.ru</p>
                 </div>
                 <div class="footer-col">
@@ -837,7 +834,7 @@
     <!-- MODAL LIGHTBOX HTML -->
     <div id="galleryModal" class="modal">
         <span class="modal-close" onclick="closeGallery()">&times;</span>
-        <div class="modal-counter" id="modalCounter">1 / 39</div>
+        <div class="modal-counter" id="modalCounter">1 / 10</div>
 
         <div class="modal-nav modal-prev" onclick="prevImg()"><i class="fas fa-chevron-left"></i></div>
         <img class="modal-content" id="modalImg">
@@ -849,7 +846,7 @@
     </div>
 
     <script>
-        const allPhotos = ["images/object-13/070b0ede45a956fb018d005760dacb1952fa80fb.jpeg", "images/object-13/32990374a9ea984f5e4e22618fdd09b79945d60c.jpeg", "images/object-13/32fcf4dca76efd8cd6d43b3725f657f5195c397e.jpeg", "images/object-13/8398bd0c3b498b49d32fca50db9e2c6d661061d4.jpeg", "images/object-13/4fd8f5fd5169a8ac02445a473ca24ed183e46cc1.jpeg", "images/object-13/62bf386e6534929bd192ec7531b31fe67f65bb5b.jpeg", "images/object-13/4ec7b09bed8cf29e96443df4f27ba8fe16334258.jpeg", "images/object-13/a1393cf058b94d13f5ec4f452bd4c18b372a488a.jpeg", "images/object-13/1971670d0c7b3c8a733938292fbac782743f5989.jpeg"];
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -933,10 +930,10 @@
             const formData = new FormData(form);
             const btn = form.querySelector('button');
 
-            btn.innerText = 'Отправка...';
+            btn.innerText = 'Sending...';
             btn.disabled = true;
 
-            let message = "🔔 *来自网站的新询盘* (一室公寓，48平方米，斯韦特洛戈尔斯克, ID 13)\n\n";
+            let message = "{{ TG_MSG_PREFIX }}\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });
@@ -953,13 +950,13 @@
                 });
 
                 if (response.ok) {
-                    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                    alert('Thanks! Your request has been sent.');
                     form.reset();
                 } else {
                     throw new Error('Error');
                 }
             } catch (err) {
-                alert('Произошла ошибка при отправке. Пожалуйста, позвоните нам по телефону.');
+                alert('An error occurred. Please call us.');
             } finally {
                 btn.innerText = '预约看房';
                 btn.disabled = false;

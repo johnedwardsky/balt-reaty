@@ -210,7 +210,8 @@ def generate_all():
     print("\n🌍 Начинаем автоматический перевод...")
     for i, prop in enumerate(properties):
         print(f"\n📝 Объект {prop.get('id', i+1)}: {prop.get('title', {}).get('ru', 'Без названия')}")
-        # properties[i] = translate_property_data(prop, force_retranslate=True)
+        # Только переводим если нужно, или просто убеждаемся что структура правильная
+        properties[i] = translate_property_data(prop, force_retranslate=False)
     
     # Сохраняем обновленные данные с переводами
     with open('data.json', 'w', encoding='utf-8') as f:
@@ -328,10 +329,17 @@ def generate_all():
             trans = {
                 'ru': {
                     'subtitle': '<span>Б</span><span>а</span><span>л</span><span>т</span><span>и</span><span>й</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>д</span><span>о</span><span>м</span><span>а</span>',
-                    'menu': ['Каталог', 'Побережье', 'Подбор', 'Услуги', 'Отзывы'],
+                    'menu': {
+                        'Catalog': 'Каталог',
+                        'Coast': 'Побережье',
+                        'Selection': 'Подбор',
+                        'Services': 'Услуги',
+                        'Reviews': 'Отзывы'
+                    },
                     'agent_role': 'Ведущий специалист',
                     'sub_phone': 'Калининград и область',
                     'breadcrumb_home': 'Главная',
+                    'breadcrumb_loc': 'Калининград',
                     'home_link': 'index.html',
                     'about': {'house': 'О доме', 'apartment': 'О квартире', 'townhouse': 'О таунхаусе'},
                     'features_lbl': 'Преимущества',
@@ -341,10 +349,17 @@ def generate_all():
                 },
                 'en': {
                     'subtitle': '<span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>c</span><span>&nbsp;</span><span>H</span><span>o</span><span>m</span><span>e</span><span>s</span>',
-                    'menu': ['Catalog', 'Coastline', 'Selection', 'Services', 'Reviews'],
+                    'menu': {
+                        'Catalog': 'Catalog',
+                        'Coast': 'Coastline',
+                        'Selection': 'Selection',
+                        'Services': 'Services',
+                        'Reviews': 'Reviews'
+                    },
                     'agent_role': 'Leading Specialist',
                     'sub_phone': 'Kaliningrad & Region',
                     'breadcrumb_home': 'Home',
+                    'breadcrumb_loc': 'Kaliningrad',
                     'home_link': 'en.html',
                     'about': {'house': 'About House', 'apartment': 'About Apartment', 'townhouse': 'About Townhouse'},
                     'features_lbl': 'Features',
@@ -354,10 +369,17 @@ def generate_all():
                 },
                 'de': {
                     'subtitle': '<span>B</span><span>a</span><span>l</span><span>т</span><span>и</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>H</span><span>ä</span><span>u</span><span>s</span><span>e</span><span>r</span>',
-                    'menu': ['Katalog', 'Ostseeküste', 'Auswahl', 'Leistungen', 'Bewertungen'],
+                    'menu': {
+                        'Catalog': 'Katalog',
+                        'Coast': 'Ostseeküste',
+                        'Selection': 'Auswahl',
+                        'Services': 'Leistungen',
+                        'Reviews': 'Bewertungen'
+                    },
                     'agent_role': 'Führender Spezialist',
                     'sub_phone': 'Kaliningrad & Region',
                     'breadcrumb_home': 'Startseite',
+                    'breadcrumb_loc': 'Kaliningrad',
                     'home_link': 'de.html',
                     'about': {'house': 'Über das Haus', 'apartment': 'Über die Wohnung', 'townhouse': 'Über das Townhouse'},
                     'features_lbl': 'Vorteile',
@@ -367,10 +389,17 @@ def generate_all():
                 },
                 'zh': {
                     'subtitle': '<span>波</span><span>罗</span><span>的</span><span>海</span><span>之</span><span>家</span>',
-                    'menu': ['房产目录', '海岸线', '选房', '服务', '评论'],
+                    'menu': {
+                        'Catalog': '房产目录',
+                        'Coast': '海岸线',
+                        'Selection': '选房',
+                        'Services': '服务',
+                        'Reviews': '评论'
+                    },
                     'agent_role': '首席专家',
                     'sub_phone': '加里宁格勒及地区',
                     'breadcrumb_home': '首页',
+                    'breadcrumb_loc': '加里宁格勒',
                     'home_link': 'zh.html',
                     'about': {'house': '关于房屋', 'apartment': '关于公寓', 'townhouse': '关于联排别墅'},
                     'features_lbl': '房产特色',
@@ -392,8 +421,23 @@ def generate_all():
             content = content.replace('{{ PRICE }}', price)
             
             content = content.replace('{{ SUBTITLE }}', t['subtitle'])
-            content = content.replace('index.html"', f'{t["home_link"]}"') # Links in header
+            content = content.replace('{{ HOME_LINK }}', t['home_link'])
             
+            # Menu
+            if isinstance(t['menu'], dict):
+                content = content.replace('{{ MENU_CATALOG }}', t['menu'].get('Catalog', ''))
+                content = content.replace('{{ MENU_COAST }}', t['menu'].get('Coast', ''))
+                content = content.replace('{{ MENU_SELECTION }}', t['menu'].get('Selection', ''))
+                content = content.replace('{{ MENU_SERVICES }}', t['menu'].get('Services', ''))
+                content = content.replace('{{ MENU_REVIEWS }}', t['menu'].get('Reviews', ''))
+            else:
+                # Backwards compatibility
+                content = content.replace('{{ MENU_CATALOG }}', t['menu'][0])
+                content = content.replace('{{ MENU_COAST }}', t['menu'][1])
+                content = content.replace('{{ MENU_SELECTION }}', t['menu'][2])
+                content = content.replace('{{ MENU_SERVICES }}', t['menu'][3])
+                content = content.replace('{{ MENU_REVIEWS }}', t['menu'][4] if len(t['menu']) > 4 else '')
+
             # Specs logic
             specs = prop.get('specs', {}).get(lang, prop.get('specs', {}).get('ru', {}))
             
@@ -493,14 +537,7 @@ def generate_all():
             content = content.replace('{{ MOBILE_LANG_SWITCHER }}', make_sw(True))
             content = content.replace('{{ DESKTOP_LANG_SWITCHER }}', make_sw(False))
 
-            # Menu active state or translations
-            content = content.replace('>Каталог<', f'>{t["menu"][0]}<')
-            content = content.replace('>Побережье<', f'>{t["menu"][1]}<')
-            content = content.replace('>Подбор<', f'>{t["menu"][2]}<')
-            content = content.replace('>Услуги<', f'>{t["menu"][3]}<')
 
-            # Breadcrumb loc
-            content = content.replace('Зеленоградск', location.split(',')[0].strip())
 
             # Save
             f_name = f"object-{obj_id}.html" if lang == 'ru' else f"object-{obj_id}-{lang}.html"

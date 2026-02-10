@@ -1,12 +1,21 @@
+--- Balthomes Admin Setup & Start ---
+Проверка зависимостей...
+Запуск сервера...
  * Serving Flask app 'admin_server'
- * Debug mode: on
+ * Debug mode: off
 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:3001
+ * Running on http://127.0.0.1:8000
 [33mPress CTRL+C to quit[0m
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 111-731-259
-/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
+127.0.0.1 - - [10/Feb/2026 19:19:26] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 19:19:26] "GET /api/properties HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 19:19:26] "GET /api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 19:19:26] "[36mGET /images/object-15/1b4d0322f02915a1aa048939aa021049610f6a81.jpeg HTTP/1.1[0m" 304 -
+127.0.0.1 - - [10/Feb/2026 19:19:26] "[36mGET /images/object-12/0f6524458c2fcb85b09f6c8266b99ab8c4a20695.jpeg HTTP/1.1[0m" 304 -
+127.0.0.1 - - [10/Feb/2026 19:19:26] "[36mGET /images/object-14/3afec8b613c0456ea02efed72134bfa8828370d6.jpeg HTTP/1.1[0m" 304 -
+127.0.0.1 - - [10/Feb/2026 19:19:26] "[36mGET /images/object-13/070b0ede45a956fb018d005760dacb1952fa80fb.jpeg HTTP/1.1[0m" 304 -
+127.0.0.1 - - [10/Feb/2026 19:19:26] "[36mGET /images/object-11/0b5aa9862aace04f9a94c4574183b308d83e59f9.jpeg HTTP/1.1[0m" 304 -
+127.0.0.1 - - [10/Feb/2026 19:19:26] "[36mGET /images/object-10/0d23698358648b08dc7f35e8aa76f057555dd020.jpeg HTTP/1.1[0m" 304 -
+127.0.0.1 - - [10/Feb/2026 19:19:26] "[36mGET /images/object-4/6a5e0bb52a022a7f9e106b4d3381a1e5b4a7878b.jpeg HTTP/1.1[0m" 304 -
+127.0.0.1 - - [10/Feb/2026 19:20:17] "POST /api/generate-pages HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 19:25:52] "POST /api/generate-pages HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 19:27:09] "POST /api/generate-pages HTTP/1.1" 200 -

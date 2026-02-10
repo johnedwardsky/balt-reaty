@@ -137,7 +137,7 @@
             display: flex;
             gap: 10px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             margin-right: 15px;
             flex-shrink: 0;
         }
@@ -646,19 +646,16 @@
                 height: 0 !important;
                 overflow: hidden !important;
             }
-        }
 
-        /* Show mobile lang switcher inside menu */
-        .nav-desk .lang-switcher.mobile-lang-switcher {
-            display: flex !important;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            justify-content: center;
-            width: 100%;
-        }
-
-
+            /* Show mobile lang switcher inside menu */
+            .nav-desk .lang-switcher.mobile-lang-switcher {
+                display: flex !important;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                justify-content: center;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -667,17 +664,16 @@
     <!-- 1. SHAPKA -->
     <header>
         <div class="container header-inner">
-            <a href="en.html" class="logo-wrapper">
+            <a href="index.html" class="logo-wrapper">
                 <div class="logo">Balt<span>homes</span></div>
-                <div class="logo-subtitle">
-                    <span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>c</span><span>&nbsp;</span><span>H</span><span>o</span><span>m</span><span>e</span><span>s</span>
-                </div>
+                <div class="logo-subtitle"><span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>c</span><span>&nbsp;</span><span>H</span><span>o</span><span>m</span><span>e</span><span>s</span></div>
             </a>
             <nav class="nav-desk" id="navMenu">
-                <a href="index.html#catalog">Catalog</a>
-                <a href="index.html#categories">Coastline</a>
-                <a href="index.html#quiz">Selection</a>
-                <a href="index.html#services">Services</a>
+                <a href="en.html#catalog">Catalog</a>
+                <a href="en.html#categories">Coastline</a>
+                <a href="en.html#quiz">Selection</a>
+                <a href="en.html#services">Services</a>
+                <a href="en.html#reviews">Reviews</a>
                 <!-- Mobile Language Switcher (visible only inside burger menu) -->
                 <div class="lang-switcher mobile-lang-switcher"><a href="object-14.html">RU</a><a href="object-14-en.html" class="active">EN</a><a href="object-14-de.html">DE</a><a href="object-14-zh.html">ZH</a></div>
             </nav>
@@ -701,14 +697,15 @@
 
     <main class="container property-hero">
         <div class="breadcrumb">
-            <a href="en.html">Home</a> / <a href="index.html#categories">Svetlogorsk</a> /
+            <a href="index.html">Home</a> / <a href="index.html#categories">Svetlogorsk</a> /
             1-room apartment, Maisky, Svetlogorsk
         </div>
 
         <div class="property-title-section">
             <div class="property-title">
                 <h1>1-room apartment, Maisky, Svetlogorsk</h1>
-                <p class="property-location"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> Svetlogorsk, st.Maysky proezd, 9</p>
+                <p class="property-location"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> {{
+                    LOCATION }}</p>
             </div>
             <div class="property-price">€ 149,000*</div>
         </div>
@@ -811,7 +808,7 @@
                 <div class="footer-col">
                     <h4>Контакты</h4>
                     <p>📞 +7 905-249-17-55</p>
-                    <p>📍 г. Калининград</p>
+                    <p>�� г. Калининград</p>
                     <p>✉️ svetlana@balthomes.ru</p>
                 </div>
                 <div class="footer-col">
@@ -837,7 +834,7 @@
     <!-- MODAL LIGHTBOX HTML -->
     <div id="galleryModal" class="modal">
         <span class="modal-close" onclick="closeGallery()">&times;</span>
-        <div class="modal-counter" id="modalCounter">1 / 39</div>
+        <div class="modal-counter" id="modalCounter">1 / 10</div>
 
         <div class="modal-nav modal-prev" onclick="prevImg()"><i class="fas fa-chevron-left"></i></div>
         <img class="modal-content" id="modalImg">
@@ -849,7 +846,7 @@
     </div>
 
     <script>
-        const allPhotos = ["images/object-14/3afec8b613c0456ea02efed72134bfa8828370d6.jpeg", "images/object-14/4c34a0b6ac2cf446d73bd245ba8cebf6b67c6d58.jpeg", "images/object-14/8eb18acf0630a5a99f7fd6a3ad44a5103255edc8.jpeg", "images/object-14/21e25b96c34a25ad370308a67b09eb05d85accd9.jpeg", "images/object-14/30b4c333b1e7a2c6cde51a5c7795d137cca707dc.jpeg", "images/object-14/47f696cd63dd5293e1d220f7e8765ae65726e864.jpeg", "images/object-14/051f71556acbbe3befd896c04d3e2ad58eae215e.jpeg", "images/object-14/0073a8467a054311326f27ceb6536f770d46a2ce.jpeg", "images/object-14/82e22f226e7c0f788b2f61b45ee4aab5c5ca571f.jpeg", "images/object-14/594ade78fed5be774638d92187b18fb2ee438126.jpeg", "images/object-14/608a9bdaefe043b7d231353bcf8543491d9c5463.jpeg", "images/object-14/795a86a3c63369180d8d797717df0b9f85eb4c03.jpeg", "images/object-14/771996ee9cc5f8f91da3013dcf636441b388f6ce.jpeg", "images/object-14/776997d5547ec68c79ec8c93bd4d8e118e1d7f96.jpeg", "images/object-14/be0ca1ab5e7a4ddda07576aa430638cce01aef3e.jpeg", "images/object-14/be1d60c68238250cbcefd8447e3c4b4de773770b.jpeg", "images/object-14/c88a7b3fab4ce26bef94348ea441077dac722546.jpeg", "images/object-14/e11dfa2d6739d7610bd03f631b39c56b2a0e6fe8.jpeg", "images/object-14/e77470eea415a6ba0768db0e165402733dd7443b.jpeg", "images/object-14/eb6b42e0b268a6d1ade945ca950dad337c6f55bb.jpeg", "images/object-14/ecaa72c87d3cf3c99fd446038f046c65c38a0673.jpeg", "images/object-14/f5a883df77a44b94fcfa23d486d1fca8882563e2.jpeg"];
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -933,10 +930,10 @@
             const formData = new FormData(form);
             const btn = form.querySelector('button');
 
-            btn.innerText = 'Отправка...';
+            btn.innerText = 'Sending...';
             btn.disabled = true;
 
-            let message = "🔔 *New lead from website* (1-room apartment, Maisky, Svetlogorsk, ID 14)\n\n";
+            let message = "{{ TG_MSG_PREFIX }}\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });
@@ -953,13 +950,13 @@
                 });
 
                 if (response.ok) {
-                    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                    alert('Thanks! Your request has been sent.');
                     form.reset();
                 } else {
                     throw new Error('Error');
                 }
             } catch (err) {
-                alert('Произошла ошибка при отправке. Пожалуйста, позвоните нам по телефону.');
+                alert('An error occurred. Please call us.');
             } finally {
                 btn.innerText = 'Book a Viewing';
                 btn.disabled = false;

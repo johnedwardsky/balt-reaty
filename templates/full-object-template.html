@@ -137,7 +137,7 @@
             display: flex;
             gap: 10px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             margin-right: 15px;
             flex-shrink: 0;
         }
@@ -646,19 +646,16 @@
                 height: 0 !important;
                 overflow: hidden !important;
             }
-        }
 
-        /* Show mobile lang switcher inside menu */
-        .nav-desk .lang-switcher.mobile-lang-switcher {
-            display: flex !important;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            justify-content: center;
-            width: 100%;
-        }
-
-
+            /* Show mobile lang switcher inside menu */
+            .nav-desk .lang-switcher.mobile-lang-switcher {
+                display: flex !important;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                justify-content: center;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -669,15 +666,14 @@
         <div class="container header-inner">
             <a href="index.html" class="logo-wrapper">
                 <div class="logo">Balt<span>homes</span></div>
-                <div class="logo-subtitle">
-                    {{ SUBTITLE }}
-                </div>
+                <div class="logo-subtitle">{{ SUBTITLE }}</div>
             </a>
             <nav class="nav-desk" id="navMenu">
-                <a href="index.html#catalog">Каталог</a>
-                <a href="index.html#categories">Побережье</a>
-                <a href="index.html#quiz">Подбор</a>
-                <a href="index.html#services">Услуги</a>
+                <a href="{{ HOME_LINK }}#catalog">{{ MENU_CATALOG }}</a>
+                <a href="{{ HOME_LINK }}#categories">{{ MENU_COAST }}</a>
+                <a href="{{ HOME_LINK }}#quiz">{{ MENU_SELECTION }}</a>
+                <a href="{{ HOME_LINK }}#services">{{ MENU_SERVICES }}</a>
+                <a href="{{ HOME_LINK }}#reviews">{{ MENU_REVIEWS }}</a>
                 <!-- Mobile Language Switcher (visible only inside burger menu) -->
                 {{ MOBILE_LANG_SWITCHER }}
             </nav>
@@ -708,7 +704,8 @@
         <div class="property-title-section">
             <div class="property-title">
                 <h1>{{ TITLE }}</h1>
-                <p class="property-location"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> {{ LOCATION }}</p>
+                <p class="property-location"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> {{
+                    LOCATION }}</p>
             </div>
             <div class="property-price">{{ PRICE }}</div>
         </div>
@@ -794,7 +791,7 @@
                 <div class="footer-col">
                     <h4>Контакты</h4>
                     <p>📞 +7 905-249-17-55</p>
-                    <p>📍 г. Калининград</p>
+                    <p>�� г. Калининград</p>
                     <p>✉️ svetlana@balthomes.ru</p>
                 </div>
                 <div class="footer-col">
@@ -820,7 +817,7 @@
     <!-- MODAL LIGHTBOX HTML -->
     <div id="galleryModal" class="modal">
         <span class="modal-close" onclick="closeGallery()">&times;</span>
-        <div class="modal-counter" id="modalCounter">1 / 39</div>
+        <div class="modal-counter" id="modalCounter">1 / 10</div>
 
         <div class="modal-nav modal-prev" onclick="prevImg()"><i class="fas fa-chevron-left"></i></div>
         <img class="modal-content" id="modalImg">
@@ -832,7 +829,7 @@
     </div>
 
     <script>
-        {{ GALLERY_JS }}
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -916,10 +913,10 @@
             const formData = new FormData(form);
             const btn = form.querySelector('button');
 
-            btn.innerText = 'Отправка...';
+            btn.innerText = 'Sending...';
             btn.disabled = true;
 
-            let message = "🔔 {{ TG_MSG_HEADER }}\n\n";
+            let message = "{{ TG_MSG_PREFIX }}\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });
@@ -936,13 +933,13 @@
                 });
 
                 if (response.ok) {
-                    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                    alert('Thanks! Your request has been sent.');
                     form.reset();
                 } else {
                     throw new Error('Error');
                 }
             } catch (err) {
-                alert('Произошла ошибка при отправке. Пожалуйста, позвоните нам по телефону.');
+                alert('An error occurred. Please call us.');
             } finally {
                 btn.innerText = '{{ FORM_SUBMIT_BTN }}';
                 btn.disabled = false;

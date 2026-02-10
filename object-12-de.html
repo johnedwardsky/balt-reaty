@@ -137,7 +137,7 @@
             display: flex;
             gap: 10px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             margin-right: 15px;
             flex-shrink: 0;
         }
@@ -646,19 +646,16 @@
                 height: 0 !important;
                 overflow: hidden !important;
             }
-        }
 
-        /* Show mobile lang switcher inside menu */
-        .nav-desk .lang-switcher.mobile-lang-switcher {
-            display: flex !important;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            justify-content: center;
-            width: 100%;
-        }
-
-
+            /* Show mobile lang switcher inside menu */
+            .nav-desk .lang-switcher.mobile-lang-switcher {
+                display: flex !important;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                justify-content: center;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -667,17 +664,16 @@
     <!-- 1. SHAPKA -->
     <header>
         <div class="container header-inner">
-            <a href="de.html" class="logo-wrapper">
+            <a href="index.html" class="logo-wrapper">
                 <div class="logo">Balt<span>homes</span></div>
-                <div class="logo-subtitle">
-                    <span>B</span><span>a</span><span>l</span><span>т</span><span>и</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>H</span><span>ä</span><span>u</span><span>s</span><span>e</span><span>r</span>
-                </div>
+                <div class="logo-subtitle"><span>B</span><span>a</span><span>l</span><span>т</span><span>и</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>H</span><span>ä</span><span>u</span><span>s</span><span>e</span><span>r</span></div>
             </a>
             <nav class="nav-desk" id="navMenu">
-                <a href="index.html#catalog">Katalog</a>
-                <a href="index.html#categories">Ostseeküste</a>
-                <a href="index.html#quiz">Auswahl</a>
-                <a href="index.html#services">Leistungen</a>
+                <a href="de.html#catalog">Katalog</a>
+                <a href="de.html#categories">Ostseeküste</a>
+                <a href="de.html#quiz">Auswahl</a>
+                <a href="de.html#services">Leistungen</a>
+                <a href="de.html#reviews">Bewertungen</a>
                 <!-- Mobile Language Switcher (visible only inside burger menu) -->
                 <div class="lang-switcher mobile-lang-switcher"><a href="object-12.html">RU</a><a href="object-12-en.html">EN</a><a href="object-12-de.html" class="active">DE</a><a href="object-12-zh.html">ZH</a></div>
             </nav>
@@ -701,14 +697,15 @@
 
     <main class="container property-hero">
         <div class="breadcrumb">
-            <a href="de.html">Startseite</a> / <a href="index.html#categories">Kaliningrad</a> /
+            <a href="index.html">Startseite</a> / <a href="index.html#categories">Kaliningrad</a> /
             2-Zimmer-Wohnung, 65m², St. Gagarin
         </div>
 
         <div class="property-title-section">
             <div class="property-title">
                 <h1>2-Zimmer-Wohnung, 65m², St. Gagarin</h1>
-                <p class="property-location"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> Kaliningrad, st.Gagarina, 2ak2</p>
+                <p class="property-location"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> {{
+                    LOCATION }}</p>
             </div>
             <div class="property-price">€ 86.500*</div>
         </div>
@@ -811,7 +808,7 @@
                 <div class="footer-col">
                     <h4>Контакты</h4>
                     <p>📞 +7 905-249-17-55</p>
-                    <p>📍 г. Калининград</p>
+                    <p>�� г. Калининград</p>
                     <p>✉️ svetlana@balthomes.ru</p>
                 </div>
                 <div class="footer-col">
@@ -837,7 +834,7 @@
     <!-- MODAL LIGHTBOX HTML -->
     <div id="galleryModal" class="modal">
         <span class="modal-close" onclick="closeGallery()">&times;</span>
-        <div class="modal-counter" id="modalCounter">1 / 39</div>
+        <div class="modal-counter" id="modalCounter">1 / 10</div>
 
         <div class="modal-nav modal-prev" onclick="prevImg()"><i class="fas fa-chevron-left"></i></div>
         <img class="modal-content" id="modalImg">
@@ -849,7 +846,7 @@
     </div>
 
     <script>
-        const allPhotos = ["images/object-12/0f6524458c2fcb85b09f6c8266b99ab8c4a20695.jpeg", "images/object-12/0faabf0c065ff00cdbcad2883c0a3c12e69dfde1.jpeg", "images/object-12/4df673a5ef084c62e376edf827affd190cc1ea9d.jpeg", "images/object-12/12ee697c75e273a4232da4621d87663511212429.jpeg", "images/object-12/86ddc291751507c022ee0a1ae696c2e05e6706d9.jpeg", "images/object-12/625e4881cbc2c838df048f175bb7c9fb63f69f36.jpeg", "images/object-12/748c951719aa7a40e25842c3ac6530230cdaa711.jpeg", "images/object-12/971a3e921f22755de96b1ad06cd8955fd26aa758.jpeg", "images/object-12/6366209cba133174bc9a4e5b5266604fcf4d95a9.jpeg", "images/object-12/9945064c984b5e5192ac4ed75062eaace3609ae9.jpeg", "images/object-12/a6abccb18f9ccf62bdde16e6925c91bde6507976.jpeg", "images/object-12/a40b1f0182d017efbef62be5b234e715d8b15a0e.jpeg", "images/object-12/a2458696be6c0f628c1983ab0dc2ad3d589a41c9.jpeg", "images/object-12/bd101bc9be7fce214a0b7c8afa87b48be4ed5b07.jpeg", "images/object-12/de9f6734dae54a32bacebaaec0384dc4d97a2526.jpeg"];
+        { { GALLERY_JS } }
 
         let currentImgIdx = 0;
         const thumbContainer = document.getElementById('thumbContainer');
@@ -933,10 +930,10 @@
             const formData = new FormData(form);
             const btn = form.querySelector('button');
 
-            btn.innerText = 'Отправка...';
+            btn.innerText = 'Sending...';
             btn.disabled = true;
 
-            let message = "🔔 *Neue Anfrage von der Website* (2-Zimmer-Wohnung, 65m², St. Gagarin, ID 12)\n\n";
+            let message = "{{ TG_MSG_PREFIX }}\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });
@@ -953,13 +950,13 @@
                 });
 
                 if (response.ok) {
-                    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                    alert('Thanks! Your request has been sent.');
                     form.reset();
                 } else {
                     throw new Error('Error');
                 }
             } catch (err) {
-                alert('Произошла ошибка при отправке. Пожалуйста, позвоните нам по телефону.');
+                alert('An error occurred. Please call us.');
             } finally {
                 btn.innerText = 'Besichtigung buchen';
                 btn.disabled = false;
