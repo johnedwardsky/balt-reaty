@@ -201,10 +201,31 @@ def generate_pages():
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
+@app.route('/api/update-slider', methods=['POST'])
+def update_slider():
+    import subprocess
+    try:
+        result = subprocess.run(
+            ['python3', 'update_hero_slider.py'],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        if result.returncode == 0:
+            return jsonify({"status": "success", "message": result.stdout})
+        else:
+            return jsonify({"status": "error", "message": result.stderr}), 500
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
 @app.route('/api/deploy', methods=['POST'])
 def deploy_to_github():
     import subprocess
     try:
+        # 0. Update slider before deploy (optional but recommended for consistency)
+        subprocess.run(['python3', 'update_hero_slider.py'], cwd=BASE_DIR, check=False)
+
         # 1. Add all changes
         subprocess.run(['git', 'add', '.'], cwd=BASE_DIR, check=True)
         

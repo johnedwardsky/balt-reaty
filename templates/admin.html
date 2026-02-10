@@ -308,6 +308,9 @@
     <div class="header">
         <div class="logo">Admin Panel</div>
         <div style="display: flex; gap: 10px;">
+            <button class="btn" style="background: #f59e0b; color: white;" onclick="updateSlider()" id="sliderBtn">
+                <i class="fas fa-images"></i> Обновить слайдер
+            </button>
             <button class="btn btn-primary" onclick="publishPages()" id="pubBtn">
                 <i class="fas fa-file-code"></i> Создать страницы
             </button>
@@ -797,6 +800,20 @@
             setTimeout(() => btn.innerHTML = origText, 2000);
         }
 
+        async function updateSlider() {
+            const btn = document.getElementById('sliderBtn');
+            const origText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-sync fa-spin"></i> Обновление...';
+            try {
+                const res = await fetch('/api/update-slider', { method: 'POST' });
+                if (res.ok) alert('Слайдер успешно обновлен!');
+                else alert('Ошибка при обновлении слайдера');
+            } catch (e) {
+                alert('Ошибка: ' + e);
+            }
+            btn.innerHTML = origText;
+        }
+
         async function publishPages() {
             const btn = document.getElementById('pubBtn');
             btn.innerHTML = 'Генерация...';
@@ -807,7 +824,7 @@
             } catch (e) {
                 alert('Ошибка: ' + e);
             }
-            btn.innerHTML = '<i class="fas fa-globe"></i> Опубликовать страницы';
+            btn.innerHTML = '<i class="fas fa-file-code"></i> Создать страницы';
         }
 
         async function deployToGithub() {
@@ -817,7 +834,8 @@
             btn.disabled = true;
 
             try {
-                // Сначала генерируем страницы
+                // Сначала обновляем слайдер и генерируем страницы
+                await fetch('/api/update-slider', { method: 'POST' });
                 await fetch('/api/generate-pages', { method: 'POST' });
 
                 // Потом пушим

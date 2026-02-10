@@ -736,13 +736,13 @@ const propertiesData = [
             "zh": "¥ 1,146,000*"
         },
         "specs": {
-            "ru": {
+            "de": {
                 "area": "35",
-                "balcony": "Балкон",
+                "balcony": "Balkon",
                 "entrance": "",
                 "floor": "3/7",
-                "heating": "Автономное",
-                "renovation": "Дизайнерский",
+                "heating": "Autonom",
+                "renovation": "Designer",
                 "rooms": "1"
             },
             "en": {
@@ -754,13 +754,13 @@ const propertiesData = [
                 "renovation": "Designer",
                 "rooms": "1"
             },
-            "de": {
+            "ru": {
                 "area": "35",
-                "balcony": "Balkon",
+                "balcony": "Балкон",
                 "entrance": "",
                 "floor": "3/7",
-                "heating": "Autonom",
-                "renovation": "Designer",
+                "heating": "Автономное",
+                "renovation": "Дизайнерский",
                 "rooms": "1"
             },
             "zh": {
@@ -865,13 +865,13 @@ const propertiesData = [
             "zh": "¥ 915,000*"
         },
         "specs": {
-            "ru": {
+            "de": {
                 "area": "66",
-                "balcony": "Лоджия",
+                "balcony": "Loggia",
                 "entrance": "",
                 "floor": "4/4",
-                "heating": "Автономное",
-                "renovation": "Дизайнерский",
+                "heating": "Autonom",
+                "renovation": "Designer",
                 "rooms": "2"
             },
             "en": {
@@ -883,13 +883,13 @@ const propertiesData = [
                 "renovation": "Designer",
                 "rooms": "2"
             },
-            "de": {
+            "ru": {
                 "area": "66",
-                "balcony": "Loggia",
+                "balcony": "Лоджия",
                 "entrance": "",
                 "floor": "4/4",
-                "heating": "Autonom",
-                "renovation": "Designer",
+                "heating": "Автономное",
+                "renovation": "Дизайнерский",
                 "rooms": "2"
             },
             "zh": {
@@ -916,7 +916,7 @@ const propertiesData = [
         },
         "type": "apartment"
     }
-];function renderProperties() {
+];
     const container = document.getElementById('catalog-grid');
     if (!container) return;
 

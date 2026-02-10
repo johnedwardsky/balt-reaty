@@ -359,6 +359,35 @@
             }
         }
 
+        .hero-slider-dots {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .hero-slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-slider-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-slider-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
         /* CATEGORIES */
         .categories-grid {
             display: grid;
