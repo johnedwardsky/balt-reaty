@@ -237,31 +237,23 @@ def generate_all():
         # Или проще: полностью перезаписываем блок, зная структуру файла
         
         # Вариант: Найти начало и конец массива
-        start_marker = "const propertiesData = ["
-        end_marker = "];"
-        
-        start_idx = js_content.find(start_marker)
-        if start_idx != -1:
-            # Ищем точку с запятой после закрывающей скобки массива, но "];" может встречаться внутри строк (маловероятно)
+        # Ищем начало переменной более гибко
+        start_match = re.search(r'const\s+propertiesData\s*=', js_content)
+        if start_match:
+            start_idx = start_match.start()
+            
             # Надежнее: найти function renderProperties и отступить назад
-            func_idx = js_content.find("function renderProperties()")
-            if func_idx != -1:
-                # Ищем последний "];" перед функцией
-                end_idx = js_content.rfind("];", 0, func_idx)
-                if end_idx != -1:
-                    end_idx += 2 # Включаем ];
-                    
-                    new_js_content = js_content[:start_idx] + new_data_js + js_content[func_idx:] # Оставляем пробел между ними если надо
-                    # Но нужно быть аккуратным с отступами.
-                    # Попробуем просто вставить
-                    # В js файле между ]; и function обычно пусто.
-                    
-                    # Перезаписываем файл
-                    with open(js_path, 'w', encoding='utf-8') as f:
-                        f.write(new_js_content)
-                    print("✅ Обновлен файл js/properties.js")
-                else:
-                    print("⚠️ Не удалось найти конец массива propertiesData в js/properties.js")
+            func_match = re.search(r'function\s+renderProperties\s*\(\)', js_content)
+            if func_match:
+                func_idx = func_match.start()
+                
+                # Собираем файл заново
+                new_js_content = js_content[:start_idx] + new_data_js + "\n\n" + js_content[func_idx:]
+                
+                # Перезаписываем файл
+                with open(js_path, 'w', encoding='utf-8') as f:
+                    f.write(new_js_content)
+                print("✅ Обновлен файл js/properties.js")
             else:
                  print("⚠️ Не удалось найти функцию renderProperties в js/properties.js")
         else:

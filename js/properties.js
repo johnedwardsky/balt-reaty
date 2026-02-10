@@ -917,6 +917,8 @@ const propertiesData = [
         "type": "apartment"
     }
 ];
+
+function renderProperties() {
     const container = document.getElementById('catalog-grid');
     if (!container) return;
 
