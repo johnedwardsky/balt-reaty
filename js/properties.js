@@ -591,7 +591,7 @@ const propertiesData = [
             "ru": "Светлогорск, ул. Молодежная, 6к2",
             "zh": "斯韦特洛戈尔斯克，圣。莫洛杰日纳亚, 6k2"
         },
-        "mapUrl": "",
+        "mapUrl": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2291.088599073705!2d20.2591525!3d54.9540065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e34eb3a8e2943f%3A0x9993101deb82ae2b!2z0YPQuy4g0JzQvtC70L7QtNC10LbQvdCw0Y8sINCX0LDQvtGB0YLRgNC-0LLRjNC1LCDQmtCw0LvQuNC90LjQvdCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgMjM4NTkw!5e0!3m2!1sru!2sru!4v1770751203592!5m2!1sru!2sru\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "price": {
             "de": "€ 86.500*",
             "en": "€ 86,500*",
