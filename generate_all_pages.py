@@ -383,7 +383,7 @@ def generate_all():
                     'sub_phone': 'Калининград и область',
                     'breadcrumb_home': 'Главная',
                     'breadcrumb_loc': 'Калининград',
-                    'home_link': 'index.html',
+                    'home_link': '/',
                     'about': {'house': 'О доме', 'apartment': 'О квартире', 'townhouse': 'О таунхаусе'},
                     'features_lbl': 'Преимущества',
                     'location_lbl': 'Расположение',

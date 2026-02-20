@@ -669,7 +669,7 @@
     <!-- 1. SHAPKA -->
     <header>
         <div class="container header-inner">
-            <a href="index.html" class="logo-wrapper">
+            <a href="{{ HOME_LINK }}" class="logo-wrapper">
                 <div class="logo">Balt<span>homes</span></div>
                 <div class="logo-subtitle">{{ SUBTITLE }}</div>
             </a>
@@ -701,9 +701,10 @@
     </header>
 
     <main class="container property-hero">
-        <div class="breadcrumb">
-            <a href="index.html">{{ BREADCRUMB_HOME }}</a> / <a href="index.html#categories">{{ BREADCRUMB_LOC }}</a> /
-            {{ BREADCRUMB_TITLE }}
+        <div class="container">
+            <a href="{{ HOME_LINK }}">{{ BREADCRUMB_HOME }}</a> / <a href="{{ HOME_LINK }}#categories">{{ BREADCRUMB_LOC
+                }}</a> /
+            <span>{{ BREADCRUMB_TITLE }}</span>
         </div>
 
         <div class="property-title-section">
