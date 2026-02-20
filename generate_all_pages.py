@@ -302,6 +302,49 @@ def generate_all():
         for lang in ['ru', 'en', 'de', 'zh']:
             content = template
             
+            # --- AI: SCHEMA.ORG JSON-LD GENERATION ---
+            def generate_schema_json(p, l):
+                # Map type
+                pt = p.get('type', 'house')
+                schema_type = "House" if pt in ['house', 'townhouse'] else "Apartment"
+                
+                # Clean price
+                raw_price = p.get('price', {}).get(l, p.get('price', {}).get('ru', ''))
+                # Remove spaces and non-numeric except dot/comma
+                clean_p = "".join(filter(lambda x: x.isdigit() or x in '.,', raw_price))
+                clean_p = clean_p.replace(',', '.')
+                
+                currency = "RUB"
+                if '€' in raw_price: currency = "EUR"
+                elif '¥' in raw_price: currency = "CNY"
+                elif '$' in raw_price: currency = "USD"
+
+                schema = {
+                    "@context": "https://schema.org",
+                    "@type": schema_type,
+                    "name": p.get('title', {}).get(l, p.get('title', {}).get('ru', '')),
+                    "description": p.get('description', {}).get(l, p.get('description', {}).get('ru', '')),
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Kaliningrad",
+                        "streetAddress": p.get('location', {}).get(l, p.get('location', {}).get('ru', ''))
+                    },
+                    "offers": {
+                        "@type": "Offer",
+                        "price": clean_p or "0",
+                        "priceCurrency": currency,
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+                
+                # Add images if any
+                if p.get('images'):
+                    schema["image"] = ["https://balthomes.ru/" + img for img in p['images'][:5]]
+
+                return f'<script type="application/ld+json">\n{json.dumps(schema, indent=4, ensure_ascii=False)}\n</script>'
+
+            content = content.replace('{{ SCHEMA_JSON_LD }}', generate_schema_json(prop, lang))
+            
             # --- HELPER: Get translation for a field ---
             def get_text(field):
                 if field in prop:
