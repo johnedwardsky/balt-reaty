@@ -513,7 +513,7 @@ def generate_all():
             for i in range(1, min(5, photo_count)):
                 img_p = photos[i] if '/' in photos[i] else f"images/object-{obj_id}/{photos[i]}"
                 gallery_html += f'''            <div class="gallery-item">
-                <img src="{img_p}" alt="фото {i+1}">
+                <img src="{img_p}" alt="{title} — фото {i+1}">
             </div>\n'''
             gallery_html += '        </div>'
             content = content.replace('{{ GALLERY_GRID }}', gallery_html)
