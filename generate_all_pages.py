@@ -511,6 +511,26 @@ def generate_all():
             content = content.replace('{{ SPEC_4_LBL }}', s4_lbl)
             content = content.replace('{{ SPEC_4_VAL }}', s4_val)
 
+            # --- SEO & AEO ---
+            # Meta Description (truncate description to ~160 chars)
+            meta_desc = description.replace('\n', ' ').replace('\\n', ' ')
+            if len(meta_desc) > 157:
+                meta_desc = meta_desc[:157] + "..."
+            
+            # Canonical URL
+            canonical_url = f"https://balthomes.ru/object-{obj_id}.html" if lang == 'ru' else f"https://balthomes.ru/object-{obj_id}-{lang}.html"
+            
+            # OG Image (first photo or placeholder)
+            if photos:
+                first_photo = photos[0] if '/' in photos[0] else f"images/object-{obj_id}/{photos[0]}"
+                og_image = "https://balthomes.ru/" + first_photo
+            else:
+                og_image = "https://balthomes.ru/images/placeholder.jpg"
+            
+            content = content.replace('{{ META_DESCRIPTION }}', meta_desc)
+            content = content.replace('{{ CANONICAL_URL }}', canonical_url)
+            content = content.replace('{{ OG_IMAGE }}', og_image)
+
             # Description
             desc_html = description.replace('\n', '</p><p>').replace('\\n', '</p><p>')
             content = content.replace('{{ DESCRIPTION_BLOCK }}', f'<div class="description"><h3>{t["about"][prop_type]}</h3><p>{desc_html}</p></div>')
@@ -600,6 +620,44 @@ def generate_all():
             if obj_id not in current_ids:
                 print(f"🗑 Удаляем старый файл: {f}")
                 os.remove(f)
+
+    # === 4. ГЕНЕРАЦИЯ SITEMAP.XML ===
+    generate_sitemap(current_ids)
+
+
+def generate_sitemap(active_ids):
+    """
+    Генерирует sitemap.xml со всеми активными страницами сайта
+    """
+    import datetime
+    today = datetime.datetime.now().strftime("%Y-%m-%d")
+    
+    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    # Главные страницы
+    main_pages = [
+        ("https://balthomes.ru/", "1.0"),
+        ("https://balthomes.ru/en.html", "0.8"),
+        ("https://balthomes.ru/de.html", "0.8"),
+        ("https://balthomes.ru/zh.html", "0.8")
+    ]
+    
+    for url, priority in main_pages:
+        xml_content += f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{today}</lastmod>\n    <priority>{priority}</priority>\n  </url>\n'
+    
+    # Страницы объектов
+    languages = ['ru', 'en', 'de', 'zh']
+    for obj_id in active_ids:
+        for lang in languages:
+            url_part = f"object-{obj_id}.html" if lang == 'ru' else f"object-{obj_id}-{lang}.html"
+            xml_content += f'  <url>\n    <loc>https://balthomes.ru/{url_part}</loc>\n    <lastmod>{today}</lastmod>\n    <priority>0.9</priority>\n  </url>\n'
+            
+    xml_content += '</urlset>\n'
+    
+    with open('sitemap.xml', 'w', encoding='utf-8') as f:
+        f.write(xml_content)
+    print("✅ Сгенерирован sitemap.xml")
 
 if __name__ == "__main__":
     sync_images()
