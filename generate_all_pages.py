@@ -712,10 +712,77 @@ def generate_blog():
                     print(f"Ошибка перевода {a['id']}: {e}")
                     a['translations'][lang] = a['translations']['ru']
                     
+    # UI Translations
+    ui_translations = {
+        'ru': {
+            'subtitle': '<span>Б</span><span>а</span><span>л</span><span>т</span><span>и</span><span>й</span><span>с</span><span>к</span><span>и</span><span>е</span><span>&nbsp;</span><span>д</span><span>о</span><span>м</span><span>а</span>',
+            'menu': ['Каталог', 'Побережье', 'Подбор', 'Услуги', 'Отзывы', 'Блог'],
+            'home_link': 'index.html',
+            'blog_link': 'blog.html'
+        },
+        'en': {
+            'subtitle': '<span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>c</span><span>&nbsp;</span><span>H</span><span>o</span><span>m</span><span>e</span><span>s</span>',
+            'menu': ['Catalog', 'Coast', 'Selection', 'Services', 'Reviews', 'Blog'],
+            'home_link': 'en.html',
+            'blog_link': 'blog-en.html'
+        },
+        'de': {
+            'subtitle': '<span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>c</span><span>&nbsp;</span><span>H</span><span>o</span><span>m</span><span>e</span><span>s</span>',
+            'menu': ['Katalog', 'Küste', 'Auswahl', 'Dienstleistungen', 'Bewertungen', 'Blog'],
+            'home_link': 'de.html',
+            'blog_link': 'blog-de.html'
+        },
+        'zh': {
+            'subtitle': '<span>波</span><span>罗</span><span>的</span><span>海</span><span>之</span><span>家</span>',
+            'menu': ['目录', '海岸', '选房服务', '专家服务', '客户评价', '博客'],
+            'home_link': 'zh.html',
+            'blog_link': 'blog-zh.html'
+        }
+    }
+
+    def make_sw(is_mobile, lang):
+        sw = '<div class="lang-switcher mobile-lang-switcher">' if is_mobile else '<div class="lang-switcher">'
+        for l in ['ru', 'en', 'de', 'zh']:
+            active = ' class="active"' if l == lang else ''
+            lbl = l.upper()
+            u_lang = "" if l == "ru" else f"-{l}"
+            blog_ref = f"blog{u_lang}.html"
+            sw += f'<a href="{blog_ref}"{active}>{lbl}</a>\n'
+        sw += '</div>'
+        return sw
+
+    def replace_ui(html_content, lang, is_article=False, article_id=None):
+        ui = ui_translations[lang]
+        html_content = html_content.replace('{{ SUBTITLE }}', ui['subtitle'])
+        html_content = html_content.replace('{{ MENU_CATALOG }}', ui['menu'][0])
+        html_content = html_content.replace('{{ MENU_COAST }}', ui['menu'][1])
+        html_content = html_content.replace('{{ MENU_SELECTION }}', ui['menu'][2])
+        html_content = html_content.replace('{{ MENU_SERVICES }}', ui['menu'][3])
+        html_content = html_content.replace('{{ MENU_REVIEWS }}', ui['menu'][4])
+        html_content = html_content.replace('{{ MENU_BLOG }}', ui['menu'][5])
+        html_content = html_content.replace('{{ HOME_LINK }}', ui['home_link'])
+        html_content = html_content.replace('{{ BLOG_LINK }}', ui['blog_link'])
+        html_content = html_content.replace('{{ MOBILE_LANG_SWITCHER }}', make_sw(True, lang))
+        html_content = html_content.replace('{{ DESKTOP_LANG_SWITCHER }}', make_sw(False, lang))
+        html_content = html_content.replace('{{ SCHEMA_JSON_LD }}', '')
+        html_content = html_content.replace('{{ META_DESCRIPTION }}', '')
+        
+        canonical = f'https://balthomes.ru/article-{article_id}-{lang}.html' if is_article else f'https://balthomes.ru/blog-{lang}.html'
+        if lang == 'ru':
+            canonical = f'https://balthomes.ru/article-{article_id}.html' if is_article else 'https://balthomes.ru/blog.html'
+            
+        html_content = html_content.replace('{{ CANONICAL_URL }}', canonical)
+        html_content = html_content.replace('{{ OG_IMAGE }}', 'https://balthomes.ru/images/hero-main/photo_1.jpg')
+        html_content = html_content.replace('{{ TITLE }}', 'Блог')
+        html_content = html_content.replace('{{ TG_MSG_PREFIX }}', 'Заявка из Блога')
+        html_content = html_content.replace('{{ FORM_SUBMIT_BTN }}', 'Отправить' if lang == 'ru' else 'Send')
+        return html_content
+
     for lang in languages:
         ext = ".html" if lang == 'ru' else f"-{lang}.html"
         # Index
         blog_html = index_temp
+        blog_html = replace_ui(blog_html, lang)
         blog_html = blog_html.replace('{{ PAGE_TITLE }}', "Блог | BaltHomes" if lang == 'ru' else "Blog | BaltHomes")
         blog_html = blog_html.replace('{{ PAGE_DESCRIPTION }}', "Статьи о недвижимости..." )
         blog_html = blog_html.replace('{{ BLOG_MAIN_TITLE }}', 'Статьи и Новости' if lang == 'ru' else 'Articles & News')
@@ -733,6 +800,7 @@ def generate_blog():
         for a in articles:
             trn = a['translations'][lang]
             art_html = article_temp
+            art_html = replace_ui(art_html, lang, is_article=True, article_id=a['id'])
             art_html = art_html.replace('{{ PAGE_TITLE }}', trn['title'])
             art_html = art_html.replace('{{ PAGE_DESCRIPTION }}', trn['preview'])
             art_html = art_html.replace('{{ BLOG_HOME_URL }}', f"blog{ext}")

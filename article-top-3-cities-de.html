@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ TITLE }} | BaltHomes — Элитная недвижимость</title>
-    <meta name="description" content="{{ META_DESCRIPTION }}">
-    <link rel="canonical" href="{{ CANONICAL_URL }}">
-    <meta property="og:title" content="{{ TITLE }} | BaltHomes">
-    <meta property="og:description" content="{{ META_DESCRIPTION }}">
-    <meta property="og:image" content="{{ OG_IMAGE }}">
-    <meta property="og:url" content="{{ CANONICAL_URL }}">
+    <title>Блог | BaltHomes — Элитная недвижимость</title>
+    <meta name="description" content="">
+    <link rel="canonical" href="https://balthomes.ru/article-top-3-cities-de.html">
+    <meta property="og:title" content="Блог | BaltHomes">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://balthomes.ru/images/hero-main/photo_1.jpg">
+    <meta property="og:url" content="https://balthomes.ru/article-top-3-cities-de.html">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="keywords"
         content="купить квартиру калининград, купить дом в калининграде, недвижимость светлогорск, купить квартиру зеленоградск, новостройки калининград без комиссии, ипотека 3.5, риэлтор калининград, элитная недвижимость, купить квартиру в светлогорске, купить квартиру в зеленоградске, Купить недвижимость Калининград, купить дом в светлогорске, купить дом на побережье, купить частный дом в калининграде, калининград купить квартиру в немецком доме, частный дом цена в калининграде, Купить апартаменты Калининград, купить дом на побережье моря, купить квартиру в строящихся домах калининград, недвижимость в калининграде купить недорого, квартиры в новых домах калининград купить, дома на побережье балтийского моря, честный риэлтор калининград, услуги риэлтора калининград, квартира в старом немецком доме калининград, переезд в Калининград из Сибири, купить квартиру в Калининграде из Новосибирска, недвижимость в Калининграде для жителей Дальнего Востока, жилье в Калининграде из Владивостока, переезд в Калининград из Камчатки отзывы, купить дом в Калининградской области из Красноярска, дистанционная покупка квартиры в Калининграде, инвестиции в недвижимость Калининграда из Сибири, выгодные условия недвижимости для жителей Дальнего Востока, скидки на квартиры в Калининграде для переезжающих с ДВ, компенсация переезда при покупке квартиры в Калининграде, удаленная сделка купли-продажи Калининград">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=3">
 
     <!-- AI & Search Engine Microdata -->
-    {{ SCHEMA_JSON_LD }}
+    
 
 
     <link
@@ -675,23 +675,31 @@
     <!-- 1. SHAPKA -->
     <header>
         <div class="container header-inner">
-            <a href="{{ HOME_LINK }}" class="logo-wrapper">
+            <a href="de.html" class="logo-wrapper">
                 <div class="logo">Balt<span>homes</span></div>
-                <div class="logo-subtitle">{{ SUBTITLE }}</div>
+                <div class="logo-subtitle"><span>B</span><span>a</span><span>l</span><span>t</span><span>i</span><span>c</span><span>&nbsp;</span><span>H</span><span>o</span><span>m</span><span>e</span><span>s</span></div>
             </a>
             <nav class="nav-desk" id="navMenu">
-                <a href="{{ HOME_LINK }}#catalog">{{ MENU_CATALOG }}</a>
-                <a href="{{ HOME_LINK }}#categories">{{ MENU_COAST }}</a>
-                <a href="{{ HOME_LINK }}#quiz">{{ MENU_SELECTION }}</a>
-                <a href="{{ HOME_LINK }}#services">{{ MENU_SERVICES }}</a>
-                <a href="{{ HOME_LINK }}#reviews">{{ MENU_REVIEWS }}</a>
+                <a href="de.html#catalog">Katalog</a>
+                <a href="de.html#categories">Küste</a>
+                <a href="de.html#quiz">Auswahl</a>
+                <a href="de.html#services">Dienstleistungen</a>
+                <a href="de.html#reviews">Bewertungen</a>
                 <!-- Mobile Language Switcher (visible only inside burger menu) -->
-                {{ MOBILE_LANG_SWITCHER }}
+                <div class="lang-switcher mobile-lang-switcher"><a href="blog.html">RU</a>
+<a href="blog-en.html">EN</a>
+<a href="blog-de.html" class="active">DE</a>
+<a href="blog-zh.html">ZH</a>
+</div>
             </nav>
 
 
             <div class="desktop-only" style="display: flex; align-items: center;">
-                {{ DESKTOP_LANG_SWITCHER }}
+                <div class="lang-switcher"><a href="blog.html">RU</a>
+<a href="blog-en.html">EN</a>
+<a href="blog-de.html" class="active">DE</a>
+<a href="blog-zh.html">ZH</a>
+</div>
 
                 <div class="header-contacts">
                     <a href="tel:+79052491755" class="phone">+7 905-249-17-55</a>
@@ -845,7 +853,7 @@
             btn.innerText = 'Sending...';
             btn.disabled = true;
 
-            let message = "{{ TG_MSG_PREFIX }}\n\n";
+            let message = "Заявка из Блога\n\n";
             formData.forEach((value, key) => {
                 message += `🔹 *${key}:* ${value}\n`;
             });
@@ -870,7 +878,7 @@
             } catch (err) {
                 alert('An error occurred. Please call us.');
             } finally {
-                btn.innerText = '{{ FORM_SUBMIT_BTN }}';
+                btn.innerText = 'Send';
                 btn.disabled = false;
             }
         });
