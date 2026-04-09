@@ -473,6 +473,7 @@ def generate_all():
                 content = content.replace('{{ MENU_SELECTION }}', t['menu'].get('Selection', ''))
                 content = content.replace('{{ MENU_SERVICES }}', t['menu'].get('Services', ''))
                 content = content.replace('{{ MENU_REVIEWS }}', t['menu'].get('Reviews', ''))
+                content = content.replace('{{ MENU_BLOG }}', 'Blog' if lang == 'en' else 'Blog' if lang == 'de' else '博客' )
             else:
                 # Backwards compatibility
                 content = content.replace('{{ MENU_CATALOG }}', t['menu'][0])
@@ -480,6 +481,12 @@ def generate_all():
                 content = content.replace('{{ MENU_SELECTION }}', t['menu'][2])
                 content = content.replace('{{ MENU_SERVICES }}', t['menu'][3])
                 content = content.replace('{{ MENU_REVIEWS }}', t['menu'][4] if len(t['menu']) > 4 else '')
+                content = content.replace('{{ MENU_BLOG }}', 'Блог')
+
+            # Ссылки на блог в зависимости от языка
+            blog_link = 'blog.html' if lang == 'ru' else f'blog-{lang}.html'
+            content = content.replace('{{ BLOG_LINK }}', blog_link)
+
 
             # Specs logic
             specs = prop.get('specs', {}).get(lang, prop.get('specs', {}).get('ru', {}))
@@ -621,11 +628,14 @@ def generate_all():
                 print(f"🗑 Удаляем старый файл: {f}")
                 os.remove(f)
 
-    # === 4. ГЕНЕРАЦИЯ SITEMAP.XML ===
-    generate_sitemap(current_ids)
+    # === 4. ГЕНЕРАЦИЯ БЛОГА И SITEMAP.XML ===
+    blog_ids = generate_blog()
+    generate_sitemap(current_ids, blog_ids)
 
 
-def generate_sitemap(active_ids):
+def generate_sitemap(active_ids, blog_ids=None):
+    if blog_ids is None:
+        blog_ids = []
     """
     Генерирует sitemap.xml со всеми активными страницами сайта
     """
@@ -640,7 +650,11 @@ def generate_sitemap(active_ids):
         ("https://balthomes.ru/", "1.0"),
         ("https://balthomes.ru/en.html", "0.8"),
         ("https://balthomes.ru/de.html", "0.8"),
-        ("https://balthomes.ru/zh.html", "0.8")
+        ("https://balthomes.ru/zh.html", "0.8"),
+        ("https://balthomes.ru/blog.html", "0.9"),
+        ("https://balthomes.ru/blog-en.html", "0.7"),
+        ("https://balthomes.ru/blog-de.html", "0.7"),
+        ("https://balthomes.ru/blog-zh.html", "0.7")
     ]
     
     for url, priority in main_pages:
@@ -653,11 +667,85 @@ def generate_sitemap(active_ids):
             url_part = f"object-{obj_id}.html" if lang == 'ru' else f"object-{obj_id}-{lang}.html"
             xml_content += f'  <url>\n    <loc>https://balthomes.ru/{url_part}</loc>\n    <lastmod>{today}</lastmod>\n    <priority>0.9</priority>\n  </url>\n'
             
+    # Страницы блога
+    for a_id in blog_ids:
+        for lang in languages:
+            url_part = f"article-{a_id}.html" if lang == 'ru' else f"article-{a_id}-{lang}.html"
+            xml_content += f'  <url>\n    <loc>https://balthomes.ru/{url_part}</loc>\n    <lastmod>{today}</lastmod>\n    <priority>0.8</priority>\n  </url>\n'
+            
     xml_content += '</urlset>\n'
     
     with open('sitemap.xml', 'w', encoding='utf-8') as f:
         f.write(xml_content)
     print("✅ Сгенерирован sitemap.xml")
+
+def generate_blog():
+    print("📝 Начинаем генерацию блога...")
+    import json, os, time
+    from googletrans import Translator
+    
+    with open('blog-data.json', 'r', encoding='utf-8') as f:
+        articles = json.load(f)
+    with open('templates/blog-index-template.html', 'r', encoding='utf-8') as f:
+        index_temp = f.read()
+    with open('templates/blog-article-template.html', 'r', encoding='utf-8') as f:
+        article_temp = f.read()
+        
+    languages = ['ru', 'en', 'de', 'zh']
+    translator = Translator()
+    
+    for a in articles:
+        a['translations'] = {}
+        for lang in languages:
+            if lang == 'ru':
+                a['translations']['ru'] = {'title': a['title'], 'preview': a['preview'], 'content': a['content']}
+            else:
+                dest_lang = 'zh-cn' if lang == 'zh' else lang
+                print(f"  🌐 Переводим статью {a['id']} на {lang}...")
+                try:
+                    time.sleep(1.5)
+                    t_title = translator.translate(a['title'], dest=dest_lang).text
+                    t_preview = translator.translate(a['preview'], dest=dest_lang).text
+                    t_content = translator.translate(a['content'], dest=dest_lang).text
+                    a['translations'][lang] = {'title': t_title, 'preview': t_preview, 'content': t_content}
+                except Exception as e:
+                    print(f"Ошибка перевода {a['id']}: {e}")
+                    a['translations'][lang] = a['translations']['ru']
+                    
+    for lang in languages:
+        ext = ".html" if lang == 'ru' else f"-{lang}.html"
+        # Index
+        blog_html = index_temp
+        blog_html = blog_html.replace('{{ PAGE_TITLE }}', "Блог | BaltHomes" if lang == 'ru' else "Blog | BaltHomes")
+        blog_html = blog_html.replace('{{ PAGE_DESCRIPTION }}', "Статьи о недвижимости..." )
+        blog_html = blog_html.replace('{{ BLOG_MAIN_TITLE }}', 'Статьи и Новости' if lang == 'ru' else 'Articles & News')
+        
+        grid_html = ""
+        for a in articles:
+            trn = a['translations'][lang]
+            grid_html += f'<a href="article-{a["id"]}{ext}" class="card" style="display:block; text-decoration:none; color:inherit; border:1px solid #eee; border-radius:12px; overflow:hidden;"><img src="{a["image"]}" style="width:100%; height:200px; object-fit:cover;"><div style="padding:20px;"><div style="font-size:12px; color:#777; margin-bottom:10px;">{a["date"]}</div><h3 style="font-size:18px; margin-bottom:10px; color:var(--primary);">{trn["title"]}</h3><p style="font-size:14px; color:#555;">{trn["preview"]}</p></div></a>'
+        
+        blog_html = blog_html.replace('{{ ARTICLES_GRID }}', grid_html)
+        with open(f"blog{ext}", 'w', encoding='utf-8') as f:
+            f.write(blog_html)
+            
+        # Articles
+        for a in articles:
+            trn = a['translations'][lang]
+            art_html = article_temp
+            art_html = art_html.replace('{{ PAGE_TITLE }}', trn['title'])
+            art_html = art_html.replace('{{ PAGE_DESCRIPTION }}', trn['preview'])
+            art_html = art_html.replace('{{ BLOG_HOME_URL }}', f"blog{ext}")
+            art_html = art_html.replace('{{ BACK_TO_BLOG }}', 'Назад в блог' if lang == 'ru' else 'Back to Blog')
+            art_html = art_html.replace('{{ ARTICLE_IMAGE }}', a['image'])
+            art_html = art_html.replace('{{ ARTICLE_DATE }}', a['date'])
+            art_html = art_html.replace('{{ ARTICLE_TITLE }}', trn['title'])
+            art_html = art_html.replace('{{ ARTICLE_CONTENT }}', trn['content'])
+            with open(f"article-{a['id']}{ext}", 'w', encoding='utf-8') as f:
+                f.write(art_html)
+
+    print("✅ Блог сгенерирован")
+    return [a['id'] for a in articles]
 
 if __name__ == "__main__":
     sync_images()
