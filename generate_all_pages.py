@@ -765,15 +765,12 @@ def generate_blog():
         html_content = html_content.replace('{{ MOBILE_LANG_SWITCHER }}', make_sw(True, lang))
         html_content = html_content.replace('{{ DESKTOP_LANG_SWITCHER }}', make_sw(False, lang))
         html_content = html_content.replace('{{ SCHEMA_JSON_LD }}', '')
-        html_content = html_content.replace('{{ META_DESCRIPTION }}', '')
         
         canonical = f'https://balthomes.ru/article-{article_id}-{lang}.html' if is_article else f'https://balthomes.ru/blog-{lang}.html'
         if lang == 'ru':
             canonical = f'https://balthomes.ru/article-{article_id}.html' if is_article else 'https://balthomes.ru/blog.html'
             
         html_content = html_content.replace('{{ CANONICAL_URL }}', canonical)
-        html_content = html_content.replace('{{ OG_IMAGE }}', 'https://balthomes.ru/images/hero-main/photo_1.jpg')
-        html_content = html_content.replace('{{ TITLE }}', 'Блог')
         html_content = html_content.replace('{{ TG_MSG_PREFIX }}', 'Заявка из Блога')
         html_content = html_content.replace('{{ FORM_SUBMIT_BTN }}', 'Отправить' if lang == 'ru' else 'Send')
         return html_content
@@ -784,7 +781,10 @@ def generate_blog():
         blog_html = index_temp
         blog_html = replace_ui(blog_html, lang)
         blog_html = blog_html.replace('{{ PAGE_TITLE }}', "Блог | BaltHomes" if lang == 'ru' else "Blog | BaltHomes")
-        blog_html = blog_html.replace('{{ PAGE_DESCRIPTION }}', "Статьи о недвижимости..." )
+        blog_html = blog_html.replace('{{ TITLE }}', "Блог" if lang == 'ru' else "Blog")
+        blog_html = blog_html.replace('{{ META_DESCRIPTION }}', "Статьи о недвижимости в Калининграде и на побережье Балтийского моря." )
+        blog_html = blog_html.replace('{{ PAGE_DESCRIPTION }}', "Статьи о недвижимости в Калининграде и на побережье Балтийского моря." )
+        blog_html = blog_html.replace('{{ OG_IMAGE }}', 'https://balthomes.ru/images/banner.jpeg')
         blog_html = blog_html.replace('{{ BLOG_MAIN_TITLE }}', 'Статьи и Новости' if lang == 'ru' else 'Articles & News')
         
         grid_html = ""
@@ -802,7 +802,10 @@ def generate_blog():
             art_html = article_temp
             art_html = replace_ui(art_html, lang, is_article=True, article_id=a['id'])
             art_html = art_html.replace('{{ PAGE_TITLE }}', trn['title'])
+            art_html = art_html.replace('{{ TITLE }}', trn['title'])
+            art_html = art_html.replace('{{ META_DESCRIPTION }}', trn['preview'])
             art_html = art_html.replace('{{ PAGE_DESCRIPTION }}', trn['preview'])
+            art_html = art_html.replace('{{ OG_IMAGE }}', f"https://balthomes.ru/{a['image']}")
             art_html = art_html.replace('{{ BLOG_HOME_URL }}', f"blog{ext}")
             art_html = art_html.replace('{{ BACK_TO_BLOG }}', 'Назад в блог' if lang == 'ru' else 'Back to Blog')
             art_html = art_html.replace('{{ ARTICLE_IMAGE }}', a['image'])
